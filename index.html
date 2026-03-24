@@ -141,8 +141,16 @@
       transition: color .2s;
     }
     .nav-links a:hover { color: var(--text); }
-    .nav-contact {
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
       flex-shrink: 0;
+    }
+    .nav-shelf-mobile {
+      display: none; /* masqué sur desktop — déjà dans nav-links */
+    }
+    .nav-contact {
       display: inline-block;
       padding: 0.55rem 1.3rem;
       background: var(--bg-light);
@@ -720,6 +728,16 @@
       :root { --r-section: 5rem; --r-heavy: 6rem; }
       html { font-size: 16px; }
       .nav-links { display: none; }
+      .nav-shelf-mobile {
+        display: inline-block;
+        font-size: 0.68rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        transition: color .2s;
+      }
+      .nav-shelf-mobile:hover { color: var(--text); }
       .footer-line { flex-direction: column; gap: 0.8rem; text-align: center; }
       .banderole img { height: auto; }
       .cit-row { grid-template-columns: 1fr; }
@@ -744,7 +762,10 @@
       <li><a href="#reseaux">Réseaux</a></li>
       <li><a href="shelf.html">Mon Étagère</a></li>
     </ul>
-    <a href="#contact" class="nav-contact">Me contacter</a>
+    <div class="nav-actions">
+      <a href="shelf.html" class="nav-shelf-mobile">Mon Étagère</a>
+      <a href="#contact" class="nav-contact">Me contacter</a>
+    </div>
   </div>
 </nav>
 
