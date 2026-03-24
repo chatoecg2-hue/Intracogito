@@ -698,18 +698,23 @@
        RESPONSIVE
     ───────────────────────────────────────────── */
     @media (max-width: 960px) {
-      .hero-grid      { grid-template-columns: 1fr; }
-      .hero-right     { display: none; }
-      .manifeste-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .nl-grid        { grid-template-columns: 1fr; }
-      .nl-left        { position: static; }
-      .essais-3col    { grid-template-columns: 1fr; }
-      .essais-img-col { display: none; }
+      .hero-grid        { grid-template-columns: 1fr; }
+      .hero-right       { display: none; }
+      .manifeste-grid   { grid-template-columns: 1fr; gap: 2rem; }
+      .nl-grid          { grid-template-columns: 1fr; }
+      .nl-left          { position: static; }
+      .nl-img-grid      { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+      .nl-img-grid > div:first-child { max-width: 480px; }
+      .essais-3col      { grid-template-columns: 1fr; }
+      .essais-body-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+      .essais-body-grid .essais-img-col { display: none; }
       .essais-nl-teaser { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 2rem; }
-      .stats-grid     { grid-template-columns: repeat(2, 1fr); }
-      .res-grid       { grid-template-columns: 1fr; }
-      .res-left       { position: static; }
-      .contact-inner  { grid-template-columns: 1fr; gap: 2rem; }
+      .stats-grid       { grid-template-columns: repeat(2, 1fr) !important; }
+      .res-grid         { grid-template-columns: 1fr; }
+      .res-left         { position: static; }
+      .contact-inner    { grid-template-columns: 1fr; gap: 2rem; }
+      .contact-card     { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+      .contact-reasons  { grid-template-columns: 1fr 1fr !important; }
     }
     @media (max-width: 640px) {
       :root { --r-section: 5rem; --r-heavy: 6rem; }
@@ -719,6 +724,8 @@
       .banderole img { height: auto; }
       .cit-row { grid-template-columns: 1fr; }
       .cit-portrait { display: none; }
+      .contact-card { padding: 2rem 1.5rem !important; }
+      .contact-reasons { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
     }
   </style>
 </head>
@@ -736,8 +743,8 @@
       <li><a href="#a-venir">À venir</a></li>
       <li><a href="#reseaux">Réseaux</a></li>
       <li><a href="shelf.html">Mon Étagère</a></li>
-      <li><a href="#contact" class="nav-contact">Me contacter</a></li>
     </ul>
+    <a href="#contact" class="nav-contact">Me contacter</a>
   </div>
 </nav>
 
@@ -786,7 +793,7 @@
 ══════════════════════════════════════════════ -->
 <section id="newsletter" class="section section--alt">
   <div class="wrap">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;">
+    <div class="nl-img-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;">
 
       <!-- Gauche : image de couverture -->
       <div>
@@ -835,7 +842,7 @@
     </div>
 
     <!-- Corps : image gauche + [description + liste] droite -->
-    <div style="display:grid;grid-template-columns:260px 1fr;gap:3.5rem;align-items:start;">
+    <div class="essais-body-grid" style="display:grid;grid-template-columns:260px 1fr;gap:3.5rem;align-items:start;">
 
       <!-- Image complète sans recadrage -->
       <div class="essais-img-col">
@@ -958,7 +965,7 @@
     <span class="s-label">En chiffres</span>
     <h2 class="s-title">Intracogito en quelques chiffres</h2>
 
-    <dl class="stats-grid" style="grid-template-columns:repeat(4,1fr);">
+    <dl class="stats-grid">
       <div class="stats-item">
         <dt class="stats-n">+1 000</dt>
         <dd class="stats-label">Abonnés à ma newsletter<br>Intracogito</dd>
@@ -1051,13 +1058,13 @@
     <span class="s-label">Contact</span>
 
     <!-- Carte beige principale -->
-    <div style="background:var(--bg-light);padding:3rem 3rem 3rem 3rem;display:grid;grid-template-columns:1fr 280px;gap:3rem;align-items:start;margin-top:2rem;">
+    <div class="contact-card" style="background:var(--bg-light);padding:3rem 3rem 3rem 3rem;display:grid;grid-template-columns:1fr 280px;gap:3rem;align-items:start;margin-top:2rem;">
 
       <!-- Gauche : titre + grille 4 raisons -->
       <div>
         <h2 style="font-family:var(--serif);font-size:clamp(2.2rem,4vw,3.2rem);font-weight:700;color:var(--text-dark);line-height:1.05;margin-bottom:2.5rem;">Me contacter</h2>
 
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem 3rem;">
+        <div class="contact-reasons" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem 3rem;">
 
           <!-- 1 -->
           <div style="display:flex;gap:1rem;align-items:flex-start;">
@@ -1110,7 +1117,7 @@
       <div style="display:flex;flex-direction:column;align-items:center;gap:1.5rem;">
         <div style="border:2px solid var(--text-dark);padding:6px;background:var(--bg-light2);">
           <img src="public/vitruve.jpg" alt="L'Homme de Vitruve"
-               style="width:220px;display:block;filter:sepia(0.35) contrast(1.05);grayscale(0.3);" />
+               style="width:220px;max-width:100%;display:block;filter:sepia(0.35) contrast(1.05);grayscale(0.3);" />
         </div>
         <a href="mailto:elouan.noel@gmail.com"
            style="display:flex;align-items:center;justify-content:space-between;width:100%;background:var(--text-dark);color:var(--bg-light);padding:1rem 1.3rem;font-family:var(--sans);font-size:0.8rem;font-weight:500;letter-spacing:0.02em;transition:opacity .2s;text-decoration:none;">
