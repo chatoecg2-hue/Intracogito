@@ -1,0 +1,155 @@
+---
+const projets = [
+  {
+    statut: 'En cours',
+    titre: 'Essai sur le courage ordinaire',
+    description:
+      "Une exploration du courage non héroïque — celui de dire non, de rester seul avec ses convictions, de choisir la lenteur dans un monde qui accélère.",
+    type: 'Essai long',
+  },
+  {
+    statut: 'En cours',
+    titre: 'Cartographie des philosophies de vie',
+    description:
+      "Un outil visuel pour identifier et comparer les grandes traditions — stoïcisme, épicurisme, existentialisme, bouddhisme — selon leur rapport au désir, à l'action et à la mort.",
+    type: 'Outil interactif',
+  },
+  {
+    statut: 'À venir',
+    titre: 'Dialogue entre Épictète et Sartre',
+    description:
+      "Deux philosophies de la liberté, deux siècles d'écart, un désaccord fondamental. Que se diraient-ils sur la responsabilité, le déterminisme et l'authenticité ?",
+    type: 'Essai dialogué',
+  },
+  {
+    statut: 'À venir',
+    titre: 'Glossaire vivant',
+    description:
+      "Un dictionnaire philosophique non académique. Chaque terme défini à partir d'exemples concrets, de situations réelles, de décisions ordinaires.",
+    type: 'Référence',
+  },
+  {
+    statut: 'Idée',
+    titre: "Correspondances avec des lecteurs",
+    description:
+      "Un format épistolaire : répondre à une question philosophique envoyée par un lecteur, chaque semaine, dans la newsletter.",
+    type: 'Format éditorial',
+  },
+];
+---
+
+<section class="section" id="projets">
+  <div class="container">
+    <header class="proj__header">
+      <span class="label">Projets</span>
+      <h2>Ce qui se construit.</h2>
+    </header>
+
+    <ul class="proj__list">
+      {projets.map((p) => (
+        <li class="proj__item">
+          <div class="proj__meta">
+            <span class={`proj__statut proj__statut--${p.statut === 'En cours' ? 'actif' : p.statut === 'À venir' ? 'bientot' : 'idee'}`}>
+              {p.statut}
+            </span>
+            <span class="proj__type">{p.type}</span>
+          </div>
+          <div class="proj__content">
+            <h3>{p.titre}</h3>
+            <p>{p.description}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .proj__header {
+    margin-bottom: var(--space-xl);
+  }
+
+  .proj__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .proj__item {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: var(--space-lg);
+    padding-block: var(--space-md);
+    border-top: 1px solid var(--color-border);
+    align-items: start;
+  }
+
+  .proj__item:last-child {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .proj__meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding-top: 0.2rem;
+  }
+
+  .proj__statut {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius);
+    display: inline-block;
+    width: fit-content;
+  }
+
+  .proj__statut--actif {
+    background-color: rgba(181,98,43,0.12);
+    color: var(--color-primary);
+  }
+
+  .proj__statut--bientot {
+    background-color: rgba(107,91,78,0.1);
+    color: var(--color-muted);
+  }
+
+  .proj__statut--idee {
+    background-color: transparent;
+    color: var(--color-muted);
+    border: 1px solid var(--color-border);
+  }
+
+  .proj__type {
+    font-size: 0.72rem;
+    color: var(--color-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .proj__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .proj__content h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+
+  .proj__content p {
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    line-height: 1.75;
+  }
+
+  @media (max-width: 640px) {
+    .proj__item {
+      grid-template-columns: 1fr;
+      gap: var(--space-sm);
+    }
+  }
+</style>

@@ -1,0 +1,145 @@
+---
+const reseaux = [
+  {
+    nom: 'Substack',
+    handle: 'intracogito.substack.com',
+    href: 'https://substack.com',
+    description: 'La newsletter hebdomadaire — philosophie appliquée.',
+  },
+  {
+    nom: 'Instagram',
+    handle: '@intracogito',
+    href: 'https://instagram.com',
+    description: 'Citations visuelles, fragments et archives sépia.',
+  },
+  {
+    nom: 'TikTok',
+    handle: '@intracogito',
+    href: 'https://tiktok.com',
+    description: 'Vidéos courtes — une idée, une minute, un philosophe.',
+  },
+  {
+    nom: 'Threads',
+    handle: '@intracogito',
+    href: 'https://threads.net',
+    description: 'Pensées brèves, conversations et réactions à chaud.',
+  },
+];
+---
+
+<section class="section section--alt" id="reseaux">
+  <div class="container res">
+    <header class="res__header">
+      <span class="label">Réseaux</span>
+      <h2>Retrouvez Intracogito.</h2>
+      <p class="res__intro">
+        Chaque plateforme a son propre format, son propre rythme.
+        Choisissez celui qui correspond à votre façon de lire.
+      </p>
+    </header>
+
+    <ul class="res__list">
+      {reseaux.map((r) => (
+        <li>
+          <a href={r.href} target="_blank" rel="noopener noreferrer" class="res__link">
+            <div class="res__platform">
+              <strong class="res__nom">{r.nom}</strong>
+              <span class="res__handle">{r.handle}</span>
+            </div>
+            <p class="res__desc">{r.description}</p>
+            <span class="res__arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .res {
+    max-width: 800px;
+  }
+
+  .res__header {
+    margin-bottom: var(--space-xl);
+  }
+
+  .res__intro {
+    color: var(--color-muted);
+    margin-top: var(--space-sm);
+    font-style: italic;
+  }
+
+  .res__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .res__link {
+    display: grid;
+    grid-template-columns: 200px 1fr auto;
+    align-items: center;
+    gap: var(--space-md);
+    padding-block: var(--space-md);
+    border-top: 1px solid var(--color-border);
+    transition: color var(--transition);
+  }
+
+  .res__list li:last-child .res__link {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .res__link:hover {
+    color: var(--color-primary);
+  }
+
+  .res__platform {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .res__nom {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .res__handle {
+    font-size: 0.75rem;
+    color: var(--color-muted);
+    transition: color var(--transition);
+  }
+
+  .res__link:hover .res__handle {
+    color: var(--color-primary);
+    opacity: 0.7;
+  }
+
+  .res__desc {
+    font-size: 0.88rem;
+    color: var(--color-muted);
+  }
+
+  .res__arrow {
+    font-size: 1.1rem;
+    color: var(--color-primary);
+    opacity: 0;
+    transition: opacity var(--transition), transform var(--transition);
+  }
+
+  .res__link:hover .res__arrow {
+    opacity: 1;
+    transform: translate(3px, -3px);
+  }
+
+  @media (max-width: 640px) {
+    .res__link {
+      grid-template-columns: 1fr auto;
+    }
+
+    .res__desc {
+      display: none;
+    }
+  }
+</style>

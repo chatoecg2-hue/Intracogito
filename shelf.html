@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="public/favicon.svg" type="image/svg+xml" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="(À MODIFIER)" />
+  <title>Mon Étagère — Intracogito</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─────────────────────────────────────────────
+       TOKENS (identiques à index.html)
+    ───────────────────────────────────────────── */
+    :root {
+      --bg:        #1C1C1A;
+      --bg-alt:    #242420;
+      --bg-light:  #F4EDD8;
+      --bg-light2: #EDE3C8;
+
+      --text:        #FDFAF4;
+      --text-muted:  rgba(253,250,244,0.45);
+      --text-dark:   #1C1C1A;
+      --text-dark-m: #6B5B4E;
+
+      --primary:  #B5622B;
+      --border:   rgba(212,197,169,0.1);
+      --border-l: #D4C5A9;
+
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans:  'Inter', system-ui, sans-serif;
+
+      --px: clamp(1.5rem, 5vw, 4rem);
+      --max: 1140px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 18px; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .wrap {
+      width: 100%;
+      max-width: var(--max);
+      margin-inline: auto;
+      padding-inline: var(--px);
+    }
+
+    /* ─────────────────────────────────────────────
+       NAVIGATION
+    ───────────────────────────────────────────── */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding-block: 1.15rem;
+    }
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+    }
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      flex-shrink: 0;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color .2s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--text); }
+    .nav-contact {
+      flex-shrink: 0;
+      display: inline-block;
+      padding: 0.55rem 1.3rem;
+      background: var(--bg-light);
+      color: var(--text-dark) !important;
+      font-size: 0.68rem !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.12em !important;
+      text-transform: uppercase !important;
+      transition: background .2s !important;
+    }
+    .nav-contact:hover { background: var(--bg-light2) !important; }
+
+    /* ─────────────────────────────────────────────
+       PAGE HERO
+    ───────────────────────────────────────────── */
+    .shelf-hero {
+      padding-top: 7rem;
+      padding-bottom: 5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .shelf-hero-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 3rem;
+    }
+    .s-label {
+      display: block;
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+    }
+    .shelf-title {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 600;
+      line-height: 1.0;
+    }
+    .shelf-sub {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--text-muted);
+      text-align: right;
+      max-width: 28ch;
+    }
+
+    /* ─────────────────────────────────────────────
+       SECTION CATÉGORIE
+    ───────────────────────────────────────────── */
+    .shelf-section {
+      padding-top: 5rem;
+      padding-bottom: 6rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .shelf-section:last-of-type { border-bottom: none; }
+    .shelf-section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3.5rem;
+    }
+    .shelf-cat-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600;
+      line-height: 1.1;
+    }
+    .shelf-count {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.8rem;
+    }
+
+    /* ─────────────────────────────────────────────
+       GRILLE D'ITEMS
+    ───────────────────────────────────────────── */
+    .shelf-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 2rem 1.8rem;
+    }
+
+    /* Films : couvertures plus hautes */
+    .shelf-grid--films {
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    }
+
+    .shelf-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      cursor: pointer;
+    }
+    .shelf-item:hover .shelf-cover { border-color: var(--primary); }
+    .shelf-item:hover .shelf-item-title { color: var(--primary); }
+
+    /* Couverture — livre */
+    .shelf-cover {
+      width: 100%;
+      aspect-ratio: 2/3;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: border-color .2s;
+    }
+    /* Couverture — film (ratio affiche cinéma) */
+    .shelf-cover--film {
+      aspect-ratio: 2/3;
+    }
+    .shelf-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: sepia(0.25) contrast(1.05);
+      transition: filter .3s;
+    }
+    .shelf-item:hover .shelf-cover img { filter: sepia(0) contrast(1); }
+
+    /* Placeholder quand pas d'image */
+    .shelf-cover-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      text-align: center;
+      font-family: var(--serif);
+      font-size: 0.75rem;
+      font-style: italic;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .shelf-item-title {
+      font-family: var(--serif);
+      font-size: 0.85rem;
+      font-weight: 500;
+      line-height: 1.3;
+      transition: color .2s;
+    }
+    .shelf-item-author {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ─────────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────────── */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding-block: 2.5rem;
+    }
+    .footer-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-logo { font-family: var(--serif); font-size: 0.9rem; color: rgba(253,250,244,.45); }
+    .footer-copy { font-size: 0.65rem; color: rgba(253,250,244,.2); letter-spacing: 0.1em; }
+    .footer-back {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(253,250,244,.25);
+      transition: color .2s;
+    }
+    .footer-back:hover { color: var(--primary); }
+
+    /* ─────────────────────────────────────────────
+       RESPONSIVE
+    ───────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      html { font-size: 16px; }
+      .nav-links { display: none; }
+      .shelf-hero-inner { grid-template-columns: 1fr; }
+      .shelf-sub { text-align: left; }
+      .shelf-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+      .footer-line { flex-direction: column; gap: 0.8rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════════════ -->
+<nav class="site-nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="nav-logo">Intracogito</a>
+    <ul class="nav-links">
+      <li><a href="index.html#newsletter">Newsletter</a></li>
+      <li><a href="index.html#essais">Essais</a></li>
+      <li><a href="index.html#a-venir">À venir</a></li>
+      <li><a href="index.html#reseaux">Réseaux</a></li>
+      <li><a href="shelf.html" class="active">Mon Étagère</a></li>
+      <li><a href="index.html#contact" class="nav-contact">Me contacter</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════
+     HERO DE PAGE
+══════════════════════════════════════════════ -->
+<div class="shelf-hero">
+  <div class="wrap shelf-hero-inner">
+    <div>
+      <h1 class="shelf-title">Mon étagère</h1>
+    </div>
+    <p class="shelf-sub" style="font-family:var(--serif);font-style:italic;line-height:1.6;">
+      « Lis ce que tu aimes, jusqu'à ce que tu aimes lire. »<br>
+      <span style="font-style:normal;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;opacity:0.5;font-family:var(--sans);">— Naval Ravikant</span>
+    </p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 1 · PHILOSOPHIE
+══════════════════════════════════════════════ -->
+<div class="shelf-section">
+  <div class="wrap">
+    <header class="shelf-section-header">
+      <div>
+        <span class="s-label">01</span>
+        <h2 class="shelf-cat-title">Philosophie</h2>
+      </div>
+      <span class="shelf-count">5 LIVRES</span>
+    </header>
+
+    <div class="shelf-grid">
+
+      <a href="https://www.google.com/search?q=Les+Transformations+silencieuses+Fran%C3%A7ois+Jullien" target="_blank" rel="noopener" class="shelf-item">
+        <div class="shelf-cover">
+          <img src="public/transformation.jpg" alt="Les Transformations silencieuses" />
+        </div>
+        <span class="shelf-item-title">Les Transformations silencieuses</span>
+        <span class="shelf-item-author">François Jullien</span>
+      </a>
+
+      <a href="https://www.google.com/search?q=La+R%C3%A9publique+Platon" target="_blank" rel="noopener" class="shelf-item">
+        <div class="shelf-cover">
+          <img src="public/republique.jpg" alt="La République" />
+        </div>
+        <span class="shelf-item-title">La République</span>
+        <span class="shelf-item-author">Platon</span>
+      </a>
+
+      <a href="https://www.google.com/search?q=Panique+identitaire+Isabelle+Barb%C3%A9ris" target="_blank" rel="noopener" class="shelf-item">
+        <div class="shelf-cover">
+          <img src="public/panique.jpg" alt="Panique identitaire" />
+        </div>
+        <span class="shelf-item-title">Panique identitaire</span>
+        <span class="shelf-item-author">Isabelle Barbéris</span>
+      </a>
+
+      <a href="https://www.google.com/search?q=L%27enracinement+Simone+Weil" target="_blank" rel="noopener" class="shelf-item">
+        <div class="shelf-cover">
+          <img src="public/enracinement.jpg" alt="L'enracinement" />
+        </div>
+        <span class="shelf-item-title">L'enracinement</span>
+        <span class="shelf-item-author">Simone Weil</span>
+      </a>
+
+      <a href="https://www.google.com/search?q=Apologie+de+Socrate+Platon" target="_blank" rel="noopener" class="shelf-item">
+        <div class="shelf-cover">
+          <img src="public/socrate.jpg" alt="Apologie de Socrate" />
+        </div>
+        <span class="shelf-item-title">Apologie de Socrate</span>
+        <span class="shelf-item-author">Platon</span>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 2 · ROMANS
+══════════════════════════════════════════════ -->
+<div class="shelf-section">
+  <div class="wrap">
+    <header class="shelf-section-header">
+      <div>
+        <span class="s-label">02</span>
+        <h2 class="shelf-cat-title">Romans</h2>
+      </div>
+      <span class="shelf-count">5 LIVRES</span>
+    </header>
+
+    <div class="shelf-grid">
+
+      <a href="https://www.google.com/search?q=L%27Oracle+della+Luna+Fr%C3%A9d%C3%A9ric+Lenoir" target="_blank" rel="noopener" class="shelf-item">
+        <div class="shelf-cover">
+          <img src="public/11.jpg" alt="L'Oracle della Luna" />
+        </div>
+        <span class="shelf-item-title">L'Oracle della Luna</span>
+        <span class="shelf-item-author">Frédéric Lenoir</span>
+      </a>
+
+      <a href="https://www.google.com/search?q=La+Panth%C3%A8re+des+neiges+Sylvain+Tesson" target="_blank" rel="noopener" class="shelf-item">
+        <div class="shelf-cover">
+          <img src="public/22.jpg" alt="La Panthère des neiges" />
+        </div>
+        <span class="shelf-item-title">La Panthère des neiges</span>
+        <span class="shelf-item-author">Sylvain Tesson</span>
+      </a>
+
+      <a href="https://www.google.com/search?q=La+Chute+Albert+Camus" target="_blank" rel="noopener" class="shelf-item">
+        <div class="shelf-cover">
+          <img src="public/33.jpg" alt="La Chute" />
+        </div>
+        <span class="shelf-item-title">La Chute</span>
+        <span class="shelf-item-author">Albert Camus</span>
+      </a>
+
+      <a href="https://www.google.com/search?q=Le+P%C3%A8lerin+de+Compostelle+Paulo+Coelho" target="_blank" rel="noopener" class="shelf-item">
+        <div class="shelf-cover">
+          <img src="public/44.jpg" alt="Le Pèlerin de Compostelle" />
+        </div>
+        <span class="shelf-item-title">Le Pèlerin de Compostelle</span>
+        <span class="shelf-item-author">Paulo Coelho</span>
+      </a>
+
+      <a href="https://www.google.com/search?q=Vivre+d%27aventures+Mathieu+Blanchard" target="_blank" rel="noopener" class="shelf-item">
+        <div class="shelf-cover">
+          <img src="public/55.jpg" alt="Vivre d'aventures" />
+        </div>
+        <span class="shelf-item-title">Vivre d'aventures</span>
+        <span class="shelf-item-author">Mathieu Blanchard</span>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 3 · FILMS
+══════════════════════════════════════════════ -->
+<div class="shelf-section">
+  <div class="wrap">
+    <header class="shelf-section-header">
+      <div>
+        <span class="s-label">03</span>
+        <h2 class="shelf-cat-title">Films</h2>
+      </div>
+      <span class="shelf-count">5 FILMS</span>
+    </header>
+
+    <div class="shelf-grid shelf-grid--films">
+
+      <a href="https://www.google.com/search?q=7+ans+au+Tibet+film" target="_blank" rel="noopener" class="shelf-item">
+        <div class="shelf-cover shelf-cover--film">
+          <img src="public/tibet.jpg" alt="7 ans au Tibet" />
+        </div>
+        <span class="shelf-item-title">7 ans au Tibet</span>
+        <span class="shelf-item-author">Jean-Jacques Annaud</span>
+      </a>
+
+      <a href="https://www.google.com/search?q=Le+Dernier+Sama%C3%AFa+film" target="_blank" rel="noopener" class="shelf-item">
+        <div class="shelf-cover shelf-cover--film">
+          <img src="public/samourai.jpg" alt="Le Dernier Samouraï" />
+        </div>
+        <span class="shelf-item-title">Le Dernier Samouraï</span>
+        <span class="shelf-item-author">Edward Zwick</span>
+      </a>
+
+      <a href="https://www.google.com/search?q=Forrest+Gump+film" target="_blank" rel="noopener" class="shelf-item">
+        <div class="shelf-cover shelf-cover--film">
+          <img src="public/gump.jpg" alt="Forrest Gump" />
+        </div>
+        <span class="shelf-item-title">Forrest Gump</span>
+        <span class="shelf-item-author">Robert Zemeckis</span>
+      </a>
+
+      <a href="https://www.google.com/search?q=Point+Break+film" target="_blank" rel="noopener" class="shelf-item">
+        <div class="shelf-cover shelf-cover--film">
+          <img src="public/break.jpg" alt="Point Break" />
+        </div>
+        <span class="shelf-item-title">Point Break</span>
+        <span class="shelf-item-author">Kathryn Bigelow</span>
+      </a>
+
+      <a href="https://www.google.com/search?q=Inception+film+Christopher+Nolan" target="_blank" rel="noopener" class="shelf-item">
+        <div class="shelf-cover shelf-cover--film">
+          <img src="public/inception.jpg" alt="Inception" />
+        </div>
+        <span class="shelf-item-title">Inception</span>
+        <span class="shelf-item-author">Christopher Nolan</span>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════ -->
+<footer>
+  <div class="wrap footer-line">
+    <span class="footer-logo">Intracogito</span>
+    <p class="footer-copy">© 2026</p>
+    <a href="index.html" class="footer-back">← Retour à l'accueil</a>
+  </div>
+</footer>
+
+</body>
+</html>

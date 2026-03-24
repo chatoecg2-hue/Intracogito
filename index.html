@@ -1,0 +1,1138 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="public/favicon.svg" type="image/svg+xml" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="(À MODIFIER)" />
+  <title>Intracogito</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;0,6..96,900;1,6..96,400;1,6..96,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─────────────────────────────────────────────
+       TOKENS
+    ───────────────────────────────────────────── */
+    :root {
+      --bg:        #1C1C1A;
+      --bg-alt:    #242420;
+      --bg-light:  #F4EDD8;
+      --bg-light2: #EDE3C8;
+
+      --text:        #FDFAF4;
+      --text-muted:  rgba(253,250,244,0.45);
+      --text-dark:   #1C1C1A;
+      --text-dark-m: #6B5B4E;
+
+      --primary:  #B5622B;
+      --border:   rgba(212,197,169,0.1);
+      --border-l: #D4C5A9;
+
+      --serif:        'Playfair Display', Georgia, serif;
+      --serif-display: 'Bodoni Moda', 'Playfair Display', Georgia, serif;
+      --sans:  'Inter', system-ui, sans-serif;
+
+      --r-section: 8rem;
+      --r-heavy:   10rem;
+      --px: clamp(1.5rem, 5vw, 4rem);
+      --max: 1140px;
+    }
+
+    /* ─────────────────────────────────────────────
+       RESET
+    ───────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 18px; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ─────────────────────────────────────────────
+       LAYOUT
+    ───────────────────────────────────────────── */
+    .wrap {
+      width: 100%;
+      max-width: var(--max);
+      margin-inline: auto;
+      padding-inline: var(--px);
+    }
+    .section { padding-block: var(--r-section); border-top: 1px solid var(--border); }
+    .section--alt   { background: var(--bg-alt); }
+    .section--light {
+      background: var(--bg-light);
+      color: var(--text-dark);
+      border-color: var(--border-l);
+    }
+
+    /* ─────────────────────────────────────────────
+       MOTIFS RÉCURRENTS
+    ───────────────────────────────────────────── */
+    .s-label {
+      display: block;
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+    }
+    .s-title {
+      font-family: var(--serif);
+      font-size: clamp(1.9rem, 3.2vw, 2.7rem);
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 2rem;
+    }
+    .s-accent {
+      border-left: 2px solid var(--primary);
+      padding-left: 1.1rem;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+      max-width: 52ch;
+    }
+
+    /* ─────────────────────────────────────────────
+       00 — NAVIGATION
+    ───────────────────────────────────────────── */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding-block: 1.15rem;
+    }
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+    }
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      flex-shrink: 0;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-contact {
+      flex-shrink: 0;
+      display: inline-block;
+      padding: 0.55rem 1.3rem;
+      background: var(--bg-light);
+      color: var(--text-dark) !important;
+      font-size: 0.68rem !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.12em !important;
+      text-transform: uppercase !important;
+      transition: background .2s !important;
+    }
+    .nav-contact:hover { background: var(--bg-light2) !important; }
+
+    /* ─────────────────────────────────────────────
+       01 — HERO
+    ───────────────────────────────────────────── */
+    #hero {
+      min-height: 92svh;
+      display: flex;
+      align-items: center;
+      border-top: none;
+      padding-block: var(--r-heavy);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 8fr 4fr;
+      gap: 4rem;
+      align-items: center;
+      width: 100%;
+    }
+    .hero-left { display: flex; flex-direction: column; gap: 1.8rem; }
+
+    /* Badge type "SOLO CAPITALIST" */
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid rgba(212,197,169,0.18);
+      padding: 0.32rem 0.75rem;
+      font-size: 0.58rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      width: fit-content;
+    }
+    .hero-badge-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--primary);
+      flex-shrink: 0;
+    }
+
+    /* Titre principal */
+    .hero-headline {
+      font-family: var(--serif);
+      font-size: clamp(3.8rem, 7vw, 6.5rem);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+    }
+    .hero-headline .dim { color: rgba(253,250,244,0.28); }
+
+    /* Taglines empilées */
+    .hero-taglines {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-left: 2px solid var(--primary);
+      padding-left: 1.1rem;
+    }
+    .hero-taglines span {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+
+    .hero-meta {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(253,250,244,0.7);
+    }
+
+    /* Cadre image style Oussama */
+    .hero-right { display: flex; justify-content: flex-end; }
+    .hero-frame {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(212,197,169,0.22);
+      padding: 0.5rem 0.5rem 0;
+      background: var(--bg-alt);
+      max-width: 300px;
+      width: 100%;
+    }
+    .hero-frame-status {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 0.3rem;
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(253,250,244,0.3);
+    }
+    .hero-frame-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--primary);
+      flex-shrink: 0;
+    }
+    .hero-img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      filter: sepia(0.35) contrast(1.05);
+      opacity: 0.85;
+    }
+
+    /* ─────────────────────────────────────────────
+       02 — MANIFESTE
+    ───────────────────────────────────────────── */
+    .manifeste-grid {
+      display: grid;
+      grid-template-columns: 3fr 9fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .manifeste-lead {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 2.5rem;
+    }
+    .manifeste-body {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: var(--text-muted);
+      max-width: 62ch;
+      margin-bottom: 2rem;
+    }
+
+    /* ─────────────────────────────────────────────
+       03 — BANDEROLE
+    ───────────────────────────────────────────── */
+    .banderole {
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .banderole img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: sepia(0.55) contrast(1.08);
+    }
+
+    /* ─────────────────────────────────────────────
+       04 — NEWSLETTER
+    ───────────────────────────────────────────── */
+    .nl-grid {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .nl-left { position: sticky; top: 6rem; display: flex; flex-direction: column; gap: 1.5rem; }
+    .nl-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--primary);
+      border-bottom: 1px solid var(--primary);
+      padding-bottom: 0.15rem;
+      transition: opacity .2s;
+      width: fit-content;
+    }
+    .nl-cta:hover { opacity: 0.65; }
+    .nl-right { display: flex; flex-direction: column; }
+    .nl-block {
+      padding-block: 2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .nl-block:last-of-type { border-bottom: 1px solid var(--border); }
+    .nl-block-label {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+    .nl-block p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.75; max-width: 52ch; }
+
+    /* ─────────────────────────────────────────────
+       05 — ESSAIS
+    ───────────────────────────────────────────── */
+    .essais-3col {
+      display: grid;
+      grid-template-columns: 2fr 6fr 3fr;
+      gap: 3.5rem;
+      align-items: start;
+      margin-top: 3.5rem;
+    }
+    .essais-img-col img {
+      width: 100%;
+      max-width: 220px;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      filter: sepia(0.4) contrast(1.05);
+      opacity: 0.75;
+    }
+    .essais-list { list-style: none; }
+    .essai-row {
+      display: grid;
+      grid-template-columns: 2rem 1fr auto auto;
+      gap: 1.2rem;
+      align-items: baseline;
+      padding-block: 1.4rem;
+      border-top: 1px solid var(--border);
+      transition: color .2s;
+    }
+    .essais-list li:last-child .essai-row { border-bottom: 1px solid var(--border); }
+    .essai-row:hover { color: var(--primary); }
+    .essai-n {
+      font-family: var(--serif);
+      font-size: 0.7rem;
+      color: var(--primary);
+      opacity: 0.5;
+    }
+    .essai-title { font-family: var(--serif); font-size: 1rem; font-weight: 500; }
+    .essai-badge {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.55rem;
+      white-space: nowrap;
+    }
+    .essai-arrow {
+      font-size: 0.85rem;
+      color: var(--primary);
+      opacity: 0;
+      transition: opacity .2s, transform .2s;
+    }
+    .essai-row:hover .essai-arrow { opacity: 1; transform: translateX(3px); }
+    .essais-footer {
+      margin-top: 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color .2s;
+    }
+    .essais-footer:hover { color: var(--primary); }
+    .essais-nl-teaser {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      padding-top: 0.5rem;
+      border-left: 1px solid var(--border);
+      padding-left: 2.5rem;
+    }
+    .essais-nl-teaser h3 {
+      font-family: var(--serif);
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+      font-weight: 600;
+      line-height: 1.2;
+    }
+    .essais-nl-teaser p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.8; max-width: 32ch; }
+    .essais-nl-teaser a {
+      font-family: var(--serif);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: opacity .2s;
+    }
+    .essais-nl-teaser a:hover { opacity: 0.65; }
+
+    /* ─────────────────────────────────────────────
+       06 — À VENIR (Bientôt disponible)
+    ───────────────────────────────────────────── */
+    #a-venir {
+      background: #141412;
+      text-align: center;
+      padding-block: var(--r-heavy);
+      border-top: 1px solid var(--border);
+    }
+    .av-inner {
+      max-width: 640px;
+      margin-inline: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.8rem;
+    }
+    .av-badge {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.75rem;
+      border: 1px solid rgba(181,98,43,.3);
+      color: var(--primary);
+    }
+    .av-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 600;
+      line-height: 1.15;
+    }
+    .av-sub { font-size: 0.95rem; color: var(--text-muted); max-width: 46ch; line-height: 1.75; }
+    .av-names {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0 0.4rem;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.9rem;
+      color: rgba(181,98,43,.6);
+      padding-block: 1rem;
+      border-top: 1px solid rgba(212,197,169,.08);
+      border-bottom: 1px solid rgba(212,197,169,.08);
+      width: 100%;
+    }
+    .av-sep { opacity: 0.3; margin-inline: 0.3rem; font-style: normal; }
+    .av-cta {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border-bottom: 1px solid rgba(253,250,244,.12);
+      padding-bottom: 0.1rem;
+      transition: color .2s, border-color .2s;
+    }
+    .av-cta:hover { color: var(--primary); border-color: var(--primary); }
+
+    /* ─────────────────────────────────────────────
+       07 — RÉSEAUX
+    ───────────────────────────────────────────── */
+    .res-grid {
+      display: grid;
+      grid-template-columns: 4fr 8fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .res-left { position: sticky; top: 6rem; }
+    .res-list { list-style: none; }
+    .res-row {
+      display: grid;
+      grid-template-columns: 48px 1fr auto;
+      align-items: center;
+      gap: 2rem;
+      padding-block: 1.4rem;
+      border-top: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--text);
+      transition: color .2s;
+    }
+    .res-list li:last-child .res-row { border-bottom: 1px solid var(--border); }
+    .res-row:hover { color: var(--primary); }
+    .res-icon {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: rgba(253,250,244,0.07);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(253,250,244,0.45);
+      flex-shrink: 0;
+      transition: background .25s, color .25s;
+    }
+    .res-row:hover .res-icon {
+      background: rgba(181,98,43,0.15);
+      color: var(--primary);
+    }
+    .res-icon svg { width: 20px; height: 20px; }
+    .res-name { font-family: var(--serif); font-size: clamp(1.1rem, 1.8vw, 1.4rem); font-weight: 500; }
+    .res-arrow {
+      font-size: 1rem;
+      color: var(--primary);
+      opacity: 0;
+      transition: opacity .2s, transform .2s;
+    }
+    .res-row:hover .res-arrow { opacity: 1; transform: translate(3px, -3px); }
+
+    /* ─────────────────────────────────────────────
+       08 — CITATIONS (5 lignes épurées)
+    ───────────────────────────────────────────── */
+    .cit-list { margin-top: 3rem; }
+    .cit-row {
+      display: grid;
+      grid-template-columns: 1fr 56px;
+      gap: 2rem;
+      align-items: center;
+      padding-block: 1.8rem;
+      border-top: 1px solid var(--border);
+    }
+    .cit-list .cit-row:last-child { border-bottom: 1px solid var(--border); }
+    .cit-q {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+      line-height: 1.6;
+    }
+    .cit-q cite {
+      display: block;
+      margin-top: 0.5rem;
+      font-style: normal;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+    .cit-portrait {
+      width: 56px;
+      height: 56px;
+      flex-shrink: 0;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .cit-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: sepia(0.4) contrast(1.05);
+    }
+
+    /* ─────────────────────────────────────────────
+       09 — STATISTIQUES (fond beige)
+    ───────────────────────────────────────────── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+    .stats-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-l);
+    }
+    .stats-n {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      color: var(--primary);
+      line-height: 1;
+    }
+    .stats-label {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-dark);
+      margin-top: 0.2rem;
+      line-height: 1.5;
+    }
+    .stats-detail { font-size: 0.7rem; color: var(--text-dark-m); }
+
+    /* ─────────────────────────────────────────────
+       10 — ME CONTACTER (fond beige)
+    ───────────────────────────────────────────── */
+    #contact {
+      padding-block: var(--r-heavy);
+      background: var(--bg-light);
+      color: var(--text-dark);
+      border-top: none;
+    }
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .contact-left { display: flex; flex-direction: column; gap: 1.5rem; }
+    .contact-statement {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 600;
+      line-height: 1.1;
+    }
+    .contact-sub {
+      font-size: 0.95rem;
+      color: var(--text-dark-m);
+      max-width: 44ch;
+      line-height: 1.8;
+    }
+    .contact-right { display: flex; flex-direction: column; gap: 2rem; }
+    .contact-email {
+      font-family: var(--serif);
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      font-style: italic;
+      color: var(--primary);
+      border-bottom: 1px solid var(--primary);
+      padding-bottom: 0.2rem;
+      width: fit-content;
+      transition: opacity .2s;
+    }
+    .contact-email:hover { opacity: 0.65; }
+    .contact-note {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--text-dark-m);
+    }
+
+    /* ─────────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────────── */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding-block: 2.5rem;
+    }
+    .footer-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-logo { font-family: var(--serif); font-size: 0.9rem; color: rgba(253,250,244,.45); }
+    .footer-copy { font-size: 0.65rem; color: rgba(253,250,244,.2); letter-spacing: 0.1em; }
+    .footer-top {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(253,250,244,.25);
+      transition: color .2s;
+    }
+    .footer-top:hover { color: var(--primary); }
+
+    /* ─────────────────────────────────────────────
+       RESPONSIVE
+    ───────────────────────────────────────────── */
+    @media (max-width: 960px) {
+      .hero-grid      { grid-template-columns: 1fr; }
+      .hero-right     { display: none; }
+      .manifeste-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .nl-grid        { grid-template-columns: 1fr; }
+      .nl-left        { position: static; }
+      .essais-3col    { grid-template-columns: 1fr; }
+      .essais-img-col { display: none; }
+      .essais-nl-teaser { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 2rem; }
+      .stats-grid     { grid-template-columns: repeat(2, 1fr); }
+      .res-grid       { grid-template-columns: 1fr; }
+      .res-left       { position: static; }
+      .contact-inner  { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    @media (max-width: 640px) {
+      :root { --r-section: 5rem; --r-heavy: 6rem; }
+      html { font-size: 16px; }
+      .nav-links { display: none; }
+      .footer-line { flex-direction: column; gap: 0.8rem; text-align: center; }
+      .banderole img { height: auto; }
+      .cit-row { grid-template-columns: 1fr; }
+      .cit-portrait { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     00 · NAVIGATION
+══════════════════════════════════════════════ -->
+<nav class="site-nav">
+  <div class="wrap nav-inner">
+    <a href="#hero" class="nav-logo">Intracogito</a>
+    <ul class="nav-links">
+      <li><a href="#newsletter">Newsletter</a></li>
+      <li><a href="#essais">Essais</a></li>
+      <li><a href="#a-venir">À venir</a></li>
+      <li><a href="#reseaux">Réseaux</a></li>
+      <li><a href="shelf.html">Mon Étagère</a></li>
+      <li><a href="#contact" class="nav-contact">Me contacter</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════
+     01 · HERO
+══════════════════════════════════════════════ -->
+<section id="hero" style="padding-block:var(--r-heavy);padding-inline:var(--px);min-height:92svh;display:flex;align-items:center;border-top:none;">
+  <div class="wrap hero-grid" style="padding-inline:0;width:100%;">
+    <div class="hero-left">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Elouan Noël
+      </div>
+      <h1 class="hero-headline">
+        Réfléchir<br>
+        pour mieux<br>
+        <span class="dim">agir.</span>
+      </h1>
+      <div class="hero-taglines">
+        <span>Relier les idées à la vie.</span>
+      </div>
+      <p class="hero-meta">Intracogito &nbsp;·&nbsp; Cogito</p>
+    </div>
+    <div class="hero-right">
+      <div class="hero-frame">
+        <img src="public/vitruve.jpg" alt="L'Homme de Vitruve" class="hero-img" />
+        <div class="hero-frame-status">
+          <span class="hero-frame-dot"></span>
+          Intracogito
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     03 · BANDEROLE
+══════════════════════════════════════════════ -->
+<div class="banderole">
+  <img src="public/Banderole.png" alt="Galerie de philosophes" loading="lazy" />
+</div>
+
+<!-- ══════════════════════════════════════════════
+     04 · NEWSLETTER
+══════════════════════════════════════════════ -->
+<section id="newsletter" class="section section--alt">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;">
+
+      <!-- Gauche : image de couverture -->
+      <div>
+        <img src="public/newsletter.jpg" alt="Intracogito Newsletter"
+             style="width:100%;display:block;filter:sepia(0.2) contrast(1.05);" />
+      </div>
+
+      <!-- Droite : contenu structuré -->
+      <div style="display:flex;flex-direction:column;gap:0;">
+
+        <!-- Label + Titre + Accroche -->
+        <span class="s-label">Newsletter</span>
+        <h2 class="s-title" style="margin-bottom:0.8rem;">Intracogito</h2>
+        <p class="s-accent" style="margin-bottom:2.5rem;">Des réflexions pour nourrir ton cerveau.</p>
+
+        <!-- Blocs Format + Contenu -->
+        <div class="nl-block" style="padding-top:1.8rem;">
+          <span class="nl-block-label">Format</span>
+          <p>Une édition hebdomadaire construite autour d'un thème.</p>
+        </div>
+        <div class="nl-block">
+          <span class="nl-block-label">Contenu</span>
+          <p>4 à 5 citations, chacune accompagnée d'une interprétation personnelle.</p>
+        </div>
+
+        <!-- CTA -->
+        <div style="padding-top:2rem;">
+          <a href="https://elouannoel.substack.com/" target="_blank" rel="noopener" class="nl-cta">S'abonner →</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     05 · ESSAIS
+══════════════════════════════════════════════ -->
+<section id="essais" class="section">
+  <div class="wrap">
+
+    <!-- En-tête : label + titre -->
+    <div style="margin-bottom:3rem;">
+      <span class="s-label">Essais</span>
+      <h2 style="font-family:var(--serif);font-size:clamp(3rem,6vw,5rem);font-weight:700;line-height:1.0;letter-spacing:-0.02em;">Cogito</h2>
+    </div>
+
+    <!-- Corps : image gauche + [description + liste] droite -->
+    <div style="display:grid;grid-template-columns:260px 1fr;gap:3.5rem;align-items:start;">
+
+      <!-- Image complète sans recadrage -->
+      <div class="essais-img-col">
+        <img src="public/cogito.jpg" alt="Cogito" aria-hidden="true" style="width:100%;height:auto;display:block;filter:sepia(0.4) contrast(1.05);opacity:0.9;" />
+      </div>
+
+      <!-- Description + Liste dans la même colonne -->
+      <div>
+        <p style="font-size:0.92rem;color:rgba(253,250,244,0.7);line-height:1.85;max-width:52ch;margin-bottom:0.5rem;">Mes essais philosophiques construits autour d'une thèse précise, issus de réflexions et d'expériences personnelles.</p>
+        <ol class="essais-list">
+          <li>
+            <a href="https://elouannoel.substack.com/p/cogito-001-la-quete-de-notre-destinee" target="_blank" rel="noopener" class="essai-row">
+              <span class="essai-n">01</span>
+              <span class="essai-title">La quête de notre destinée</span>
+              <span></span>
+              <span class="essai-arrow">↗</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://elouannoel.substack.com/subscribe?utm_source=post&utm_medium=email&utm_content=postcta&utm_campaign=email-checkout&next=https%3A%2F%2Felouannoel.substack.com%2Fp%2Fintracogito-36-les-emotions&r=69t23w" target="_blank" rel="noopener" class="essai-row">
+              <span class="essai-n">02</span>
+              <span class="essai-title">La matière première du héros</span>
+              <span class="essai-badge">À venir</span>
+              <span></span>
+            </a>
+          </li>
+        </ol>
+        <a href="https://elouannoel.substack.com/subscribe?utm_source=post&utm_medium=email&utm_content=postcta&utm_campaign=email-checkout&next=https%3A%2F%2Felouannoel.substack.com%2Fp%2Fintracogito-36-les-emotions&r=69t23w" target="_blank" rel="noopener" class="essais-footer">Voir tous les essais ↗</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     06 · À VENIR
+══════════════════════════════════════════════ -->
+<section id="a-venir">
+  <div class="wrap">
+    <div class="av-inner">
+      <span class="av-badge">Bientôt disponible</span>
+      <h2 class="av-title">Jeu de société</h2>
+      <p class="av-sub" style="font-family:var(--serif);font-size:clamp(1.2rem,2.2vw,1.7rem);font-style:italic;color:rgba(253,250,244,0.6);margin-bottom:2rem;">Une philosophie à jouer&nbsp;?</p>
+      <img src="public/jeu.jpg" alt="Jeu philosophique" style="width:100%;max-width:520px;display:block;margin:0 auto 2rem;filter:sepia(0.15) contrast(1.05);" />
+      <p class="av-sub">Découvrez les philosophes et reliez leurs idées aux dilemmes du quotidien.</p>
+      <a href="#contact" class="av-cta">Être notifié à la sortie →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     07 · RÉSEAUX
+══════════════════════════════════════════════ -->
+<section id="reseaux" class="section section--alt">
+  <div class="wrap">
+    <div class="res-grid">
+      <div class="res-left">
+        <span class="s-label">Réseaux</span>
+        <h2 class="s-title">Retrouve moi ici</h2>
+        <p class="s-accent">Pour prendre le temps de réfléchir.</p>
+      </div>
+      <ul class="res-list">
+
+        <!-- Substack -->
+        <li><a href="https://elouannoel.substack.com/" target="_blank" rel="noopener" class="res-row">
+          <div class="res-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
+            </svg>
+          </div>
+          <span class="res-name">Substack</span>
+          <span class="res-arrow">↗</span>
+        </a></li>
+
+        <!-- Instagram -->
+        <li><a href="https://www.instagram.com/intracogito_fr/" target="_blank" rel="noopener" class="res-row">
+          <div class="res-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+          <span class="res-name">Instagram</span>
+          <span class="res-arrow">↗</span>
+        </a></li>
+
+        <!-- TikTok -->
+        <li><a href="https://www.tiktok.com/@intracogito_fr" target="_blank" rel="noopener" class="res-row">
+          <div class="res-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1-.07z"/>
+            </svg>
+          </div>
+          <span class="res-name">TikTok</span>
+          <span class="res-arrow">↗</span>
+        </a></li>
+
+        <!-- Threads -->
+        <li><a href="https://www.threads.com/@intracogito_fr" target="_blank" rel="noopener" class="res-row">
+          <div class="res-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.583-1.313-.879-2.379-.883h-.039c-.846 0-1.567.286-2.147.85l-1.4-1.98C8.prepared.467 7.42 9.67 7.42 11.604c0 .351.03.695.087 1.03a6.1 6.1 0 0 0-.087.014v.012c0 1.695.521 3.116 1.547 4.219 1.112 1.196 2.716 1.818 4.635 1.818 1.77 0 3.27-.56 4.462-1.665 1.362-1.265 2.08-3.11 2.08-5.335 0-.298-.016-.594-.049-.885a8.1 8.1 0 0 0 1.508.144c.43 0 .848-.038 1.254-.112-.1 3.272-1.13 5.91-3.063 7.839C17.764 20.753 15.32 21.998 12.186 24z"/>
+            </svg>
+          </div>
+          <span class="res-name">Threads</span>
+          <span class="res-arrow">↗</span>
+        </a></li>
+
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     08 · STATISTIQUES (fond beige)
+══════════════════════════════════════════════ -->
+<section id="statistiques" class="section section--light">
+  <div class="wrap">
+    <span class="s-label">En chiffres</span>
+    <h2 class="s-title">Intracogito en quelques chiffres</h2>
+
+    <dl class="stats-grid" style="grid-template-columns:repeat(4,1fr);">
+      <div class="stats-item">
+        <dt class="stats-n">+1 000</dt>
+        <dd class="stats-label">Abonnés à ma newsletter<br>Intracogito</dd>
+      </div>
+      <div class="stats-item">
+        <dt class="stats-n">+350</dt>
+        <dd class="stats-label">Citations partagées sur Substack</dd>
+      </div>
+      <div class="stats-item">
+        <dt class="stats-n">+250</dt>
+        <dd class="stats-label">Abonnés sur Threads</dd>
+      </div>
+      <div class="stats-item">
+        <dt class="stats-n">+38</dt>
+        <dd class="stats-label">Éditions Intracogito sur un thème différent</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     09 · CITATIONS (5 lignes épurées)
+══════════════════════════════════════════════ -->
+<section id="citations" class="section">
+  <div class="wrap">
+    <span class="s-label">Citations</span>
+    <h2 class="s-title">Des sources d'inspiration</h2>
+
+    <div class="cit-list">
+
+      <div class="cit-row">
+        <blockquote class="cit-q">
+          « N'explique pas ta philosophie, incarne-la. »
+          <cite>Épictète</cite>
+        </blockquote>
+        <div class="cit-portrait">
+          <img src="public/1.jpg" alt="Épictète" />
+        </div>
+      </div>
+
+      <div class="cit-row">
+        <blockquote class="cit-q">
+          « Soyez vigilants envers vos pensées, car elles expriment une intention qui n'est jamais sans effet, tant à l'intérieur de nous-mêmes que dans l'univers. »
+          <cite>Frédéric Lenoir</cite>
+        </blockquote>
+        <div class="cit-portrait">
+          <img src="public/2.jpg" alt="Frédéric Lenoir" />
+        </div>
+      </div>
+
+      <div class="cit-row">
+        <blockquote class="cit-q">
+          « Toute chose a un prix affiché et un prix réel. Assure-toi d'être prêt à payer le prix réel pour ce que tu poursuis dans la vie. »
+          <cite>Sahil Bloom</cite>
+        </blockquote>
+        <div class="cit-portrait">
+          <img src="public/3.jpg" alt="Sahil Bloom" />
+        </div>
+      </div>
+
+      <div class="cit-row">
+        <blockquote class="cit-q">
+          « Comme il est bon d'avoir appris à ses dépens ce que l'on doit savoir. »
+          <cite>Hermann Hesse</cite>
+        </blockquote>
+        <div class="cit-portrait">
+          <img src="public/4.jpg" alt="Hermann Hesse" />
+        </div>
+      </div>
+
+      <div class="cit-row">
+        <blockquote class="cit-q">
+          « On ne peut jamais fuir son cœur. Alors autant écouter ce qu'il a à dire. »
+          <cite>Paulo Coelho</cite>
+        </blockquote>
+        <div class="cit-portrait">
+          <img src="public/5.jpg" alt="Paulo Coelho" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     10 · ME CONTACTER (fond beige)
+══════════════════════════════════════════════ -->
+<section id="contact" style="background:var(--bg);padding-block:var(--r-heavy);border-top:1px solid var(--border);">
+  <div class="wrap">
+    <span class="s-label">Contact</span>
+
+    <!-- Carte beige principale -->
+    <div style="background:var(--bg-light);padding:3rem 3rem 3rem 3rem;display:grid;grid-template-columns:1fr 280px;gap:3rem;align-items:start;margin-top:2rem;">
+
+      <!-- Gauche : titre + grille 4 raisons -->
+      <div>
+        <h2 style="font-family:var(--serif);font-size:clamp(2.2rem,4vw,3.2rem);font-weight:700;color:var(--text-dark);line-height:1.05;margin-bottom:2.5rem;">Me contacter</h2>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem 3rem;">
+
+          <!-- 1 -->
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <div style="width:36px;height:36px;border-radius:50%;background:var(--text-dark);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F4EDD8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            </div>
+            <div>
+              <p style="font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-dark);margin-bottom:0.3rem;">Le Jeu</p>
+              <p style="font-size:0.88rem;color:var(--text-dark-m);line-height:1.7;">Être notifié à la sortie du jeu de société.</p>
+            </div>
+          </div>
+
+          <!-- 2 -->
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <div style="width:36px;height:36px;border-radius:50%;background:var(--text-dark);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F4EDD8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div>
+              <p style="font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-dark);margin-bottom:0.3rem;">Un retour</p>
+              <p style="font-size:0.88rem;color:var(--text-dark-m);line-height:1.7;">Un essai t'a marqué, une édition t'a interpellé.</p>
+            </div>
+          </div>
+
+          <!-- 3 -->
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <div style="width:36px;height:36px;border-radius:50%;background:var(--text-dark);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F4EDD8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div>
+              <p style="font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-dark);margin-bottom:0.3rem;">Je prends</p>
+              <p style="font-size:0.88rem;color:var(--text-dark-m);line-height:1.7;">Un roman, un film, une pièce que tu me recommandes.</p>
+            </div>
+          </div>
+
+          <!-- 4 -->
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <div style="width:36px;height:36px;border-radius:50%;background:var(--text-dark);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F4EDD8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <div>
+              <p style="font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-dark);margin-bottom:0.3rem;">Le PDF</p>
+              <p style="font-size:0.88rem;color:var(--text-dark-m);line-height:1.7;">Toutes les citations de la première saison d'Intracogito.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Droite : image + bouton email + temps de réponse -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:1.5rem;">
+        <div style="border:2px solid var(--text-dark);padding:6px;background:var(--bg-light2);">
+          <img src="public/vitruve.jpg" alt="L'Homme de Vitruve"
+               style="width:220px;display:block;filter:sepia(0.35) contrast(1.05);grayscale(0.3);" />
+        </div>
+        <a href="mailto:elouan.noel@gmail.com"
+           style="display:flex;align-items:center;justify-content:space-between;width:100%;background:var(--text-dark);color:var(--bg-light);padding:1rem 1.3rem;font-family:var(--sans);font-size:0.8rem;font-weight:500;letter-spacing:0.02em;transition:opacity .2s;text-decoration:none;">
+          elouan.noel@gmail.com
+          <span style="font-size:1.1rem;">→</span>
+        </a>
+        <p style="font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-dark-m);text-align:center;">Temps de réponse : 24h</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════ -->
+<footer>
+  <div class="wrap footer-line">
+    <span class="footer-logo">Intracogito</span>
+    <p class="footer-copy">© 2026</p>
+    <a href="#hero" class="footer-top">Haut de page ↑</a>
+  </div>
+</footer>
+
+</body>
+</html>

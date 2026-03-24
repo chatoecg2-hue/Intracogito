@@ -1,0 +1,187 @@
+---
+const citations = [
+  {
+    texte: 'Connais-toi toi-même.',
+    auteur: 'Socrate',
+    epoque: 'Ve siècle av. J.-C.',
+    interpretation:
+      "Pas une injonction à l'introspection narcissique, mais une invitation à interroger ses certitudes. La connaissance de soi est le préalable à toute pensée honnête.",
+  },
+  {
+    texte: "Ce n'est pas ce qui t'arrive qui te trouble, mais l'idée que tu en as.",
+    auteur: 'Épictète',
+    epoque: 'Ier siècle',
+    interpretation:
+      "La liberté intérieure commence là. Nous ne maîtrisons pas les événements — seulement notre rapport à eux. C'est le cœur du stoïcisme, et c'est suffisant pour changer une vie.",
+  },
+  {
+    texte: "La vie est longue si l'on sait s'en servir.",
+    auteur: 'Sénèque',
+    epoque: 'Ier siècle',
+    interpretation:
+      "Nous nous plaignons du temps qui manque, mais nous le gaspillons. Sénèque ne prêche pas l'efficacité — il prêche la conscience de ce que l'on choisit de vivre.",
+  },
+  {
+    texte: "Chaque homme porte la forme entière de l'humaine condition.",
+    auteur: 'Montaigne',
+    epoque: 'XVIe siècle',
+    interpretation:
+      "L'universel se trouve dans le particulier. En se racontant sincèrement, Montaigne touche à l'humanité entière. C'est la leçon la plus profonde de ses Essais.",
+  },
+  {
+    texte: 'Dieu est mort. Et nous l'avons tué.',
+    auteur: 'Nietzsche',
+    epoque: 'XIXe siècle',
+    interpretation:
+      "Nietzsche ne se réjouit pas — il alarme. Sans fondement métaphysique, à quoi rattachons-nous nos valeurs ? La modernité doit répondre à cette question.",
+  },
+  {
+    texte: "Il n'est de paix durable qu'intérieure.",
+    auteur: 'Spinoza',
+    epoque: 'XVIIe siècle',
+    interpretation:
+      "La paix n'est pas l'absence de conflit extérieur. C'est un état de l'âme, conquis par la compréhension de ce qui est en notre pouvoir — et de ce qui ne l'est pas.",
+  },
+  {
+    texte: 'Le cœur a ses raisons que la raison ne connaît point.',
+    auteur: 'Pascal',
+    epoque: 'XVIIe siècle',
+    interpretation:
+      "L'intuition et l'émotion ne sont pas les ennemies de la pensée. Elles en sont parfois les organes les plus fins. La rationalité seule est borgne.",
+  },
+  {
+    texte: "Il faut imaginer Sisyphe heureux.",
+    auteur: 'Albert Camus',
+    epoque: 'XXe siècle',
+    interpretation:
+      "L'absurde n'est pas une impasse — c'est une posture. Là où la vie n'a pas de sens imposé, nous avons la liberté d'en inventer un. C'est vertigineux, et c'est libérateur.",
+  },
+  {
+    texte: "L'attention est la forme la plus rare et la plus pure de la générosité.",
+    auteur: 'Simone Weil',
+    epoque: 'XXe siècle',
+    interpretation:
+      "Écouter vraiment — sans projeter, sans préparer sa réponse — est un acte profondément philosophique et profondément humain. Weil fait de l'attention une éthique.",
+  },
+  {
+    texte: "Celui qui a un pourquoi peut supporter presque n'importe quel comment.",
+    auteur: 'Viktor Frankl',
+    epoque: 'XXe siècle',
+    interpretation:
+      "Formulé dans les conditions les plus extrêmes, ce principe reste d'une vérité absolue. Le sens n'est pas un luxe — c'est la condition de la résilience.",
+  },
+];
+---
+
+<section class="section section--alt" id="citations">
+  <div class="container">
+    <header class="cit__header">
+      <span class="label">Citations</span>
+      <h2>Dix pensées fondatrices.</h2>
+      <p class="cit__intro">
+        Ces citations sont des points d'entrée, non des conclusions.
+        Chacune accompagne une interprétation libre, ancrée dans le quotidien.
+      </p>
+    </header>
+
+    <div class="cit__grid">
+      {citations.map((c, i) => (
+        <article class="cit__card">
+          <span class="cit__index">
+            {String(i + 1).padStart(2, '0')}
+          </span>
+          <blockquote class="cit__quote">
+            « {c.texte} »
+          </blockquote>
+          <footer class="cit__meta">
+            <strong>{c.auteur}</strong>
+            <span>{c.epoque}</span>
+          </footer>
+          <p class="cit__interp">{c.interpretation}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .cit__header {
+    margin-bottom: var(--space-xl);
+    max-width: 600px;
+  }
+
+  .cit__intro {
+    color: var(--color-muted);
+    font-style: italic;
+    margin-top: var(--space-sm);
+  }
+
+  .cit__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .cit__card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding: var(--space-lg);
+    background-color: var(--color-cream);
+    border-left: 2px solid var(--color-primary);
+    position: relative;
+  }
+
+  .cit__index {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    font-family: var(--font-serif);
+    font-size: 0.7rem;
+    color: var(--color-primary);
+    opacity: 0.4;
+  }
+
+  .cit__quote {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: var(--color-text);
+    border: none;
+    padding: 0;
+  }
+
+  .cit__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .cit__meta strong {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--color-primary);
+    text-transform: uppercase;
+  }
+
+  .cit__meta span {
+    font-size: 0.72rem;
+    color: var(--color-muted);
+  }
+
+  .cit__interp {
+    font-size: 0.88rem;
+    color: var(--color-muted);
+    line-height: 1.8;
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-sm);
+  }
+
+  @media (max-width: 768px) {
+    .cit__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

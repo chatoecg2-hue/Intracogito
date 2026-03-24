@@ -1,0 +1,130 @@
+---
+---
+
+<section class="section section--alt" id="newsletter">
+  <div class="container nl">
+    <header class="nl__header">
+      <span class="label">My Newsletter</span>
+      <h2>Cogito</h2>
+      <p class="nl__tagline">Une édition hebdomadaire de philosophie appliquée.</p>
+    </header>
+
+    <div class="nl__body">
+      <div class="nl__col">
+        <h3>Le format</h3>
+        <p>
+          Chaque semaine, une édition concise — 5 à 8 minutes de lecture.
+          Une citation, son interprétation, un essai court, une question
+          à emporter. Pas de longueur artificielle. Pas de remplissage.
+        </p>
+      </div>
+
+      <div class="nl__col">
+        <h3>L'objectif</h3>
+        <p>
+          Rendre la philosophie vivante. Pas celle des manuels ou des concours,
+          mais celle qui aide à décider, à souffrir avec moins de résistance,
+          à aimer avec plus de lucidité. Une pensée qui sert à quelque chose.
+        </p>
+      </div>
+
+      <div class="nl__col">
+        <h3>La valeur</h3>
+        <p>
+          Aucun contenu viral, aucune promesse de productivité. Juste des idées
+          honnêtes, testées dans la vie réelle, formulées avec soin. Pour ceux
+          qui lisent lentement, qui relisent, qui soulignent.
+        </p>
+      </div>
+    </div>
+
+    <div class="nl__cta">
+      <a href="https://substack.com" target="_blank" rel="noopener noreferrer" class="nl__btn">
+        S'abonner à Cogito — Substack
+      </a>
+      <p class="nl__note">Gratuit · Hebdomadaire · Sans spam</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .nl__header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+  }
+
+  .nl__tagline {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--color-muted);
+    margin-top: var(--space-sm);
+    max-width: none;
+  }
+
+  .nl__body {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+  }
+
+  .nl__col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .nl__col h3 {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .nl__col p {
+    color: var(--color-muted);
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  .nl__cta {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .nl__btn {
+    display: inline-block;
+    padding: 0.85rem 2.4rem;
+    background-color: var(--color-primary);
+    color: var(--color-cream);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid var(--color-primary);
+    transition: background-color var(--transition), color var(--transition);
+  }
+
+  .nl__btn:hover {
+    background-color: transparent;
+    color: var(--color-primary);
+  }
+
+  .nl__note {
+    font-size: 0.72rem;
+    color: var(--color-muted);
+    letter-spacing: 0.08em;
+    max-width: none;
+  }
+
+  @media (max-width: 768px) {
+    .nl__body {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+  }
+</style>

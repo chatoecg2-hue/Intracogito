@@ -1,0 +1,149 @@
+---
+const essais = [
+  {
+    numero: '01',
+    titre: "L'attention comme résistance",
+    description:
+      "Cultiver sa présence dans un monde conçu pour la disperser. Ce n'est pas une question de volonté, c'est une question de philosophie.",
+    href: '#',
+  },
+  {
+    numero: '02',
+    titre: 'Philosopher sans diplôme',
+    description:
+      "La philosophie appartient à ceux qui la pratiquent, pas à ceux qui l'enseignent. Une réflexion sur la démocratisation de la pensée.",
+    href: '#',
+  },
+  {
+    numero: '03',
+    titre: 'Stoïcisme moderne',
+    description:
+      "Ce que Marc Aurèle aurait pensé de nos smartphones, de nos notifications et de notre besoin permanent d'approbation.",
+    href: '#',
+  },
+  {
+    numero: '04',
+    titre: "L'inconfort fertile",
+    description:
+      "Nous fuyons le doute comme s'il était une maladie. Pourtant, l'inconfort est la seule condition réelle de la croissance.",
+    href: '#',
+  },
+  {
+    numero: '05',
+    titre: 'Cogito quotidien',
+    description:
+      "Comment intégrer la réflexion philosophique dans les actes les plus ordinaires — choisir, refuser, attendre, partir.",
+    href: '#',
+  },
+];
+---
+
+<section class="section" id="essais">
+  <div class="container">
+    <header class="essais__header">
+      <span class="label">Essais Cogito</span>
+      <h2>Écrire pour penser.</h2>
+    </header>
+
+    <ol class="essais__list">
+      {essais.map((e) => (
+        <li class="essai">
+          <a href={e.href} class="essai__link">
+            <span class="essai__num">{e.numero}</span>
+            <div class="essai__body">
+              <h3 class="essai__titre">{e.titre}</h3>
+              <p class="essai__desc">{e.description}</p>
+            </div>
+            <span class="essai__arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .essais__header {
+    margin-bottom: var(--space-xl);
+  }
+
+  .essais__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .essai {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .essai:last-child {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .essai__link {
+    display: grid;
+    grid-template-columns: 3rem 1fr auto;
+    align-items: start;
+    gap: var(--space-md);
+    padding-block: var(--space-md);
+    transition: color var(--transition);
+  }
+
+  .essai__link:hover {
+    color: var(--color-primary);
+  }
+
+  .essai__link:hover .essai__titre {
+    color: var(--color-primary);
+  }
+
+  .essai__num {
+    font-family: var(--font-serif);
+    font-size: 0.75rem;
+    color: var(--color-primary);
+    opacity: 0.7;
+    padding-top: 0.3rem;
+  }
+
+  .essai__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .essai__titre {
+    font-size: 1.15rem;
+    font-weight: 500;
+    transition: color var(--transition);
+  }
+
+  .essai__desc {
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+
+  .essai__arrow {
+    color: var(--color-primary);
+    opacity: 0;
+    font-size: 1rem;
+    padding-top: 0.3rem;
+    transition: opacity var(--transition), transform var(--transition);
+  }
+
+  .essai__link:hover .essai__arrow {
+    opacity: 1;
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 640px) {
+    .essai__link {
+      grid-template-columns: 2rem 1fr;
+    }
+
+    .essai__arrow {
+      display: none;
+    }
+  }
+</style>
