@@ -842,7 +842,21 @@
 
         <!-- CTA -->
         <div style="padding-top:2rem;">
-          <a href="https://elouannoel.substack.com/" target="_blank" rel="noopener" class="nl-cta">S'abonner →</a>
+          <div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;">
+            <input
+              id="nl-email"
+              type="email"
+              placeholder="Votre adresse email"
+              style="flex:1;min-width:0;padding:0.7rem 1rem;background:rgba(253,250,244,0.07);border:1px solid rgba(212,197,169,0.25);color:var(--text);font-family:var(--sans);font-size:0.85rem;outline:none;transition:border-color .2s;"
+              onfocus="this.style.borderColor='rgba(181,98,43,0.6)'"
+              onblur="this.style.borderColor='rgba(212,197,169,0.25)'"
+            />
+            <button
+              onclick="(function(){var e=document.getElementById('nl-email').value.trim();window.open('https://elouannoel.substack.com/'+(e?'?email='+encodeURIComponent(e):''),'_blank');})()"
+              class="nl-cta"
+              style="cursor:pointer;border:none;white-space:nowrap;"
+            >S'abonner →</button>
+          </div>
         </div>
 
       </div>
