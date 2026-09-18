@@ -1,0 +1,13 @@
+# IntraCogito
+
+> Philosophie pratique, en français. Essais courts (les "Cogitos"), citations commentées et applications concrètes de la philosophie classique et contemporaine à la vie quotidienne, par Elouan Noël.
+
+## Essais
+
+- [Cogito 001 — La quête de notre destinée](https://elouannoel.substack.com/p/cogito-001-la-quete-de-notre-destinee)
+- [Cogito 003 — La force de l'intuition](https://elouannoel.substack.com/p/cogito-003-la-force-de-lintuition)
+- [Cogito 004 — La vérité du chemin](https://elouannoel.substack.com/p/cogito-004-la-verite-du-chemin)
+
+## Newsletter
+
+Nouveaux essais chaque semaine sur https://elouannoel.substack.com/
