@@ -1143,6 +1143,7 @@ COGITO_008_BODY = """<p>On ne se voit pas vieillir. On ne devient pas proche de 
 <p>À bientôt pour de nouvelles réflexions</p>
 <p>Elouan</p>"""
 
+AUTHOR_LINKEDIN = "https://www.linkedin.com/in/elouan-noel-248283256/"
 AUTHOR_BIO = "Fondateur d'Intracogito. Philosophie appliquée, chaque semaine, pour mieux comprendre ce qu'on vit."
 
 AUTHOR_PHOTO = "assets/img/author-elouan.jpg"
@@ -1230,10 +1231,9 @@ def real_article_page(slug, title, chapo, description, cover_path, cover_credit,
     {tags_html}
   </div>
   <div class="article-author-row">
-    <div class="article-author-avatar"><img src="../{AUTHOR_PHOTO}" alt="Elouan Noël" loading="lazy"{img_wh(AUTHOR_PHOTO)} /></div>
+    <a class="article-author-avatar" href="{AUTHOR_LINKEDIN}" target="_blank" rel="noopener" aria-label="Profil LinkedIn d'Elouan Noël"><img src="../{AUTHOR_PHOTO}" alt="Elouan Noël" loading="lazy"{img_wh(AUTHOR_PHOTO)} /></a>
     <div>
       <div class="article-author-name">Elouan Noël, fondateur d'Intracogito</div>
-      <p class="article-author-bio">{AUTHOR_BIO}</p>
     </div>
   </div>
 </div>
