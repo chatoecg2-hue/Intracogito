@@ -1,0 +1,2099 @@
+{
+ "001": {
+  "num": 1,
+  "title": "L'identité",
+  "slug": "lidentite",
+  "date": "2025-07-20",
+  "substack_cover_url": "",
+  "cover_caption": "",
+  "words": 468,
+  "reflexions": 5,
+  "authors": [
+   "Chris Williamson",
+   "Gurwinder",
+   "Naval",
+   "Aristote",
+   "Mark Manson"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur le concept d’identité. La persistance du moi dans le temps, ce qui a trait à notre individualité et notre caractère.",
+  "related": [
+   [
+    "essais/le-poids-de-lidentite.html",
+    "Ce à quoi l'on s'identifie, et ce que cela coûte : l'essai Cogito qui prolonge la question."
+   ],
+   [
+    "essais/la-quete-de-notre-destinee.html",
+    "Aristote et la puissance au cœur d'un essai Cogito sur l'identité construite par itérations."
+   ],
+   [
+    "essais/lamour-propre.html",
+    "Se reconnaître lucidement : l'identité vue sous l'angle de l'amour-propre."
+   ]
+  ],
+  "cover": "assets/img/intracogito-001-cover.jpg",
+  "cover_source": "Miniature/Capture d’écran 2026-09-29 à 16.31.00.png"
+ },
+ "002": {
+  "num": 2,
+  "title": "La souffrance",
+  "slug": "la-souffrance",
+  "date": "2025-07-27",
+  "substack_cover_url": "",
+  "cover_caption": "",
+  "words": 378,
+  "reflexions": 3,
+  "authors": [
+   "Chris Williamson",
+   "Sahil Bloom",
+   "James Clear",
+   "Albert Camus"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur le concept de souffrance, cette douleur physique ou morale qui, bien qu’universelle, reste difficile à comprendre, à traverser.",
+  "related": [
+   [
+    "essais/la-matiere-premiere-du-heros.html",
+    "Choisir sa souffrance plutôt que la subir : l'essai Cogito sur ce que la douleur peut construire."
+   ],
+   [
+    "essais/la-mort.html",
+    "Albert Camus à nouveau, face à la finitude."
+   ],
+   [
+    "essais/le-bonheur.html",
+    "L'autre versant de l'existence : ce que l'on entend par bonheur."
+   ]
+  ],
+  "cover": "assets/img/intracogito-002-cover.jpg",
+  "cover_source": "Miniature/Capture d’écran 2026-09-29 à 16.27.44.png"
+ },
+ "003": {
+  "num": 3,
+  "title": "La neuropsychologie",
+  "slug": "la-neuropsychologie",
+  "date": "2025-08-04",
+  "substack_cover_url": "",
+  "cover_caption": "",
+  "words": 504,
+  "reflexions": 5,
+  "authors": [
+   "Morgan Housel",
+   "Carl Jung",
+   "James Clear",
+   "Darren Hardy",
+   "James Clear"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur la neuropsychologie, la manière dont le cerveau façonne nos comportements, nos habitudes et nos résistances profondes.",
+  "related": [
+   [
+    "essais/lunite-du-corps-et-de-lesprit.html",
+    "Le cerveau ne pense pas seul : l'essai Cogito sur ce que le corps dit de la pensée."
+   ],
+   [
+    "essais/la-routine.html",
+    "James Clear à nouveau, sur les habitudes qui façonnent le cerveau."
+   ],
+   [
+    "essais/la-pensee.html",
+    "Du fonctionnement du cerveau à l'activité de penser."
+   ]
+  ],
+  "cover": "assets/img/intracogito-003-cover.jpg",
+  "cover_source": "Miniature/Capture d’écran 2026-09-29 à 16.33.02.png"
+ },
+ "004": {
+  "num": 4,
+  "title": "Le savoir",
+  "slug": "le-savoir",
+  "date": "2025-08-10",
+  "substack_cover_url": "",
+  "cover_caption": "",
+  "words": 408,
+  "reflexions": 5,
+  "authors": [
+   "Gurwinder",
+   "Nassim Nicholas Taleb",
+   "Eugène Ionesco",
+   "Benjamin Franklin",
+   "Antonio Gramsci"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur le savoir, entendu comme l’ensemble des connaissances acquises par l’étude, l’expérience ou l’observation.",
+  "related": [
+   [
+    "essais/lapprentissage.html",
+    "Ce qu'on sait se construit en apprenant : l'édition sur l'apprentissage."
+   ],
+   [
+    "essais/la-reussite.html",
+    "Eugène Ionesco à nouveau, cette fois sur la réussite."
+   ],
+   [
+    "essais/la-verite.html",
+    "Savoir n'est pas toujours connaître le vrai : l'édition sur la vérité."
+   ]
+  ],
+  "cover": "assets/img/intracogito-004-cover.jpg",
+  "cover_source": "Miniature/Capture d’écran 2026-09-29 à 16.28.02.png"
+ },
+ "005": {
+  "num": 5,
+  "title": "La responsabilité",
+  "slug": "la-responsabilite",
+  "date": "2025-08-17",
+  "substack_cover_url": "",
+  "cover_caption": "",
+  "words": 359,
+  "reflexions": 4,
+  "authors": [
+   "Robert Louis Stevenson",
+   "Naval Ravikant",
+   "Carl Jung",
+   "Tom Bilyeu"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur la responsabilité, savoir répondre de ses actes et reconnaître notre part dans ce qui nous arrive.",
+  "related": [
+   [
+    "essais/le-choix.html",
+    "Être responsable, c'est d'abord choisir : l'édition sur le choix."
+   ],
+   [
+    "essais/levolution-personnelle.html",
+    "Carl Jung à nouveau, sur la maturité face aux problèmes."
+   ],
+   [
+    "essais/la-liberte.html",
+    "Pas de liberté sans responsabilité : l'édition qui en est le pendant."
+   ]
+  ],
+  "cover": "assets/img/intracogito-005-cover.jpg",
+  "cover_source": "Miniature/Capture d’écran 2026-09-29 à 16.29.34.png"
+ },
+ "006": {
+  "num": 6,
+  "title": "L'influence sociale",
+  "slug": "linfluence-sociale",
+  "date": "2025-08-24",
+  "substack_cover_url": "",
+  "cover_caption": "",
+  "words": 363,
+  "reflexions": 4,
+  "authors": [
+   "James Clear",
+   "Paul Graham",
+   "Jerry B. Harvey",
+   "Naval Ravikant"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur l’influence sociale , les effets de groupes , la manière dont les attentes des autres orientent nos comportements, souvent plus que nos propres convictions.",
+  "related": [
+   [
+    "essais/la-voie-par-defaut.html",
+    "Suivre le groupe sans le choisir : l'essai Cogito sur la voie par défaut."
+   ],
+   [
+    "essais/les-relations.html",
+    "Naval Ravikant à nouveau, sur les personnes qui ajoutent ou retirent de l'énergie."
+   ],
+   [
+    "essais/la-comparaison-sociale.html",
+    "Le regard des autres comme étalon : l'édition sur la comparaison sociale."
+   ]
+  ],
+  "cover": "assets/img/intracogito-006-cover.jpg",
+  "cover_source": "Miniature/Capture d’écran 2026-09-29 à 16.29.11.png"
+ },
+ "007": {
+  "num": 7,
+  "title": "Les relations",
+  "slug": "les-relations-7",
+  "date": "2025-08-31",
+  "substack_cover_url": "",
+  "cover_caption": "",
+  "words": 410,
+  "reflexions": 5,
+  "authors": [
+   "Sahil Bloom",
+   "David Foenkinos",
+   "Chris Williamson",
+   "Jeremy Bentham",
+   "Mark Manson"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur les relations sociales, ce qui les renforce, ce qui les fragilise, et ce qu’elles révèlent de nous.",
+  "related": [
+   [
+    "essais/les-relations.html",
+    "L'autre édition sur les relations, avec d'autres auteurs."
+   ],
+   [
+    "essais/les-emotions.html",
+    "Mark Manson à nouveau, sur la maturité émotionnelle dans nos échanges."
+   ],
+   [
+    "essais/la-solitude.html",
+    "L'envers des relations : ce que la solitude révèle."
+   ]
+  ],
+  "cover": "assets/img/intracogito-007-cover.jpg",
+  "cover_source": "Miniature/Capture d’écran 2026-09-29 à 16.33.19.png"
+ },
+ "008": {
+  "num": 8,
+  "title": "La solitude",
+  "slug": "la-solitude",
+  "date": "2025-09-07",
+  "substack_cover_url": "",
+  "cover_caption": "",
+  "words": 312,
+  "reflexions": 4,
+  "authors": [
+   "Erich Fromm",
+   "Vauvenargues",
+   "Morgan Housel",
+   "Aldous Huxley"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur la solitude, cette période durant laquelle une personne est seule, isolée de ses semblables.",
+  "related": [
+   [
+    "essais/les-relations.html",
+    "Deux solitudes qui se protègent : Rilke et la relation, dans l'édition voisine."
+   ],
+   [
+    "essais/largent.html",
+    "Morgan Housel à nouveau, cette fois sur l'argent et la liberté."
+   ],
+   [
+    "essais/la-presence.html",
+    "Être seul sans s'absenter de soi : l'édition sur la présence."
+   ]
+  ],
+  "cover": "assets/img/intracogito-008-cover.jpg",
+  "cover_source": "Miniature/Capture d’écran 2026-09-29 à 16.28.38.png"
+ },
+ "009": {
+  "num": 9,
+  "title": "Le succès",
+  "slug": "le-succes",
+  "date": "2025-09-14",
+  "substack_cover_url": "",
+  "cover_caption": "",
+  "words": 438,
+  "reflexions": 5,
+  "authors": [
+   "Jimmy Carr",
+   "James Clear",
+   "Mike Horn",
+   "Naval Ravikant",
+   "Eddie Cantor"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur le succès, défini comme le fait d’aboutir au résultat escompté, d’atteindre le but recherché, qu’il soit personnel, professionnel ou intérieur.",
+  "related": [
+   [
+    "essais/la-reussite.html",
+    "Succès et réussite : une autre édition, d'autres angles sur le même désir."
+   ],
+   [
+    "essais/la-routine.html",
+    "James Clear à nouveau, sur les systèmes qui produisent les résultats."
+   ],
+   [
+    "essais/le-bonheur.html",
+    "Le succès rend-il heureux ? L'édition sur le bonheur."
+   ]
+  ],
+  "cover": "assets/img/intracogito-009-cover.jpg",
+  "cover_source": "Miniature/Capture d’écran 2026-09-29 à 16.31.51.png"
+ },
+ "010": {
+  "num": 10,
+  "title": "La politique",
+  "slug": "la-politique",
+  "date": "2025-09-21",
+  "substack_cover_url": "",
+  "cover_caption": "",
+  "words": 514,
+  "reflexions": 5,
+  "authors": [
+   "Gurwinder Bhogal",
+   "Douglas Murray",
+   "Hannah Arendt",
+   "Frédéric Bastiat",
+   "Jacques Brel"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur la politique, entendue comme l’ensemble des mécanismes de pouvoir, d’organisation et de décision qui régissent la vie collective et structurent les sociétés.",
+  "related": [
+   [
+    "essais/la-compromission.html",
+    "Le consentement silencieux qui fait tenir les régimes : La Boétie et la compromission."
+   ],
+   [
+    "essais/lheritage.html",
+    "Hannah Arendt à nouveau, sur ce qu'une civilisation doit à ses morts."
+   ],
+   [
+    "essais/la-verite.html",
+    "Politique et vérité : ce que l'on peut encore tenir pour vrai."
+   ]
+  ],
+  "cover": "assets/img/intracogito-010-cover.jpg",
+  "cover_source": "Miniature/Capture d’écran 2026-09-29 à 16.30.38.png"
+ },
+ "011": {
+  "num": 11,
+  "title": "La sagesse",
+  "slug": "la-sagesse",
+  "date": "2025-09-28",
+  "substack_cover_url": "",
+  "cover_caption": "",
+  "words": 464,
+  "reflexions": 5,
+  "authors": [
+   "James Clear",
+   "Søren Kierkegaard",
+   "François de La Rochefoucauld",
+   "Sénèque",
+   "Rudyard Kipling"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur la sagesse, entendue comme la capacité à juger et agir avec justesse, en s’appuyant sur l’expérience, la lucidité et le discernement.",
+  "related": [
+   [
+    "essais/la-philosophie.html",
+    "L'amour de la sagesse : l'édition sur la philosophie."
+   ],
+   [
+    "essais/la-religion.html",
+    "Søren Kierkegaard à nouveau, sur la foi et le sacré."
+   ],
+   [
+    "essais/les-conseils.html",
+    "La sagesse transmise : ce que valent les conseils."
+   ]
+  ],
+  "cover": "assets/img/intracogito-011-cover.jpg",
+  "cover_source": "Miniature/Capture d’écran 2026-09-29 à 16.32.26.png"
+ },
+ "012": {
+  "num": 12,
+  "title": "La nature humaine",
+  "slug": "la-nature-humaine",
+  "date": "2025-10-05",
+  "substack_cover_url": "",
+  "cover_caption": "",
+  "words": 398,
+  "reflexions": 4,
+  "authors": [
+   "Pascal",
+   "Reinhold Niebuhr",
+   "Eric Hoffer",
+   "T.S. Eliot"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur la nature humaine, l’ensemble des dispositions, des instincts et des contradictions fondamentales qui caractérisent l’être humain, au croisement de la raison, du désir et du comportement social.",
+  "related": [
+   [
+    "essais/le-desir.html",
+    "Ce que nous voulons dit ce que nous sommes : René Girard et le désir mimétique."
+   ],
+   [
+    "essais/la-force-de-lintuition.html",
+    "Pascal au cœur d'un essai Cogito sur les raisons du cœur."
+   ],
+   [
+    "essais/le-chaos.html",
+    "La nature humaine face au désordre : l'édition sur le chaos."
+   ]
+  ],
+  "cover": "assets/img/intracogito-012-cover.jpg",
+  "cover_source": "Miniature/Capture d’écran 2026-09-29 à 16.31.27.png"
+ },
+ "013": {
+  "num": 13,
+  "title": "L'évolution personnelle",
+  "slug": "levolution-personnelle-13",
+  "date": "2025-10-12",
+  "substack_cover_url": "",
+  "cover_caption": "",
+  "words": 403,
+  "reflexions": 4,
+  "authors": [
+   "James Clear",
+   "Steven Pressfield",
+   "Brianna Wiest",
+   "Viktor Frankl"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur l’évolution personnelle, le processus de transformation et de progression intérieure par lequel un individu cherche à devenir une version plus cohérente, plus lucide ou plus accomplie de lui-même.",
+  "related": [
+   [
+    "essais/levolution-personnelle.html",
+    "L'autre édition sur l'évolution personnelle, et la spirale de Hesse."
+   ],
+   [
+    "essais/le-sens.html",
+    "Viktor Frankl à nouveau, sur le sens qu'on donne à sa vie."
+   ],
+   [
+    "essais/les-transformations-silencieuses.html",
+    "Ce qui change sans qu'on le voie : l'essai Cogito sur la croissance invisible."
+   ]
+  ],
+  "cover": "assets/img/intracogito-013-cover.jpg",
+  "cover_source": "Miniature/Capture d’écran 2026-09-29 à 16.32.39.png"
+ },
+ "014": {
+  "num": 14,
+  "title": "La liberté",
+  "slug": "la-liberte",
+  "date": "2025-10-19",
+  "substack_cover_url": "",
+  "cover_caption": "",
+  "words": 345,
+  "reflexions": 4,
+  "authors": [
+   "Naval Ravikant",
+   "Fyodor Dostoevsky",
+   "Carl Jung",
+   "Naval Ravikant"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur la liberté, entendue comme la capacité d’agir selon sa volonté, en conscience et sans contrainte externes.",
+  "related": [
+   [
+    "essais/la-responsabilite.html",
+    "Pas de liberté sans responsabilité : l'édition qui en est le pendant."
+   ],
+   [
+    "essais/la-foi.html",
+    "Dostoïevski à nouveau, cette fois sur la foi."
+   ],
+   [
+    "essais/la-voie-par-defaut.html",
+    "Être libre, c'est oser sortir de la voie par défaut : l'essai Cogito."
+   ]
+  ],
+  "cover": "assets/img/intracogito-014-cover.jpg",
+  "cover_source": "Miniature/Capture d’écran 2026-09-29 à 16.28.20.png"
+ },
+ "015": {
+  "num": 15,
+  "title": "La technologie",
+  "slug": "la-technologie",
+  "date": "2025-10-26",
+  "substack_cover_url": "",
+  "cover_caption": "",
+  "words": 439,
+  "reflexions": 5,
+  "authors": [
+   "Gunther Anders",
+   "Gurwinder",
+   "Seth Godin",
+   "Gurwinder",
+   "Cal Newport"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur la technologie, entendue comme l’ensemble des outils, des systèmes et des innovations par lesquels l’humanité transforme son environnement.",
+  "related": [
+   [
+    "essais/lattention.html",
+    "Cal Newport à nouveau, sur l'attention qu'on essaie de nous voler."
+   ],
+   [
+    "essais/le-savoir.html",
+    "Gurwinder à nouveau, sur ce que l'on croit savoir."
+   ],
+   [
+    "essais/la-lecture.html",
+    "Lire, l'antidote à la distraction : l'édition sur la lecture."
+   ]
+  ],
+  "cover": "assets/img/intracogito-015-cover.jpg",
+  "cover_source": "Miniature/Capture d’écran 2026-09-29 à 16.32.06.png"
+ },
+ "016": {
+  "num": 16,
+  "title": "La pensée",
+  "slug": "la-pensee",
+  "date": "2025-11-02",
+  "substack_cover_url": "",
+  "cover_caption": "",
+  "words": 398,
+  "reflexions": 5,
+  "authors": [
+   "George Mack",
+   "Frédéric Lenoir",
+   "James Clear",
+   "Naval Ravikant",
+   "F. Scott Fitzgerald"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur la pensée, l’ensemble de notre activité mentale qui structure notre perception, guide nos actions et influence nos émotions.",
+  "related": [
+   [
+    "essais/lintelligence.html",
+    "Penser et comprendre : l'édition sur l'intelligence."
+   ],
+   [
+    "essais/la-verite-du-chemin.html",
+    "Frédéric Lenoir cité dans un essai Cogito sur ce que le bouddhisme enseigne du chemin."
+   ],
+   [
+    "essais/le-langage.html",
+    "On pense avec des mots : l'édition sur le langage."
+   ]
+  ],
+  "cover": "assets/img/intracogito-016-cover.jpg",
+  "cover_source": "Miniature/Capture d’écran 2026-09-29 à 16.32.52.png"
+ },
+ "017": {
+  "num": 17,
+  "title": "La lecture",
+  "slug": "la-lecture",
+  "date": "2025-11-09",
+  "substack_cover_url": "",
+  "cover_caption": "",
+  "words": 404,
+  "reflexions": 4,
+  "authors": [
+   "Maryanne Wolf",
+   "Naval Ravikant",
+   "Nicholas Carr",
+   "Kurt Vonnegut"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur la lecture, un acte d’attention prolongée, de dialogue silencieux avec les idées d’autrui.",
+  "related": [
+   [
+    "essais/le-savoir.html",
+    "Lire pour savoir : l'édition sur le savoir."
+   ],
+   [
+    "essais/la-pensee.html",
+    "Naval Ravikant à nouveau, sur ce que l'on fait de son activité mentale."
+   ],
+   [
+    "essais/lattention.html",
+    "La lecture exige une attention prolongée : l'édition qui la défend."
+   ]
+  ],
+  "cover": "assets/img/intracogito-017-cover.jpg",
+  "cover_source": "Miniature/Capture d’écran 2026-09-29 à 16.28.54.png"
+ },
+ "018": {
+  "num": 18,
+  "title": "L'argent",
+  "slug": "largent",
+  "date": "2025-11-16",
+  "substack_cover_url": "",
+  "cover_caption": "",
+  "words": 383,
+  "reflexions": 4,
+  "authors": [
+   "Naval Ravikant",
+   "Morgan Housel",
+   "Chris Williamson",
+   "Satoshi Nakamoto"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur l’argent, à la fois un outil d’échange et de mesure de valeur, mais aussi un révélateur de nos priorités, de nos insécurités et de notre rapport au manque, à la liberté et à la réussite.",
+  "related": [
+   [
+    "essais/le-succes.html",
+    "L'argent comme mesure du succès, et ses limites."
+   ],
+   [
+    "essais/le-choix.html",
+    "Morgan Housel à nouveau, sur nos choix et leurs conséquences."
+   ],
+   [
+    "essais/la-compromission.html",
+    "Quand le salaire oriente le jugement : l'édition sur la compromission."
+   ]
+  ],
+  "cover": "assets/img/intracogito-018-cover.jpg",
+  "cover_source": "Miniature/Capture d’écran 2026-09-29 à 16.27.24.png"
+ },
+ "019": {
+  "num": 19,
+  "title": "L'amour-propre",
+  "slug": "lamour-propre",
+  "date": "2025-11-23",
+  "substack_cover_url": "",
+  "cover_caption": "",
+  "words": 345,
+  "reflexions": 4,
+  "authors": [
+   "Eleanor Roosevelt",
+   "Richard Feynman",
+   "Brianna Wiest",
+   "James Clear"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur l’amour-propre, la reconnaissance lucide de sa propre valeur, condition essentielle de l’estime de soi.",
+  "related": [
+   [
+    "essais/lidentite.html",
+    "Se reconnaître soi-même : l'édition sur l'identité."
+   ],
+   [
+    "essais/lechec.html",
+    "Brianna Wiest à nouveau, sur ce que l'échec enseigne."
+   ],
+   [
+    "essais/la-comparaison-sociale.html",
+    "L'amour-propre fragilisé par la comparaison : l'édition voisine."
+   ]
+  ],
+  "cover": "assets/img/intracogito-019-cover.jpg",
+  "cover_source": "Miniature/Capture d’écran 2026-09-29 à 16.31.09.png"
+ },
+ "020": {
+  "num": 20,
+  "title": "La vérité",
+  "slug": "la-verite",
+  "date": "2025-11-30",
+  "substack_cover_url": "",
+  "cover_caption": "",
+  "words": 367,
+  "reflexions": 4,
+  "authors": [
+   "Bertrand Russell",
+   "George Orwell",
+   "Charles Bukowski",
+   "Nietzsche"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur la vérité, entendue comme une connaissance reconnue comme juste, conforme à son objet, et possédant à ce titre une valeur absolue et ultime.",
+  "related": [
+   [
+    "essais/le-doute.html",
+    "Chercher la vérité suppose de douter : l'édition sur le doute."
+   ],
+   [
+    "essais/le-bonheur.html",
+    "Bertrand Russell à nouveau, cette fois sur le bonheur."
+   ],
+   [
+    "essais/le-langage.html",
+    "Le vrai passe par les mots : l'édition sur le langage."
+   ]
+  ],
+  "cover": "assets/img/intracogito-020-cover.jpg",
+  "cover_source": "Miniature/Capture d’écran 2026-09-29 à 16.27.04.png"
+ },
+ "021": {
+  "num": 21,
+  "title": "Le choix",
+  "slug": "le-choix",
+  "date": "2025-12-07",
+  "substack_cover_url": "",
+  "cover_caption": "",
+  "words": 418,
+  "reflexions": 4,
+  "authors": [
+   "James Clear",
+   "Morgan Housel",
+   "Jacques Le Goff",
+   "James Clear"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur le choix, l’acte de décision entre plusieurs possibles, impliquant à la fois liberté, renoncement et responsabilité quant aux conséquences qui en découlent.",
+  "related": [
+   [
+    "essais/la-responsabilite.html",
+    "Choisir, c'est répondre de ses choix : l'édition sur la responsabilité."
+   ],
+   [
+    "essais/largent.html",
+    "Morgan Housel à nouveau, sur l'argent et la liberté de choisir."
+   ],
+   [
+    "essais/le-renoncement.html",
+    "Tout choix est un renoncement : l'édition qui en est l'envers."
+   ]
+  ],
+  "cover": "assets/img/intracogito-021-cover.jpg",
+  "cover_source": "Miniature/Capture d’écran 2026-09-29 à 16.30.16.png"
+ },
+ "022": {
+  "num": 22,
+  "title": "Le bonheur",
+  "slug": "le-bonheur",
+  "date": "2025-08-19",
+  "substack_cover_url": "",
+  "cover_caption": "",
+  "words": 455,
+  "reflexions": 5,
+  "authors": [
+   "Bertrand Russell",
+   "Montesquieu",
+   "Ryan Holiday",
+   "Naval Ravikant",
+   "Dr Robert Sapolsky"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur le bonheur, cet état de pleine satisfaction, à la fois paisible et durable, qui ne dépend pas uniquement des circonstances extérieures.",
+  "related": [
+   [
+    "essais/la-paix-interieure.html",
+    "Le bonheur comme tranquillité : l'édition sur la paix intérieure."
+   ],
+   [
+    "essais/la-verite.html",
+    "Bertrand Russell à nouveau, cette fois sur la vérité."
+   ],
+   [
+    "essais/le-desir.html",
+    "Le désir rend-il heureux ? L'édition sur le désir."
+   ]
+  ],
+  "cover": "assets/img/intracogito-022-cover.jpg",
+  "cover_source": "Miniature/Capture d’écran 2026-09-29 à 16.28.10.png"
+ },
+ "023": {
+  "num": 23,
+  "title": "L'amour",
+  "slug": "lamour-23",
+  "date": "2025-12-14",
+  "substack_cover_url": "",
+  "cover_caption": "",
+  "words": 383,
+  "reflexions": 5,
+  "authors": [
+   "Henri-Frédéric Amiel",
+   "Bertrand Russell",
+   "James Clear",
+   "Paulo Coelho",
+   "John Updike"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur l’amour, ce principe d'union universelle auquel chacun aspire dans ses relations personnelles.",
+  "related": [
+   [
+    "essais/lamour.html",
+    "L'autre édition sur l'amour, avec d'autres auteurs."
+   ],
+   [
+    "essais/le-bonheur.html",
+    "Bertrand Russell à nouveau, sur la conquête du bonheur."
+   ],
+   [
+    "essais/la-vulnerabilite.html",
+    "Aimer, c'est accepter d'être exposé : l'édition sur la vulnérabilité."
+   ]
+  ],
+  "cover": "assets/img/intracogito-023-cover.jpg",
+  "cover_source": "Miniature/Capture d’écran 2026-09-29 à 16.31.17.png"
+ },
+ "024": {
+  "num": 24,
+  "title": "La philosophie",
+  "slug": "la-philosophie",
+  "date": "2025-12-21",
+  "substack_cover_url": "",
+  "cover_caption": "",
+  "words": 356,
+  "reflexions": 4,
+  "authors": [
+   "Epictète",
+   "Tennessee Williams",
+   "Søren Kierkegaard",
+   "Will Durant"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur la philosophie, l’amour de la sagesse, la pratique d’une réflexion critique sur les fondements, les limites et les enjeux de l’action et de la connaissance humaine.",
+  "related": [
+   [
+    "essais/la-sagesse.html",
+    "La philosophie comme amour de la sagesse : l'édition sur la sagesse."
+   ],
+   [
+    "essais/la-religion.html",
+    "Søren Kierkegaard à nouveau, sur la foi et le sacré."
+   ],
+   [
+    "essais/la-quete-de-notre-destinee.html",
+    "La philosophie appliquée à sa propre vie : l'essai Cogito sur la destinée."
+   ]
+  ],
+  "cover": "assets/img/intracogito-024-cover.jpg",
+  "cover_source": "Miniature/Capture d’écran 2026-09-29 à 16.27.14.png"
+ },
+ "026": {
+  "num": 26,
+  "title": "Le temps",
+  "slug": "le-temps",
+  "date": "2026-01-11",
+  "substack_cover_url": "",
+  "cover_caption": "",
+  "words": 337,
+  "reflexions": 4,
+  "authors": [
+   "James Clear",
+   "Johann Wolfgang von Goethe",
+   "Chris Williamson",
+   "Alex Hormozi"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur le temps entendu comme un point repérable dans une succession par référence à un « avant » et un « après ».",
+  "related": [
+   [
+    "essais/la-mort.html",
+    "Le temps prend tout son poids à l'horizon de la finitude."
+   ],
+   [
+    "essais/les-priorites.html",
+    "Goethe à nouveau, sur l'essentiel et ce qui passe en premier."
+   ],
+   [
+    "essais/la-routine.html",
+    "Ce que l'on fait chaque jour, c'est ce que l'on fait de son temps."
+   ]
+  ],
+  "cover": "assets/img/intracogito-026-cover.jpg",
+  "cover_source": "Miniature/Capture d’écran 2026-09-29 à 16.30.01.png"
+ },
+ "027": {
+  "num": 27,
+  "title": "Le langage",
+  "slug": "le-langage",
+  "date": "2026-01-18",
+  "substack_cover_url": "",
+  "cover_caption": "",
+  "words": 377,
+  "reflexions": 5,
+  "authors": [
+   "Christopher Hitchens",
+   "Naval Ravikant",
+   "Yuval Noah Harari",
+   "Jean-Paul Sartre",
+   "Chris Williamson"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur le langage , entendu comme notre faculté de communiquer notre pensée, communément par les mots ou notre voix.",
+  "related": [
+   [
+    "essais/la-verite.html",
+    "Les mots et le vrai : l'édition sur la vérité."
+   ],
+   [
+    "essais/la-pensee.html",
+    "Naval Ravikant à nouveau, sur la pensée et ses outils."
+   ],
+   [
+    "essais/la-coherence.html",
+    "Quand les actes parlent plus fort que les mots : l'édition sur la cohérence."
+   ]
+  ],
+  "cover": "assets/img/intracogito-027-cover.jpg",
+  "cover_source": "Miniature/Capture d’écran 2026-09-29 à 16.31.58.png"
+ },
+ "028": {
+  "num": 28,
+  "title": "Les conseils",
+  "slug": "les-conseils",
+  "date": "2026-01-25",
+  "substack_cover_url": "",
+  "cover_caption": "",
+  "words": 329,
+  "reflexions": 4,
+  "authors": [
+   "Hermann Hesse",
+   "Chris Williamson",
+   "Aaron Rodgers",
+   "Montaigne"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur les conseils en tant que parole donnée à l’autre pour éclairer une décision.",
+  "related": [
+   [
+    "essais/la-sagesse.html",
+    "Du conseil à la sagesse : ce qu'on ne peut transmettre qu'en partie."
+   ],
+   [
+    "essais/la-mort.html",
+    "Montaigne à nouveau, sur l'art d'apprendre à mourir."
+   ],
+   [
+    "essais/lapprentissage.html",
+    "Apprendre à ses dépens : l'édition sur l'apprentissage."
+   ]
+  ],
+  "cover": "assets/img/intracogito-028-cover.jpg",
+  "cover_source": "Miniature/Capture d’écran 2026-09-29 à 16.29.26.png"
+ },
+ "029": {
+  "num": 29,
+  "title": "La présence",
+  "slug": "la-presence",
+  "date": "2026-02-01",
+  "substack_cover_url": "",
+  "cover_caption": "",
+  "words": 365,
+  "reflexions": 4,
+  "authors": [
+   "Daniel Kahneman",
+   "Chris Williamson",
+   "Randy Armstrong",
+   "Naval Ravikant"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur la présence , cette capacité à habiter pleinement ce que l’on vit, sans filtre ni projection.",
+  "related": [
+   [
+    "essais/lattention.html",
+    "Être présent, c'est d'abord savoir où va son attention."
+   ],
+   [
+    "essais/la-verite-du-chemin.html",
+    "La pleine présence enseignée par le bouddhisme, dans un essai Cogito."
+   ],
+   [
+    "essais/le-temps.html",
+    "Habiter l'instant face au temps qui passe."
+   ]
+  ],
+  "cover": "assets/img/intracogito-029-cover.jpg",
+  "cover_source": "Miniature/Capture d’écran 2026-09-29 à 16.32.16.png"
+ },
+ "030": {
+  "num": 30,
+  "title": "Le doute",
+  "slug": "le-doute",
+  "date": "2026-02-08",
+  "substack_cover_url": "",
+  "cover_caption": "",
+  "words": 295,
+  "reflexions": 4,
+  "authors": [
+   "Le nouveau testament",
+   "Edward de Bono",
+   "Jordan Peterson",
+   "Richard Rohr"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur le doute , cet état d’hésitation ou d’incertitude dans lequel la vérité ou la décision reste incertaine.",
+  "related": [
+   [
+    "essais/la-foi.html",
+    "Le doute et la foi se répondent : l'édition sur la foi."
+   ],
+   [
+    "essais/le-sens.html",
+    "Jordan B. Peterson à nouveau, sur la quête de sens."
+   ],
+   [
+    "essais/la-verite.html",
+    "Douter pour approcher le vrai : l'édition sur la vérité."
+   ]
+  ],
+  "cover": "assets/img/intracogito-030-cover.jpg",
+  "cover_source": "Miniature/Capture d’écran 2026-09-29 à 16.30.48.png"
+ },
+ "031": {
+  "num": 31,
+  "title": "Le chaos",
+  "slug": "le-chaos",
+  "date": "2026-02-15",
+  "substack_cover_url": "",
+  "cover_caption": "",
+  "words": 283,
+  "reflexions": 4,
+  "authors": [
+   "Sahil Bloom",
+   "Winston Churchill",
+   "Nietzsche",
+   "Hannah Arendt"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur le chaos , entendu comme une absence de structure, d’ordre ou d’organisation apparente, pouvant s’opposer à un état ordonné.",
+  "related": [
+   [
+    "essais/la-routine.html",
+    "Une routine ennuyeuse protège d'une vie chaotique : l'édition sur la routine."
+   ],
+   [
+    "essais/la-politique.html",
+    "Hannah Arendt à nouveau, sur la politique et le monde commun."
+   ],
+   [
+    "essais/la-nature-humaine.html",
+    "Le désordre vient aussi de nous : l'édition sur la nature humaine."
+   ]
+  ],
+  "cover": "assets/img/intracogito-031-cover.jpg",
+  "cover_source": "Miniature/Capture d’écran 2026-09-29 à 16.29.03.png"
+ },
+ "032": {
+  "num": 32,
+  "title": "La comparaison sociale",
+  "slug": "la-comparaison-sociale",
+  "date": "2026-02-22",
+  "substack_cover_url": "",
+  "cover_caption": "",
+  "words": 368,
+  "reflexions": 4,
+  "authors": [
+   "Anonyme",
+   "Gurwinder Bhogal",
+   "Hormozi",
+   "Jason Pargin"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur la comparaison sociale , l’évaluation de ses propres opinions, qualités ou performances par référence à celles d’autrui ou de normes sociétales.",
+  "related": [
+   [
+    "essais/linfluence-sociale.html",
+    "Se comparer, c'est subir l'influence des autres : l'édition voisine."
+   ],
+   [
+    "essais/la-politique.html",
+    "Gurwinder Bhogal à nouveau, cette fois sur la politique."
+   ],
+   [
+    "essais/lamour-propre.html",
+    "Sortir de la comparaison par une estime lucide de soi."
+   ]
+  ],
+  "cover": "assets/img/intracogito-032-cover.jpg",
+  "cover_source": "Miniature/Capture d’écran 2026-09-29 à 16.33.10.png"
+ },
+ "033": {
+  "num": 33,
+  "title": "L'apprentissage",
+  "slug": "lapprentissage",
+  "date": "2026-03-01",
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/cd01127c-18a3-48f5-9142-a8bd75464401_6414x3696.jpeg",
+  "cover_caption": "Venice, Edward William Cooke (1851)",
+  "words": 434,
+  "reflexions": 4,
+  "authors": [
+   "Hermann Hesse",
+   "Thomas Szasz",
+   "Hormozi",
+   "Naval Ravikant"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur l’apprentissage , le processus d’acquisition de connaissances ou de compétences par l’expérience, l’étude ou la pratique.",
+  "related": [
+   [
+    "essais/le-savoir.html",
+    "Apprendre pour savoir : l'édition sur le savoir."
+   ],
+   [
+    "essais/levolution-personnelle.html",
+    "Hermann Hesse à nouveau, sur le chemin en spirale."
+   ],
+   [
+    "essais/lechec.html",
+    "On apprend surtout de ce qui échoue : l'édition sur l'échec."
+   ]
+  ],
+  "cover": "assets/img/intracogito-033-cover.jpg",
+  "credit": "Edward William Cooke, Venice (1851)"
+ },
+ "034": {
+  "num": 34,
+  "title": "La foi",
+  "slug": "la-foi",
+  "date": "2026-03-08",
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/b3e8cd48-35be-4c33-b130-a6b457e15fd9_1600x717",
+  "cover_caption": "La création d’Adam,  Michel Ange (1508)",
+  "words": 365,
+  "reflexions": 4,
+  "authors": [
+   "Harriet Beecher Stowe",
+   "Martin Luther King Jr",
+   "Fyodor Dostoevsky",
+   "Kahlil Gibran"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur la foi , cette force intérieure qui pousse à croire, avancer, espérer même en l’absence de preuves empiriques.",
+  "related": [
+   [
+    "essais/la-religion.html",
+    "La foi et le sacré : l'édition sur la religion."
+   ],
+   [
+    "essais/la-liberte.html",
+    "Dostoïevski à nouveau, sur la liberté."
+   ],
+   [
+    "essais/le-doute.html",
+    "La foi ne va pas sans le doute : l'édition qui en est le pendant."
+   ]
+  ],
+  "cover": "assets/img/intracogito-034-cover.jpg",
+  "credit": "Michel-Ange, La Création d’Adam (vers 1508-1512)"
+ },
+ "035": {
+  "num": 35,
+  "title": "La passivité",
+  "slug": "la-passivite-35",
+  "date": "2026-03-15",
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/8a32bd11-cc1a-4f80-af63-978365dabbb5_1200x630.png",
+  "cover_caption": "On the beach at Scheveningen, Edward William Cook (1839)",
+  "words": 454,
+  "reflexions": 5,
+  "authors": [
+   "James Clear",
+   "Léonard de Vinci",
+   "Norman Mailer",
+   "Dan Sullivan",
+   "Mark Manson"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur la passivité , cette attitude d’absence d’initiative ou d’action face à une situation qui pourrait en exiger une.",
+  "credit": "Edward William Cooke, On the Beach at Scheveningen (1839)",
+  "cover": "assets/img/intracogito-035-cover.jpg",
+  "related": [
+   [
+    "essais/la-passivite.html",
+    "L'autre édition sur la passivité, d'autres auteurs pour la même question de l'inaction."
+   ],
+   [
+    "essais/la-voie-par-defaut.html",
+    "Ne pas choisir, c'est laisser la voie par défaut choisir à sa place : l'essai Cogito sur ce mécanisme."
+   ],
+   [
+    "essais/le-courage.html",
+    "Le remède à l'inaction : la force de faire face plutôt que d'attendre."
+   ]
+  ]
+ },
+ "036": {
+  "num": 36,
+  "title": "Les émotions",
+  "slug": "les-emotions",
+  "date": "2026-03-22",
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/c4e92051-1dc0-4852-8a41-48ee7ce6b970_2400x1410.jpeg",
+  "cover_caption": "Un rêve d’Italie , Robert S. Duncanson (1865)",
+  "words": 341,
+  "reflexions": 4,
+  "authors": [
+   "Maya Angelou",
+   "Mark Manson",
+   "Chris Williamson",
+   "Naval Ravikant"
+  ],
+  "intro": "Cette semaine, Intracogito a franchi le cap symbolique des 1000 abonnés, 1000 personnes qui ont choisi de prendre le temps de réfléchir. Merci. 🙏",
+  "credit": "Robert S. Duncanson, Un rêve d’Italie (1865)",
+  "cover": "assets/img/intracogito-036-cover.jpg",
+  "related": [
+   [
+    "essais/la-vulnerabilite.html",
+    "Accueillir ce qu'on ressent suppose d'accepter d'être exposé : la vulnérabilité prolonge la question."
+   ],
+   [
+    "essais/le-renoncement.html",
+    "Mark Manson encore, cette fois sur ce qu'il faut accepter d'abandonner."
+   ],
+   [
+    "essais/lunite-du-corps-et-de-lesprit.html",
+    "Les émotions passent d'abord par le corps : l'essai Cogito sur ce que le corps dit de la pensée."
+   ]
+  ]
+ },
+ "037": {
+  "num": 37,
+  "title": "Les idéaux",
+  "slug": "les-ideaux",
+  "date": "2026-03-29",
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/310c572a-8c2b-4187-be18-5208a42f5328_1200x855.jpeg",
+  "cover_caption": "A Sunny day on a Norwegian Fjord , August Leu (1862)",
+  "words": 476,
+  "reflexions": 5,
+  "authors": [
+   "Theodore Roosevelt",
+   "James Clear",
+   "Jordan B. Peterson",
+   "William Shakespeare",
+   "Victor Hugo"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur les idéaux , souvent entendus comme des concepts, des modèles jugés parfaits, vers lesquels on tend.",
+  "credit": "August Leu, A Sunny Day on a Norwegian Fjord (1862)",
+  "cover": "assets/img/intracogito-037-cover.jpg",
+  "related": [
+   [
+    "essais/la-reussite.html",
+    "Ce qu'on vise et ce qu'on atteint : la réussite met les idéaux à l'épreuve du réel."
+   ],
+   [
+    "essais/levolution-personnelle.html",
+    "James Clear à nouveau, sur la friction qui sépare l'intention du changement réel."
+   ],
+   [
+    "essais/la-quete-de-notre-destinee.html",
+    "Tendre vers une ligne idéale par itérations : l'essai Cogito qui fait de l'idéal une méthode."
+   ]
+  ]
+ },
+ "038": {
+  "num": 38,
+  "title": "L'échec",
+  "slug": "lechec",
+  "date": "2026-04-05",
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/4618efbe-398b-4ec0-b599-852d64b39156_1600x1038.jpeg",
+  "cover_caption": "Le Bateau qui passe , Emile Claus (1883)",
+  "words": 368,
+  "reflexions": 4,
+  "authors": [
+   "Chris Williamson",
+   "Brianna Wiest",
+   "Mark Manson",
+   "Chris Williamson"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur l’échec , le fait de ne pas réussir, de ne pas obtenir ce que l’on visait.",
+  "credit": "Émile Claus, Le Bateau qui passe (1883)",
+  "cover": "assets/img/intracogito-038-cover.jpg",
+  "related": [
+   [
+    "essais/la-reussite.html",
+    "L'envers de l'échec : ce qu'on entend vraiment par réussir."
+   ],
+   [
+    "essais/levolution-personnelle.html",
+    "Brianna Wiest encore, sur la croissance lente et invisible qui suit les revers."
+   ],
+   [
+    "essais/la-matiere-premiere-du-heros.html",
+    "Donner un sens à la difficulté : l'essai Cogito sur la souffrance qu'on choisit."
+   ]
+  ]
+ },
+ "039": {
+  "num": 39,
+  "title": "L'intelligence",
+  "slug": "lintelligence",
+  "date": "2026-04-12",
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/22a8277f-fc3f-4b8b-b765-d93ebf5f0711_2048x1167.jpeg",
+  "cover_caption": "A wood line , Emile Friant (1863-1932)",
+  "words": 356,
+  "reflexions": 4,
+  "authors": [
+   "Naval Ravikant",
+   "Gurwinder",
+   "Jiddu Krishnamurti",
+   "Carl Jung"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur l’intelligence , entendu comme une qualité de l'esprit qui comprend et s'adapte facilement.",
+  "credit": "Émile Friant, A Wood Line",
+  "cover": "assets/img/intracogito-039-cover.jpg",
+  "related": [
+   [
+    "essais/les-emotions.html",
+    "L'intelligence ne se limite pas à la raison : ce que les émotions disent de nous."
+   ],
+   [
+    "essais/la-confiance.html",
+    "Naval Ravikant à nouveau, sur l'importance d'apprendre à se fier à son propre jugement."
+   ],
+   [
+    "essais/la-force-de-lintuition.html",
+    "Ce que la raison ne démontre pas, l'intuition le sait parfois : l'essai Cogito entre cœur et raison."
+   ]
+  ]
+ },
+ "040": {
+  "num": 40,
+  "title": "Le courage",
+  "slug": "le-courage",
+  "date": "2026-04-19",
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/4cfe63e3-1019-452c-a6ec-93676c6b4074_960x613.jpeg",
+  "cover_caption": "“Hallstätter See”, Josef Thoma (1899)",
+  "words": 356,
+  "reflexions": 4,
+  "authors": [
+   "Naval Ravikant",
+   "Susan David",
+   "Chris Williamson",
+   "Maya Angelou"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur le courage , la force morale de faire face à une épreuve ou à une peur pour mener une action jugée juste.",
+  "credit": "Josef Thoma, Hallstätter See (1899)",
+  "cover": "assets/img/intracogito-040-cover.jpg",
+  "related": [
+   [
+    "essais/la-peur.html",
+    "Le courage n'existe que face à la peur : l'édition qui en explore les ressorts."
+   ],
+   [
+    "essais/les-regrets.html",
+    "Susan David encore, sur ce que l'on regrette de ne pas avoir osé."
+   ],
+   [
+    "essais/la-voie-par-defaut.html",
+    "Le courage de penser par soi-même, développé dans un essai Cogito."
+   ]
+  ]
+ },
+ "041": {
+  "num": 41,
+  "title": "La religion",
+  "slug": "la-religion",
+  "date": "2026-04-26",
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/fa594c24-af44-4619-a0ba-e71048154792_900x452.jpeg",
+  "cover_caption": "Ultima Cena, De Vinci (1495)",
+  "words": 434,
+  "reflexions": 5,
+  "authors": [
+   "Søren Kierkegaard",
+   "Alan Watts",
+   "Alfred North Whitehead",
+   "Barbara Brown Taylor",
+   "Jordan B. Peterson"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur la religion , entendue comme un ensemble de croyances, de rites et de pratiques organisées autour d’un rapport au sacré ou à une réalité transcendante.",
+  "credit": "Léonard de Vinci, La Cène (1495-1498)",
+  "cover": "assets/img/intracogito-041-cover.jpg",
+  "related": [
+   [
+    "essais/les-mythes.html",
+    "Les récits sacrés et les mythes répondent aux mêmes besoins : l'édition voisine."
+   ],
+   [
+    "essais/le-sens.html",
+    "Jordan B. Peterson à nouveau, sur la quête de sens que la religion cherche à combler."
+   ],
+   [
+    "essais/la-verite-du-chemin.html",
+    "Une spiritualité sans dogme : ce que le bouddhisme enseigne du chemin, dans un essai Cogito."
+   ]
+  ]
+ },
+ "042": {
+  "num": 42,
+  "title": "Les regrets",
+  "slug": "les-regrets",
+  "date": "2026-05-03",
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/506caa10-d50d-4774-aa2c-7c7c872fa83b_848x565.jpeg",
+  "cover_caption": "Gloucester Harbor at Sunrise, Fitz Henry Lane (1851)",
+  "words": 402,
+  "reflexions": 4,
+  "authors": [
+   "Anonyme",
+   "Mark Manson",
+   "Ray Dalio",
+   "Susan David"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur les regrets , les sentiments de tristesse liés à des choix passés jugés défavorables.",
+  "credit": "Fitz Henry Lane, Gloucester Harbor at Sunrise (1851)",
+  "cover": "assets/img/intracogito-042-cover.jpg",
+  "related": [
+   [
+    "essais/lechec.html",
+    "Ce qui a échoué et ce qu'on n'a pas tenté : l'échec éclaire la nature du regret."
+   ],
+   [
+    "essais/le-courage.html",
+    "Susan David encore, sur le courage d'agir malgré l'inconfort."
+   ],
+   [
+    "essais/la-mort.html",
+    "Les regrets prennent tout leur poids à l'horizon de notre finitude."
+   ]
+  ]
+ },
+ "043": {
+  "num": 43,
+  "title": "Les mythes",
+  "slug": "les-mythes",
+  "date": "2026-05-10",
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/1767543e-7d73-4dd8-bf1f-b075a82b32af_1600x943.jpeg",
+  "cover_caption": "The Last of the Buffalo, Albert Bierstadt, (1888)",
+  "words": 357,
+  "reflexions": 4,
+  "authors": [
+   "G.K. Chesterton",
+   "Joseph Campbell",
+   "Nassim Nicholas Taleb",
+   "Neil Gaiman"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur les mythes , des récits hautement symboliques visant à exprimer des vérités culturelles ou existentielles.",
+  "credit": "Albert Bierstadt, The Last of the Buffalo (1888)",
+  "cover": "assets/img/intracogito-043-cover.jpg",
+  "related": [
+   [
+    "essais/la-religion.html",
+    "Les mythes et le sacré se répondent : l'édition sur la religion prolonge la réflexion."
+   ],
+   [
+    "essais/lheritage.html",
+    "G. K. Chesterton à nouveau, sur la clôture qu'on ne détruit pas sans comprendre."
+   ],
+   [
+    "essais/le-sens.html",
+    "Joseph Campbell encore, sur le sens que les récits donnent à une vie."
+   ]
+  ]
+ },
+ "044": {
+  "num": 44,
+  "title": "La routine",
+  "slug": "la-routine",
+  "date": "2026-05-17",
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/997e2e73-4b6d-4aca-bcf5-fa0f1c18a6e8_3514x2139.jpeg",
+  "cover_caption": "Le matin , Caspar David Friedrich (1822)",
+  "words": 410,
+  "reflexions": 4,
+  "authors": [
+   "James Clear",
+   "Chris Williamson",
+   "Hormozi",
+   "Sahil Bloom"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur la routine , nos habitudes de penser ou d'agir selon des schémas plus ou moins conscients.",
+  "credit": "Caspar David Friedrich, Le Matin (1822)",
+  "cover": "assets/img/intracogito-044-cover.jpg",
+  "related": [
+   [
+    "essais/levolution-personnelle.html",
+    "James Clear à nouveau, sur la friction qui transforme une décision en habitude."
+   ],
+   [
+    "essais/la-reussite.html",
+    "Sahil Bloom encore, sur ce que la réussite doit à la constance."
+   ],
+   [
+    "essais/les-transformations-silencieuses.html",
+    "Ce qui change sans qu'on le voie : l'essai Cogito sur la force des petites répétitions."
+   ]
+  ]
+ },
+ "045": {
+  "num": 45,
+  "title": "Le sens",
+  "slug": "le-sens",
+  "date": "2026-05-24",
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/c4177340-5912-443f-a7b7-d71619e01171_2750x1486.jpeg",
+  "cover_caption": "The Falls of St. Anthony, Albert Bierstadt (1880)",
+  "words": 343,
+  "reflexions": 4,
+  "authors": [
+   "Viktor Frankl",
+   "Joseph Campbell",
+   "Naval Ravikant",
+   "Jordan B. Peterson"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur le sens , la signification ou la perspective donnée à une expérience, une action ou une vie.",
+  "credit": "Albert Bierstadt, The Falls of St. Anthony (1880)",
+  "cover": "assets/img/intracogito-045-cover.jpg",
+  "related": [
+   [
+    "essais/la-quete-de-notre-destinee.html",
+    "Sens et identité se construisent ensemble : l'essai Cogito sur la direction qu'on donne à sa vie."
+   ],
+   [
+    "essais/la-matiere-premiere-du-heros.html",
+    "Viktor Frankl au cœur d'un essai Cogito : le pourquoi qui rend le comment supportable."
+   ],
+   [
+    "essais/la-mort.html",
+    "La finitude comme ce qui donne du poids au sens."
+   ]
+  ]
+ },
+ "046": {
+  "num": 46,
+  "title": "Le progrès",
+  "slug": "le-progres",
+  "date": "2026-05-31",
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/f6867c5d-a478-4136-b828-1532dd67be60_2362x1443.jpeg",
+  "cover_caption": "Les Âges de la vie, Caspar David Friedrich (1834)",
+  "words": 317,
+  "reflexions": 4,
+  "authors": [
+   "Sahil Bloom",
+   "G.K. Chesterton",
+   "C.S. Lewis",
+   "Edward Abbey"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur le progrès , en tant que transformation jugée positive d’une situation vers un objectif plus avancé.",
+  "credit": "Caspar David Friedrich, Les Âges de la vie (1834)",
+  "cover": "assets/img/intracogito-046-cover.jpg",
+  "related": [
+   [
+    "essais/levolution-personnelle.html",
+    "Le progrès à l'échelle d'une vie : la spirale de l'évolution personnelle."
+   ],
+   [
+    "essais/les-mythes.html",
+    "G. K. Chesterton encore, sur ce que les récits anciens savent de notre époque."
+   ],
+   [
+    "essais/lheritage.html",
+    "Ce que le progrès doit au passé : l'édition sur l'héritage."
+   ]
+  ]
+ },
+ "047": {
+  "num": 47,
+  "title": "L'art",
+  "slug": "lart",
+  "date": "2026-06-07",
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/fd508ec4-2642-4bce-bcb0-7180ac0f68dc_1300x590.webp",
+  "cover_caption": "Guernica, Pablo Picasso (1937)",
+  "words": 389,
+  "reflexions": 4,
+  "authors": [
+   "Robert Henri",
+   "André Gide",
+   "Ellen Key",
+   "Léonard de Vinci"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur l’art en tant qu’ensemble de moyens, de procédés conscients par lesquels l'homme tend à une certaine fin, souvent une création esthétique.",
+  "credit": "Johannes Vermeer, L’Art de la peinture (vers 1666-1668)",
+  "cover": "assets/img/intracogito-047-cover.jpg",
+  "related": [
+   [
+    "essais/lattention.html",
+    "Créer commence par savoir regarder : l'attention comme condition de l'œuvre."
+   ],
+   [
+    "essais/la-passivite-35.html",
+    "Léonard de Vinci à nouveau, cette fois sur l'inaction qui affaiblit l'esprit."
+   ],
+   [
+    "essais/la-routine.html",
+    "L'œuvre se construit dans la régularité : l'édition sur la routine."
+   ]
+  ]
+ },
+ "048": {
+  "num": 48,
+  "title": "La réussite",
+  "slug": "la-reussite",
+  "date": "2026-06-14",
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/113a3e81-8e6d-479a-ab59-c7d3a5f20b72_2536x1314.jpeg",
+  "cover_caption": "The Temple of Juno in Agrigento , Caspar David Friedrich (1829)",
+  "words": 464,
+  "reflexions": 5,
+  "authors": [
+   "Oscar Wilde",
+   "Sahil Bloom",
+   "Naval Ravikant",
+   "Eugène Ionesco",
+   "Sahil Bloom"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur la réussite , définie comme le fait d’aboutir au résultat escompté, d’atteindre le but recherché, qu’il soit personnel, professionnel ou intérieur.",
+  "credit": "Caspar David Friedrich, The Temple of Juno in Agrigento (1829)",
+  "cover": "assets/img/intracogito-048-cover.jpg",
+  "related": [
+   [
+    "essais/lechec.html",
+    "L'envers de la réussite : ce que l'échec enseigne."
+   ],
+   [
+    "essais/la-routine.html",
+    "Sahil Bloom à nouveau, sur les habitudes qui rendent la réussite possible."
+   ],
+   [
+    "essais/lambition.html",
+    "Ce qui pousse à viser plus haut, et les pièges de cette poussée."
+   ]
+  ]
+ },
+ "049": {
+  "num": 49,
+  "title": "L'amour",
+  "slug": "lamour",
+  "date": "2026-06-21",
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/d9791275-32e1-429a-b023-81a782b99403_1259x681.jpeg",
+  "cover_caption": "Mt Ktaadn , Edwin Church (1853°",
+  "words": 370,
+  "reflexions": 4,
+  "authors": [
+   "Sahil Bloom",
+   "Charles Baudelaire",
+   "Naval Ravikant",
+   "Antoine de Saint-Exupéry"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur l’amour, ce principe d’union universelle auquel chacun aspire dans ses relations personnelles.",
+  "credit": "Frederic Edwin Church, Mount Ktaadn (1853)",
+  "cover": "assets/img/intracogito-049-cover.jpg",
+  "related": [
+   [
+    "essais/les-relations.html",
+    "L'amour au quotidien : ce qui renforce ou fragilise nos liens."
+   ],
+   [
+    "essais/lambition.html",
+    "Antoine de Saint-Exupéry à nouveau, sur ce qui fait grandir l'homme."
+   ],
+   [
+    "essais/la-vulnerabilite.html",
+    "Aimer, c'est accepter d'être exposé : l'édition sur la vulnérabilité."
+   ]
+  ]
+ },
+ "052": {
+  "num": 52,
+  "title": "La mort",
+  "slug": "la-mort",
+  "date": "2026-07-12",
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/1386f67c-58bb-4d61-8420-d64e3b4ff788_2000x958.jpeg",
+  "cover_caption": "Big Springs in Yellowstone Park , Thomas Moran (1872)",
+  "words": 311,
+  "reflexions": 4,
+  "authors": [
+   "Montaigne",
+   "Martin Heidegger",
+   "Norman Cousins",
+   "Albert Camus"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur la mort, la cessation de la vie humaine et ce qu’elle implique.",
+  "credit": "Thomas Moran, Big Springs in Yellowstone Park (1872)",
+  "cover": "assets/img/intracogito-052-cover.jpg",
+  "related": [
+   [
+    "essais/lheritage.html",
+    "Ce qui reste après nous : l'héritage comme réponse à la finitude."
+   ],
+   [
+    "essais/la-peur.html",
+    "Montaigne à nouveau, sur la peur et ce qu'elle nous fait perdre."
+   ],
+   [
+    "essais/le-sens.html",
+    "La mort donne son poids au sens qu'on donne à sa vie."
+   ]
+  ]
+ },
+ "053": {
+  "num": 53,
+  "title": "La vulnérabilité",
+  "slug": "la-vulnerabilite",
+  "date": "2026-07-05",
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/8afbade1-6e82-400b-859d-3119ad89241f_1320x762.jpeg",
+  "cover_caption": "Cotopaxi , Frederic Edwin Church (1855)",
+  "words": 348,
+  "reflexions": 4,
+  "authors": [
+   "Mark Manson",
+   "John O’Donohue",
+   "Montaigne",
+   "Simone Weil"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur la vulnérabilité, entendue comme ce qui est exposé à la douleur et peut être attaqué, atteint facilement.",
+  "credit": "Frederic Edwin Church, Cotopaxi (1855)",
+  "cover": "assets/img/intracogito-053-cover.jpg",
+  "related": [
+   [
+    "essais/les-emotions.html",
+    "Être vulnérable, c'est d'abord accueillir ce qu'on ressent : l'édition sur les émotions."
+   ],
+   [
+    "essais/lattention.html",
+    "Simone Weil à nouveau, sur l'attention comme forme la plus pure de générosité."
+   ],
+   [
+    "essais/lamour.html",
+    "Aimer suppose de s'exposer : la vulnérabilité au cœur de l'amour."
+   ]
+  ]
+ },
+ "054": {
+  "num": 54,
+  "title": "La passivité",
+  "slug": "la-passivite",
+  "date": "2026-07-19",
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/885dc944-1447-4322-9c89-65a1e93522a5_4096x1861.jpeg",
+  "cover_caption": "Sunlight and Shadow: The Newbury Marshes , Martin Johnson Heade (1871)",
+  "words": 403,
+  "reflexions": 4,
+  "authors": [
+   "Sahil Bloom",
+   "Machiavel",
+   "Albert Einstein",
+   "Peter Drucker"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur la passivité, entendue comme le caractère d'une personne qui n'agit pas ou qui ne réagit pas.",
+  "credit": "Martin Johnson Heade, Sunlight and Shadow: The Newbury Marshes (1871)",
+  "cover": "assets/img/intracogito-054-cover.jpg",
+  "related": [
+   [
+    "essais/la-passivite-35.html",
+    "La première édition sur la passivité, avec d'autres auteurs et un autre angle."
+   ],
+   [
+    "essais/les-priorites.html",
+    "Peter Drucker à nouveau, sur l'efficacité appliquée à ce qui ne devrait pas être fait."
+   ],
+   [
+    "essais/la-compromission.html",
+    "Le consentement silencieux : quand la passivité devient complicité."
+   ]
+  ]
+ },
+ "055": {
+  "num": 55,
+  "title": "Le désir",
+  "slug": "le-desir",
+  "date": "2026-07-26",
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/b06a4de5-b5c8-4555-8452-0b001120bfd6_1600x986.jpeg",
+  "cover_caption": "Dream of Arcadia , Thomas Cole (1838)",
+  "words": 430,
+  "reflexions": 5,
+  "authors": [
+   "Intracogito",
+   "Naval Ravikant",
+   "René Girard",
+   "Schopenhauer",
+   "Intracogito"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur le désir, cette aspiration profonde de l'homme vers quelque chose qui répond à une attente.",
+  "credit": "Thomas Cole, Dream of Arcadia (1838)",
+  "cover": "assets/img/intracogito-055-cover.jpg",
+  "related": [
+   [
+    "essais/la-verite-du-chemin.html",
+    "Le désir comme source de souffrance, lu à travers le bouddhisme dans un essai Cogito."
+   ],
+   [
+    "essais/les-priorites.html",
+    "Naval Ravikant à nouveau : ne vouloir qu'une chose pour l'obtenir."
+   ],
+   [
+    "essais/lamour.html",
+    "Le désir tourné vers l'autre : l'édition sur l'amour."
+   ]
+  ]
+ },
+ "056": {
+  "num": 56,
+  "title": "La peur",
+  "slug": "la-peur",
+  "date": "2026-08-02",
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/2a0e031a-96e9-4e34-bf55-ceb1d71726d6_1200x630.webp",
+  "cover_caption": "“Blick auf Konstanz” by Karl Weysser",
+  "words": 388,
+  "reflexions": 4,
+  "authors": [
+   "H. P. Lovecraft",
+   "Tim Ferriss",
+   "Robert Heller",
+   "Michel de Montaigne"
+  ],
+  "intro": "✹ L’édition d’aujourd’hui d’Intracogito propose des réflexions sur la peur, ce sentiment d'angoisse universelle éprouvé en présence ou à la pensée d'un danger, réel ou supposé.",
+  "credit": "Karl Weysser, Blick auf Konstanz",
+  "cover": "assets/img/intracogito-056-cover.jpg",
+  "related": [
+   [
+    "essais/le-courage.html",
+    "Le courage n'existe que face à la peur : l'édition qui en est le pendant."
+   ],
+   [
+    "essais/la-mort.html",
+    "Montaigne encore, sur la peur ultime et l'art de l'apprivoiser."
+   ],
+   [
+    "essais/la-vulnerabilite.html",
+    "Avoir peur, c'est se savoir atteignable : l'édition sur la vulnérabilité."
+   ]
+  ]
+ },
+ "057": {
+  "title": "La compromission",
+  "slug": "la-compromission",
+  "date": "2026-08-09",
+  "words": 417,
+  "credit": "Camille Pissarro, The Seine at Bougival",
+  "authors": [
+   "Étienne de La Boétie",
+   "Upton Sinclair",
+   "Henry David Thoreau",
+   "Nathaniel Hawthorne"
+  ],
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/c0ef2d53-4ef6-4a39-ba71-c2484c0af48b_1200x630.webp",
+  "related": [
+   [
+    "essais/la-voie-par-defaut.html",
+    "Le conformisme qui fait tenir l'injustice, développé en essai long, de La Boétie au procès Eichmann."
+   ],
+   [
+    "essais/la-coherence.html",
+    "Le masque de Hawthorne a son envers : une vie où l'on travaille l'écart entre ce qu'on montre et ce qu'on est."
+   ],
+   [
+    "essais/lheritage.html",
+    "Remplir sa mission ou la trahir : la compromission vue à l'échelle d'une génération."
+   ]
+  ],
+  "num": 57,
+  "cover": "assets/img/intracogito-057-cover.jpg"
+ },
+ "058": {
+  "title": "La confiance",
+  "slug": "la-confiance",
+  "date": "2026-08-16",
+  "words": 379,
+  "credit": "Thomas Cole, Italian Landscape (1840)",
+  "authors": [
+   "Frances Anne Kemble",
+   "Miguel de Cervantes",
+   "Naval Ravikant",
+   "Kevin Plank"
+  ],
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/99c76c8b-156f-4d5a-a82d-6dc3ddd41797_4096x2352.jpeg",
+  "related": [
+   [
+    "essais/les-relations.html",
+    "La confiance mise à l'épreuve des liens : ceux qui nous grandissent et ceux qui durent par habitude."
+   ],
+   [
+    "essais/les-priorites.html",
+    "Une autre édition construite autour de Naval Ravikant, cette fois sur ce qu'il faut accepter de lâcher."
+   ],
+   [
+    "essais/la-force-de-lintuition.html",
+    "Faire d'abord confiance à son propre jugement : l'essai Cogito sur la voix intérieure."
+   ]
+  ],
+  "num": 58,
+  "cover": "assets/img/intracogito-058-cover.jpg"
+ },
+ "059": {
+  "title": "L'évolution personnelle",
+  "slug": "levolution-personnelle",
+  "date": "2026-08-23",
+  "words": 413,
+  "credit": "Fitz Henry Lane, View of Camden Mountains from Penobscot Bay",
+  "authors": [
+   "Hermann Hesse",
+   "Brianna Wiest",
+   "James Clear",
+   "Carl Jung"
+  ],
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/a77d3e23-877c-4892-9328-f06c53ad8094_1280x840.jpeg",
+  "related": [
+   [
+    "essais/les-transformations-silencieuses.html",
+    "La croissance invisible de l'extérieur, approfondie dans un essai sur ce qui change sans qu'on le voie."
+   ],
+   [
+    "essais/la-quete-de-notre-destinee.html",
+    "La spirale de Hesse rejoint l'idée d'une identité construite par itérations successives."
+   ],
+   [
+    "essais/lambition.html",
+    "Après la transformation, la flamme qui la nourrit : l'ambition et ses pièges."
+   ]
+  ],
+  "num": 59,
+  "cover": "assets/img/intracogito-059-cover.jpg"
+ },
+ "060": {
+  "title": "Les priorités",
+  "slug": "les-priorites",
+  "date": "2026-08-30",
+  "words": 484,
+  "credit": "Johan Edvard Bergh, Fishing Village in Bohuslän",
+  "authors": [
+   "Naval Ravikant",
+   "Goethe",
+   "Stephen Covey",
+   "Peter Drucker",
+   "Zig Ziglar"
+  ],
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/ec157dbe-96d3-4fe6-baa1-040dfd37c1f2_1200x630.webp",
+  "related": [
+   [
+    "essais/le-renoncement.html",
+    "Choisir une priorité, c'est renoncer au reste : l'autre face de la même question."
+   ],
+   [
+    "essais/la-confiance.html",
+    "Naval Ravikant encore, sur l'ordre dans lequel accorder sa confiance."
+   ],
+   [
+    "essais/lattention.html",
+    "L'urgent contre l'important se joue d'abord dans ce qu'on fait de son attention."
+   ]
+  ],
+  "num": 60,
+  "cover": "assets/img/intracogito-060-cover.jpg"
+ },
+ "061": {
+  "title": "L'ambition",
+  "slug": "lambition",
+  "date": "2026-09-06",
+  "words": 392,
+  "credit": "Théodore Gudin, Stormy Seas by a Chalk Coast",
+  "authors": [
+   "Rûmî",
+   "Intracogito",
+   "Intracogito",
+   "Antoine de Saint-Exupéry"
+  ],
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/9363fd07-c952-4fcf-8228-9acefbdc80da_1200x630.webp",
+  "related": [
+   [
+    "essais/levolution-personnelle.html",
+    "L'ambition au quotidien rejoint la progression lente et invisible de l'évolution personnelle."
+   ],
+   [
+    "essais/la-matiere-premiere-du-heros.html",
+    "Grandir en se mesurant à plus grand que soi : l'essai Cogito sur la souffrance choisie."
+   ],
+   [
+    "essais/la-paix-interieure.html",
+    "Le contrepoint : optimiser pour son système nerveux plutôt que pour le succès."
+   ]
+  ],
+  "num": 61,
+  "cover": "assets/img/intracogito-061-cover.jpg"
+ },
+ "062": {
+  "title": "La paix intérieure",
+  "slug": "la-paix-interieure",
+  "date": "2026-09-13",
+  "words": 342,
+  "credit": "Gottfried Seelos, Fischer an der dalmatinischen Küste",
+  "authors": [
+   "Matthew Hussey",
+   "Intracogito",
+   "Albert Einstein"
+  ],
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/739b7cd8-5170-4037-b1e5-90ee05f56b23_1200x630.jpeg",
+  "related": [
+   [
+    "essais/lattention.html",
+    "La paix commence par ce qu'on laisse entrer : l'attention comme ressource à protéger."
+   ],
+   [
+    "essais/la-verite-du-chemin.html",
+    "L'ancrage dans la tempête, vu par le bouddhisme dans un essai Cogito."
+   ],
+   [
+    "essais/lambition.html",
+    "L'élan inverse : ce que l'ambition demande, et ce qu'elle peut coûter."
+   ]
+  ],
+  "num": 62,
+  "cover": "assets/img/intracogito-062-cover.jpg"
+ },
+ "063": {
+  "title": "L'attention",
+  "slug": "lattention",
+  "date": "2026-09-20",
+  "words": 393,
+  "credit": "Michael Zeno Diemer, Tall Ship Off Crete",
+  "authors": [
+   "Simone Weil",
+   "Cal Newport",
+   "Intracogito",
+   "David Foster Wallace"
+  ],
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/3057e41b-b7e1-4cd8-8568-07c99c3bd397_1456x762.png",
+  "related": [
+   [
+    "essais/les-priorites.html",
+    "Où va l'attention, vont les priorités : l'urgent contre l'important."
+   ],
+   [
+    "essais/les-transformations-silencieuses.html",
+    "La dette d'inattention s'accumule en silence, comme les transformations qu'on ne voit pas venir."
+   ],
+   [
+    "essais/la-paix-interieure.html",
+    "Rester seul avec soi sans distraction : un chemin vers la paix intérieure."
+   ]
+  ],
+  "num": 63,
+  "cover": "assets/img/intracogito-063-cover.jpg"
+ },
+ "064": {
+  "title": "Les relations",
+  "slug": "les-relations",
+  "date": "2026-09-27",
+  "words": 384,
+  "credit": "Thomas Cole, The Course of Empire: The Consummation of Empire (1836)",
+  "authors": [
+   "William Shakespeare",
+   "Naval Ravikant",
+   "Rainer Maria Rilke",
+   "Ernest Hemingway"
+  ],
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/b7d3aa72-9773-4a05-a283-acac1d27c592_1600x940.jpeg",
+  "related": [
+   [
+    "essais/la-confiance.html",
+    "Faire confiance pour rendre digne de confiance : la confiance prise pour elle-même."
+   ],
+   [
+    "essais/la-coherence.html",
+    "Naval Ravikant à nouveau, sur ce qui rend une parole crédible dans la durée."
+   ],
+   [
+    "essais/lheritage.html",
+    "Ce qui reste des liens : ce qu'on tisse dans la vie des autres."
+   ]
+  ],
+  "num": 64,
+  "cover": "assets/img/intracogito-064-cover.jpg"
+ },
+ "065": {
+  "title": "La cohérence",
+  "slug": "la-coherence",
+  "date": "2026-10-04",
+  "words": 490,
+  "credit": "François Antoine Léon Fleury, On the Bay of Naples",
+  "authors": [
+   "Edward R. Murrow",
+   "Naval Ravikant",
+   "Intracogito",
+   "Ralph Waldo Emerson",
+   "Ralph Waldo Emerson"
+  ],
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/66611e05-6e91-4bb5-bbdd-5dd52bbe9f06_1200x630.webp",
+  "related": [
+   [
+    "essais/la-confiance.html",
+    "Être cohérent pour être digne de confiance : l'édition sur la confiance prolonge Murrow."
+   ],
+   [
+    "essais/les-relations.html",
+    "Naval Ravikant encore, cette fois sur l'énergie que les autres ajoutent ou retirent."
+   ],
+   [
+    "essais/le-poids-de-lidentite.html",
+    "Des principes plutôt que des positions : l'essai Cogito sur ce à quoi l'on s'identifie."
+   ]
+  ],
+  "num": 65,
+  "cover": "assets/img/intracogito-065-cover.jpg"
+ },
+ "066": {
+  "title": "L'héritage",
+  "slug": "lheritage",
+  "date": "2026-10-11",
+  "words": 352,
+  "credit": "Sanford Robinson Gifford, Ruins of the Parthenon (1880)",
+  "cover": "assets/img/intracogito-66-cover.jpg",
+  "authors": [
+   "Hannah Arendt",
+   "G. K. Chesterton",
+   "Frantz Fanon",
+   "Périclès"
+  ],
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/b9298d5b-7424-4400-b34c-e8706ec3897f_1200x627.jpeg",
+  "related": [
+   [
+    "essais/les-relations.html",
+    "Ce qui est tissé dans la vie des autres commence par les liens qu'on entretient aujourd'hui."
+   ],
+   [
+    "essais/la-quete-de-notre-destinee.html",
+    "Découvrir sa mission : l'essai Cogito sur la direction qu'on donne à sa vie."
+   ],
+   [
+    "essais/la-compromission.html",
+    "Remplir sa mission ou la trahir : ce que coûte le consentement silencieux."
+   ]
+  ],
+  "num": 66,
+  "description": "Édition Intracogito sur l'héritage : quatre citations commentées, d'Hannah Arendt à Périclès, sur ce que l'on doit à ceux qui nous précèdent et laisse à ceux qui nous suivent."
+ },
+ "067": {
+  "title": "Le renoncement",
+  "slug": "le-renoncement",
+  "date": "2026-10-18",
+  "words": 302,
+  "credit": "Alfred Thompson Bricher, Winter in Maine",
+  "authors": [
+   "Mark Manson",
+   "Joseph Campbell",
+   "Intracogito"
+  ],
+  "substack_cover_url": "https://substack-post-media.s3.amazonaws.com/public/images/9b93861e-5fc3-47b6-bb0c-77598c1ea0fe_1200x630.webp",
+  "related": [
+   [
+    "essais/les-priorites.html",
+    "Renoncer, c'est choisir : l'édition sur les priorités en est le pendant."
+   ],
+   [
+    "essais/la-voie-par-defaut.html",
+    "Le plan A hérité des autres, développé dans l'essai Cogito sur la voie par défaut."
+   ],
+   [
+    "essais/lambition.html",
+    "Ce qu'on garde une fois le superflu abandonné : l'ambition et ses vraies questions."
+   ]
+  ],
+  "num": 67,
+  "cover": "assets/img/intracogito-067-cover.jpg"
+ }
+}

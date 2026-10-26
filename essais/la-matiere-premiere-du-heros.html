@@ -61,13 +61,16 @@
 <header class="topbar on-hero">
   <div class="wrap topbar-inner">
     <div class="topbar-left">
-      <button class="menu-trigger" onclick="toggleMenu()" aria-label="Ouvrir le menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
-        <span class="lbl">Menu</span>
-      </button>
-      <button class="search-trigger" aria-label="Rechercher">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      </button>
+      <div class="topbar-actions">
+        <button class="menu-trigger" onclick="toggleMenu()" aria-label="Ouvrir le menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+          <span class="lbl">Menu</span>
+        </button>
+        <span class="topbar-sep" aria-hidden="true">/</span>
+        <button class="search-trigger" aria-label="Rechercher">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+      </div>
       <div class="topbar-social">
         <a href="https://elouannoel.substack.com/" target="_blank" rel="noopener" aria-label="Substack">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16v2.3H4V4zm0 5.1h16v2.3H4V9.1zM4 14.2h16V22l-8-4.3L4 22V14.2z"/></svg>
@@ -83,7 +86,10 @@
         </a>
       </div>
     </div>
-    <a href="../index.html" class="topbar-logo">Intracogito</a>
+    <a href="../index.html" class="topbar-logo" aria-label="Intracogito, accueil">
+      <img class="logo-dark" src="../assets/img/logo-intracogito.png" alt="Intracogito" width="1200" height="151" />
+      <img class="logo-light" src="../assets/img/logo-intracogito-light.png" alt="" aria-hidden="true" width="1200" height="151" />
+    </a>
     <div class="topbar-right">
       <a href="https://elouannoel.substack.com/" target="_blank" rel="noopener">Newsletter</a>
     </div>
@@ -111,51 +117,11 @@
     </div>
     <nav class="wrap menu-body" aria-label="Menu principal">
       <div class="menu-topics">
-        <a href="../philosophes.html" class="menu-topic t1">Philosophes</a>
-        <a href="../concepts.html" class="menu-topic t2">Concepts</a>
-        <a href="../comparatifs.html" class="menu-topic t3">Comparatifs</a>
-        <a href="../cogito.html" class="menu-topic t4">Cogito</a>
-        <a href="../intracogito.html" class="menu-topic t5">Intracogito</a>
-      </div>
-      <div class="menu-links">
-        <div class="menu-group">
-          <h4>Essais</h4>
-          <ul>
-            <li><a href="../essais.html">Tous les essais</a></li>
-            <li><a href="../cogito.html">Cogito</a></li>
-            <li><a href="../intracogito.html">Intracogito</a></li>
-            <li><a href="../philosophes.html">Philosophes</a></li>
-            <li><a href="../concepts.html">Concepts</a></li>
-            <li><a href="../comparatifs.html">Comparatifs</a></li>
-          </ul>
-        </div>
-        <div class="menu-group">
-          <h4>Mon Étagère</h4>
-          <ul>
-            <li><a href="../shelf.html">Les livres que je recommande</a></li>
-          </ul>
-        </div>
-        <div class="menu-group">
-          <h4>À propos</h4>
-          <ul>
-            <li><a href="../index.html#a-propos">Qui je suis</a></li>
-            <li><a href="https://elouannoel.substack.com/" target="_blank" rel="noopener">Newsletter</a></li>
-            <li><a href="mailto:elouan.noel@gmail.com">Contact</a></li>
-          </ul>
-        </div>
-        <div class="menu-group archive">
-          <h4>Ancien site (archive)</h4>
-          <ul>
-            <li><a href="../ancien-site.html#hero">Accueil</a></li>
-            <li><a href="../ancien-site.html#newsletter">Newsletter</a></li>
-            <li><a href="../ancien-site.html#essais">Essais (Cogito)</a></li>
-            <li><a href="../ancien-site.html#a-venir">À venir (jeu)</a></li>
-            <li><a href="../ancien-site.html#reseaux">Réseaux</a></li>
-            <li><a href="../ancien-site.html#statistiques">Statistiques</a></li>
-            <li><a href="../ancien-site.html#citations">Citations</a></li>
-            <li><a href="../ancien-site.html#contact">Contact</a></li>
-          </ul>
-        </div>
+        <a href="../intracogito.html" class="menu-topic t1">Intracogito</a>
+        <a href="../cogito.html" class="menu-topic t2">Cogito</a>
+        <a href="../philosophes.html" class="menu-topic t3">Philosophes</a>
+        <a href="../concepts.html" class="menu-topic t4">Concepts</a>
+        <a href="../comparatifs.html" class="menu-topic t5">Comparatifs</a>
       </div>
     </nav>
   </div>
@@ -299,48 +265,26 @@
 
 </main>
 <footer id="a-propos">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div class="footer-nl">
-        <h3>Intracogito</h3>
-        <p>Texte</p>
-        <form class="footer-nl-form" onsubmit="event.preventDefault(); window.open('https://elouannoel.substack.com/','_blank');">
-          <input type="email" placeholder="ton@email.com" required />
-          <button type="submit">S'abonner</button>
-        </form>
+  <div class="wrap footer-band">
+    <span class="footer-copy">© 2026 Intracogito</span>
+    <div class="footer-mid">
+      <div class="footer-social">
+        <a href="https://elouannoel.substack.com/" target="_blank" rel="noopener" aria-label="Substack">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16v2.3H4V4zm0 5.1h16v2.3H4V9.1zM4 14.2h16V22l-8-4.3L4 22V14.2z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/intracogito_fr/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@intracogito_fr" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1-.07z"/></svg>
+        </a>
+        <a href="https://www.threads.com/@intracogito_fr" target="_blank" rel="noopener" aria-label="Threads">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M13 3c-4 0-6.5 2.8-6.5 7.3v3.4c0 4.5 2.5 7.3 6.2 7.3 3.1 0 5.1-1.6 5.1-4.1 0-2-1.3-3.2-3.5-3.5l-2-.3c-1.1-.15-1.7-.6-1.7-1.3 0-.8.8-1.3 2-1.3 1.3 0 2.1.6 2.3 1.6l2.3-.4C16.8 9.6 15.2 8 12.9 8c-2.4 0-4 1.4-4 3.4 0 1.7 1.1 2.8 3.3 3.1l2 .3c1.2.2 1.7.6 1.7 1.3 0 .9-.9 1.5-2.3 1.5-1.8 0-2.9-.9-3.1-2.3"/></svg>
+        </a>
       </div>
-      <div class="footer-col">
-        <h4>Explorer</h4>
-        <ul>
-          <li><a href="../essais.html">Essais</a></li>
-          <li><a href="../cogito.html">Cogito</a></li>
-          <li><a href="../intracogito.html">Intracogito</a></li>
-          <li><a href="../philosophes.html">Philosophes</a></li>
-          <li><a href="../concepts.html">Concepts</a></li>
-          <li><a href="../comparatifs.html">Comparatifs</a></li>
-          <li><a href="../shelf.html">Mon Étagère</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Réseaux</h4>
-        <ul>
-          <li><a href="https://elouannoel.substack.com/" target="_blank" rel="noopener">Substack</a></li>
-          <li><a href="https://www.instagram.com/intracogito_fr/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://www.tiktok.com/@intracogito_fr" target="_blank" rel="noopener">TikTok</a></li>
-          <li><a href="https://www.threads.com/@intracogito_fr" target="_blank" rel="noopener">Threads</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="mailto:elouan.noel@gmail.com">elouan.noel@gmail.com</a></li>
-        </ul>
-      </div>
+      <a class="footer-mail" href="mailto:elouan.noel@gmail.com">elouan.noel@gmail.com</a>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Intracogito</span>
-      <span><a href="../mentions-legales.html">Mentions légales &amp; confidentialité</a></span>
-    </div>
+    <a class="footer-legal" href="../mentions-legales.html">Mentions légales</a>
   </div>
 </footer>
 <script>

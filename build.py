@@ -4,7 +4,7 @@
 à partir de fragments partagés, avec balises SEO completes par page.
 """
 import os
-import json
+import json, re
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 BASE_URL = "https://intracogito.vercel.app"
@@ -54,7 +54,51 @@ IMG_DIMENSIONS = {
 
 def img_wh(path):
     dims = IMG_DIMENSIONS.get(path)
+    if not dims and not path.startswith("http") and os.path.exists(os.path.join(ROOT, path)):
+        try:  # dimensions lues dans le fichier si absentes de IMG_DIMENSIONS
+            from PIL import Image
+            with Image.open(os.path.join(ROOT, path)) as _im:
+                dims = IMG_DIMENSIONS[path] = _im.size
+        except Exception:
+            pass
     return f' width="{dims[0]}" height="{dims[1]}"' if dims else ""
+
+def img_src(path, prefix=""):
+    """Chemin d'image utilisable dans une page (URL externe laissée telle quelle)."""
+    if not path:
+        return None
+    return path if path.startswith("http") else f"{prefix}{path}"
+
+# ---------------------------------------------------------------------------
+# ÉDITIONS INTRACOGITO, chargées depuis content/intracogito/
+#   - editions.json : métadonnées (titre, date, slug, crédit image, 3 recos...)
+#   - NNN.html      : corps de l'édition au gabarit du site
+# Pour ajouter des éditions : python3 tools/clean_intracogito.py <export> <num...>
+# puis compléter editions.json (crédit, recommandations) et rebuilder.
+# Si l'image de couverture locale manque, on retombe sur l'image Substack
+# d'origine (utile pour un aperçu) et le build affiche un avertissement.
+# ---------------------------------------------------------------------------
+INTRACOGITO_DIR = os.path.join(ROOT, "content", "intracogito")
+INTRACOGITO_EDITIONS = []
+for _key, _e in json.load(open(os.path.join(INTRACOGITO_DIR, "editions.json"), encoding="utf-8")).items():
+    _e = dict(_e)
+    _e["body"] = open(os.path.join(INTRACOGITO_DIR, f"{_key}.html"), encoding="utf-8").read()
+    # pas de séparateur entre l'intro et la première réflexion (gabarit #066)
+    _e["body"] = _e["body"].replace("</p><hr/><p><strong>Réflexion № 01 :", "</p><p><strong>Réflexion № 01 :")
+    # un séparateur avant chaque réflexion à partir de la 2e, même s'il manquait dans Substack
+    _e["body"] = re.sub(r"(?<!<hr/>)(<p><strong>Réflexion № (?!01)\d+ :)", r"<hr/>\1", _e["body"])
+    _e["href"] = f"essais/{_e['slug']}.html"
+    _e["badge"] = f"Intracogito #{_e['num']:03d}"
+    if not os.path.exists(os.path.join(ROOT, _e["cover"])):
+        if _e.get("substack_cover_url"):
+            print(f"[!] image manquante pour {_e['badge']} : {_e['cover']} -> image Substack utilisée")
+            _e["cover"] = _e["substack_cover_url"]
+        else:
+            # pas d'image du tout : emplacement vide sur les cartes, bandeau sombre sur la page
+            print(f"[!] pas d'image pour {_e['badge']} (déposer {_e['cover']})")
+            _e["cover"] = None
+    INTRACOGITO_EDITIONS.append(_e)
+INTRACOGITO_EDITIONS.sort(key=lambda e: e["date"], reverse=True)
 
 MOIS_FR = ["", "janvier", "février", "mars", "avril", "mai", "juin",
            "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
@@ -99,18 +143,24 @@ def topbar(prefix="", on_hero=False, active=""):
     return f"""<header class="{cls}">
   <div class="wrap topbar-inner">
     <div class="topbar-left">
-      <button class="menu-trigger" onclick="toggleMenu()" aria-label="Ouvrir le menu">
-        {MENU_SVG}
-        <span class="lbl">Menu</span>
-      </button>
-      <button class="search-trigger" aria-label="Rechercher">
-        {SEARCH_SVG}
-      </button>
+      <div class="topbar-actions">
+        <button class="menu-trigger" onclick="toggleMenu()" aria-label="Ouvrir le menu">
+          {MENU_SVG}
+          <span class="lbl">Menu</span>
+        </button>
+        <span class="topbar-sep" aria-hidden="true">/</span>
+        <button class="search-trigger" aria-label="Rechercher">
+          {SEARCH_SVG}
+        </button>
+      </div>
       <div class="topbar-social">
         {SOCIAL_ICONS}
       </div>
     </div>
-    <a href="{prefix}index.html" class="topbar-logo">Intracogito</a>
+    <a href="{prefix}index.html" class="topbar-logo" aria-label="Intracogito, accueil">
+      <img class="logo-dark" src="{prefix}assets/img/logo-intracogito.png" alt="Intracogito" width="1200" height="151" />
+      <img class="logo-light" src="{prefix}assets/img/logo-intracogito-light.png" alt="" aria-hidden="true" width="1200" height="151" />
+    </a>
     <div class="topbar-right">
       <a href="https://elouannoel.substack.com/" target="_blank" rel="noopener">Newsletter</a>
     </div>
@@ -131,99 +181,27 @@ def menu_overlay(prefix=""):
     </div>
     <nav class="wrap menu-body" aria-label="Menu principal">
       <div class="menu-topics">
-        <a href="{prefix}philosophes.html" class="menu-topic t1">Philosophes</a>
-        <a href="{prefix}concepts.html" class="menu-topic t2">Concepts</a>
-        <a href="{prefix}comparatifs.html" class="menu-topic t3">Comparatifs</a>
-        <a href="{prefix}cogito.html" class="menu-topic t4">Cogito</a>
-        <a href="{prefix}intracogito.html" class="menu-topic t5">Intracogito</a>
-      </div>
-      <div class="menu-links">
-        <div class="menu-group">
-          <h4>Essais</h4>
-          <ul>
-            <li><a href="{prefix}essais.html">Tous les essais</a></li>
-            <li><a href="{prefix}cogito.html">Cogito</a></li>
-            <li><a href="{prefix}intracogito.html">Intracogito</a></li>
-            <li><a href="{prefix}philosophes.html">Philosophes</a></li>
-            <li><a href="{prefix}concepts.html">Concepts</a></li>
-            <li><a href="{prefix}comparatifs.html">Comparatifs</a></li>
-          </ul>
-        </div>
-        <div class="menu-group">
-          <h4>Mon Étagère</h4>
-          <ul>
-            <li><a href="{prefix}shelf.html">Les livres que je recommande</a></li>
-          </ul>
-        </div>
-        <div class="menu-group">
-          <h4>À propos</h4>
-          <ul>
-            <li><a href="{prefix}index.html#a-propos">Qui je suis</a></li>
-            <li><a href="https://elouannoel.substack.com/" target="_blank" rel="noopener">Newsletter</a></li>
-            <li><a href="mailto:elouan.noel@gmail.com">Contact</a></li>
-          </ul>
-        </div>
-        <div class="menu-group archive">
-          <h4>Ancien site (archive)</h4>
-          <ul>
-            <li><a href="{prefix}ancien-site.html#hero">Accueil</a></li>
-            <li><a href="{prefix}ancien-site.html#newsletter">Newsletter</a></li>
-            <li><a href="{prefix}ancien-site.html#essais">Essais (Cogito)</a></li>
-            <li><a href="{prefix}ancien-site.html#a-venir">À venir (jeu)</a></li>
-            <li><a href="{prefix}ancien-site.html#reseaux">Réseaux</a></li>
-            <li><a href="{prefix}ancien-site.html#statistiques">Statistiques</a></li>
-            <li><a href="{prefix}ancien-site.html#citations">Citations</a></li>
-            <li><a href="{prefix}ancien-site.html#contact">Contact</a></li>
-          </ul>
-        </div>
+        <a href="{prefix}intracogito.html" class="menu-topic t1">Intracogito</a>
+        <a href="{prefix}cogito.html" class="menu-topic t2">Cogito</a>
+        <a href="{prefix}philosophes.html" class="menu-topic t3">Philosophes</a>
+        <a href="{prefix}concepts.html" class="menu-topic t4">Concepts</a>
+        <a href="{prefix}comparatifs.html" class="menu-topic t5">Comparatifs</a>
       </div>
     </nav>
   </div>"""
 
 def footer(prefix=""):
+    # Bande unique et compacte : copyright · réseaux (icônes) + contact · mentions légales
     return f"""<footer id="a-propos">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div class="footer-nl">
-        <h3>Intracogito</h3>
-        <p>Texte</p>
-        <form class="footer-nl-form" onsubmit="event.preventDefault(); window.open('https://elouannoel.substack.com/','_blank');">
-          <input type="email" placeholder="ton@email.com" required />
-          <button type="submit">S'abonner</button>
-        </form>
+  <div class="wrap footer-band">
+    <span class="footer-copy">© 2026 Intracogito</span>
+    <div class="footer-mid">
+      <div class="footer-social">
+        {SOCIAL_ICONS}
       </div>
-      <div class="footer-col">
-        <h4>Explorer</h4>
-        <ul>
-          <li><a href="{prefix}essais.html">Essais</a></li>
-          <li><a href="{prefix}cogito.html">Cogito</a></li>
-          <li><a href="{prefix}intracogito.html">Intracogito</a></li>
-          <li><a href="{prefix}philosophes.html">Philosophes</a></li>
-          <li><a href="{prefix}concepts.html">Concepts</a></li>
-          <li><a href="{prefix}comparatifs.html">Comparatifs</a></li>
-          <li><a href="{prefix}shelf.html">Mon Étagère</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Réseaux</h4>
-        <ul>
-          <li><a href="https://elouannoel.substack.com/" target="_blank" rel="noopener">Substack</a></li>
-          <li><a href="https://www.instagram.com/intracogito_fr/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://www.tiktok.com/@intracogito_fr" target="_blank" rel="noopener">TikTok</a></li>
-          <li><a href="https://www.threads.com/@intracogito_fr" target="_blank" rel="noopener">Threads</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="mailto:elouan.noel@gmail.com">elouan.noel@gmail.com</a></li>
-        </ul>
-      </div>
+      <a class="footer-mail" href="mailto:elouan.noel@gmail.com">elouan.noel@gmail.com</a>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Intracogito</span>
-      <span><a href="{prefix}mentions-legales.html">Mentions légales &amp; confidentialité</a></span>
-    </div>
+    <a class="footer-legal" href="{prefix}mentions-legales.html">Mentions légales</a>
   </div>
 </footer>"""
 
@@ -252,6 +230,7 @@ COGITO_ESSAYS = [
     {
         "href": "essais/la-quete-de-notre-destinee.html",
         "badge": "Cogito #001",
+        "date": "2026-03-18",
         "title": "La quête de notre destinée",
         "chapo": "Entre sens et identité",
         "cover": "assets/img/cogito-001-cover.jpg",
@@ -260,6 +239,7 @@ COGITO_ESSAYS = [
     {
         "href": "essais/la-matiere-premiere-du-heros.html",
         "badge": "Cogito #002",
+        "date": "2026-04-01",
         "title": "La matière première du héros",
         "chapo": "Choisir sa souffrance",
         "cover": "assets/img/cogito-002-cover.jpg",
@@ -268,6 +248,7 @@ COGITO_ESSAYS = [
     {
         "href": "essais/la-force-de-lintuition.html",
         "badge": "Cogito #003",
+        "date": "2026-04-22",
         "title": "La force de l'intuition",
         "chapo": "Entre le cœur et la raison",
         "cover": "assets/img/cogito-003-cover.jpg",
@@ -276,6 +257,7 @@ COGITO_ESSAYS = [
     {
         "href": "essais/la-verite-du-chemin.html",
         "badge": "Cogito #004",
+        "date": "2026-05-13",
         "title": "La vérité du chemin",
         "chapo": "Ce que le bouddhisme enseigne du chemin",
         "cover": "assets/img/cogito-004-cover.jpg",
@@ -284,6 +266,7 @@ COGITO_ESSAYS = [
     {
         "href": "essais/lunite-du-corps-et-de-lesprit.html",
         "badge": "Cogito #005",
+        "date": "2026-06-10",
         "title": "L'unité du corps et de l'esprit",
         "chapo": "Ce que le corps dit de la pensée",
         "cover": "assets/img/cogito-005-cover.jpg",
@@ -292,6 +275,7 @@ COGITO_ESSAYS = [
     {
         "href": "essais/le-poids-de-lidentite.html",
         "badge": "Cogito #006",
+        "date": "2026-07-15",
         "title": "Le poids de l'identité",
         "chapo": "À quoi choisit-on de s'identifier ?",
         "cover": "assets/img/cogito-006-cover.jpg",
@@ -300,6 +284,7 @@ COGITO_ESSAYS = [
     {
         "href": "essais/la-voie-par-defaut.html",
         "badge": "Cogito #007",
+        "date": "2026-09-09",
         "title": "La voie par défaut",
         "chapo": "Sur le courage de penser par soi-même",
         "cover": "assets/img/cogito-007-cover.jpg",
@@ -308,12 +293,31 @@ COGITO_ESSAYS = [
     {
         "href": "essais/les-transformations-silencieuses.html",
         "badge": "Cogito #008",
+        "date": "2026-10-07",
         "title": "Les transformations silencieuses",
         "chapo": "Ce qui change sans qu'on le voie",
         "cover": "assets/img/cogito-008-cover.jpg",
         "cover_alt": "Richard Wilson, Italian Landscape (1765)",
     },
 ]
+
+# HERO DE LA HOMEPAGE : toujours le dernier essai Cogito publié.
+# COGITO_ESSAYS est rangé dans l'ordre de publication (du plus ancien au plus
+# récent) : il suffit d'ajouter le nouvel essai EN FIN de liste pour qu'il
+# passe automatiquement en couverture au prochain build.
+HERO_ESSAI = COGITO_ESSAYS[-1]
+
+# Tous les articles réels (Cogito + Intracogito), du plus récent au plus ancien :
+# alimente la page Essais, les « Articles récents » de l'accueil et les recos.
+ALL_ARTICLES = sorted(
+    [{"href": c["href"], "meta": "Cogito", "title": c["title"], "chapo": c["badge"], "img": c["cover"], "date": c["date"]} for c in COGITO_ESSAYS]
+    + [{"href": e["href"], "meta": "Intracogito", "title": e["title"], "chapo": e["badge"], "img": e["cover"], "date": e["date"]} for e in INTRACOGITO_EDITIONS],
+    key=lambda a: a["date"], reverse=True,
+)
+ARTICLES_BY_HREF = {a["href"]: a for a in ALL_ARTICLES}
+
+def article_card(a, prefix="", chapo=None):
+    return card(f"{prefix}{a['href']}", meta=a["meta"], title=a["title"], chapo=chapo if chapo is not None else a["chapo"], author="Elouan Noël", img=img_src(a["img"], prefix))
 
 def hero_rotation_script(essays):
     data = json.dumps(essays, ensure_ascii=False)
@@ -365,7 +369,7 @@ def card(href, badge=True, meta="Rubrique", title="Titre", chapo="Sous-titre", a
     author_html = f'<span class="card-author">{author}</span>' if author else ""
     tag = "a" if href else "div"
     href_attr = f' href="{href}"' if href else ""
-    img_html = f'<img src="{img}" alt="{title}" loading="lazy"{img_wh(img)} />' if img else '<div class="ph-box"><span>Image</span></div>'
+    img_html = f'<img src="{img}" alt="{title}" loading="lazy"{img_wh(img.replace("../", "", 1))} />' if img else '<div class="ph-box"><span>Image</span></div>'
     return f"""<{tag} class="card"{href_attr}>
       <div class="card-img">
         {img_html}
@@ -444,27 +448,14 @@ INDEX_CONTENT = f"""<!-- ══════════════ TOPBAR ═�
 {topbar(active="")}
 <main>
 
-<!-- ══════════════ HERO ROTATIF, l'essai Cogito de la semaine ══════════════ -->
-<section class="hero-full" id="hero-rotatif">
-  <div class="ph-media" id="hero-media"><span>Image / Vidéo</span></div>
-  <img class="bg-cover-img" id="hero-bg-img" src="" alt="" style="display:none;" loading="eager" />
+<!-- ══════════════ HERO, le dernier essai Cogito publié ══════════════ -->
+<section class="hero-full" id="hero-dernier-essai">
+  <img class="bg-cover-img" src="{HERO_ESSAI['cover']}" alt="{HERO_ESSAI['cover_alt']}" loading="eager" fetchpriority="high" />
   <div class="wrap hero-full-content">
-    <span class="hero-eyebrow" id="hero-badge">Rubrique</span>
-    <h1 id="hero-title">Titre</h1>
-    <p class="chapo" id="hero-chapo">Sous-titre</p>
-    <a href="#" id="hero-link" class="hero-cta">Lire l'essai →</a>
-  </div>
-</section>
-{hero_rotation_script(COGITO_ESSAYS)}
-
-<!-- ══════════════ NEWSLETTER, bandeau compact (plus le hero) ══════════════ -->
-<section class="sec" style="padding-block:3rem;">
-  <div class="wrap">
-    <div class="newsletter-insert" style="margin:0; max-width:none;">
-      <h3>Rejoins la newsletter</h3>
-      <p>Une édition par semaine, 4 à 5 citations commentées. Gratuit, désabonnement en un clic.</p>
-      <a href="https://elouannoel.substack.com/" target="_blank" rel="noopener" class="hero-cta">S'abonner →</a>
-    </div>
+    <span class="hero-eyebrow">{HERO_ESSAI['badge']}</span>
+    <h1>{HERO_ESSAI['title']}</h1>
+    <p class="chapo">{HERO_ESSAI['chapo']}</p>
+    <a href="{HERO_ESSAI['href']}" class="hero-cta">Lire l'essai →</a>
   </div>
 </section>
 
@@ -473,44 +464,16 @@ INDEX_CONTENT = f"""<!-- ══════════════ TOPBAR ═�
   <div class="wrap">
     <div class="sec-head">
       <h2 class="sec-title">Articles récents</h2>
-      <a href="essais.html" class="sec-more">Tous les articles →</a>
     </div>
     <div class="card-grid">
-      {card("essais/lheritage.html", meta="Intracogito", title="L'héritage", chapo="Intracogito #066", author="Elouan Noël", img="assets/img/intracogito-66-cover.jpg")}
-      {card("essais/les-transformations-silencieuses.html", meta="Cogito", title="Les transformations silencieuses", chapo="Cogito #008", author="Elouan Noël", img="assets/img/cogito-008-cover.jpg")}
-      {card("essais/la-voie-par-defaut.html", meta="Cogito", title="La voie par défaut", chapo="Cogito #007", author="Elouan Noël", img="assets/img/cogito-007-cover.jpg")}
+      {"".join(article_card(x) for x in ALL_ARTICLES[:20])}
+    </div>
+    <div class="sec-all">
+      <a href="essais.html" class="hero-cta">Lire tous les articles →</a>
     </div>
   </div>
 </section>
 
-<!-- ══════════════ EXPLORER PAR RUBRIQUE ══════════════ -->
-<section class="sec" style="padding-top:0;">
-  <div class="wrap">
-    <div class="sec-head"><h2 class="sec-title">Explorer par rubrique</h2></div>
-    <div class="rubriques">
-      <a class="rubrique-tile" href="cogito.html">
-        <div class="ph-box" style="position:absolute;inset:0;"><span>Image</span></div>
-        <span class="tile-label">Cogito</span>
-      </a>
-      <a class="rubrique-tile" href="intracogito.html">
-        <div class="ph-box" style="position:absolute;inset:0;"><span>Image</span></div>
-        <span class="tile-label">Intracogito</span>
-      </a>
-      <a class="rubrique-tile" href="philosophes.html">
-        <div class="ph-box" style="position:absolute;inset:0;"><span>Image</span></div>
-        <span class="tile-label">Philosophes</span>
-      </a>
-      <a class="rubrique-tile" href="concepts.html">
-        <div class="ph-box" style="position:absolute;inset:0;"><span>Image</span></div>
-        <span class="tile-label">Concepts</span>
-      </a>
-      <a class="rubrique-tile" href="comparatifs.html">
-        <div class="ph-box" style="position:absolute;inset:0;"><span>Image</span></div>
-        <span class="tile-label">Comparatifs</span>
-      </a>
-    </div>
-  </div>
-</section>
 
 </main>
 {footer()}
@@ -565,15 +528,7 @@ essais_html = f"""<!doctype html>
 
 <section class="sec">
   <div class="wrap card-grid">
-    {card("essais/lheritage.html", meta="Intracogito", title="L'héritage", chapo="Intracogito #066", author="Elouan Noël", img="assets/img/intracogito-66-cover.jpg")}
-    {card("essais/les-transformations-silencieuses.html", meta="Cogito", title="Les transformations silencieuses", chapo="Cogito #008", author="Elouan Noël", img="assets/img/cogito-008-cover.jpg")}
-    {card("essais/la-voie-par-defaut.html", meta="Cogito", title="La voie par défaut", chapo="Cogito #007", author="Elouan Noël", img="assets/img/cogito-007-cover.jpg")}
-    {card("essais/le-poids-de-lidentite.html", meta="Cogito", title="Le poids de l'identité", chapo="Cogito #006", author="Elouan Noël", img="assets/img/cogito-006-cover.jpg")}
-    {card("essais/lunite-du-corps-et-de-lesprit.html", meta="Cogito", title="L'unité du corps et de l'esprit", chapo="Cogito #005", author="Elouan Noël", img="assets/img/cogito-005-cover.jpg")}
-    {card("essais/la-verite-du-chemin.html", meta="Cogito", title="La vérité du chemin", chapo="Cogito #004", author="Elouan Noël", img="assets/img/cogito-004-cover.jpg")}
-    {card("essais/la-force-de-lintuition.html", meta="Cogito", title="La force de l'intuition", chapo="Cogito #003", author="Elouan Noël", img="assets/img/cogito-003-cover.jpg")}
-    {card("essais/la-matiere-premiere-du-heros.html", meta="Cogito", title="La matière première du héros", chapo="Cogito #002", author="Elouan Noël", img="assets/img/cogito-002-cover.jpg")}
-    {card("essais/la-quete-de-notre-destinee.html", meta="Cogito", title="La quête de notre destinée", chapo="Cogito #001", author="Elouan Noël", img="assets/img/cogito-001-cover.jpg")}
+    {"".join(article_card(x) for x in ALL_ARTICLES)}
   </div>
 </section>
 
@@ -626,20 +581,13 @@ RUBRIQUES = {
         "label": "Intracogito",
         "desc": "Les éditions Intracogito : citations philosophiques commentées, chaque semaine, pour penser mieux au quotidien.",
         "subtopics": [],
-        "real_card": {
-            "href": "essais/lheritage.html",
-            "meta": "Intracogito",
-            "title": "L'héritage",
-            "chapo": "Intracogito #066",
-            "author": "Elouan Noël",
-            "img": "assets/img/intracogito-66-cover.jpg",
-        },
+        "real_cards": [
+            {"href": e["href"], "meta": "Intracogito", "title": e["title"], "chapo": e["badge"], "author": "Elouan Noël", "img": e["cover"]}
+            for e in INTRACOGITO_EDITIONS
+        ],
     },
 }
-RUBRIQUES["philosophes"]["real_card"] = {
-    "href": "essais/exemple-stoicisme.html", "meta": "Philosophes", "author": "Auteur",
-}
-RUBRIQUES["concepts"]["real_card"] = None
+
 
 def rubrique_page(slug, data):
     tabs = """<div class="rubrique-tabs">
@@ -647,6 +595,38 @@ def rubrique_page(slug, data):
       <a href="#">Popular</a>
     </div>"""
     subtopics_block = ""
+    real_cards = data.get("real_cards")
+    if not real_cards:
+        # Rubrique sans article publié : un simple message, aucune carte ni lien vide
+        return f"""<!doctype html>
+<html lang="fr">
+<head>
+{head_meta(f"{data['label']}, Intracogito", data["desc"], f"{slug}.html")}
+</head>
+<body>
+
+{topbar(active=slug)}
+<main>
+
+<div class="rubrique-head {slug}">
+  <h1>{data['label']}</h1>
+  <p>{data['desc']}</p>
+</div>
+
+<section class="sec rubrique-empty">
+  <div class="wrap">
+    <p class="rubrique-empty-label">Articles à venir</p>
+    <p>Cette rubrique est en préparation. En attendant, retrouve les éditions Intracogito et les essais Cogito.</p>
+    <a href="essais.html" class="hero-cta">Lire tous les articles →</a>
+  </div>
+</section>
+
+</main>
+{footer()}
+{TOGGLE_SCRIPT}
+</body>
+</html>
+"""
     if data["subtopics"]:
         subtopics_html = "\n      ".join(f'<a href="essais.html">{s}</a>' for s in data["subtopics"])
         subtopics_block = f"""<div class="subtopic-cloud">
@@ -1168,15 +1148,24 @@ AUTHOR_BIO = "Fondateur d'Intracogito. Philosophie appliquée, chaque semaine, p
 AUTHOR_PHOTO = "assets/img/author-elouan.jpg"
 
 def real_article_page(slug, title, chapo, description, cover_path, cover_credit, tags,
-                       body_html, word_count, extra_block="", ref="", date_published="2026-10-24"):
-    cover_abs = f"{BASE_URL}/{cover_path}"
-    cover_rel = f"../{cover_path}"
+                       body_html, word_count, extra_block="", ref="", date_published="2026-10-24",
+                       related=None):
+    if not cover_path:
+        cover_abs = OG_DEFAULT_IMAGE
+    else:
+        cover_abs = cover_path if cover_path.startswith("http") else f"{BASE_URL}/{cover_path}"
+    cover_rel = img_src(cover_path, "../")
     reading_min = max(1, round(word_count / 200))
     ref_html = f'<span class="hero-eyebrow article-ref">{ref}</span>' if ref else ""
     chapo_html = f'<p class="chapo">{chapo}</p>' if chapo else ""
     tags_html = "\n    ".join(f'<a class="article-tag" href="../{href}">{label}</a>' for (href, label) in tags)
     credit_html = f'<p class="article-credit" style="color:var(--on-dark-muted); text-align:right; padding: .4rem var(--px); position:relative; z-index:1;">{cover_credit}</p>' if cover_credit else ""
     cover_alt = cover_credit if cover_credit else f"Image de couverture, {title}"
+    # « À lire aussi » : 3 recommandations justifiées (href, pourquoi), sinon ancien gabarit vide
+    if related:
+        related_html = "\n      ".join(article_card(ARTICLES_BY_HREF[h], prefix="../", chapo=why) for h, why in related)
+    else:
+        related_html = "\n      ".join(card("../essais.html", badge=False) for _ in range(3))
     jsonld = f"""<script type="application/ld+json">
 {{
   "@context": "https://schema.org",
@@ -1212,7 +1201,7 @@ def real_article_page(slug, title, chapo, description, cover_path, cover_credit,
 <main>
 
 <section class="article-hero">
-  <img class="bg-cover-img" src="{cover_rel}" alt="{cover_alt}" loading="eager"{img_wh(cover_path)} />
+  {f'<img class="bg-cover-img" src="{cover_rel}" alt="{cover_alt}" loading="eager"{img_wh(cover_path)} />' if cover_path else ''}
   <div class="article-hero-content">
     {ref_html}
     <h1>{title}</h1>
@@ -1253,9 +1242,7 @@ def real_article_page(slug, title, chapo, description, cover_path, cover_credit,
   <div class="wrap">
     <h2 class="sec-title">À lire aussi</h2>
     <div class="card-grid">
-      {card("../essais.html", badge=False)}
-      {card("../essais.html", badge=False)}
-      {card("../essais.html", badge=False)}
+      {related_html}
     </div>
   </div>
 </div>
@@ -1281,19 +1268,31 @@ cogito_001_html = real_article_page(
     date_published="2026-03-18",
 )
 
-intracogito_66_html = real_article_page(
-    slug="lheritage",
-    title="L'héritage",
-    chapo="",
-    ref="Intracogito #066",
-    description="Édition Intracogito sur l'héritage : quatre citations commentées, d'Hannah Arendt à Périclès, sur ce que l'on doit à ceux qui nous précèdent et laisse à ceux qui nous suivent.",
-    cover_path="assets/img/intracogito-66-cover.jpg",
-    cover_credit="",
-    tags=[("intracogito.html", "Intracogito")],
-    body_html=INTRACOGITO_66_BODY,
-    word_count=352,
-    date_published="2026-10-11",
-)
+def _intracogito_description(e):
+    noms = []
+    for n in e["authors"]:
+        if n != "Intracogito" and n not in noms:
+            noms.append(n)
+    k = len(e["authors"])
+    cites = (", ".join(noms[:-1]) + f" et {noms[-1]}") if len(noms) > 1 else (noms[0] if noms else "Intracogito")
+    return f"Intracogito #{e['num']:03d}, {e['title']} : {k} citations commentées, de {cites}, avec une lecture « Entre les lignes » pour chacune."
+
+INTRACOGITO_PAGES = {}
+for _e in INTRACOGITO_EDITIONS:
+    INTRACOGITO_PAGES[_e["href"]] = real_article_page(
+        slug=_e["slug"],
+        title=_e["title"],
+        chapo="",
+        ref=_e["badge"],
+        description=_e.get("description") or _intracogito_description(_e),
+        cover_path=_e["cover"],
+        cover_credit=_e.get("credit", ""),
+        tags=[("intracogito.html", "Intracogito")],
+        body_html=_e["body"],
+        word_count=_e["words"],
+        date_published=_e["date"],
+        related=_e.get("related"),
+    )
 
 cogito_002_html = real_article_page(
     slug="la-matiere-premiere-du-heros",
@@ -1486,9 +1485,7 @@ os.makedirs(os.path.join(ROOT, "essais"), exist_ok=True)
 files = {
     "index.html": index_html,
     "essais.html": essais_html,
-    "essais/exemple-stoicisme.html": article_html,
     "essais/la-quete-de-notre-destinee.html": cogito_001_html,
-    "essais/lheritage.html": intracogito_66_html,
     "essais/la-matiere-premiere-du-heros.html": cogito_002_html,
     "essais/la-force-de-lintuition.html": cogito_003_html,
     "essais/la-verite-du-chemin.html": cogito_004_html,
@@ -1498,13 +1495,14 @@ files = {
     "essais/les-transformations-silencieuses.html": cogito_008_html,
     "mentions-legales.html": mentions_legales_html,
 }
+files.update(INTRACOGITO_PAGES)
 for slug, data in RUBRIQUES.items():
     files[f"{slug}.html"] = rubrique_page(slug, data)
 
 # ---------------------------------------------------------------------------
 # SITEMAP.XML + ROBOTS.TXT, générés à partir des pages réellement produites
 # ---------------------------------------------------------------------------
-LASTMOD = "2026-10-24"
+LASTMOD = "2026-10-26"
 sitemap_urls = []
 for path in sorted(files.keys()):
     url_path = "" if path == "index.html" else path
