@@ -149,7 +149,7 @@ def topbar(prefix="", on_hero=False, active=""):
           <span class="lbl">Menu</span>
         </button>
         <span class="topbar-sep" aria-hidden="true">/</span>
-        <button class="search-trigger" aria-label="Rechercher">
+        <button class="search-trigger" onclick="toggleSearch()" aria-label="Rechercher">
           {SEARCH_SVG}
         </button>
       </div>
@@ -162,10 +162,12 @@ def topbar(prefix="", on_hero=False, active=""):
       <img class="logo-light" src="{prefix}assets/img/logo-intracogito-light.png" alt="" aria-hidden="true" width="1200" height="151" />
     </a>
     <div class="topbar-right">
+      <a href="{prefix}a-propos.html">À propos</a>
       <a href="https://elouannoel.substack.com/" target="_blank" rel="noopener">Newsletter</a>
     </div>
   </div>
   {menu_overlay(prefix)}
+  {search_overlay(prefix)}
 </header>"""
 
 def menu_overlay(prefix=""):
@@ -188,6 +190,23 @@ def menu_overlay(prefix=""):
         <a href="{prefix}comparatifs.html" class="menu-topic t5">Comparatifs</a>
       </div>
     </nav>
+  </div>"""
+
+def search_overlay(prefix=""):
+    return f"""<div class="search-overlay" id="search-overlay">
+    <div class="wrap search-overlay-inner">
+      <div class="search-top">
+        <button class="menu-close" onclick="toggleSearch()">
+          {CLOSE_SVG}
+          Close
+        </button>
+      </div>
+      <div class="search-box">
+        {SEARCH_SVG}
+        <input type="text" id="search-input" placeholder="Rechercher un mot, un thème, un titre…" autocomplete="off" oninput="performSearch(this.value)" />
+      </div>
+      <div class="search-results" id="search-results"></div>
+    </div>
   </div>"""
 
 def footer(prefix=""):
@@ -219,6 +238,75 @@ function switchRubriqueTab(el, which){
   if (gl) gl.style.display = (which === 'latest') ? '' : 'none';
   if (gp) gp.style.display = (which === 'popular') ? '' : 'none';
   return false;
+}
+function toggleSearch(){
+  var s = document.getElementById('search-overlay');
+  if (!s) return;
+  s.classList.toggle('open');
+  if (s.classList.contains('open')) {
+    var inp = document.getElementById('search-input');
+    setTimeout(function(){ if (inp) inp.focus(); }, 60);
+    _loadSearchIndex();
+  }
+}
+function _loadSearchIndex(){
+  if (!window.__searchIndexPromise) {
+    window.__searchIndexPromise = fetch('/assets/search-index.json').then(function(r){ return r.json(); }).catch(function(){ return []; });
+  }
+  return window.__searchIndexPromise;
+}
+function _normalize(s){
+  return (s || '').toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+function _escHtml(s){
+  return (s || '').toString().replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; });
+}
+function performSearch(query){
+  var out = document.getElementById('search-results');
+  if (!out) return;
+  var q = _normalize(query).trim();
+  if (!q) { out.innerHTML = ''; return; }
+  var words = q.split(/\s+/).filter(Boolean);
+  _loadSearchIndex().then(function(items){
+    var results = [];
+    for (var i = 0; i < items.length; i++) {
+      var it = items[i];
+      var hayTitle = _normalize(it.title);
+      var hayBadge = _normalize(it.badge);
+      var hayText = _normalize(it.text);
+      var hay = hayTitle + ' ' + hayBadge + ' ' + hayText;
+      var ok = true;
+      var score = 0;
+      for (var w = 0; w < words.length; w++) {
+        var word = words[w];
+        if (hay.indexOf(word) === -1) { ok = false; break; }
+        if (hayTitle.indexOf(word) !== -1) score += 10;
+      }
+      if (ok) {
+        var idx = hayText.indexOf(words[0]);
+        var snippet;
+        if (idx >= 0) {
+          snippet = '… ' + it.text.substring(Math.max(0, idx - 60), idx + 140) + ' …';
+        } else {
+          snippet = it.text.substring(0, 160) + (it.text.length > 160 ? ' …' : '');
+        }
+        results.push({ it: it, score: score, snippet: snippet });
+      }
+    }
+    results.sort(function(a,b){ return b.score - a.score; });
+    results = results.slice(0, 20);
+    if (!results.length) {
+      out.innerHTML = '<p class="search-empty">Aucun résultat pour « ' + _escHtml(query) + ' ».</p>';
+      return;
+    }
+    out.innerHTML = results.map(function(r){
+      return '<a class="search-result" href="' + r.it.href + '">' +
+        '<img src="' + r.it.img + '" alt="" loading="lazy" />' +
+        '<div><span class="search-result-badge">' + _escHtml(r.it.badge) + '</span>' +
+        '<h3>' + _escHtml(r.it.title) + '</h3>' +
+        '<p>' + _escHtml(r.snippet) + '</p></div></a>';
+    }).join('');
+  });
 }
 </script>"""
 
@@ -473,7 +561,7 @@ INDEX_CONTENT = f"""<!-- ══════════════ TOPBAR ═�
 <section class="sec">
   <div class="wrap">
     <div class="card-grid">
-      {"".join(article_card(x, show_author=False) for x in ALL_ARTICLES[:20])}
+      {"".join(article_card(x, show_author=False) for x in ALL_ARTICLES[:18])}
     </div>
     <div class="sec-all">
       <a href="essais.html" class="hero-cta">Lire tous les articles →</a>
@@ -1581,6 +1669,67 @@ Vercel Inc.<br/>
 """
 
 # ---------------------------------------------------------------------------
+# PAGE: a-propos.html
+# ---------------------------------------------------------------------------
+a_propos_html = f"""<!doctype html>
+<html lang="fr">
+<head>
+{head_meta(
+    "À propos, Intracogito",
+    "Qui écrit Intracogito et Cogito : une philosophie incarnée, pratique, livrée chaque dimanche à 13h.",
+    "a-propos.html"
+)}
+</head>
+<body>
+
+{topbar(active="")}
+<main>
+
+<div class="wrap listing-head">
+  <h1>À propos</h1>
+  <p>Qui écrit, et pourquoi.</p>
+</div>
+
+<div class="wrap article-body">
+
+<p>Je m'appelle Elouan. Et si tu es arrivé jusqu'ici, c'est sans doute que la philosophie te parle, à toi aussi.</p>
+
+<blockquote>
+  <p>« N'explique pas ta philosophie, incarne-la. »</p>
+  <p>— Épictète</p>
+</blockquote>
+
+<p>C'est de cette phrase qu'est né Intracogito. Ma conviction est simple : la philosophie devient réellement intéressante lorsqu'elle redevient pratique — lorsqu'elle nous aide à mieux penser, et surtout à agir plus clairement.</p>
+
+<h2>Intracogito, une édition chaque dimanche</h2>
+<p>Chaque dimanche à 13h, je partage une édition composée de 4 ou 5 citations réunies autour d'un même thème, accompagnées d'une interprétation personnelle — une lecture « entre les lignes ». L'idée n'est pas d'avoir raison, mais d'ouvrir des pistes : nourrir la réflexion, offrir des perspectives, et donner des prises concrètes pour penser et agir.</p>
+<p><a href="intracogito.html" class="hero-cta">Découvrir les éditions d'Intracogito →</a></p>
+
+<h2>Cogito, pour aller plus loin</h2>
+<p>À côté des éditions hebdomadaires, j'écris aussi des essais plus longs — Cogito — où je prends le temps de creuser une question jusqu'au bout : l'identité, le sens, la souffrance, le courage de penser par soi-même, et bien d'autres.</p>
+<p><a href="cogito.html" class="hero-cta">Lire les essais Cogito →</a></p>
+
+<h2>Et maintenant ?</h2>
+<p>N'hésite pas à me partager les thèmes qui te sont chers, ou les questions que tu aimerais voir abordées : je lis tous les retours.</p>
+<p>Encore bienvenue, et bonne lecture !</p>
+
+<div class="article-author-row" style="margin-top:2.4rem;">
+  <a class="article-author-avatar" href="{AUTHOR_LINKEDIN}" target="_blank" rel="noopener" aria-label="Profil LinkedIn d'Elouan Noël"><img src="{AUTHOR_PHOTO}" alt="Elouan Noël" loading="lazy"{img_wh(AUTHOR_PHOTO)} /></a>
+  <div>
+    <div class="article-author-name">Elouan Noël, auteur d'Intracogito</div>
+  </div>
+</div>
+
+</div>
+
+</main>
+{footer()}
+{TOGGLE_SCRIPT}
+</body>
+</html>
+"""
+
+# ---------------------------------------------------------------------------
 # ÉCRITURE DES FICHIERS
 # ---------------------------------------------------------------------------
 os.makedirs(os.path.join(ROOT, "essais"), exist_ok=True)
@@ -1597,6 +1746,7 @@ files = {
     "essais/la-voie-par-defaut.html": cogito_007_html,
     "essais/les-transformations-silencieuses.html": cogito_008_html,
     "mentions-legales.html": mentions_legales_html,
+    "a-propos.html": a_propos_html,
 }
 files.update(INTRACOGITO_PAGES)
 for slug, data in RUBRIQUES.items():
@@ -1648,11 +1798,51 @@ Allow: /
 Sitemap: {BASE_URL}/sitemap.xml
 """
 
+# ---------------------------------------------------------------------------
+# INDEX DE RECHERCHE (assets/search-index.json) : un bouton "Rechercher"
+# fonctionnel dans la topbar, qui cherche dans le TEXTE réel des articles
+# publiés (pas seulement les titres). On réutilise le HTML déjà généré pour
+# chaque article (ALL_ARTICLES, 72 pages Cogito + Intracogito) : on extrait
+# le contenu de la zone .article-body et on retire les balises HTML.
+# ---------------------------------------------------------------------------
+_ARTICLE_BODY_RE = re.compile(r'<div class="wrap article-body">(.*?)<div class="wrap article-end-meta">', re.S)
+_HTML_ENTITIES = {
+    "&nbsp;": " ", "&amp;": "&", "&eacute;": "é", "&egrave;": "è", "&agrave;": "à",
+    "&ecirc;": "ê", "&ocirc;": "ô", "&ccedil;": "ç", "&icirc;": "î", "&ucirc;": "û",
+    "&apos;": "'", "&quot;": '"', "&#39;": "'",
+}
+
+def _plain_text_from_html(html_src):
+    t = re.sub(r"<[^>]+>", " ", html_src)
+    for ent, rep in _HTML_ENTITIES.items():
+        t = t.replace(ent, rep)
+    t = re.sub(r"\s+", " ", t).strip()
+    return t
+
+search_index = []
+for _a in ALL_ARTICLES:
+    _html_src = files.get(_a["href"], "")
+    _m = _ARTICLE_BODY_RE.search(_html_src)
+    _text = _plain_text_from_html(_m.group(1)) if _m else ""
+    search_index.append({
+        "href": "/" + _a["href"],
+        "meta": _a["meta"],
+        "badge": _a["chapo"],
+        "title": _a["title"],
+        "img": "/" + _a["img"],
+        "text": _text,
+    })
+search_index_json = json.dumps(search_index, ensure_ascii=False)
+
 for path, content in files.items():
     full = os.path.join(ROOT, path)
     with open(full, "w", encoding="utf-8") as f:
         f.write(content)
     print(f"wrote {path} ({len(content)} chars)")
+
+with open(os.path.join(ROOT, "assets", "search-index.json"), "w", encoding="utf-8") as f:
+    f.write(search_index_json)
+print(f"wrote assets/search-index.json ({len(search_index_json)} chars) [index de recherche, hors sitemap]")
 
 # Écrit à part : jamais dans `files` (donc jamais dans le sitemap/robots.txt),
 # c'est un fichier d'outillage pour la publication Artifact de cette session,

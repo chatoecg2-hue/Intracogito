@@ -95,6 +95,22 @@ button { font: inherit; }
 .menu-topic.t3 { color: #5E6B2E; }  /* Philosophes : olive */
 .menu-topic.t4 { color: #7A4E36; }  /* Concepts : brun cuir */
 .menu-topic.t5 { color: #4A5361; }  /* Comparatifs : ardoise */
+
+.search-overlay { position:absolute; top:100%; left:0; right:0; background: var(--bg); z-index:50; max-height:0; overflow:hidden; transition:max-height .3s ease; border-bottom:1px solid var(--border); box-shadow: 0 16px 32px rgba(23,20,15,.08); }
+.search-overlay.open { max-height:85vh; overflow-y:auto; }
+.search-top { display:flex; justify-content:flex-end; padding-block:1.1rem; border-bottom:1px solid var(--border); }
+.search-box { display:flex; align-items:center; gap:.9rem; padding-block:1.8rem; border-bottom:1px solid var(--border); }
+.search-box svg { width:22px; height:22px; color:var(--ink-muted); flex-shrink:0; }
+.search-box input { flex:1; border:none; outline:none; background:none; font-family: var(--serif-display); font-size: clamp(1.3rem, 3vw, 1.8rem); color:var(--ink); }
+.search-box input::placeholder { color:var(--ink-muted); opacity:.55; }
+.search-results { padding-block:1.6rem 3rem; display:flex; flex-direction:column; gap:1.5rem; }
+.search-result { display:flex; gap:1.2rem; align-items:flex-start; }
+.search-result:hover h3 { color:var(--accent); }
+.search-result img { width:88px; height:62px; object-fit:cover; border-radius:4px; flex-shrink:0; background: var(--bg-warm); }
+.search-result-badge { display:block; font-family: var(--mono); font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); margin-bottom:.25rem; }
+.search-result h3 { font-family: var(--serif-display); font-weight:600; font-size:1.05rem; color:var(--ink); margin-bottom:.3rem; }
+.search-result p { font-family: var(--serif-text); font-size:.9rem; color:var(--ink-muted); line-height:1.5; }
+.search-empty { font-family: var(--serif-text); color:var(--ink-muted); padding-block:1rem; }
 .menu-links { display:flex; flex-direction:column; gap:1.6rem; justify-content:center; }
 .menu-group h4 { font-family: var(--mono); font-size:.6rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-muted); margin-bottom:.8rem; }
 .menu-group ul { list-style:none; display:flex; flex-direction:column; gap:.55rem; }

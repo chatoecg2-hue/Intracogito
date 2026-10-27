@@ -67,7 +67,7 @@
           <span class="lbl">Menu</span>
         </button>
         <span class="topbar-sep" aria-hidden="true">/</span>
-        <button class="search-trigger" aria-label="Rechercher">
+        <button class="search-trigger" onclick="toggleSearch()" aria-label="Rechercher">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         </button>
       </div>
@@ -91,6 +91,7 @@
       <img class="logo-light" src="../assets/img/logo-intracogito-light.png" alt="" aria-hidden="true" width="1200" height="151" />
     </a>
     <div class="topbar-right">
+      <a href="../a-propos.html">À propos</a>
       <a href="https://elouannoel.substack.com/" target="_blank" rel="noopener">Newsletter</a>
     </div>
   </div>
@@ -124,6 +125,21 @@
         <a href="../comparatifs.html" class="menu-topic t5">Comparatifs</a>
       </div>
     </nav>
+  </div>
+  <div class="search-overlay" id="search-overlay">
+    <div class="wrap search-overlay-inner">
+      <div class="search-top">
+        <button class="menu-close" onclick="toggleSearch()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>
+          Close
+        </button>
+      </div>
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="search-input" placeholder="Rechercher un mot, un thème, un titre…" autocomplete="off" oninput="performSearch(this.value)" />
+      </div>
+      <div class="search-results" id="search-results"></div>
+    </div>
   </div>
 </header>
 <main>
@@ -289,6 +305,75 @@ function switchRubriqueTab(el, which){
   if (gl) gl.style.display = (which === 'latest') ? '' : 'none';
   if (gp) gp.style.display = (which === 'popular') ? '' : 'none';
   return false;
+}
+function toggleSearch(){
+  var s = document.getElementById('search-overlay');
+  if (!s) return;
+  s.classList.toggle('open');
+  if (s.classList.contains('open')) {
+    var inp = document.getElementById('search-input');
+    setTimeout(function(){ if (inp) inp.focus(); }, 60);
+    _loadSearchIndex();
+  }
+}
+function _loadSearchIndex(){
+  if (!window.__searchIndexPromise) {
+    window.__searchIndexPromise = fetch('/assets/search-index.json').then(function(r){ return r.json(); }).catch(function(){ return []; });
+  }
+  return window.__searchIndexPromise;
+}
+function _normalize(s){
+  return (s || '').toString().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+}
+function _escHtml(s){
+  return (s || '').toString().replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; });
+}
+function performSearch(query){
+  var out = document.getElementById('search-results');
+  if (!out) return;
+  var q = _normalize(query).trim();
+  if (!q) { out.innerHTML = ''; return; }
+  var words = q.split(/\s+/).filter(Boolean);
+  _loadSearchIndex().then(function(items){
+    var results = [];
+    for (var i = 0; i < items.length; i++) {
+      var it = items[i];
+      var hayTitle = _normalize(it.title);
+      var hayBadge = _normalize(it.badge);
+      var hayText = _normalize(it.text);
+      var hay = hayTitle + ' ' + hayBadge + ' ' + hayText;
+      var ok = true;
+      var score = 0;
+      for (var w = 0; w < words.length; w++) {
+        var word = words[w];
+        if (hay.indexOf(word) === -1) { ok = false; break; }
+        if (hayTitle.indexOf(word) !== -1) score += 10;
+      }
+      if (ok) {
+        var idx = hayText.indexOf(words[0]);
+        var snippet;
+        if (idx >= 0) {
+          snippet = '… ' + it.text.substring(Math.max(0, idx - 60), idx + 140) + ' …';
+        } else {
+          snippet = it.text.substring(0, 160) + (it.text.length > 160 ? ' …' : '');
+        }
+        results.push({ it: it, score: score, snippet: snippet });
+      }
+    }
+    results.sort(function(a,b){ return b.score - a.score; });
+    results = results.slice(0, 20);
+    if (!results.length) {
+      out.innerHTML = '<p class="search-empty">Aucun résultat pour « ' + _escHtml(query) + ' ».</p>';
+      return;
+    }
+    out.innerHTML = results.map(function(r){
+      return '<a class="search-result" href="' + r.it.href + '">' +
+        '<img src="' + r.it.img + '" alt="" loading="lazy" />' +
+        '<div><span class="search-result-badge">' + _escHtml(r.it.badge) + '</span>' +
+        '<h3>' + _escHtml(r.it.title) + '</h3>' +
+        '<p>' + _escHtml(r.snippet) + '</p></div></a>';
+    }).join('');
+  });
 }
 </script>
 </body>
