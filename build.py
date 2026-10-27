@@ -167,6 +167,7 @@ def topbar(prefix="", on_hero=False, active=""):
       </div>
       <div class="topbar-right-row topbar-right-sub">
         <a href="{prefix}a-propos.html">À propos</a>
+        <span class="topbar-sep" aria-hidden="true">/</span>
         <a href="https://buymeacoffee.com/elouannoel" target="_blank" rel="noopener">Soutenir</a>
       </div>
     </div>
