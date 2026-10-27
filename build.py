@@ -315,7 +315,7 @@ COGITO_ESSAYS = [
 # COGITO_ESSAYS est rangé dans l'ordre de publication (du plus ancien au plus
 # récent) : il suffit d'ajouter le nouvel essai EN FIN de liste pour qu'il
 # passe automatiquement en couverture au prochain build.
-HERO_ESSAI = COGITO_ESSAYS[-1]
+HERO_ESSAI = next(e for e in COGITO_ESSAYS if e["href"] == "essais/la-quete-de-notre-destinee.html")  # Cogito #001, fixé en une (demande Elouan 27/10)
 
 # Tous les articles réels (Cogito + Intracogito), du plus récent au plus ancien :
 # alimente la page Essais, les « Articles récents » de l'accueil et les recos.
@@ -472,9 +472,6 @@ INDEX_CONTENT = f"""<!-- ══════════════ TOPBAR ═�
 <!-- ══════════════ ARTICLES RÉCENTS (Cogito + Intracogito) ══════════════ -->
 <section class="sec">
   <div class="wrap">
-    <div class="sec-head">
-      <h2 class="sec-title">Articles récents</h2>
-    </div>
     <div class="card-grid">
       {"".join(article_card(x, show_author=False) for x in ALL_ARTICLES[:20])}
     </div>
