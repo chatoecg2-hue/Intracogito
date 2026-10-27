@@ -103,7 +103,7 @@ button { font: inherit; }
 .search-top { display:flex; justify-content:flex-end; padding-block:1.1rem; border-bottom:1px solid var(--border); }
 .search-box { display:flex; align-items:center; gap:.9rem; padding-block:1.8rem; border-bottom:1px solid var(--border); }
 .search-box svg { width:22px; height:22px; color:var(--ink-muted); flex-shrink:0; }
-.search-box input { flex:1; border:none; outline:none; background:none; font-family: var(--serif-display); font-size: clamp(1.3rem, 3vw, 1.8rem); color:var(--ink); }
+.search-box input { flex:1; border:none; outline:none; background:none; font-family: var(--serif-display); font-size: clamp(1rem, 1.6vw, 1.2rem); color:var(--ink); }
 .search-box input::placeholder { color:var(--ink-muted); opacity:.55; }
 .search-results { padding-block:1.6rem 3rem; display:flex; flex-direction:column; gap:1.5rem; }
 .search-result { display:flex; gap:1.2rem; align-items:flex-start; }
@@ -112,6 +112,7 @@ button { font: inherit; }
 .search-result-badge { display:block; font-family: var(--mono); font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); margin-bottom:.25rem; }
 .search-result h3 { font-family: var(--serif-display); font-weight:600; font-size:1.05rem; color:var(--ink); margin-bottom:.3rem; }
 .search-result p { font-family: var(--serif-text); font-size:.9rem; color:var(--ink-muted); line-height:1.5; }
+.search-result mark { background:none; color: var(--accent); font-weight:600; }
 .search-empty { font-family: var(--serif-text); color:var(--ink-muted); padding-block:1rem; }
 
 /* Carte newsletter homepage, coin bas-droit, ne bloque jamais le site (façon aeon.co) */

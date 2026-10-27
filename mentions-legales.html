@@ -219,6 +219,41 @@ function _normalize(s){
 function _escHtml(s){
   return (s || '').toString().replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; });
 }
+function _highlight(text, words){
+  text = text || '';
+  var normText = _normalize(text);
+  var ranges = [];
+  for (var w = 0; w < words.length; w++) {
+    var word = words[w];
+    if (!word) continue;
+    var idx = 0;
+    while (true) {
+      var pos = normText.indexOf(word, idx);
+      if (pos === -1) break;
+      ranges.push([pos, pos + word.length]);
+      idx = pos + word.length;
+    }
+  }
+  if (!ranges.length) return _escHtml(text);
+  ranges.sort(function(a,b){ return a[0] - b[0]; });
+  var merged = [ranges[0].slice()];
+  for (var i = 1; i < ranges.length; i++) {
+    var r = ranges[i];
+    var last = merged[merged.length - 1];
+    if (r[0] <= last[1]) { last[1] = Math.max(last[1], r[1]); }
+    else { merged.push(r.slice()); }
+  }
+  var out = '';
+  var cursor = 0;
+  for (var i = 0; i < merged.length; i++) {
+    var r = merged[i];
+    out += _escHtml(text.substring(cursor, r[0]));
+    out += '<mark>' + _escHtml(text.substring(r[0], r[1])) + '</mark>';
+    cursor = r[1];
+  }
+  out += _escHtml(text.substring(cursor));
+  return out;
+}
 function performSearch(query){
   var out = document.getElementById('search-results');
   if (!out) return;
@@ -261,8 +296,8 @@ function performSearch(query){
       return '<a class="search-result" href="' + r.it.href + '">' +
         '<img src="' + r.it.img + '" alt="" loading="lazy" />' +
         '<div><span class="search-result-badge">' + _escHtml(r.it.badge) + '</span>' +
-        '<h3>' + _escHtml(r.it.title) + '</h3>' +
-        '<p>' + _escHtml(r.snippet) + '</p></div></a>';
+        '<h3>' + _highlight(r.it.title, words) + '</h3>' +
+        '<p>' + _highlight(r.snippet, words) + '</p></div></a>';
     }).join('');
   });
 }
