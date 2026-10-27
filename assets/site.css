@@ -114,19 +114,20 @@ button { font: inherit; }
 .search-result p { font-family: var(--serif-text); font-size:.9rem; color:var(--ink-muted); line-height:1.5; }
 .search-empty { font-family: var(--serif-text); color:var(--ink-muted); padding-block:1rem; }
 
-/* Modale newsletter homepage (façon aeon.co, simplifiée) */
-.newsletter-modal-backdrop { position:fixed; inset:0; background: rgba(21,18,13,.6); z-index:100; display:none; align-items:center; justify-content:center; padding:1.5rem; }
-.newsletter-modal-backdrop.open { display:flex; }
-.newsletter-modal { position:relative; background: var(--bg-warm); max-width:440px; width:100%; padding: 2.8rem 2.2rem 2.4rem; text-align:center; box-shadow: 0 24px 60px rgba(23,20,15,.28); }
-.newsletter-modal-close { position:absolute; top:1rem; right:1rem; background:none; border:none; cursor:pointer; color: var(--ink-muted); padding:.3rem; line-height:0; }
-.newsletter-modal-close svg { width:18px; height:18px; }
-.newsletter-modal-close:hover { color: var(--ink); }
-.newsletter-modal-photo { width:88px; height:88px; border-radius:50%; object-fit:cover; margin:0 auto 1.4rem; display:block; border:1px solid var(--border); }
-.newsletter-modal h2 { font-family: var(--serif-display); font-weight:700; font-size:1.55rem; margin-bottom:.9rem; color: var(--ink); }
-.newsletter-modal p { font-family: var(--serif-text); font-size:.92rem; color: var(--ink-muted); line-height:1.6; margin-bottom:1.7rem; }
-.newsletter-modal .hero-cta { margin: 0 auto; }
-.newsletter-modal-skip { display:block; margin-top:1.1rem; font-family: var(--mono); font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color: var(--ink-muted); }
-.newsletter-modal-skip:hover { color: var(--accent); }
+/* Carte newsletter homepage, coin bas-droit, ne bloque jamais le site (façon aeon.co) */
+.newsletter-popup { position:fixed; right:1.4rem; bottom:1.4rem; width:340px; max-width: calc(100vw - 2.4rem); background: var(--bg-warm); box-shadow: 0 18px 44px rgba(23,20,15,.22); padding: 1.3rem 1.3rem 1.2rem; z-index:90; opacity:0; transform: translateY(16px); pointer-events:none; transition: opacity .35s ease, transform .35s ease; }
+.newsletter-popup.open { opacity:1; transform:translateY(0); pointer-events:auto; }
+.newsletter-popup-close { position:absolute; top:.7rem; right:.7rem; background:none; border:none; cursor:pointer; color: var(--ink-muted); padding:.25rem; line-height:0; }
+.newsletter-popup-close svg { width:15px; height:15px; }
+.newsletter-popup-close:hover { color: var(--ink); }
+.newsletter-popup-head { display:flex; gap:.9rem; align-items:flex-start; margin-bottom:1rem; padding-right:1.3rem; }
+.newsletter-popup-photo { width:46px; height:46px; border-radius:50%; object-fit:cover; flex-shrink:0; border:1px solid var(--border); }
+.newsletter-popup-head h2 { font-family: var(--serif-display); font-weight:700; font-size:1.05rem; margin-bottom:.3rem; color: var(--ink); }
+.newsletter-popup-head p { font-family: var(--serif-text); font-size:.8rem; color: var(--ink-muted); line-height:1.4; }
+.newsletter-popup-embed { display:block; border:1px solid var(--border); background:#fff; }
+@media (max-width: 480px) {
+  .newsletter-popup { right:.8rem; bottom:.8rem; left:.8rem; width:auto; max-width:none; }
+}
 .menu-links { display:flex; flex-direction:column; gap:1.6rem; justify-content:center; }
 .menu-group h4 { font-family: var(--mono); font-size:.6rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-muted); margin-bottom:.8rem; }
 .menu-group ul { list-style:none; display:flex; flex-direction:column; gap:.55rem; }
