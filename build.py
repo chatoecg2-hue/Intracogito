@@ -551,6 +551,48 @@ INDEX_CONTENT = f"""<!-- ══════════════ TOPBAR ═�
 {topbar(active="")}
 <main>
 
+<!-- ══════════════ MODALE NEWSLETTER (façon aeon.co, simplifiée) ══════════════ -->
+<div class="newsletter-modal-backdrop" id="newsletter-modal-backdrop">
+  <div class="newsletter-modal" role="dialog" aria-label="S'abonner à la newsletter Intracogito">
+    <button class="newsletter-modal-close" id="newsletter-modal-close" aria-label="Fermer">
+      {CLOSE_SVG}
+    </button>
+    <img class="newsletter-modal-photo" src="assets/img/vitruvian-man.jpg" alt="Elouan Noël" loading="lazy" />
+    <h2>Rejoins Intracogito</h2>
+    <p>Chaque dimanche à 13h, une édition dans ta boîte mail : 4 à 5 citations commentées autour d'un même thème, et une lecture « entre les lignes ». Gratuit, désabonnement en un clic.</p>
+    <a href="https://elouannoel.substack.com/" target="_blank" rel="noopener" class="hero-cta" id="newsletter-modal-subscribe">S'abonner sur Substack →</a>
+    <a href="#" class="newsletter-modal-skip" id="newsletter-modal-skip">Continuer vers le site</a>
+  </div>
+</div>
+<script>
+(function(){{
+  var KEY = 'ic_newsletter_modal_seen';
+  var THIRTY_DAYS = 30 * 24 * 60 * 60 * 1000;
+  try {{
+    var last = localStorage.getItem(KEY);
+    if (last && (Date.now() - parseInt(last, 10)) < THIRTY_DAYS) return;
+  }} catch (e) {{}}
+  var backdrop = document.getElementById('newsletter-modal-backdrop');
+  if (!backdrop) return;
+  function markSeen(){{
+    try {{ localStorage.setItem(KEY, Date.now().toString()); }} catch (e) {{}}
+  }}
+  function closeModal(){{
+    backdrop.classList.remove('open');
+    markSeen();
+  }}
+  setTimeout(function(){{ backdrop.classList.add('open'); }}, 900);
+  var closeBtn = document.getElementById('newsletter-modal-close');
+  var skipLink = document.getElementById('newsletter-modal-skip');
+  var subscribeLink = document.getElementById('newsletter-modal-subscribe');
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (skipLink) skipLink.addEventListener('click', function(ev){{ ev.preventDefault(); closeModal(); }});
+  if (subscribeLink) subscribeLink.addEventListener('click', markSeen);
+  backdrop.addEventListener('click', function(ev){{ if (ev.target === backdrop) closeModal(); }});
+  document.addEventListener('keydown', function(ev){{ if (ev.key === 'Escape') closeModal(); }});
+}})();
+</script>
+
 <!-- ══════════════ HERO, le dernier essai Cogito publié ══════════════ -->
 <section class="hero-full" id="hero-dernier-essai">
   <img class="bg-cover-img" src="{HERO_ESSAI['cover']}" alt="{HERO_ESSAI['cover_alt']}" loading="eager" fetchpriority="high" />
