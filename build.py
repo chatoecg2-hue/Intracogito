@@ -316,8 +316,8 @@ ALL_ARTICLES = sorted(
 )
 ARTICLES_BY_HREF = {a["href"]: a for a in ALL_ARTICLES}
 
-def article_card(a, prefix="", chapo=None):
-    return card(f"{prefix}{a['href']}", meta=a["meta"], title=a["title"], chapo=chapo if chapo is not None else a["chapo"], author="Elouan Noël", img=img_src(a["img"], prefix))
+def article_card(a, prefix="", chapo=None, show_author=True):
+    return card(f"{prefix}{a['href']}", meta=a["meta"], title=a["title"], chapo=chapo if chapo is not None else a["chapo"], author="Elouan Noël" if show_author else None, img=img_src(a["img"], prefix))
 
 def hero_rotation_script(essays):
     data = json.dumps(essays, ensure_ascii=False)
@@ -466,7 +466,7 @@ INDEX_CONTENT = f"""<!-- ══════════════ TOPBAR ═�
       <h2 class="sec-title">Articles récents</h2>
     </div>
     <div class="card-grid">
-      {"".join(article_card(x) for x in ALL_ARTICLES[:20])}
+      {"".join(article_card(x, show_author=False) for x in ALL_ARTICLES[:20])}
     </div>
     <div class="sec-all">
       <a href="essais.html" class="hero-cta">Lire tous les articles →</a>
@@ -1266,6 +1266,11 @@ cogito_001_html = real_article_page(
     body_html=COGITO_001_BODY,
     word_count=1090,
     date_published="2026-03-18",
+    related=[
+        ('essais/le-poids-de-lidentite.html', "Approfondit la même question : à quoi choisit-on vraiment de s'identifier."),
+        ('essais/la-voie-par-defaut.html', 'Prolonge la réflexion sur le sens : choisir sa vie plutôt que la subir.'),
+        ('essais/la-force-de-lintuition.html', "Une autre voie pour trouver sa direction, par l'intuition plutôt que la raison."),
+    ],
 )
 
 def _intracogito_description(e):
@@ -1306,6 +1311,11 @@ cogito_002_html = real_article_page(
     body_html=COGITO_002_BODY,
     word_count=1816,
     date_published="2026-04-01",
+    related=[
+        ('essais/la-verite-du-chemin.html', 'Même matière : ce que la souffrance et les épreuves construisent en nous.'),
+        ('essais/le-poids-de-lidentite.html', "Le piège symétrique : s'identifier à sa souffrance plutôt que la choisir."),
+        ('essais/les-transformations-silencieuses.html', "Comment l'épreuve nous transforme, souvent sans qu'on le voie venir."),
+    ],
 )
 
 cogito_003_html = real_article_page(
@@ -1320,6 +1330,11 @@ cogito_003_html = real_article_page(
     body_html=COGITO_003_BODY,
     word_count=1093,
     date_published="2026-04-22",
+    related=[
+        ('essais/la-quete-de-notre-destinee.html', "L'intuition comme boussole pour trouver sa propre voie."),
+        ('essais/la-voie-par-defaut.html', 'Le contraste : penser par soi-même contre suivre le troupeau.'),
+        ('essais/lunite-du-corps-et-de-lesprit.html', 'Une autre forme de savoir non rationnel : celui du corps.'),
+    ],
 )
 
 cogito_004_html = real_article_page(
@@ -1334,6 +1349,11 @@ cogito_004_html = real_article_page(
     body_html=COGITO_004_BODY,
     word_count=1487,
     date_published="2026-05-13",
+    related=[
+        ('essais/le-poids-de-lidentite.html', "Même terrain philosophique : l'impermanence et le détachement bouddhistes."),
+        ('essais/la-matiere-premiere-du-heros.html', "Le sens que l'on donne à ce qui nous fait souffrir."),
+        ('essais/la-quete-de-notre-destinee.html', 'Chemin vécu contre destinée choisie : deux lectures du sens.'),
+    ],
 )
 
 cogito_005_html = real_article_page(
@@ -1348,6 +1368,11 @@ cogito_005_html = real_article_page(
     body_html=COGITO_005_BODY,
     word_count=1736,
     date_published="2026-06-10",
+    related=[
+        ('essais/les-transformations-silencieuses.html', 'Le corps comme lieu des transformations les plus silencieuses.'),
+        ('essais/le-poids-de-lidentite.html', 'Le corps façonne-t-il qui nous sommes autant que nos idées ?'),
+        ('essais/la-force-de-lintuition.html', "Le corps comme une autre forme d'intuition, incarnée."),
+    ],
 )
 
 cogito_006_html = real_article_page(
@@ -1362,6 +1387,11 @@ cogito_006_html = real_article_page(
     body_html=COGITO_006_BODY,
     word_count=1132,
     date_published="2026-07-15",
+    related=[
+        ('essais/la-quete-de-notre-destinee.html', "Même fil : l'identité comme construction plutôt que donnée fixe."),
+        ('essais/la-matiere-premiere-du-heros.html', "Le piège précis qu'il nomme : s'identifier à sa propre souffrance."),
+        ('essais/la-voie-par-defaut.html', 'Choisir lucidement ses convictions plutôt que les hériter par défaut.'),
+    ],
 )
 
 cogito_007_html = real_article_page(
@@ -1376,6 +1406,11 @@ cogito_007_html = real_article_page(
     body_html=COGITO_007_BODY,
     word_count=1437,
     date_published="2026-09-09",
+    related=[
+        ('essais/le-poids-de-lidentite.html', "Vivre selon des choix qu'on a vraiment examinés, pas hérités."),
+        ('essais/la-force-de-lintuition.html', 'Écouter sa propre voix plutôt que suivre le groupe.'),
+        ('essais/les-transformations-silencieuses.html', "Comment le conformisme s'installe, lui aussi, en silence."),
+    ],
 )
 
 cogito_008_html = real_article_page(
@@ -1390,6 +1425,11 @@ cogito_008_html = real_article_page(
     body_html=COGITO_008_BODY,
     word_count=1104,
     date_published="2026-10-07",
+    related=[
+        ('essais/lunite-du-corps-et-de-lesprit.html', 'Même logique : ce qui nous change par répétition plutôt que par choc.'),
+        ('essais/la-matiere-premiere-du-heros.html', "Ce qui nous façonne vraiment en profondeur, au-delà de l'instant."),
+        ('essais/la-voie-par-defaut.html', 'Les petites répétitions qui, cumulées, mènent à une vie par défaut.'),
+    ],
 )
 
 # ---------------------------------------------------------------------------

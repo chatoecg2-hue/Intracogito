@@ -64,7 +64,7 @@ button { font: inherit; }
 .topbar-social svg { width:19px; height:19px; color: var(--ink); }
 .topbar-social a:hover svg { color: var(--accent); }
 .topbar-logo { display:flex; justify-content:center; align-items:center; line-height:0; }
-.topbar-logo img { height: clamp(44px, 5vw, 80px); width:auto; display:block; }
+.topbar-logo img { height: clamp(36px, 4vw, 66px); width:auto; display:block; }
 .topbar-logo .logo-light { display:none; }
 .topbar.on-hero .topbar-logo .logo-dark { display:none; }
 .topbar.on-hero .topbar-logo .logo-light { display:block; }
@@ -255,7 +255,7 @@ footer { background: var(--dark); color: var(--on-dark-muted); padding-block: 1.
 }
 @media (max-width:640px) {
   .topbar { padding-block: 1.1rem; }
-  .topbar-logo img { height: 26px; }
+  .topbar-logo img { height: 22px; }
   .topbar-inner { gap:.75rem; }
   .menu-trigger .lbl, .topbar-sep, .topbar-social { display:none; }
   .menu-trigger svg { display:block; }
