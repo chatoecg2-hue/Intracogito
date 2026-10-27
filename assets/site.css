@@ -112,7 +112,7 @@ button { font: inherit; }
 .search-result-badge { display:block; font-family: var(--mono); font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); margin-bottom:.25rem; }
 .search-result h3 { font-family: var(--serif-display); font-weight:600; font-size:1.05rem; color:var(--ink); margin-bottom:.3rem; }
 .search-result p { font-family: var(--serif-text); font-size:.9rem; color:var(--ink-muted); line-height:1.5; }
-.search-result mark { background:none; color: var(--accent); font-weight:600; }
+.search-result mark { background:none; color: var(--ink); font-weight:700; }
 .search-empty { font-family: var(--serif-text); color:var(--ink-muted); padding-block:1rem; }
 
 /* Carte newsletter homepage, coin bas-droit, ne bloque jamais le site (façon aeon.co) */
