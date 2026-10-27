@@ -5,3 +5,4 @@ miniatures-a-fournir/
 content/intracogito/025.html
 content/intracogito/050.html
 .DS_Store
+__pycache__/

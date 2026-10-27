@@ -195,6 +195,11 @@ def menu_overlay(prefix=""):
         <a href="{prefix}concepts.html" class="menu-topic t4">Concepts</a>
         <a href="{prefix}comparatifs.html" class="menu-topic t5">Comparatifs</a>
       </div>
+      <div class="menu-extra">
+        <a href="https://elouannoel.substack.com/" target="_blank" rel="noopener">Newsletter</a>
+        <a href="{prefix}a-propos.html">À propos</a>
+        <a href="https://buymeacoffee.com/elouannoel" target="_blank" rel="noopener">Soutenir</a>
+      </div>
     </nav>
   </div>"""
 
