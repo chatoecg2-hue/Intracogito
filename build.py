@@ -563,7 +563,10 @@ INDEX_CONTENT = f"""<!-- ══════════════ TOPBAR ═�
       <p>Une édition chaque dimanche à 13h, directement dans ta boîte mail.</p>
     </div>
   </div>
-  <iframe src="https://elouannoel.substack.com/embed" class="newsletter-popup-embed" width="100%" height="150" frameborder="0" scrolling="no" title="S'abonner à Intracogito sur Substack"></iframe>
+  <form class="newsletter-popup-form" action="https://elouannoel.substack.com/subscribe" method="get" target="_blank">
+    <input type="email" name="email" class="newsletter-popup-input" placeholder="Ton adresse e-mail" required autocomplete="email" />
+    <button type="submit" class="newsletter-popup-submit">S'abonner →</button>
+  </form>
 </div>
 <script>
 (function(){{
