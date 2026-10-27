@@ -162,9 +162,13 @@ def topbar(prefix="", on_hero=False, active=""):
       <img class="logo-light" src="{prefix}assets/img/logo-intracogito-light.png" alt="" aria-hidden="true" width="1200" height="151" />
     </a>
     <div class="topbar-right">
-      <a href="{prefix}a-propos.html">À propos</a>
-      <a href="https://buymeacoffee.com/elouannoel" target="_blank" rel="noopener">Soutenir</a>
-      <a href="https://elouannoel.substack.com/" target="_blank" rel="noopener">Newsletter</a>
+      <div class="topbar-right-row topbar-right-main">
+        <a href="https://elouannoel.substack.com/" target="_blank" rel="noopener">Newsletter</a>
+      </div>
+      <div class="topbar-right-row topbar-right-sub">
+        <a href="{prefix}a-propos.html">À propos</a>
+        <a href="https://buymeacoffee.com/elouannoel" target="_blank" rel="noopener">Support</a>
+      </div>
     </div>
   </div>
   {menu_overlay(prefix)}
