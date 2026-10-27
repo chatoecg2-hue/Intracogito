@@ -163,6 +163,7 @@ def topbar(prefix="", on_hero=False, active=""):
     </a>
     <div class="topbar-right">
       <a href="{prefix}a-propos.html">À propos</a>
+      <a href="https://buymeacoffee.com/elouannoel" target="_blank" rel="noopener">Soutenir</a>
       <a href="https://elouannoel.substack.com/" target="_blank" rel="noopener">Newsletter</a>
     </div>
   </div>

@@ -280,7 +280,7 @@ footer { background: var(--dark); color: var(--on-dark-muted); padding-block: 1.
   .menu-trigger svg { display:block; }
   .topbar-actions { gap:.9rem; }
   .search-trigger svg, .menu-trigger svg { width:22px; height:22px; }
-  .topbar-right { align-self:center; padding-top:0; font-size:.72rem; letter-spacing:.12em; }
+  .topbar-right { align-self:center; padding-top:0; font-size:.72rem; letter-spacing:.12em; flex-wrap:wrap; justify-content:flex-end; row-gap:.3rem; gap:.9rem; }
   .card-grid { grid-template-columns: 1fr; }
   .footer-band { justify-content:center; text-align:center; gap:.7rem; }
   .footer-mid { flex-wrap:wrap; justify-content:center; gap:1rem; }
