@@ -111,12 +111,12 @@
 </div>
 
 <div class="rubrique-tabs">
-      <a href="#" class="active">Latest</a>
-      <a href="#">Popular</a>
+      <a href="#" class="active" data-tab="latest" onclick="return switchRubriqueTab(this,'latest')">Latest</a>
+      <a href="#" data-tab="popular" onclick="return switchRubriqueTab(this,'popular')">Popular</a>
     </div>
 
 <section class="sec" style="padding-top:0;">
-  <div class="wrap card-grid">
+  <div class="wrap card-grid" id="grid-latest">
     <a class="card" href="essais/les-transformations-silencieuses.html">
       <div class="card-img">
         <img src="assets/img/cogito-008-cover.jpg" alt="Les transformations silencieuses" loading="lazy" width="1100" height="603" />
@@ -198,6 +198,88 @@
       <span class="card-author">Elouan Noël</span>
     </a>
   </div>
+  <div class="wrap card-grid" id="grid-popular" style="display:none;">
+    <a class="card" href="essais/les-transformations-silencieuses.html">
+      <div class="card-img">
+        <img src="assets/img/cogito-008-cover.jpg" alt="Les transformations silencieuses" loading="lazy" width="1100" height="603" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Cogito</span>
+      <h3 class="card-title">Les transformations silencieuses</h3>
+      <p class="card-chapo">Cogito #008</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/lunite-du-corps-et-de-lesprit.html">
+      <div class="card-img">
+        <img src="assets/img/cogito-005-cover.jpg" alt="L'unité du corps et de l'esprit" loading="lazy" width="1100" height="747" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Cogito</span>
+      <h3 class="card-title">L'unité du corps et de l'esprit</h3>
+      <p class="card-chapo">Cogito #005</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-matiere-premiere-du-heros.html">
+      <div class="card-img">
+        <img src="assets/img/cogito-002-cover.jpg" alt="La matière première du héros" loading="lazy" width="794" height="562" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Cogito</span>
+      <h3 class="card-title">La matière première du héros</h3>
+      <p class="card-chapo">Cogito #002</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-force-de-lintuition.html">
+      <div class="card-img">
+        <img src="assets/img/cogito-003-cover.jpg" alt="La force de l'intuition" loading="lazy" width="1100" height="732" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Cogito</span>
+      <h3 class="card-title">La force de l'intuition</h3>
+      <p class="card-chapo">Cogito #003</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-voie-par-defaut.html">
+      <div class="card-img">
+        <img src="assets/img/cogito-007-cover.jpg" alt="La voie par défaut" loading="lazy" width="1100" height="578" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Cogito</span>
+      <h3 class="card-title">La voie par défaut</h3>
+      <p class="card-chapo">Cogito #007</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-verite-du-chemin.html">
+      <div class="card-img">
+        <img src="assets/img/cogito-004-cover.jpg" alt="La vérité du chemin" loading="lazy" width="1100" height="697" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Cogito</span>
+      <h3 class="card-title">La vérité du chemin</h3>
+      <p class="card-chapo">Cogito #004</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/le-poids-de-lidentite.html">
+      <div class="card-img">
+        <img src="assets/img/cogito-006-cover.jpg" alt="Le poids de l'identité" loading="lazy" width="1100" height="575" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Cogito</span>
+      <h3 class="card-title">Le poids de l'identité</h3>
+      <p class="card-chapo">Cogito #006</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-quete-de-notre-destinee.html">
+      <div class="card-img">
+        <img src="assets/img/cogito-001-cover.jpg" alt="La quête de notre destinée" loading="lazy" width="1600" height="817" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Cogito</span>
+      <h3 class="card-title">La quête de notre destinée</h3>
+      <p class="card-chapo">Cogito #001</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+  </div>
 </section>
 
 </main>
@@ -228,6 +310,16 @@
 function toggleMenu(){
   var m = document.getElementById('menu-overlay');
   m.classList.toggle('open');
+}
+function switchRubriqueTab(el, which){
+  var tabs = el.parentElement.querySelectorAll('a');
+  for (var i = 0; i < tabs.length; i++) { tabs[i].classList.remove('active'); }
+  el.classList.add('active');
+  var gl = document.getElementById('grid-latest');
+  var gp = document.getElementById('grid-popular');
+  if (gl) gl.style.display = (which === 'latest') ? '' : 'none';
+  if (gp) gp.style.display = (which === 'popular') ? '' : 'none';
+  return false;
 }
 </script>
 </body>

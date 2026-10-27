@@ -291,6 +291,16 @@ function toggleMenu(){
   var m = document.getElementById('menu-overlay');
   m.classList.toggle('open');
 }
+function switchRubriqueTab(el, which){
+  var tabs = el.parentElement.querySelectorAll('a');
+  for (var i = 0; i < tabs.length; i++) { tabs[i].classList.remove('active'); }
+  el.classList.add('active');
+  var gl = document.getElementById('grid-latest');
+  var gp = document.getElementById('grid-popular');
+  if (gl) gl.style.display = (which === 'latest') ? '' : 'none';
+  if (gp) gp.style.display = (which === 'popular') ? '' : 'none';
+  return false;
+}
 </script>
 </body>
 </html>

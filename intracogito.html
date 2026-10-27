@@ -111,12 +111,12 @@
 </div>
 
 <div class="rubrique-tabs">
-      <a href="#" class="active">Latest</a>
-      <a href="#">Popular</a>
+      <a href="#" class="active" data-tab="latest" onclick="return switchRubriqueTab(this,'latest')">Latest</a>
+      <a href="#" data-tab="popular" onclick="return switchRubriqueTab(this,'popular')">Popular</a>
     </div>
 
 <section class="sec" style="padding-top:0;">
-  <div class="wrap card-grid">
+  <div class="wrap card-grid" id="grid-latest">
     <a class="card" href="essais/le-renoncement.html">
       <div class="card-img">
         <img src="assets/img/intracogito-067-cover.jpg" alt="Le renoncement" loading="lazy" width="1200" height="630" />
@@ -758,6 +758,648 @@
       <span class="card-author">Elouan Noël</span>
     </a>
   </div>
+  <div class="wrap card-grid" id="grid-popular" style="display:none;">
+    <a class="card" href="essais/lidentite.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-001-cover.jpg" alt="L'identité" loading="lazy" width="1200" height="659" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">L'identité</h3>
+      <p class="card-chapo">Intracogito #001</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-reussite.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-048-cover.jpg" alt="La réussite" loading="lazy" width="1200" height="622" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">La réussite</h3>
+      <p class="card-chapo">Intracogito #048</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/lamour.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-049-cover.jpg" alt="L'amour" loading="lazy" width="1200" height="649" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">L'amour</h3>
+      <p class="card-chapo">Intracogito #049</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/le-courage.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-040-cover.jpg" alt="Le courage" loading="lazy" width="960" height="613" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">Le courage</h3>
+      <p class="card-chapo">Intracogito #040</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/les-ideaux.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-037-cover.jpg" alt="Les idéaux" loading="lazy" width="1200" height="855" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">Les idéaux</h3>
+      <p class="card-chapo">Intracogito #037</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/lart.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-047-cover.jpg" alt="L'art" loading="lazy" width="1200" height="744" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">L'art</h3>
+      <p class="card-chapo">Intracogito #047</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/les-regrets.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-042-cover.jpg" alt="Les regrets" loading="lazy" width="848" height="565" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">Les regrets</h3>
+      <p class="card-chapo">Intracogito #042</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/les-relations.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-064-cover.jpg" alt="Les relations" loading="lazy" width="1200" height="705" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">Les relations</h3>
+      <p class="card-chapo">Intracogito #064</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-compromission.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-057-cover.jpg" alt="La compromission" loading="lazy" width="1200" height="630" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">La compromission</h3>
+      <p class="card-chapo">Intracogito #057</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/levolution-personnelle.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-059-cover.jpg" alt="L'évolution personnelle" loading="lazy" width="1200" height="788" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">L'évolution personnelle</h3>
+      <p class="card-chapo">Intracogito #059</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/le-desir.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-055-cover.jpg" alt="Le désir" loading="lazy" width="1200" height="740" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">Le désir</h3>
+      <p class="card-chapo">Intracogito #055</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-passivite-35.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-035-cover.jpg" alt="La passivité" loading="lazy" width="1200" height="630" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">La passivité</h3>
+      <p class="card-chapo">Intracogito #035</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-religion.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-041-cover.jpg" alt="La religion" loading="lazy" width="900" height="452" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">La religion</h3>
+      <p class="card-chapo">Intracogito #041</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/les-priorites.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-060-cover.jpg" alt="Les priorités" loading="lazy" width="1200" height="630" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">Les priorités</h3>
+      <p class="card-chapo">Intracogito #060</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-peur.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-056-cover.jpg" alt="La peur" loading="lazy" width="1200" height="630" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">La peur</h3>
+      <p class="card-chapo">Intracogito #056</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/les-mythes.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-043-cover.jpg" alt="Les mythes" loading="lazy" width="1200" height="707" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">Les mythes</h3>
+      <p class="card-chapo">Intracogito #043</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-vulnerabilite.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-053-cover.jpg" alt="La vulnérabilité" loading="lazy" width="1200" height="693" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">La vulnérabilité</h3>
+      <p class="card-chapo">Intracogito #053</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-coherence.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-065-cover.jpg" alt="La cohérence" loading="lazy" width="1200" height="630" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">La cohérence</h3>
+      <p class="card-chapo">Intracogito #065</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-foi.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-034-cover.jpg" alt="La foi" loading="lazy" width="1200" height="538" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">La foi</h3>
+      <p class="card-chapo">Intracogito #034</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/lintelligence.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-039-cover.jpg" alt="L'intelligence" loading="lazy" width="1200" height="684" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">L'intelligence</h3>
+      <p class="card-chapo">Intracogito #039</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/le-progres.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-046-cover.jpg" alt="Le progrès" loading="lazy" width="1200" height="733" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">Le progrès</h3>
+      <p class="card-chapo">Intracogito #046</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/lechec.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-038-cover.jpg" alt="L'échec" loading="lazy" width="1200" height="778" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">L'échec</h3>
+      <p class="card-chapo">Intracogito #038</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/le-sens.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-045-cover.jpg" alt="Le sens" loading="lazy" width="1200" height="648" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">Le sens</h3>
+      <p class="card-chapo">Intracogito #045</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-paix-interieure.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-062-cover.jpg" alt="La paix intérieure" loading="lazy" width="1200" height="630" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">La paix intérieure</h3>
+      <p class="card-chapo">Intracogito #062</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-mort.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-052-cover.jpg" alt="La mort" loading="lazy" width="1200" height="575" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">La mort</h3>
+      <p class="card-chapo">Intracogito #052</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/lattention.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-063-cover.jpg" alt="L'attention" loading="lazy" width="1200" height="628" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">L'attention</h3>
+      <p class="card-chapo">Intracogito #063</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/le-chaos.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-031-cover.jpg" alt="Le chaos" loading="lazy" width="1200" height="659" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">Le chaos</h3>
+      <p class="card-chapo">Intracogito #031</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-routine.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-044-cover.jpg" alt="La routine" loading="lazy" width="1200" height="730" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">La routine</h3>
+      <p class="card-chapo">Intracogito #044</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-passivite.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-054-cover.jpg" alt="La passivité" loading="lazy" width="1200" height="545" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">La passivité</h3>
+      <p class="card-chapo">Intracogito #054</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-confiance.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-058-cover.jpg" alt="La confiance" loading="lazy" width="1200" height="689" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">La confiance</h3>
+      <p class="card-chapo">Intracogito #058</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-souffrance.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-002-cover.jpg" alt="La souffrance" loading="lazy" width="1200" height="659" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">La souffrance</h3>
+      <p class="card-chapo">Intracogito #002</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/les-emotions.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-036-cover.jpg" alt="Les émotions" loading="lazy" width="1200" height="705" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">Les émotions</h3>
+      <p class="card-chapo">Intracogito #036</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/lapprentissage.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-033-cover.jpg" alt="L'apprentissage" loading="lazy" width="1200" height="691" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">L'apprentissage</h3>
+      <p class="card-chapo">Intracogito #033</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-comparaison-sociale.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-032-cover.jpg" alt="La comparaison sociale" loading="lazy" width="1200" height="659" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">La comparaison sociale</h3>
+      <p class="card-chapo">Intracogito #032</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/lambition.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-061-cover.jpg" alt="L'ambition" loading="lazy" width="1200" height="630" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">L'ambition</h3>
+      <p class="card-chapo">Intracogito #061</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/lheritage.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-66-cover.jpg" alt="L'héritage" loading="lazy" width="1200" height="627" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">L'héritage</h3>
+      <p class="card-chapo">Intracogito #066</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/le-doute.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-030-cover.jpg" alt="Le doute" loading="lazy" width="1200" height="659" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">Le doute</h3>
+      <p class="card-chapo">Intracogito #030</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-presence.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-029-cover.jpg" alt="La présence" loading="lazy" width="1200" height="659" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">La présence</h3>
+      <p class="card-chapo">Intracogito #029</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-responsabilite.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-005-cover.jpg" alt="La responsabilité" loading="lazy" width="1200" height="659" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">La responsabilité</h3>
+      <p class="card-chapo">Intracogito #005</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/le-renoncement.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-067-cover.jpg" alt="Le renoncement" loading="lazy" width="1200" height="630" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">Le renoncement</h3>
+      <p class="card-chapo">Intracogito #067</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-neuropsychologie.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-003-cover.jpg" alt="La neuropsychologie" loading="lazy" width="1200" height="659" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">La neuropsychologie</h3>
+      <p class="card-chapo">Intracogito #003</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/le-savoir.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-004-cover.jpg" alt="Le savoir" loading="lazy" width="1200" height="659" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">Le savoir</h3>
+      <p class="card-chapo">Intracogito #004</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-solitude.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-008-cover.jpg" alt="La solitude" loading="lazy" width="1200" height="659" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">La solitude</h3>
+      <p class="card-chapo">Intracogito #008</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/le-temps.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-026-cover.jpg" alt="Le temps" loading="lazy" width="1200" height="659" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">Le temps</h3>
+      <p class="card-chapo">Intracogito #026</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/les-relations-7.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-007-cover.jpg" alt="Les relations" loading="lazy" width="1200" height="659" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">Les relations</h3>
+      <p class="card-chapo">Intracogito #007</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/lamour-23.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-023-cover.jpg" alt="L'amour" loading="lazy" width="1200" height="659" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">L'amour</h3>
+      <p class="card-chapo">Intracogito #023</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/linfluence-sociale.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-006-cover.jpg" alt="L'influence sociale" loading="lazy" width="1200" height="659" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">L'influence sociale</h3>
+      <p class="card-chapo">Intracogito #006</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/les-conseils.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-028-cover.jpg" alt="Les conseils" loading="lazy" width="1200" height="659" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">Les conseils</h3>
+      <p class="card-chapo">Intracogito #028</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/le-langage.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-027-cover.jpg" alt="Le langage" loading="lazy" width="1200" height="659" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">Le langage</h3>
+      <p class="card-chapo">Intracogito #027</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-politique.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-010-cover.jpg" alt="La politique" loading="lazy" width="1200" height="659" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">La politique</h3>
+      <p class="card-chapo">Intracogito #010</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-pensee.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-016-cover.jpg" alt="La pensée" loading="lazy" width="1200" height="659" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">La pensée</h3>
+      <p class="card-chapo">Intracogito #016</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/levolution-personnelle-13.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-013-cover.jpg" alt="L'évolution personnelle" loading="lazy" width="1200" height="659" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">L'évolution personnelle</h3>
+      <p class="card-chapo">Intracogito #013</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-liberte.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-014-cover.jpg" alt="La liberté" loading="lazy" width="1200" height="659" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">La liberté</h3>
+      <p class="card-chapo">Intracogito #014</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-sagesse.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-011-cover.jpg" alt="La sagesse" loading="lazy" width="1200" height="659" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">La sagesse</h3>
+      <p class="card-chapo">Intracogito #011</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-nature-humaine.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-012-cover.jpg" alt="La nature humaine" loading="lazy" width="1200" height="659" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">La nature humaine</h3>
+      <p class="card-chapo">Intracogito #012</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-technologie.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-015-cover.jpg" alt="La technologie" loading="lazy" width="1200" height="659" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">La technologie</h3>
+      <p class="card-chapo">Intracogito #015</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/le-succes.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-009-cover.jpg" alt="Le succès" loading="lazy" width="1200" height="659" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">Le succès</h3>
+      <p class="card-chapo">Intracogito #009</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/le-bonheur.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-022-cover.jpg" alt="Le bonheur" loading="lazy" width="1200" height="659" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">Le bonheur</h3>
+      <p class="card-chapo">Intracogito #022</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-philosophie.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-024-cover.jpg" alt="La philosophie" loading="lazy" width="1200" height="659" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">La philosophie</h3>
+      <p class="card-chapo">Intracogito #024</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/le-choix.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-021-cover.jpg" alt="Le choix" loading="lazy" width="1200" height="659" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">Le choix</h3>
+      <p class="card-chapo">Intracogito #021</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/lamour-propre.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-019-cover.jpg" alt="L'amour-propre" loading="lazy" width="1200" height="659" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">L'amour-propre</h3>
+      <p class="card-chapo">Intracogito #019</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-lecture.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-017-cover.jpg" alt="La lecture" loading="lazy" width="1200" height="659" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">La lecture</h3>
+      <p class="card-chapo">Intracogito #017</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/largent.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-018-cover.jpg" alt="L'argent" loading="lazy" width="1200" height="659" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">L'argent</h3>
+      <p class="card-chapo">Intracogito #018</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    <a class="card" href="essais/la-verite.html">
+      <div class="card-img">
+        <img src="assets/img/intracogito-020-cover.jpg" alt="La vérité" loading="lazy" width="1200" height="659" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">La vérité</h3>
+      <p class="card-chapo">Intracogito #020</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+  </div>
 </section>
 
 </main>
@@ -788,6 +1430,16 @@
 function toggleMenu(){
   var m = document.getElementById('menu-overlay');
   m.classList.toggle('open');
+}
+function switchRubriqueTab(el, which){
+  var tabs = el.parentElement.querySelectorAll('a');
+  for (var i = 0; i < tabs.length; i++) { tabs[i].classList.remove('active'); }
+  el.classList.add('active');
+  var gl = document.getElementById('grid-latest');
+  var gp = document.getElementById('grid-popular');
+  if (gl) gl.style.display = (which === 'latest') ? '' : 'none';
+  if (gp) gp.style.display = (which === 'popular') ? '' : 'none';
+  return false;
 }
 </script>
 </body>

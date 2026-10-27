@@ -210,6 +210,16 @@ function toggleMenu(){
   var m = document.getElementById('menu-overlay');
   m.classList.toggle('open');
 }
+function switchRubriqueTab(el, which){
+  var tabs = el.parentElement.querySelectorAll('a');
+  for (var i = 0; i < tabs.length; i++) { tabs[i].classList.remove('active'); }
+  el.classList.add('active');
+  var gl = document.getElementById('grid-latest');
+  var gp = document.getElementById('grid-popular');
+  if (gl) gl.style.display = (which === 'latest') ? '' : 'none';
+  if (gp) gp.style.display = (which === 'popular') ? '' : 'none';
+  return false;
+}
 </script>"""
 
 # ---------------------------------------------------------------------------
@@ -542,6 +552,34 @@ essais_html = f"""<!doctype html>
 # ---------------------------------------------------------------------------
 # PAGES DE RUBRIQUE : philosophes / concepts / comparatifs
 # ---------------------------------------------------------------------------
+
+# ---------------------------------------------------------------------------
+# POPULARITÉ (onglet "Popular" des rubriques Cogito / Intracogito) : likes et
+# vues relevés sur le dashboard Substack (captures du 27/10/2026). Score =
+# (likes / max_likes) + (vues / max_vues), calculé séparément pour chaque
+# rubrique (échelles très différentes). Mettre à jour ces deux dicts et
+# relancer le build quand de nouvelles stats sont dispo.
+# ---------------------------------------------------------------------------
+INTRACOGITO_STATS = {
+    1:(20,561), 2:(15,167), 3:(11,77), 4:(9,132), 5:(11,143), 6:(8,120), 7:(8,123), 8:(9,109),
+    9:(4,84), 10:(6,107), 11:(4,96), 12:(4,92), 13:(4,99), 14:(4,98), 15:(4,86), 16:(4,122),
+    17:(3,81), 18:(2,79), 19:(3,86), 20:(1,68), 21:(3,93), 22:(3,98), 23:(8,122), 24:(3,96),
+    26:(8,123), 27:(7,122), 28:(7,129), 29:(11,146), 30:(10,204), 31:(14,243), 32:(9,311),
+    33:(10,306), 34:(10,401), 35:(11,407), 36:(8,371), 37:(14,438), 38:(10,394), 39:(9,430),
+    40:(15,435), 41:(8,494), 42:(12,461), 43:(9,439), 44:(8,422), 45:(7,472), 46:(7,490),
+    47:(8,596), 48:(12,609), 49:(12,559), 52:(6,499), 53:(6,529), 54:(5,508), 55:(8,500),
+    56:(5,584), 57:(9,508), 58:(4,535), 59:(6,583), 60:(5,584), 61:(3,487), 62:(6,501),
+    63:(3,590), 64:(6,604), 65:(6,523), 66:(3,481), 67:(3,341),
+}
+COGITO_STATS = {
+    1:(4,363), 2:(9,430), 3:(8,419), 4:(7,444), 5:(10,625), 6:(2,571), 7:(4,644), 8:(12,704),
+}
+
+def _popularity_score(stats):
+    max_l = max(v[0] for v in stats.values())
+    max_v = max(v[1] for v in stats.values())
+    return {num: (l / max_l + v / max_v) for num, (l, v) in stats.items()}
+
 RUBRIQUES = {
     "philosophes": {
         "label": "Philosophes",
@@ -576,6 +614,19 @@ RUBRIQUES = {
             {"href": "essais/la-matiere-premiere-du-heros.html", "meta": "Cogito", "title": "La matière première du héros", "chapo": "Cogito #002", "author": "Elouan Noël", "img": "assets/img/cogito-002-cover.jpg"},
             {"href": "essais/la-quete-de-notre-destinee.html", "meta": "Cogito", "title": "La quête de notre destinée", "chapo": "Cogito #001", "author": "Elouan Noël", "img": "assets/img/cogito-001-cover.jpg"},
         ],
+        "popular_cards": sorted(
+            [
+                {"href": "essais/les-transformations-silencieuses.html", "meta": "Cogito", "title": "Les transformations silencieuses", "chapo": "Cogito #008", "author": "Elouan Noël", "img": "assets/img/cogito-008-cover.jpg", "_num": 8},
+                {"href": "essais/la-voie-par-defaut.html", "meta": "Cogito", "title": "La voie par défaut", "chapo": "Cogito #007", "author": "Elouan Noël", "img": "assets/img/cogito-007-cover.jpg", "_num": 7},
+                {"href": "essais/le-poids-de-lidentite.html", "meta": "Cogito", "title": "Le poids de l'identité", "chapo": "Cogito #006", "author": "Elouan Noël", "img": "assets/img/cogito-006-cover.jpg", "_num": 6},
+                {"href": "essais/lunite-du-corps-et-de-lesprit.html", "meta": "Cogito", "title": "L'unité du corps et de l'esprit", "chapo": "Cogito #005", "author": "Elouan Noël", "img": "assets/img/cogito-005-cover.jpg", "_num": 5},
+                {"href": "essais/la-verite-du-chemin.html", "meta": "Cogito", "title": "La vérité du chemin", "chapo": "Cogito #004", "author": "Elouan Noël", "img": "assets/img/cogito-004-cover.jpg", "_num": 4},
+                {"href": "essais/la-force-de-lintuition.html", "meta": "Cogito", "title": "La force de l'intuition", "chapo": "Cogito #003", "author": "Elouan Noël", "img": "assets/img/cogito-003-cover.jpg", "_num": 3},
+                {"href": "essais/la-matiere-premiere-du-heros.html", "meta": "Cogito", "title": "La matière première du héros", "chapo": "Cogito #002", "author": "Elouan Noël", "img": "assets/img/cogito-002-cover.jpg", "_num": 2},
+                {"href": "essais/la-quete-de-notre-destinee.html", "meta": "Cogito", "title": "La quête de notre destinée", "chapo": "Cogito #001", "author": "Elouan Noël", "img": "assets/img/cogito-001-cover.jpg", "_num": 1},
+            ],
+            key=lambda c: -_popularity_score(COGITO_STATS)[c["_num"]],
+        ),
     },
     "intracogito": {
         "label": "Intracogito",
@@ -585,14 +636,21 @@ RUBRIQUES = {
             {"href": e["href"], "meta": "Intracogito", "title": e["title"], "chapo": e["badge"], "author": "Elouan Noël", "img": e["cover"]}
             for e in INTRACOGITO_EDITIONS
         ],
+        "popular_cards": sorted(
+            [
+                {"href": e["href"], "meta": "Intracogito", "title": e["title"], "chapo": e["badge"], "author": "Elouan Noël", "img": e["cover"], "_num": e["num"]}
+                for e in INTRACOGITO_EDITIONS
+            ],
+            key=lambda c: -_popularity_score(INTRACOGITO_STATS).get(c["_num"], 0),
+        ),
     },
 }
 
 
 def rubrique_page(slug, data):
     tabs = """<div class="rubrique-tabs">
-      <a href="#" class="active">Latest</a>
-      <a href="#">Popular</a>
+      <a href="#" class="active" data-tab="latest" onclick="return switchRubriqueTab(this,'latest')">Latest</a>
+      <a href="#" data-tab="popular" onclick="return switchRubriqueTab(this,'popular')">Popular</a>
     </div>"""
     subtopics_block = ""
     real_cards = data.get("real_cards")
@@ -634,11 +692,16 @@ def rubrique_page(slug, data):
 </div>"""
     real_cards = data.get("real_cards")
     if real_cards:
-        cards = "\n    ".join(card(**c) for c in real_cards)
+        def _card(c):
+            return card(**{k: v for k, v in c.items() if k != "_num"})
+        cards = "\n    ".join(_card(c) for c in real_cards)
+        popular_cards = data.get("popular_cards")
+        cards_popular = "\n    ".join(_card(c) for c in popular_cards) if popular_cards else cards
     else:
         real = data.get("real_card")
         first_card = card(**real) if real else card(None, badge=False)
         cards = "\n    ".join([first_card, card(None, badge=False), card(None, badge=False), card(None, badge=False)])
+        cards_popular = cards
     return f"""<!doctype html>
 <html lang="fr">
 <head>
@@ -661,8 +724,11 @@ def rubrique_page(slug, data):
 {tabs}
 
 <section class="sec" style="padding-top:0;">
-  <div class="wrap card-grid">
+  <div class="wrap card-grid" id="grid-latest">
     {cards}
+  </div>
+  <div class="wrap card-grid" id="grid-popular" style="display:none;">
+    {cards_popular}
   </div>
 </section>
 
