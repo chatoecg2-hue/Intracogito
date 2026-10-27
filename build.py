@@ -1149,7 +1149,7 @@ COGITO_007_BODY = """<h2>Introduction</h2>
 <p>Certaines choses sont universellement condamnables. Mais quand on sous-traite la question du bien et du mal à une institution, on perd sa souveraineté morale et l’histoire montre les conséquences terribles que peut avoir cette décision. A nouveau, c’est le manque de courage qui mène à ces situations.</p>
 <h2>La réussite par défaut</h2>
 <p>Il existe un modèle de réussite sociale. Il est visible, reconnaissable, mesurable. Une situation stable, un salaire respectable, une famille, une belle maison, des vacances... Ces éléments ne sont pas mauvais en soi.</p>
-<p>Mais il y a une distinction que j’avais développée dans un Intracogito sur l’ambition et que je trouve essentielle ici :</p>
+<p>Mais il y a une distinction que j’avais développée dans <a href="../essais/lambition.html">un Intracogito sur l’ambition</a> et que je trouve essentielle ici :</p>
 <blockquote><p>Ce n’est pas parce qu’une chose est difficile à obtenir qu’elle a nécessairement de la valeur.</p></blockquote>
 <p>On peut passer sa vie à courir après des choses difficiles sans jamais se demander si ce sont les bonnes pour nous. Vouloir ce poste parce qu’il est inaccessible, vouloir ce mode de vie parce qu’il impressionne. C’est parfois une forme de lâcheté déguisée. Elle évite la vraie question : qu’est-ce que je veux vraiment ?</p>
 <h2>La voie des écoles de commerce</h2>
