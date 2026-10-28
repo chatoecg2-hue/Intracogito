@@ -534,6 +534,9 @@ PLAUSIBLE_SCRIPT = """<!-- Privacy-friendly analytics by Plausible -->
   plausible.init()
 </script>"""
 
+UMAMI_SCRIPT = """<!-- Privacy-friendly analytics by Umami -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="653389b3-c8eb-448c-ba35-0a2e5c9e57ab"></script>"""
+
 def head_meta(title, description, path, og_type="website", robots=None, extra_jsonld="", image=None):
     canonical = f"{BASE_URL}/{path}" if path else f"{BASE_URL}/"
     robots_tag = f'\n<meta name="robots" content="{robots}" />' if robots else ""
@@ -562,6 +565,7 @@ def head_meta(title, description, path, og_type="website", robots=None, extra_js
 {FONTS_LINK}
 <link rel="stylesheet" href="{rel}assets/site.css" />
 {PLAUSIBLE_SCRIPT}
+{UMAMI_SCRIPT}
 {extra_jsonld}"""
 
 # ---------------------------------------------------------------------------
