@@ -261,14 +261,14 @@ footer { background: var(--dark); color: var(--on-dark-muted); padding-block: 1.
 .article-body figcaption { font-family: var(--serif-text); font-size:.85rem; color: var(--ink-muted); margin-top:.7rem; text-align:center; }
 .article-body em { font-style:normal; }
 
-.newsletter-insert { max-width: 1000px; margin: 0 auto 2.4rem; background: var(--bg-warm); border-left:3px solid var(--accent); padding: 1.8rem 2rem; display:flex; align-items:center; gap:1.3rem; flex-wrap:wrap; }
-.newsletter-insert-icon { width:56px; height:56px; border-radius:50%; object-fit:cover; flex-shrink:0; }
-.newsletter-insert-text { flex:1 1 260px; min-width:0; }
+.newsletter-insert { max-width: 420px; margin: 0 auto 2.4rem; background: var(--bg-warm); border-left:3px solid var(--accent); padding: 1.4rem 1.6rem; text-align:center; }
+.newsletter-insert-logo { width:150px; height:auto; display:block; margin: 0 auto .8rem; }
 .newsletter-insert h3 { font-family: var(--serif-display); font-weight:700; font-size:1.3rem; margin-bottom:.6rem; }
-.newsletter-insert p { font-size:.85rem; color: var(--ink-muted); margin-bottom:1.1rem; }
+.newsletter-insert p { font-size:.85rem; color: var(--ink-muted); line-height:1.5; margin:0; }
+.newsletter-insert p a { color: var(--accent); font-weight:600; white-space:nowrap; }
+.newsletter-insert p a:hover { color: var(--accent-dark); }
 .newsletter-insert .hero-cta { font-size:.68rem; }
 .newsletter-insert.promo-cogito { border-left-color: var(--gold); }
-@media (max-width:540px) { .newsletter-insert { flex-direction:column; align-items:flex-start; } }
 
 .article-paywall { max-width:1000px; margin:0 auto 2.4rem; background: var(--dark); color: var(--on-dark); padding: 2.2rem 2.2rem; text-align:center; }
 .article-paywall h3 { font-family: var(--serif-display); font-weight:700; font-size:1.3rem; margin-bottom:.7rem; color: var(--on-dark); }
