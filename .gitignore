@@ -6,3 +6,4 @@ content/intracogito/025.html
 content/intracogito/050.html
 .DS_Store
 __pycache__/
+_sync_*.tar.gz
