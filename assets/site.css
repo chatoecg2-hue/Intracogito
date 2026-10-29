@@ -260,8 +260,8 @@ footer { background: var(--dark); color: var(--on-dark-muted); padding-block: 1.
 .article-body figure img { width:100%; height:auto; display:block; }
 .article-body figcaption { font-family: var(--serif-text); font-size:.85rem; color: var(--ink-muted); margin-top:.7rem; text-align:center; }
 .article-body em { font-style:normal; }
-.article-body a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
-.article-body a:hover { color: var(--accent-dark); }
+.article-body a:not(.hero-cta) { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+.article-body a:not(.hero-cta):hover { color: var(--accent-dark); }
 
 .newsletter-insert { max-width: 1000px; margin: 0 auto 2.4rem; background: var(--bg-warm); border: 1px solid var(--border); padding: 1rem 1.4rem; display:flex; align-items:center; gap:1.2rem; }
 .newsletter-insert-photo { width:56px; height:56px; border-radius:50%; object-fit:cover; flex-shrink:0; border:1px solid var(--border); display:block; }
