@@ -194,6 +194,7 @@ def menu_overlay(prefix=""):
         <a href="{prefix}philosophes.html" class="menu-topic t3">Philosophes</a>
         <a href="{prefix}concepts.html" class="menu-topic t4">Concepts</a>
         <a href="{prefix}comparatifs.html" class="menu-topic t5">Comparatifs</a>
+        <a href="{prefix}mouvements.html" class="menu-topic t6">Mouvements</a>
       </div>
       <div class="menu-extra">
         <a href="https://elouannoel.substack.com/" target="_blank" rel="noopener">Newsletter</a>
@@ -780,6 +781,13 @@ RUBRIQUES = {
                       "Raison vs instinct", "Stoïcisme vs bouddhisme"],
         "real_card": None,
     },
+    "mouvements": {
+        "label": "Mouvements",
+        "desc": "Les grandes écoles de pensée philosophique, et comment leurs idées s'appliquent concrètement aujourd'hui.",
+        "subtopics": ["Stoïcisme", "Épicurisme", "Existentialisme", "Nihilisme", "Cynisme", "Hédonisme", "Absurdisme"],
+        "subtopic_links": {},
+        "real_cards": [],
+    },
     "cogito": {
         "label": "Cogito",
         "desc": "Les essais Cogito : la version longue et approfondie d'Intracogito, une réflexion personnelle structurée toutes les 3 semaines.",
@@ -825,6 +833,14 @@ RUBRIQUES = {
         ),
     },
 }
+
+# Permet à related=[...] de real_article_page() de cibler aussi une page pilier
+# (philosophes/concepts/comparatifs/mouvements), pas seulement un essai/une
+# édition Intracogito : ARTICLES_BY_HREF couvrait seulement ALL_ARTICLES avant
+# ce fix (limite documentée, cf. templates-pages-piliers.md).
+for _rub_data in RUBRIQUES.values():
+    for _c in _rub_data.get("real_cards") or []:
+        ARTICLES_BY_HREF[_c["href"]] = {"href": _c["href"], "meta": _c["meta"], "title": _c["title"], "chapo": _c["chapo"], "img": _c["img"]}
 
 
 def rubrique_page(slug, data):
