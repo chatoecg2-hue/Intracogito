@@ -762,7 +762,7 @@ RUBRIQUES = {
         "subtopic_links": {"Marc Aurèle": "philosophes/marc-aurele.html"},
         "real_cards": [
             {"href": "philosophes/marc-aurele.html", "meta": "Philosophes", "title": "Marc Aurèle",
-             "chapo": "Garder son calme face à ce qu'on ne contrôle pas", "author": "Elouan Noël", "img": None},
+             "chapo": "Garder son calme face à ce qu'on ne contrôle pas", "author": "Elouan Noël", "img": "assets/img/philosophe-marc-aurele-cover.jpg"},
         ],
     },
     "concepts": {
@@ -1542,7 +1542,7 @@ philosophe_marc_aurele_html = real_article_page(
     chapo="Un empereur qui écrivait, seul le soir, pour apprendre à se gouverner avant de gouverner Rome.",
     ref="Philosophe",
     description="Marc Aurèle, empereur romain et philosophe stoïcien : qui il était, et ce que ses Pensées pour moi-même enseignent encore sur le contrôle de soi et le calme intérieur.",
-    cover_path=None,
+    cover_path="assets/img/philosophe-marc-aurele-cover.jpg",
     cover_credit=None,
     tags=[("philosophes.html", "Philosophes")],
     body_html=MARC_AURELE_BODY,
@@ -1958,7 +1958,7 @@ def _plain_text_from_html(html_src):
 # Pages piliers (Philosophes/Concepts/Comparatifs) : indexées à part, car elles
 # ne font pas partie d'ALL_ARTICLES (qui alimente essais.html et les reco Cogito/Intracogito).
 PILIER_PAGES_FOR_SEARCH = [
-    {"href": "philosophes/marc-aurele.html", "meta": "Philosophes", "chapo": "Philosophes", "title": "Marc Aurèle", "img": "assets/img/og-default.jpg"},
+    {"href": "philosophes/marc-aurele.html", "meta": "Philosophes", "chapo": "Philosophes", "title": "Marc Aurèle", "img": "assets/img/philosophe-marc-aurele-cover.jpg"},
 ]
 
 search_index = []
