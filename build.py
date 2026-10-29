@@ -759,6 +759,11 @@ RUBRIQUES = {
         "desc": "Les philosophes expliqués simplement : leurs idées clés et comment les appliquer au quotidien.",
         "subtopics": ["Stoïcisme", "Épicurisme", "Existentialisme", "Marc Aurèle", "Épictète",
                       "Sénèque", "Nietzsche", "Camus", "Socrate", "Spinoza"],
+        "subtopic_links": {"Marc Aurèle": "philosophes/marc-aurele.html"},
+        "real_cards": [
+            {"href": "philosophes/marc-aurele.html", "meta": "Philosophes", "title": "Marc Aurèle",
+             "chapo": "Garder son calme face à ce qu'on ne contrôle pas", "author": "Elouan Noël", "img": None},
+        ],
     },
     "concepts": {
         "label": "Concepts",
@@ -859,7 +864,8 @@ def rubrique_page(slug, data):
 </html>
 """
     if data["subtopics"]:
-        subtopics_html = "\n      ".join(f'<a href="essais.html">{s}</a>' for s in data["subtopics"])
+        _subtopic_links = data.get("subtopic_links", {})
+        subtopics_html = "\n      ".join(f'<a href="{_subtopic_links.get(s, "essais.html")}">{s}</a>' for s in data["subtopics"])
         subtopics_block = f"""<div class="subtopic-cloud">
   {subtopics_html}
 </div>"""
@@ -1389,7 +1395,7 @@ AUTHOR_PHOTO = "assets/img/author-elouan.jpg"
 
 def real_article_page(slug, title, chapo, description, cover_path, cover_credit, tags,
                        body_html, word_count, extra_block="", ref="", date_published="2026-10-24",
-                       related=None):
+                       related=None, section="essais", extra_jsonld_blocks=""):
     if not cover_path:
         cover_abs = OG_DEFAULT_IMAGE
     else:
@@ -1406,14 +1412,16 @@ def real_article_page(slug, title, chapo, description, cover_path, cover_credit,
         related_html = "\n      ".join(article_card(ARTICLES_BY_HREF[h], prefix="../", chapo=why) for h, why in related)
     else:
         related_html = "\n      ".join(card("../essais.html", badge=False) for _ in range(3))
+    section_label = RUBRIQUES.get(section, {}).get("label", section.capitalize())
+    section_href = f"{section}.html"
     jsonld = f"""<script type="application/ld+json">
 {{
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {{"@type": "ListItem", "position": 1, "name": "Intracogito", "item": "https://intracogito.vercel.app/"}},
-    {{"@type": "ListItem", "position": 2, "name": "Essais", "item": "https://intracogito.vercel.app/essais.html"}},
-    {{"@type": "ListItem", "position": 3, "name": "{title}", "item": "https://intracogito.vercel.app/essais/{slug}.html"}}
+    {{"@type": "ListItem", "position": 2, "name": "{section_label}", "item": "https://intracogito.vercel.app/{section_href}"}},
+    {{"@type": "ListItem", "position": 3, "name": "{title}", "item": "https://intracogito.vercel.app/{section}/{slug}.html"}}
   ]
 }}
 </script>
@@ -1429,11 +1437,11 @@ def real_article_page(slug, title, chapo, description, cover_path, cover_credit,
   "author": {{"@type": "Person", "name": "Elouan Noël"}},
   "publisher": {{"@type": "Organization", "name": "Intracogito", "logo": {{"@type": "ImageObject", "url": "{BASE_URL}/assets/img/favicon.png"}}}}
 }}
-</script>"""
+</script>{extra_jsonld_blocks}"""
     return f"""<!doctype html>
 <html lang="fr">
 <head>
-{head_meta(f"{title}, Intracogito", description, f"essais/{slug}.html", og_type="article", extra_jsonld=jsonld, image=cover_abs)}
+{head_meta(f"{title}, Intracogito", description, f"{section}/{slug}.html", og_type="article", extra_jsonld=jsonld, image=cover_abs)}
 </head>
 <body>
 
@@ -1511,6 +1519,44 @@ cogito_001_html = real_article_page(
         ('essais/la-force-de-lintuition.html', "Une autre voie pour trouver sa direction, par l'intuition plutôt que la raison."),
     ],
 )
+
+
+PERSON_JSONLD_MARC_AURELE = """
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Marc Aurèle",
+  "alternateName": "Marcus Aurelius",
+  "description": "Empereur romain (121-180) et philosophe stoïcien, auteur des Pensées pour moi-même.",
+  "birthDate": "121",
+  "deathDate": "180"
+}
+</script>"""
+
+MARC_AURELE_BODY = '<p>Il y a quelque chose d’étrange à lire Marc Aurèle : on a l’impression de surprendre quelqu’un en train de se parler à lui-même. Ce qui est exactement le cas.</p>\n<p>Entre 170 et 180, l’empereur romain Marc Aurèle écrit, le soir, sous sa tente, entre deux campagnes militaires le long du Danube. Il ne s’adresse à aucun lecteur, à aucune postérité. Il se parle, pour tenir : souviens-toi de ce qui dépend de toi et de ce qui n’en dépend pas, ne t’emporte pas, fais ce que tu as à faire. Ce carnet deviendra, bien après lui, un livre publié sous un titre qui dit tout : <em>Pensées pour moi-même</em>.</p>\n<p>C’est peut-être ce qui rend ce texte différent des grands traités de philosophie. Marc Aurèle n’essaie de convaincre personne. Il essaie de tenir.</p>\n<h2>Un homme qui avait toutes les raisons de craquer</h2>\n<p>Si quelqu’un avait une excuse légitime pour perdre patience, c’était lui. Marc Aurèle règne de 161 à 180, en pleine peste antonine (une épidémie qui tue sans doute plusieurs millions de personnes dans l’empire), en guerre quasi permanente aux frontières, et il perd plusieurs de ses enfants en bas âge. Il est à la fois l’homme le plus puissant du monde connu et quelqu’un d’épuisé, malade, qui écrit pour ne pas sombrer.</p>\n<p>C’est cette tension qui rend ses Pensées utiles aujourd’hui. Elles ne viennent pas d’un philosophe au calme dans son jardin, mais d’un homme en stress constant, qui cherche une méthode concrète pour ne pas y céder. Ce n’est pas un hasard si, presque deux mille ans plus tard, ce texte reste un point de départ si souvent cité sur <a href="../essais/la-paix-interieure.html">la paix intérieure</a>.</p>\n<p class="image-placeholder" style="border:1px dashed var(--border); padding:1.6rem; text-align:center; font-family:var(--mono); font-size:.68rem; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-muted); margin:2.2rem 0;">Image à venir : buste ou peinture évoquant Marc Aurèle (domaine public). Fichier suggéré : assets/img/philosophe-marc-aurele-fig1.jpg</p>\n<h2>La seule question qui compte vraiment</h2>\n<p>Toute une partie des Pensées tourne autour d’une seule distinction, que les stoïciens appelleront plus tard la dichotomie du contrôle : ce qui dépend de moi (mes jugements, mes réactions, mes choix), et ce qui n’en dépend pas (les événements, les autres, la maladie, la mort).</p>\n<blockquote><p>« Nos troubles ne viennent que de l’idée tout intérieure que nous nous en faisons. [...] Supprime l’idée que tu t’es faite, et, du même coup, tu supprimes aussi ta plainte. Supprime le « Je suis blessé », et, du même coup, la blessure est supprimée également. »</p><p>Marc Aurèle, <em>Pensées pour moi-même</em>, Livre IV, 3 et 7</p></blockquote>\n<p>Ce n’est pas du déni. Marc Aurèle ne dit pas que la douleur n’existe pas : il dit qu’une plainte est un étage ajouté par nous, au-dessus de l’événement brut. Un genou qui cogne une table fait mal, que tu te plaignes ou non. Retirer la plainte ne retire pas le choc. Ça retire seulement ce qu’on y empilait en plus, et qui, lui, dépendait de toi.</p>\n<div class="newsletter-insert">\n  <h3>Rejoins la newsletter</h3>\n  <p>Une édition par semaine, 4 à 5 citations commentées. Gratuit, désabonnement en un clic.</p>\n  <a href="https://elouannoel.substack.com/" target="_blank" rel="noopener" class="hero-cta">S\'abonner →</a>\n</div>\n<h2>Un refuge que personne ne peut te confisquer</h2>\n<p>Marc Aurèle revient souvent à une image : celle d’un refuge intérieur, disponible à tout instant, qu’aucune circonstance extérieure ne peut atteindre.</p>\n<blockquote><p>« Tu peux toujours, quand tu le veux, à ton heure, trouver un asile en toi-même. »</p><p>Marc Aurèle, <em>Pensées pour moi-même</em>, Livre IV, 3</p></blockquote>\n<p>Ce refuge n’est pas un lieu où aller. C’est une direction d’attention qu’on peut reprendre n’importe où : au milieu d’une réunion tendue, dans une salle d’attente, avant de répondre à un message qui a tout pour énerver. Le mouvement n’est pas de fuir la situation. C’est de revenir, une seconde, à ce qu’on tient encore entre ses mains.</p>\n<p class="image-placeholder" style="border:1px dashed var(--border); padding:1.6rem; text-align:center; font-family:var(--mono); font-size:.68rem; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-muted); margin:2.2rem 0;">Image à venir : paysage évoquant le camp militaire du Danube ou une citadelle intérieure (domaine public). Fichier suggéré : assets/img/philosophe-marc-aurele-fig2.jpg</p>\n<h2>Agir maintenant, pas un jour</h2>\n<p>Les Pensées reviennent aussi, sans relâche, sur l’urgence d’agir. Pas par anxiété de performance : par lucidité sur le temps qui reste.</p>\n<blockquote><p>« À toute heure, songe sérieusement, comme Romain et comme homme, à faire tout ce que tu as en mains [...] tu t’en débarrasseras si tu accomplis chacun de tes actes comme le dernier de ta vie. [...] Ne te conduis pas comme si tu devais vivre des millions d’années. »</p><p>Marc Aurèle, <em>Pensées pour moi-même</em>, Livre II, 5 et Livre IV, 17</p></blockquote>\n<p>Il ne demande pas de vivre dans l’urgence permanente, mais de cesser de reporter ce qui compte à une version future et plus disponible de soi, qui n’arrive jamais. La <a href="../essais/la-peur.html">peur</a> de mal faire pousse souvent à ne rien faire du tout. Marc Aurèle propose l’inverse : faire, maintenant, avec ce qu’on a, correctement, puis passer à autre chose.</p>\n<h2>Pourquoi le lire aujourd’hui</h2>\n<p>Marc Aurèle n’a jamais voulu fonder une école. Il reprend, pour lui-même, une discipline déjà posée par les stoïciens avant lui, celle qu’incarnait aussi <a href="../essais/la-sagesse.html">Sénèque</a> un siècle plus tôt. Ce qui rend ses Pensées particulières, c’est qu’elles montrent cette discipline appliquée en direct, par quelqu’un qui n’a aucun public à convaincre et tout à perdre s’il se trompe.</p>\n<p>C’est tout l’enjeu d’une philosophie appliquée au quotidien : pas un système à admirer de loin, mais une méthode à tester sur ce qui, précisément aujourd’hui, échappe à ton contrôle.</p>\n<p>La prochaine fois qu’une contrariété te semble insupportable, essaie l’exercice de Marc Aurèle : sépare ce qui vient de se passer de ce que tu en fais. Garde le premier. Relâche le second. Lui l’a fait sous une tente, au bord du Danube, avec un empire sur les épaules. Tu peux sans doute le faire, toi aussi, avec un peu moins sur les tiennes.</p>'
+
+philosophe_marc_aurele_html = real_article_page(
+    slug="marc-aurele",
+    title="Marc Aurèle : les pensées d\'un empereur pour garder son calme",
+    chapo="Un empereur qui écrivait, seul le soir, pour apprendre à se gouverner avant de gouverner Rome.",
+    ref="Philosophe",
+    description="Marc Aurèle, empereur romain et philosophe stoïcien : qui il était, et ce que ses Pensées pour moi-même enseignent encore sur le contrôle de soi et le calme intérieur.",
+    cover_path=None,
+    cover_credit=None,
+    tags=[("philosophes.html", "Philosophes")],
+    body_html=MARC_AURELE_BODY,
+    word_count=933,
+    date_published="2026-10-29",
+    section="philosophes",
+    extra_jsonld_blocks=PERSON_JSONLD_MARC_AURELE,
+    related=[
+        ("essais/la-paix-interieure.html", "Approfondit la paix intérieure, l\'objectif concret derrière la dichotomie du contrôle de Marc Aurèle."),
+        ("essais/la-sagesse.html", "Sénèque, autre grande voix du stoïcisme, sur ce que la sagesse exige vraiment."),
+        ("essais/la-peur.html", "La même discipline intérieure appliquée à une émotion différente : la peur."),
+    ],
+)
+
 
 def _intracogito_description(e):
     noms = []
@@ -1821,6 +1867,7 @@ a_propos_html = f"""<!doctype html>
 # ÉCRITURE DES FICHIERS
 # ---------------------------------------------------------------------------
 os.makedirs(os.path.join(ROOT, "essais"), exist_ok=True)
+os.makedirs(os.path.join(ROOT, "philosophes"), exist_ok=True)
 
 files = {
     "index.html": index_html,
@@ -1837,6 +1884,7 @@ files = {
     "a-propos.html": a_propos_html,
 }
 files.update(INTRACOGITO_PAGES)
+files["philosophes/marc-aurele.html"] = philosophe_marc_aurele_html
 for slug, data in RUBRIQUES.items():
     files[f"{slug}.html"] = rubrique_page(slug, data)
 
@@ -1907,8 +1955,14 @@ def _plain_text_from_html(html_src):
     t = re.sub(r"\s+", " ", t).strip()
     return t
 
+# Pages piliers (Philosophes/Concepts/Comparatifs) : indexées à part, car elles
+# ne font pas partie d'ALL_ARTICLES (qui alimente essais.html et les reco Cogito/Intracogito).
+PILIER_PAGES_FOR_SEARCH = [
+    {"href": "philosophes/marc-aurele.html", "meta": "Philosophes", "chapo": "Philosophes", "title": "Marc Aurèle", "img": "assets/img/og-default.jpg"},
+]
+
 search_index = []
-for _a in ALL_ARTICLES:
+for _a in ALL_ARTICLES + PILIER_PAGES_FOR_SEARCH:
     _html_src = files.get(_a["href"], "")
     _m = _ARTICLE_BODY_RE.search(_html_src)
     _text = _plain_text_from_html(_m.group(1)) if _m else ""
