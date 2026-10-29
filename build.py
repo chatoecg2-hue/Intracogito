@@ -1538,7 +1538,7 @@ MARC_AURELE_BODY = '<p>Marc Aurèle écrit ses pensées les plus intimes en grec
 
 philosophe_marc_aurele_html = real_article_page(
     slug="marc-aurele",
-    title="Marc Aurèle : les pensées d\'un empereur pour garder son calme",
+    title="Marc Aurèle : les pensées d\'un empereur",
     chapo="Un empereur qui écrivait, seul le soir, pour apprendre à se gouverner avant de gouverner Rome.",
     ref="Philosophe",
     description="Marc Aurèle, empereur romain et philosophe stoïcien : qui il était, et ce que ses Pensées pour moi-même enseignent encore sur le contrôle de soi et le calme intérieur.",
