@@ -881,12 +881,9 @@ def rubrique_page(slug, data):
 </body>
 </html>
 """
-    if data["subtopics"]:
-        _subtopic_links = data.get("subtopic_links", {})
-        subtopics_html = "\n      ".join(f'<a href="{_subtopic_links.get(s, "essais.html")}">{s}</a>' for s in data["subtopics"])
-        subtopics_block = f"""<div class="subtopic-cloud">
-  {subtopics_html}
-</div>"""
+    # Nuage de sous-thèmes retiré (2026-10-30, demande Elouan) : la plupart des
+    # tags ne menaient vers rien (href générique essais.html) ou redoublaient
+    # les cartes déjà affichées plus bas. subtopics_block reste "" (voir plus haut).
     real_cards = data.get("real_cards")
     if real_cards:
         def _card(c):
