@@ -680,7 +680,7 @@ index_artifact_body = f"""<link rel="stylesheet" href="assets/site.css" />
 index_html = f"""<!doctype html>
 <html lang="fr">
 <head>
-{head_meta("Intracogito, philosophie appliquée chaque semaine", "Intracogito : une citation philosophique commentée chaque semaine, et des essais Cogito pour aller plus loin. Philosophie appliquée à la vie quotidienne.", "", og_type="website", extra_jsonld=PERSON_JSONLD)}
+{head_meta("Intracogito | Réfléchir pour mieux agir", "Intracogito, magazine de philosophie en ligne : essais de fond, citations commentées, portraits de penseurs et grands concepts expliqués.", "", og_type="website", extra_jsonld=PERSON_JSONLD)}
 </head>
 <body>
 {INDEX_CONTENT}
