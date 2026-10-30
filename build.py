@@ -760,12 +760,10 @@ RUBRIQUES = {
         "desc": "Les philosophes expliqués simplement : leurs idées clés et comment les appliquer au quotidien.",
         "subtopics": ["Stoïcisme", "Épicurisme", "Existentialisme", "Marc Aurèle", "Épictète",
                       "Sénèque", "Nietzsche", "Camus", "Socrate", "Spinoza"],
-        "subtopic_links": {"Marc Aurèle": "philosophes/marc-aurele.html", "Sénèque": "philosophes/seneque.html"},
+        "subtopic_links": {"Marc Aurèle": "philosophes/marc-aurele.html"},  # Sénèque retiré temporairement (page pas encore publiée)
         "real_cards": [
             {"href": "philosophes/marc-aurele.html", "meta": "Philosophes", "title": "Marc Aurèle",
              "chapo": "Garder son calme face à ce qu'on ne contrôle pas", "author": "Elouan Noël", "img": "assets/img/philosophe-marc-aurele-cover.jpg"},
-            {"href": "philosophes/seneque.html", "meta": "Philosophes", "title": "Sénèque",
-             "chapo": "Pourquoi nous ne manquons pas de temps, mais le gaspillons", "author": "Elouan Noël", "img": "assets/img/philosophe-seneque-cover.jpg"},
         ],
     },
     "concepts": {
@@ -1926,7 +1924,7 @@ files = {
 }
 files.update(INTRACOGITO_PAGES)
 files["philosophes/marc-aurele.html"] = philosophe_marc_aurele_html
-files["philosophes/seneque.html"] = philosophe_seneque_html
+# files["philosophes/seneque.html"] = philosophe_seneque_html  # retiré temporairement, page pas encore publiée
 for slug, data in RUBRIQUES.items():
     files[f"{slug}.html"] = rubrique_page(slug, data)
 
@@ -2001,7 +1999,6 @@ def _plain_text_from_html(html_src):
 # ne font pas partie d'ALL_ARTICLES (qui alimente essais.html et les reco Cogito/Intracogito).
 PILIER_PAGES_FOR_SEARCH = [
     {"href": "philosophes/marc-aurele.html", "meta": "Philosophes", "chapo": "Philosophes", "title": "Marc Aurèle", "img": "assets/img/philosophe-marc-aurele-cover.jpg"},
-    {"href": "philosophes/seneque.html", "meta": "Philosophes", "chapo": "Philosophes", "title": "Sénèque", "img": "assets/img/philosophe-seneque-cover.jpg"},
 ]
 
 search_index = []
