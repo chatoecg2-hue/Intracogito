@@ -9,6 +9,25 @@ import json, re
 ROOT = os.path.dirname(os.path.abspath(__file__))
 BASE_URL = "https://intracogito.fr"
 
+# ---------------------------------------------------------------------------
+# PUBLICATION PROGRAMMEE : une page dont la date (ci-dessous, ou son propre
+# champ "date"/"date_published") est dans le futur reste en stock : ecrite et
+# commitee, mais absente du site genere (pas de fichier, pas de carte, pas de
+# sitemap, pas d'index de recherche) jusqu'a ce jour-la. Un rebuild quotidien
+# programme suffit alors a la faire apparaitre, sans synchroniser le jour du
+# push avec le jour voulu. Pour tester : BUILD_DATE=2026-11-08 python3 build.py
+# ---------------------------------------------------------------------------
+from datetime import date as _date, datetime as _datetime
+from zoneinfo import ZoneInfo as _ZoneInfo
+# Le jour du calendrier éditorial est celui d'Elouan (Paris), pas celui du
+# serveur de build (Vercel tourne en UTC) : sans ça, une page pourrait
+# apparaître jusqu'à ~1h en retard selon l'heure exacte du build.
+TODAY = _date.fromisoformat(os.environ["BUILD_DATE"]) if os.environ.get("BUILD_DATE") else _datetime.now(_ZoneInfo("Europe/Paris")).date()
+
+def is_due(date_str):
+    """True si date_str (YYYY-MM-DD) est aujourd'hui ou deja passe : publie."""
+    return date_str <= TODAY.isoformat()
+
 IMG_DIMENSIONS = {
     "assets/img/cogito-001-cover.webp": (1600, 817),
     "assets/img/intracogito-66-cover.webp": (1200, 627),
@@ -99,6 +118,10 @@ for _key, _e in json.load(open(os.path.join(INTRACOGITO_DIR, "editions.json"), e
             _e["cover"] = None
     INTRACOGITO_EDITIONS.append(_e)
 INTRACOGITO_EDITIONS.sort(key=lambda e: e["date"], reverse=True)
+_intracogito_pending = [e for e in INTRACOGITO_EDITIONS if not is_due(e["date"])]
+INTRACOGITO_EDITIONS = [e for e in INTRACOGITO_EDITIONS if is_due(e["date"])]
+for _e in _intracogito_pending:
+    print(f"[en stock] {_e['badge']} \u00ab {_e['title']} \u00bb : prevu le {_e['date']}, pas encore en ligne")
 
 MOIS_FR = ["", "janvier", "février", "mars", "avril", "mai", "juin",
            "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
@@ -392,6 +415,7 @@ COGITO_ESSAYS = [
     {
         "href": "essais/la-quete-de-notre-destinee.html",
         "badge": "Cogito #001",
+        "num": 1,
         "date": "2026-03-18",
         "title": "La quête de notre destinée",
         "chapo": "Entre sens et identité",
@@ -401,6 +425,7 @@ COGITO_ESSAYS = [
     {
         "href": "essais/la-matiere-premiere-du-heros.html",
         "badge": "Cogito #002",
+        "num": 2,
         "date": "2026-04-01",
         "title": "La matière première du héros",
         "chapo": "Choisir sa souffrance",
@@ -410,6 +435,7 @@ COGITO_ESSAYS = [
     {
         "href": "essais/la-force-de-lintuition.html",
         "badge": "Cogito #003",
+        "num": 3,
         "date": "2026-04-22",
         "title": "La force de l'intuition",
         "chapo": "Entre le cœur et la raison",
@@ -419,6 +445,7 @@ COGITO_ESSAYS = [
     {
         "href": "essais/la-verite-du-chemin.html",
         "badge": "Cogito #004",
+        "num": 4,
         "date": "2026-05-13",
         "title": "La vérité du chemin",
         "chapo": "Ce que le bouddhisme enseigne du chemin",
@@ -428,6 +455,7 @@ COGITO_ESSAYS = [
     {
         "href": "essais/lunite-du-corps-et-de-lesprit.html",
         "badge": "Cogito #005",
+        "num": 5,
         "date": "2026-06-10",
         "title": "L'unité du corps et de l'esprit",
         "chapo": "Ce que le corps dit de la pensée",
@@ -437,6 +465,7 @@ COGITO_ESSAYS = [
     {
         "href": "essais/le-poids-de-lidentite.html",
         "badge": "Cogito #006",
+        "num": 6,
         "date": "2026-07-15",
         "title": "Le poids de l'identité",
         "chapo": "À quoi choisit-on de s'identifier ?",
@@ -446,6 +475,7 @@ COGITO_ESSAYS = [
     {
         "href": "essais/la-voie-par-defaut.html",
         "badge": "Cogito #007",
+        "num": 7,
         "date": "2026-09-09",
         "title": "La voie par défaut",
         "chapo": "Sur le courage de penser par soi-même",
@@ -455,6 +485,7 @@ COGITO_ESSAYS = [
     {
         "href": "essais/les-transformations-silencieuses.html",
         "badge": "Cogito #008",
+        "num": 8,
         "date": "2026-10-07",
         "title": "Les transformations silencieuses",
         "chapo": "Ce qui change sans qu'on le voie",
@@ -462,6 +493,11 @@ COGITO_ESSAYS = [
         "cover_alt": "Richard Wilson, Italian Landscape (1765)",
     },
 ]
+
+_cogito_pending = [e for e in COGITO_ESSAYS if not is_due(e["date"])]
+COGITO_ESSAYS = [e for e in COGITO_ESSAYS if is_due(e["date"])]
+for _e in _cogito_pending:
+    print(f"[en stock] {_e['badge']} \u00ab {_e['title']} \u00bb : prevu le {_e['date']}, pas encore en ligne")
 
 # HERO DE LA HOMEPAGE : toujours le dernier essai Cogito publié.
 # COGITO_ESSAYS est rangé dans l'ordre de publication (du plus ancien au plus
@@ -789,13 +825,8 @@ RUBRIQUES = {
         "desc": "Les philosophes expliqués simplement : leurs idées clés et comment les appliquer au quotidien.",
         "subtopics": ["Stoïcisme", "Épicurisme", "Existentialisme", "Marc Aurèle", "Épictète",
                       "Sénèque", "Nietzsche", "Camus", "Socrate", "Spinoza"],
-        "subtopic_links": {"Marc Aurèle": "philosophes/marc-aurele.html", "Sénèque": "philosophes/seneque.html"},
-        "real_cards": [
-            {"href": "philosophes/marc-aurele.html", "meta": "Philosophes", "title": "Marc Aurèle",
-             "chapo": "Garder son calme face à ce qu'on ne contrôle pas", "author": "Elouan Noël", "img": "assets/img/philosophe-marc-aurele-cover.webp"},
-            {"href": "philosophes/seneque.html", "meta": "Philosophes", "title": "Sénèque",
-             "chapo": "Pourquoi nous ne manquons pas de temps, mais le gaspillons", "author": "Elouan Noël", "img": "assets/img/philosophe-seneque-cover.webp"},
-        ],
+        "subtopic_links": {},
+        "real_cards": [],  # alimente plus bas par la boucle PILIER_PAGES (pages en stock exclues selon leur date)
     },
     "concepts": {
         "label": "Concepts",
@@ -822,25 +853,13 @@ RUBRIQUES = {
         "desc": "Les essais Cogito : la version longue et approfondie d'Intracogito, une réflexion personnelle structurée toutes les 3 semaines.",
         "subtopics": [],
         "real_cards": [
-            {"href": "essais/les-transformations-silencieuses.html", "meta": "Cogito", "title": "Les transformations silencieuses", "chapo": "Cogito #008", "author": "Elouan Noël", "img": "assets/img/cogito-008-cover.webp"},
-            {"href": "essais/la-voie-par-defaut.html", "meta": "Cogito", "title": "La voie par défaut", "chapo": "Cogito #007", "author": "Elouan Noël", "img": "assets/img/cogito-007-cover.webp"},
-            {"href": "essais/le-poids-de-lidentite.html", "meta": "Cogito", "title": "Le poids de l'identité", "chapo": "Cogito #006", "author": "Elouan Noël", "img": "assets/img/cogito-006-cover.webp"},
-            {"href": "essais/lunite-du-corps-et-de-lesprit.html", "meta": "Cogito", "title": "L'unité du corps et de l'esprit", "chapo": "Cogito #005", "author": "Elouan Noël", "img": "assets/img/cogito-005-cover.webp"},
-            {"href": "essais/la-verite-du-chemin.html", "meta": "Cogito", "title": "La vérité du chemin", "chapo": "Cogito #004", "author": "Elouan Noël", "img": "assets/img/cogito-004-cover.webp"},
-            {"href": "essais/la-force-de-lintuition.html", "meta": "Cogito", "title": "La force de l'intuition", "chapo": "Cogito #003", "author": "Elouan Noël", "img": "assets/img/cogito-003-cover.webp"},
-            {"href": "essais/la-matiere-premiere-du-heros.html", "meta": "Cogito", "title": "La matière première du héros", "chapo": "Cogito #002", "author": "Elouan Noël", "img": "assets/img/cogito-002-cover.webp"},
-            {"href": "essais/la-quete-de-notre-destinee.html", "meta": "Cogito", "title": "La quête de notre destinée", "chapo": "Cogito #001", "author": "Elouan Noël", "img": "assets/img/cogito-001-cover.webp"},
-        ],
+            {"href": e["href"], "meta": "Cogito", "title": e["title"], "chapo": e["badge"], "author": "Elouan Noël", "img": e["cover"]}
+            for e in sorted(COGITO_ESSAYS, key=lambda e: e["date"], reverse=True)
+        ],  # derive de COGITO_ESSAYS (essais en stock exclus selon leur date)
         "popular_cards": sorted(
             [
-                {"href": "essais/les-transformations-silencieuses.html", "meta": "Cogito", "title": "Les transformations silencieuses", "chapo": "Cogito #008", "author": "Elouan Noël", "img": "assets/img/cogito-008-cover.webp", "_num": 8},
-                {"href": "essais/la-voie-par-defaut.html", "meta": "Cogito", "title": "La voie par défaut", "chapo": "Cogito #007", "author": "Elouan Noël", "img": "assets/img/cogito-007-cover.webp", "_num": 7},
-                {"href": "essais/le-poids-de-lidentite.html", "meta": "Cogito", "title": "Le poids de l'identité", "chapo": "Cogito #006", "author": "Elouan Noël", "img": "assets/img/cogito-006-cover.webp", "_num": 6},
-                {"href": "essais/lunite-du-corps-et-de-lesprit.html", "meta": "Cogito", "title": "L'unité du corps et de l'esprit", "chapo": "Cogito #005", "author": "Elouan Noël", "img": "assets/img/cogito-005-cover.webp", "_num": 5},
-                {"href": "essais/la-verite-du-chemin.html", "meta": "Cogito", "title": "La vérité du chemin", "chapo": "Cogito #004", "author": "Elouan Noël", "img": "assets/img/cogito-004-cover.webp", "_num": 4},
-                {"href": "essais/la-force-de-lintuition.html", "meta": "Cogito", "title": "La force de l'intuition", "chapo": "Cogito #003", "author": "Elouan Noël", "img": "assets/img/cogito-003-cover.webp", "_num": 3},
-                {"href": "essais/la-matiere-premiere-du-heros.html", "meta": "Cogito", "title": "La matière première du héros", "chapo": "Cogito #002", "author": "Elouan Noël", "img": "assets/img/cogito-002-cover.webp", "_num": 2},
-                {"href": "essais/la-quete-de-notre-destinee.html", "meta": "Cogito", "title": "La quête de notre destinée", "chapo": "Cogito #001", "author": "Elouan Noël", "img": "assets/img/cogito-001-cover.webp", "_num": 1},
+                {"href": e["href"], "meta": "Cogito", "title": e["title"], "chapo": e["badge"], "author": "Elouan Noël", "img": e["cover"], "_num": e["num"]}
+                for e in COGITO_ESSAYS
             ],
             key=lambda c: -_popularity_score(COGITO_STATS)[c["_num"]],
         ),
@@ -863,13 +882,8 @@ RUBRIQUES = {
     },
 }
 
-# Permet à related=[...] de real_article_page() de cibler aussi une page pilier
-# (philosophes/concepts/comparatifs/mouvements), pas seulement un essai/une
-# édition Intracogito : ARTICLES_BY_HREF couvrait seulement ALL_ARTICLES avant
-# ce fix (limite documentée, cf. templates-pages-piliers.md).
-for _rub_data in RUBRIQUES.values():
-    for _c in _rub_data.get("real_cards") or []:
-        ARTICLES_BY_HREF[_c["href"]] = {"href": _c["href"], "meta": _c["meta"], "title": _c["title"], "chapo": _c["chapo"], "img": _c["img"]}
+# (Le lien ARTICLES_BY_HREF <-> pages piliers se fait plus bas, dans la
+# boucle PILIER_PAGES, une fois ces pages effectivement en ligne.)
 
 
 def rubrique_page(slug, data):
@@ -1639,6 +1653,50 @@ philosophe_seneque_html = real_article_page(
     ],
 )
 
+# ---------------------------------------------------------------------------
+# PAGES PILIERS (Philosophes / Concepts / Comparatifs / Mouvements) : source
+# unique pour le stock de pages pretes. Ajouter une page ici (avec sa date de
+# publication, en phase avec le date_published passe a real_article_page plus
+# haut) suffit a la faire apparaitre partout le jour venu : fichier genere,
+# carte de rubrique, lien de sous-theme, index de recherche, sitemap. Avant
+# cette date : rien de tout ca n'existe, la page est en stock, prete, invisible.
+# Pour ajouter une future page pilier : l'ecrire comme marc-aurele/seneque
+# ci-dessus (real_article_page), puis ajouter une entree ici.
+# ---------------------------------------------------------------------------
+PILIER_PAGES = [
+    {
+        "category": "philosophes", "subtopic": "Marc Aurèle", "date": "2026-10-29",
+        "href": "philosophes/marc-aurele.html", "title": "Marc Aurèle",
+        "chapo": "Garder son calme face à ce qu'on ne contrôle pas",
+        "img": "assets/img/philosophe-marc-aurele-cover.webp", "html": philosophe_marc_aurele_html,
+    },
+    {
+        "category": "philosophes", "subtopic": "Sénèque", "date": "2026-11-01",
+        "href": "philosophes/seneque.html", "title": "Sénèque",
+        "chapo": "Pourquoi nous ne manquons pas de temps, mais le gaspillons",
+        "img": "assets/img/philosophe-seneque-cover.webp", "html": philosophe_seneque_html,
+    },
+]
+
+PILIER_FILES = {}
+PILIER_PAGES_FOR_SEARCH = []
+for _p in PILIER_PAGES:
+    if not is_due(_p["date"]):
+        print(f"[en stock] {_p['title']} ({_p['category']}) : prevu le {_p['date']}, pas encore en ligne")
+        continue
+    _cat = RUBRIQUES[_p["category"]]
+    _cat.setdefault("real_cards", []).append({
+        "href": _p["href"], "meta": _cat["label"], "title": _p["title"],
+        "chapo": _p["chapo"], "author": "Elouan Noël", "img": _p["img"],
+    })
+    if _p.get("subtopic"):
+        _cat.setdefault("subtopic_links", {})[_p["subtopic"]] = _p["href"]
+    ARTICLES_BY_HREF[_p["href"]] = {"href": _p["href"], "meta": _cat["label"], "title": _p["title"], "chapo": _p["chapo"], "img": _p["img"]}
+    PILIER_FILES[_p["href"]] = _p["html"]
+    PILIER_PAGES_FOR_SEARCH.append({
+        "href": _p["href"], "meta": _cat["label"], "chapo": _cat["label"], "title": _p["title"], "img": _p["img"],
+    })
+
 
 def _intracogito_description(e):
     k = len(e["authors"])
@@ -1793,6 +1851,20 @@ cogito_008_html = real_article_page(
         ('essais/la-voie-par-defaut.html', 'Les petites répétitions qui, cumulées, mènent à une vie par défaut.'),
     ],
 )
+
+# Essais Cogito en stock (date future) exclus automatiquement : COGITO_ESSAYS
+# est deja filtre plus haut, cette table ne sert qu'a retrouver le HTML deja
+# genere pour chaque essai DU.
+_COGITO_HTML_BY_HREF = {
+    "essais/la-quete-de-notre-destinee.html": cogito_001_html,
+    "essais/la-matiere-premiere-du-heros.html": cogito_002_html,
+    "essais/la-force-de-lintuition.html": cogito_003_html,
+    "essais/la-verite-du-chemin.html": cogito_004_html,
+    "essais/lunite-du-corps-et-de-lesprit.html": cogito_005_html,
+    "essais/le-poids-de-lidentite.html": cogito_006_html,
+    "essais/la-voie-par-defaut.html": cogito_007_html,
+    "essais/les-transformations-silencieuses.html": cogito_008_html,
+}
 
 # ---------------------------------------------------------------------------
 # PAGE: 404.html (erreur, hors sitemap, noindex)
@@ -1949,20 +2021,12 @@ os.makedirs(os.path.join(ROOT, "philosophes"), exist_ok=True)
 files = {
     "index.html": index_html,
     "essais.html": essais_html,
-    "essais/la-quete-de-notre-destinee.html": cogito_001_html,
-    "essais/la-matiere-premiere-du-heros.html": cogito_002_html,
-    "essais/la-force-de-lintuition.html": cogito_003_html,
-    "essais/la-verite-du-chemin.html": cogito_004_html,
-    "essais/lunite-du-corps-et-de-lesprit.html": cogito_005_html,
-    "essais/le-poids-de-lidentite.html": cogito_006_html,
-    "essais/la-voie-par-defaut.html": cogito_007_html,
-    "essais/les-transformations-silencieuses.html": cogito_008_html,
     "mentions-legales.html": mentions_legales_html,
     "a-propos.html": a_propos_html,
 }
-files.update(INTRACOGITO_PAGES)
-files["philosophes/marc-aurele.html"] = philosophe_marc_aurele_html
-files["philosophes/seneque.html"] = philosophe_seneque_html
+files.update({e["href"]: _COGITO_HTML_BY_HREF[e["href"]] for e in COGITO_ESSAYS})  # essais en stock exclus
+files.update(INTRACOGITO_PAGES)  # éditions en stock exclues
+files.update(PILIER_FILES)  # pages piliers en stock exclues
 for slug, data in RUBRIQUES.items():
     files[f"{slug}.html"] = rubrique_page(slug, data)
 
@@ -2038,12 +2102,10 @@ def _plain_text_from_html(html_src):
     t = re.sub(r"\s+", " ", t).strip()
     return t
 
-# Pages piliers (Philosophes/Concepts/Comparatifs) : indexées à part, car elles
-# ne font pas partie d'ALL_ARTICLES (qui alimente essais.html et les reco Cogito/Intracogito).
-PILIER_PAGES_FOR_SEARCH = [
-    {"href": "philosophes/marc-aurele.html", "meta": "Philosophes", "chapo": "Philosophes", "title": "Marc Aurèle", "img": "assets/img/philosophe-marc-aurele-cover.webp"},
-    {"href": "philosophes/seneque.html", "meta": "Philosophes", "chapo": "Philosophes", "title": "Sénèque", "img": "assets/img/philosophe-seneque-cover.webp"},
-]
+# Pages piliers (Philosophes/Concepts/Comparatifs/Mouvements) : indexées à part,
+# car elles ne font pas partie d'ALL_ARTICLES. PILIER_PAGES_FOR_SEARCH est
+# désormais défini plus haut, dans la boucle PILIER_PAGES (pages en stock
+# déjà exclues à ce stade).
 
 search_index = []
 for _a in ALL_ARTICLES + PILIER_PAGES_FOR_SEARCH:
