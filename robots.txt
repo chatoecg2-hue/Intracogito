@@ -22,4 +22,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://intracogito.vercel.app/sitemap.xml
+Sitemap: https://intracogito.fr/sitemap.xml

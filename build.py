@@ -7,7 +7,7 @@ import os
 import json, re
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-BASE_URL = "https://intracogito.vercel.app"
+BASE_URL = "https://intracogito.fr"
 
 IMG_DIMENSIONS = {
     "assets/img/cogito-001-cover.jpg": (1600, 817),
@@ -577,7 +577,7 @@ PERSON_JSONLD = """<script type="application/ld+json">
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Intracogito",
-  "url": "https://intracogito.vercel.app/",
+  "url": "https://intracogito.fr/",
   "inLanguage": "fr",
   "author": {
     "@type": "Person",
@@ -939,9 +939,9 @@ article_jsonld = """<script type="application/ld+json">
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {"@type": "ListItem", "position": 1, "name": "Intracogito", "item": "https://intracogito.vercel.app/"},
-    {"@type": "ListItem", "position": 2, "name": "Essais", "item": "https://intracogito.vercel.app/essais.html"},
-    {"@type": "ListItem", "position": 3, "name": "Titre", "item": "https://intracogito.vercel.app/essais/exemple-stoicisme.html"}
+    {"@type": "ListItem", "position": 1, "name": "Intracogito", "item": "https://intracogito.fr/"},
+    {"@type": "ListItem", "position": 2, "name": "Essais", "item": "https://intracogito.fr/essais.html"},
+    {"@type": "ListItem", "position": 3, "name": "Titre", "item": "https://intracogito.fr/essais/exemple-stoicisme.html"}
   ]
 }
 </script>"""
@@ -1432,9 +1432,9 @@ def real_article_page(slug, title, chapo, description, cover_path, cover_credit,
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {{"@type": "ListItem", "position": 1, "name": "Intracogito", "item": "https://intracogito.vercel.app/"}},
-    {{"@type": "ListItem", "position": 2, "name": "{section_label}", "item": "https://intracogito.vercel.app/{section_href}"}},
-    {{"@type": "ListItem", "position": 3, "name": "{title}", "item": "https://intracogito.vercel.app/{section}/{slug}.html"}}
+    {{"@type": "ListItem", "position": 1, "name": "Intracogito", "item": "{BASE_URL}/"}},
+    {{"@type": "ListItem", "position": 2, "name": "{section_label}", "item": "{BASE_URL}/{section_href}"}},
+    {{"@type": "ListItem", "position": 3, "name": "{title}", "item": "{BASE_URL}/{section}/{slug}.html"}}
   ]
 }}
 </script>
