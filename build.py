@@ -108,13 +108,22 @@ def format_date_fr(iso_date):
     y, m, d = iso_date.split("-")
     return f"{int(d)} {MOIS_FR[int(m)]} {y}"
 
+_FONTS_HREF = (
+    "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;"
+    "0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;"
+    "0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&family=IBM+Plex+Mono:wght@400;500;700&"
+    "family=Inter:wght@300;400;500&display=swap"
+)
+# Chargement non bloquant (preload + bascule en stylesheet au onload), repli
+# <noscript> pour les navigateurs sans JS. Corrige le "render-blocking
+# requests" relevé par PageSpeed Insights le 31/10/2026 (~720ms sur mobile),
+# sans changer l'affichage ni le FOIT (display=swap déjà en place).
 FONTS_LINK = (
     '<link rel="preconnect" href="https://fonts.googleapis.com" />\n'
     '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />\n'
-    '<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;'
-    '0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;'
-    '0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&family=IBM+Plex+Mono:wght@400;500;700&'
-    'family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />'
+    f'<link rel="preload" as="style" href="{_FONTS_HREF}" />\n'
+    f'<link href="{_FONTS_HREF}" rel="stylesheet" media="print" onload="this.media=\'all\'" />\n'
+    f'<noscript><link href="{_FONTS_HREF}" rel="stylesheet" /></noscript>'
 )
 
 SOCIAL_ICONS = """<a href="https://elouannoel.substack.com/" target="_blank" rel="noopener" aria-label="Substack">
@@ -649,6 +658,7 @@ INDEX_CONTENT = f"""<!-- ══════════════ TOPBAR ═�
 <!-- ══════════════ ARTICLES RÉCENTS (Cogito + Intracogito) ══════════════ -->
 <section class="sec">
   <div class="wrap">
+    <h2 class="sr-only">Articles récents</h2>
     <div class="card-grid">
       {"".join(article_card(x, show_author=False) for x in ALL_ARTICLES[:18])}
     </div>
@@ -691,13 +701,25 @@ index_html = f"""<!doctype html>
 # ---------------------------------------------------------------------------
 # PAGE: essais.html
 # ---------------------------------------------------------------------------
+ESSAIS_BREADCRUMB_JSONLD = f"""<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {{"@type": "ListItem", "position": 1, "name": "Intracogito", "item": "{BASE_URL}/"}},
+    {{"@type": "ListItem", "position": 2, "name": "Essais", "item": "{BASE_URL}/essais.html"}}
+  ]
+}}
+</script>"""
+
 essais_html = f"""<!doctype html>
 <html lang="fr">
 <head>
 {head_meta(
-    "Essais, Intracogito",
+    "Essais | Intracogito",
     "Tous les essais Intracogito : philosophes, concepts et comparatifs de philosophie pratique, expliqués simplement et appliqués au quotidien.",
-    "essais.html"
+    "essais.html",
+    extra_jsonld=ESSAIS_BREADCRUMB_JSONLD
 )}
 </head>
 <body>
@@ -710,6 +732,7 @@ essais_html = f"""<!doctype html>
   <p>Les essais Cogito et les éditions Intracogito, dans l'ordre de publication.</p>
 </div>
 
+<h2 class="sec-title">Tous les essais</h2>
 <section class="sec">
   <div class="wrap card-grid">
     {"".join(article_card(x) for x in ALL_ARTICLES)}
@@ -847,13 +870,23 @@ def rubrique_page(slug, data):
       <a href="#" data-tab="popular" onclick="return switchRubriqueTab(this,'popular')">Popular</a>
     </div>"""
     subtopics_block = ""
+    rubrique_breadcrumb = f"""<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {{"@type": "ListItem", "position": 1, "name": "Intracogito", "item": "{BASE_URL}/"}},
+    {{"@type": "ListItem", "position": 2, "name": "{data['label']}", "item": "{BASE_URL}/{slug}.html"}}
+  ]
+}}
+</script>"""
     real_cards = data.get("real_cards")
     if not real_cards:
         # Rubrique sans article publié : un simple message, aucune carte ni lien vide
         return f"""<!doctype html>
 <html lang="fr">
 <head>
-{head_meta(f"{data['label']}, Intracogito", data["desc"], f"{slug}.html")}
+{head_meta(f"{data['label']} | Intracogito", data["desc"], f"{slug}.html", extra_jsonld=rubrique_breadcrumb)}
 </head>
 <body>
 
@@ -898,9 +931,10 @@ def rubrique_page(slug, data):
 <html lang="fr">
 <head>
 {head_meta(
-    f"{data['label']}, Intracogito",
+    f"{data['label']} | Intracogito",
     data["desc"],
-    f"{slug}.html"
+    f"{slug}.html",
+    extra_jsonld=rubrique_breadcrumb
 )}
 </head>
 <body>
@@ -915,6 +949,7 @@ def rubrique_page(slug, data):
 {subtopics_block}
 {tabs}
 
+<h2 class="sec-title">Tous les articles</h2>
 <section class="sec" style="padding-top:0;">
   <div class="wrap card-grid" id="grid-latest">
     {cards}
@@ -950,7 +985,7 @@ article_html = f"""<!doctype html>
 <html lang="fr">
 <head>
 {head_meta(
-    "Gabarit d'essai, Intracogito",
+    "Gabarit d'essai | Intracogito",
     "Gabarit de page essai Intracogito : structure vide à remplir, pas un essai réel.",
     "essais/exemple-stoicisme.html",
     og_type="article",
@@ -1454,7 +1489,7 @@ def real_article_page(slug, title, chapo, description, cover_path, cover_credit,
     return f"""<!doctype html>
 <html lang="fr">
 <head>
-{head_meta(f"{title}, Intracogito", description, f"{section}/{slug}.html", og_type="article", extra_jsonld=jsonld, image=cover_abs)}
+{head_meta(f"{title} | Intracogito", description, f"{section}/{slug}.html", og_type="article", extra_jsonld=jsonld, image=cover_abs)}
 </head>
 <body>
 
@@ -1554,7 +1589,7 @@ philosophe_marc_aurele_html = real_article_page(
     title="Marc Aurèle : les pensées d\'un empereur",
     chapo="Un empereur qui écrivait, seul le soir, pour apprendre à se gouverner avant de gouverner Rome.",
     ref="Philosophe",
-    description="Marc Aurèle, empereur romain et philosophe stoïcien : qui il était, et ce que ses Pensées pour moi-même enseignent encore sur le contrôle de soi et le calme intérieur.",
+    description="Marc Aurèle, empereur romain et philosophe stoïcien : ce que ses Pensées pour moi-même enseignent sur le contrôle de soi et le calme intérieur.",
     cover_path="assets/img/philosophe-marc-aurele-cover.jpg",
     cover_credit="Nymphée antique (peinture néo-classique, domaine public)",
     tags=[("philosophes.html", "Philosophes")],
@@ -1598,13 +1633,8 @@ philosophe_seneque_html = real_article_page(
 
 
 def _intracogito_description(e):
-    noms = []
-    for n in e["authors"]:
-        if n != "Intracogito" and n not in noms:
-            noms.append(n)
     k = len(e["authors"])
-    cites = (", ".join(noms[:-1]) + f" et {noms[-1]}") if len(noms) > 1 else (noms[0] if noms else "Intracogito")
-    return f"Intracogito #{e['num']:03d}, {e['title']} : {k} citations commentées, de {cites}, avec une lecture « Entre les lignes » pour chacune."
+    return f"Intracogito #{e['num']:03d}, {e['title']} : {k} citations commentées, avec une lecture « Entre les lignes » pour chacune."
 
 INTRACOGITO_PAGES = {}
 for _e in INTRACOGITO_EDITIONS:
@@ -1765,7 +1795,7 @@ page_404_html = f"""<!doctype html>
 <html lang="fr">
 <head>
 {head_meta(
-    "Page introuvable, Intracogito",
+    "Page introuvable | Intracogito",
     "Cette page n'existe pas ou plus sur Intracogito.",
     "404.html",
     robots="noindex, follow"
@@ -1793,7 +1823,7 @@ mentions_legales_html = f"""<!doctype html>
 <html lang="fr">
 <head>
 {head_meta(
-    "Mentions légales & confidentialité, Intracogito",
+    "Mentions légales & confidentialité | Intracogito",
     "Mentions légales, hébergement, propriété intellectuelle et politique de confidentialité du site Intracogito.",
     "mentions-legales.html"
 )}
@@ -1848,7 +1878,7 @@ a_propos_html = f"""<!doctype html>
 <html lang="fr">
 <head>
 {head_meta(
-    "À propos, Intracogito",
+    "À propos | Intracogito",
     "Qui écrit Intracogito et Cogito : une philosophie incarnée, pratique, livrée chaque dimanche à 13h.",
     "a-propos.html"
 )}
