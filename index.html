@@ -194,16 +194,55 @@
 })();
 </script>
 
-<!-- ══════════════ HERO, le dernier essai Cogito publié ══════════════ -->
-<section class="hero-full" id="hero-dernier-essai">
-  <img class="bg-cover-img" src="assets/img/cogito-001-cover.webp" alt="Hermann David Salomon Corrodi, Evening on the banks of the Nile (1905)" loading="eager" fetchpriority="high" />
+<!-- ══════════════ HERO ROTATIF, un essai Cogito différent chaque jour ══════════════ -->
+<section class="hero-full" id="hero-rotatif">
+  <img class="bg-cover-img" id="hero-bg-img" src="assets/img/cogito-001-cover.webp" alt="Hermann David Salomon Corrodi, Evening on the banks of the Nile (1905)" loading="eager" fetchpriority="high" />
   <div class="wrap hero-full-content">
-    <span class="hero-eyebrow">Cogito #001</span>
-    <h1>La quête de notre destinée</h1>
-    <p class="chapo">Entre sens et identité</p>
-    <a href="essais/la-quete-de-notre-destinee.html" class="hero-cta">Lire l'essai →</a>
+    <span class="hero-eyebrow" id="hero-badge">Cogito #001</span>
+    <h1 id="hero-title">La quête de notre destinée</h1>
+    <p class="chapo" id="hero-chapo">Entre sens et identité</p>
+    <a href="essais/la-quete-de-notre-destinee.html" class="hero-cta" id="hero-link">Lire l'essai →</a>
   </div>
 </section>
+<script type="application/json" id="cogito-essais-data">[{"href": "essais/la-quete-de-notre-destinee.html", "badge": "Cogito #001", "date": "2026-03-18", "title": "La quête de notre destinée", "chapo": "Entre sens et identité", "cover": "assets/img/cogito-001-cover.webp", "cover_alt": "Hermann David Salomon Corrodi, Evening on the banks of the Nile (1905)"}, {"href": "essais/la-matiere-premiere-du-heros.html", "badge": "Cogito #002", "date": "2026-04-01", "title": "La matière première du héros", "chapo": "Choisir sa souffrance", "cover": "assets/img/cogito-002-cover.webp", "cover_alt": "Voilier affrontant une mer démontée sous un ciel chargé"}, {"href": "essais/la-force-de-lintuition.html", "badge": "Cogito #003", "date": "2026-04-22", "title": "La force de l'intuition", "chapo": "Entre le cœur et la raison", "cover": "assets/img/cogito-003-cover.webp", "cover_alt": "Albert Bierstadt, Yosemite Valley (1868)"}, {"href": "essais/la-verite-du-chemin.html", "badge": "Cogito #004", "date": "2026-05-13", "title": "La vérité du chemin", "chapo": "Ce que le bouddhisme enseigne du chemin", "cover": "assets/img/cogito-004-cover.webp", "cover_alt": "Nicholas Roerich, Tibet. Himalayas (1933)"}, {"href": "essais/lunite-du-corps-et-de-lesprit.html", "badge": "Cogito #005", "date": "2026-06-10", "title": "L'unité du corps et de l'esprit", "chapo": "Ce que le corps dit de la pensée", "cover": "assets/img/cogito-005-cover.webp", "cover_alt": "Paysage de campagne paisible, chemin, chèvre et village au loin"}, {"href": "essais/le-poids-de-lidentite.html", "badge": "Cogito #006", "date": "2026-07-15", "title": "Le poids de l'identité", "chapo": "À quoi choisit-on de s'identifier ?", "cover": "assets/img/cogito-006-cover.webp", "cover_alt": "John Ross Key, Mt. Diablo, San Joaquin Valley"}, {"href": "essais/la-voie-par-defaut.html", "badge": "Cogito #007", "date": "2026-09-09", "title": "La voie par défaut", "chapo": "Sur le courage de penser par soi-même", "cover": "assets/img/cogito-007-cover.webp", "cover_alt": "Johann Ludwig Bleuler, Wimmis an der Kander bey Thun"}, {"href": "essais/les-transformations-silencieuses.html", "badge": "Cogito #008", "date": "2026-10-07", "title": "Les transformations silencieuses", "chapo": "Ce qui change sans qu'on le voie", "cover": "assets/img/cogito-008-cover.webp", "cover_alt": "Richard Wilson, Italian Landscape (1765)"}]</script>
+<script>
+(function(){
+  var dataEl = document.getElementById('cogito-essais-data');
+  if (!dataEl) return;
+  var essais = JSON.parse(dataEl.textContent || '[]');
+  if (!essais.length) return;
+  var DAY_MS = 24 * 60 * 60 * 1000;
+  var params = new URLSearchParams(window.location.search);
+  var forced = params.get('jour');
+  var dayIndex = forced !== null ? parseInt(forced, 10) : Math.floor(Date.now() / DAY_MS);
+  var idx = ((dayIndex % essais.length) + essais.length) % essais.length;
+  var essai = essais[idx];
+  var hero = document.getElementById('hero-rotatif');
+  if (hero) hero.setAttribute('data-essai-index', idx);
+  var badgeEl = document.getElementById('hero-badge');
+  var titleEl = document.getElementById('hero-title');
+  var chapoEl = document.getElementById('hero-chapo');
+  var linkEl = document.getElementById('hero-link');
+  var bgImgEl = document.getElementById('hero-bg-img');
+  if (badgeEl) badgeEl.textContent = essai.badge || 'Rubrique';
+  if (titleEl) titleEl.textContent = essai.title || 'Titre';
+  if (chapoEl) {
+    if (essai.chapo) { chapoEl.textContent = essai.chapo; chapoEl.style.display = ''; }
+    else { chapoEl.style.display = 'none'; }
+  }
+  if (linkEl) linkEl.setAttribute('href', essai.href || '#');
+  if (essai.cover && bgImgEl) {
+    bgImgEl.src = essai.cover;
+    bgImgEl.alt = essai.cover_alt || essai.title || '';
+  }
+  if (params.get('debug') === '1') {
+    var dbg = document.createElement('div');
+    dbg.style.cssText = 'position:fixed;bottom:0;left:0;background:#111;color:#8f8;font:11px monospace;padding:4px 8px;z-index:9999;';
+    dbg.textContent = 'debug hero rotatif, index actif: ' + idx + ' / ' + essais.length + ' (jour#' + dayIndex + ')';
+    document.body.appendChild(dbg);
+  }
+})();
+</script>
 
 <!-- ══════════════ ARTICLES RÉCENTS (Cogito + Intracogito) ══════════════ -->
 <section class="sec">

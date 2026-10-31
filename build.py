@@ -17,7 +17,7 @@ IMG_DIMENSIONS = {
     "assets/img/cogito-001-fig2-developpement-limite.webp": (900, 625),
     "assets/img/cogito-001-fig3-ecole-athenes.webp": (900, 496),
     "assets/img/vitruvian-man.webp": (700, 700),
-    "assets/img/cogito-002-cover.webp": (794, 562),
+    "assets/img/cogito-002-cover.webp": (1148, 818),
     "assets/img/cogito-002-fig1-victor-frankl.webp": (1100, 407),
     "assets/img/cogito-002-fig2-circuit-recompense.webp": (1100, 733),
     "assets/img/cogito-002-fig3-sisyphe.webp": (1100, 567),
@@ -31,7 +31,7 @@ IMG_DIMENSIONS = {
     "assets/img/cogito-004-fig2-statue-bouddha.webp": (1100, 586),
     "assets/img/cogito-004-fig3-siddhartha-hesse.webp": (1100, 550),
     "assets/img/cogito-004-fig4-frederic-lenoir.webp": (1100, 632),
-    "assets/img/cogito-005-cover.webp": (1100, 747),
+    "assets/img/cogito-005-cover.webp": (1160, 956),
     "assets/img/cogito-005-fig1-creation-michel-ange.webp": (1024, 532),
     "assets/img/cogito-005-fig2-les-lutteurs.webp": (1100, 550),
     "assets/img/cogito-005-fig3-schopenhauer.webp": (1100, 619),
@@ -367,18 +367,26 @@ function performSearch(query){
 </script>"""
 
 # ---------------------------------------------------------------------------
-# HERO ROTATIF — l'essai Cogito en plein écran change chaque semaine.
+# HERO ROTATIF — l'essai Cogito en plein écran change chaque jour (31/10/2026,
+# demande d'Elouan : avant un seul essai fixe, "La quête de notre destinée").
 #
 # Règle : tous les essais tagués "cogito" entrent automatiquement dans ce
-# pool dès qu'ils sont ajoutés ci-dessous (aucune autre manip nécessaire).
+# pool dès qu'ils sont ajoutés ci-dessous (aucune autre manip nécessaire,
+# pas besoin de toucher HERO_ESSAI ni le reste du fichier).
 # La rotation elle-même est calculée côté navigateur (site statique, pas de
-# rebuild nécessaire chaque semaine) : index = numéro de semaine (continu,
-# depuis l'epoch Unix) modulo le nombre d'essais du pool. Donc tous les
-# visiteurs voient le même essai pendant 7 jours, puis ça change tout seul.
+# rebuild nécessaire chaque jour) : index = numéro de jour (continu, depuis
+# l'epoch Unix) modulo le nombre d'essais du pool. Donc tous les visiteurs
+# voient le même essai pendant 24h, puis ça change tout seul à minuit
+# (heure du navigateur du visiteur, pas un fuseau serveur unique).
 #
-# Pour tester sans attendre une semaine : ouvrir la page avec ?semaine=0,
-# ?semaine=1, ?semaine=2... pour forcer un index. Ajouter &debug=1 pour
+# Pour tester sans attendre un jour entier : ouvrir la page avec ?jour=0,
+# ?jour=1, ?jour=2... pour forcer un index. Ajouter &debug=1 pour
 # afficher un petit badge en bas de l'écran confirmant l'index actif.
+#
+# HERO_ESSAI (juste en dessous) ne sert plus qu'à fournir un rendu par
+# défaut côté serveur (avant que le JS ne s'exécute) : il reste sur Cogito
+# #001, ce n'est plus "LE" hero fixe, juste la première image affichée le
+# temps que la rotation se mette en place au chargement.
 # ---------------------------------------------------------------------------
 COGITO_ESSAYS = [
     {
@@ -397,7 +405,7 @@ COGITO_ESSAYS = [
         "title": "La matière première du héros",
         "chapo": "Choisir sa souffrance",
         "cover": "assets/img/cogito-002-cover.webp",
-        "cover_alt": "Edvard Munch, Le Cri (1893)",
+        "cover_alt": "Voilier affrontant une mer démontée sous un ciel chargé",
     },
     {
         "href": "essais/la-force-de-lintuition.html",
@@ -424,7 +432,7 @@ COGITO_ESSAYS = [
         "title": "L'unité du corps et de l'esprit",
         "chapo": "Ce que le corps dit de la pensée",
         "cover": "assets/img/cogito-005-cover.webp",
-        "cover_alt": "Auguste Rodin, Le Penseur",
+        "cover_alt": "Paysage de campagne paisible, chemin, chèvre et village au loin",
     },
     {
         "href": "essais/le-poids-de-lidentite.html",
@@ -482,11 +490,11 @@ def hero_rotation_script(essays):
   if (!dataEl) return;
   var essais = JSON.parse(dataEl.textContent || '[]');
   if (!essais.length) return;
-  var WEEK_MS = 7 * 24 * 60 * 60 * 1000;
+  var DAY_MS = 24 * 60 * 60 * 1000;
   var params = new URLSearchParams(window.location.search);
-  var forced = params.get('semaine');
-  var weekIndex = forced !== null ? parseInt(forced, 10) : Math.floor(Date.now() / WEEK_MS);
-  var idx = ((weekIndex % essais.length) + essais.length) % essais.length;
+  var forced = params.get('jour');
+  var dayIndex = forced !== null ? parseInt(forced, 10) : Math.floor(Date.now() / DAY_MS);
+  var idx = ((dayIndex % essais.length) + essais.length) % essais.length;
   var essai = essais[idx];
   var hero = document.getElementById('hero-rotatif');
   if (hero) hero.setAttribute('data-essai-index', idx);
@@ -494,7 +502,6 @@ def hero_rotation_script(essays):
   var titleEl = document.getElementById('hero-title');
   var chapoEl = document.getElementById('hero-chapo');
   var linkEl = document.getElementById('hero-link');
-  var mediaEl = document.getElementById('hero-media');
   var bgImgEl = document.getElementById('hero-bg-img');
   if (badgeEl) badgeEl.textContent = essai.badge || 'Rubrique';
   if (titleEl) titleEl.textContent = essai.title || 'Titre';
@@ -503,16 +510,14 @@ def hero_rotation_script(essays):
     else {{ chapoEl.style.display = 'none'; }}
   }}
   if (linkEl) linkEl.setAttribute('href', essai.href || '#');
-  if (essai.cover && bgImgEl && mediaEl) {{
+  if (essai.cover && bgImgEl) {{
     bgImgEl.src = essai.cover;
     bgImgEl.alt = essai.cover_alt || essai.title || '';
-    bgImgEl.style.display = '';
-    mediaEl.style.display = 'none';
   }}
   if (params.get('debug') === '1') {{
     var dbg = document.createElement('div');
     dbg.style.cssText = 'position:fixed;bottom:0;left:0;background:#111;color:#8f8;font:11px monospace;padding:4px 8px;z-index:9999;';
-    dbg.textContent = 'debug hero rotatif, index actif: ' + idx + ' / ' + essais.length + ' (semaine#' + weekIndex + ')';
+    dbg.textContent = 'debug hero rotatif, index actif: ' + idx + ' / ' + essais.length + ' (jour#' + dayIndex + ')';
     document.body.appendChild(dbg);
   }}
 }})();
@@ -644,16 +649,17 @@ INDEX_CONTENT = f"""<!-- ══════════════ TOPBAR ═�
 }})();
 </script>
 
-<!-- ══════════════ HERO, le dernier essai Cogito publié ══════════════ -->
-<section class="hero-full" id="hero-dernier-essai">
-  <img class="bg-cover-img" src="{HERO_ESSAI['cover']}" alt="{HERO_ESSAI['cover_alt']}" loading="eager" fetchpriority="high" />
+<!-- ══════════════ HERO ROTATIF, un essai Cogito différent chaque jour ══════════════ -->
+<section class="hero-full" id="hero-rotatif">
+  <img class="bg-cover-img" id="hero-bg-img" src="{HERO_ESSAI['cover']}" alt="{HERO_ESSAI['cover_alt']}" loading="eager" fetchpriority="high" />
   <div class="wrap hero-full-content">
-    <span class="hero-eyebrow">{HERO_ESSAI['badge']}</span>
-    <h1>{HERO_ESSAI['title']}</h1>
-    <p class="chapo">{HERO_ESSAI['chapo']}</p>
-    <a href="{HERO_ESSAI['href']}" class="hero-cta">Lire l'essai →</a>
+    <span class="hero-eyebrow" id="hero-badge">{HERO_ESSAI['badge']}</span>
+    <h1 id="hero-title">{HERO_ESSAI['title']}</h1>
+    <p class="chapo" id="hero-chapo">{HERO_ESSAI['chapo']}</p>
+    <a href="{HERO_ESSAI['href']}" class="hero-cta" id="hero-link">Lire l'essai →</a>
   </div>
 </section>
+{hero_rotation_script(COGITO_ESSAYS)}
 
 <!-- ══════════════ ARTICLES RÉCENTS (Cogito + Intracogito) ══════════════ -->
 <section class="sec">
@@ -1662,7 +1668,7 @@ cogito_002_html = real_article_page(
     ref="Cogito #002",
     description="Essai Cogito : une réflexion sur la souffrance choisie comme matière du sens, entre Viktor Frankl, Camus et le mécanisme neurobiologique de la récompense.",
     cover_path="assets/img/cogito-002-cover.webp",
-    cover_credit="Edvard Munch, Le Cri (1893)",
+    cover_credit="Voilier affrontant une mer démontée",
     tags=[("cogito.html", "Cogito"), ("philosophes.html", "Philosophes")],
     body_html=COGITO_002_BODY,
     word_count=1816,
@@ -1719,7 +1725,7 @@ cogito_005_html = real_article_page(
     ref="Cogito #005",
     description="Essai Cogito : une réflexion sur le lien entre corps et esprit, à travers les biographies de Platon, Schopenhauer et Nietzsche.",
     cover_path="assets/img/cogito-005-cover.webp",
-    cover_credit="Auguste Rodin, Le Penseur",
+    cover_credit="Paysage de campagne, chemin et village au loin",
     tags=[("cogito.html", "Cogito"), ("philosophes.html", "Philosophes")],
     body_html=COGITO_005_BODY,
     word_count=1736,
