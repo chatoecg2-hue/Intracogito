@@ -1947,6 +1947,11 @@ files["sitemap.xml"] = f"""<?xml version="1.0" encoding="UTF-8"?>
 """
 files["404.html"] = page_404_html  # hors sitemap (page d'erreur, noindex)
 
+# Fichier de vérification de propriété Google Search Console pour https://intracogito.fr/
+# (hors sitemap, utilitaire technique). Ne jamais le supprimer tant que la propriété
+# Search Console doit rester vérifiée (Google recommande de le laisser en place).
+files["google77ac33473dc02638.html"] = "google-site-verification: google77ac33473dc02638.html"
+
 files["robots.txt"] = f"""User-agent: *
 Allow: /
 
