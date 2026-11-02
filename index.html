@@ -156,19 +156,22 @@
 </header>
 <main>
 
-<!-- ══════════════ CARTE NEWSLETTER, coin bas-droit, non bloquante ══════════════ -->
-<div class="newsletter-popup" id="newsletter-popup">
-  <button class="newsletter-popup-close" id="newsletter-popup-close" aria-label="Fermer">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>
-  </button>
-  <div class="newsletter-popup-head">
-    <img class="newsletter-popup-photo" src="assets/img/vitruvian-man.webp" alt="Elouan Noël" loading="lazy" />
-    <div>
-      <h2>Rejoins Intracogito</h2>
-      <p>Une édition chaque dimanche à 13h, directement dans ta boîte mail.</p>
+<!-- ══════════════ POPUP NEWSLETTER (accueil), fenêtre centrée, 1 fois par 30 jours ══════════════ -->
+<div class="newsletter-popup" id="newsletter-popup" role="dialog" aria-modal="true" aria-labelledby="newsletter-popup-title">
+  <div class="newsletter-popup-card">
+    <button class="newsletter-popup-close" id="newsletter-popup-close" aria-label="Fermer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>
+    </button>
+    <img class="newsletter-popup-img" src="assets/img/newsletter-popup-venise.webp" alt="Intracogito, Venise au soleil couchant (peinture)" loading="lazy" width="495" height="733" />
+    <div class="newsletter-popup-body">
+      <h2 id="newsletter-popup-title">Rejoins ma newsletter</h2>
+      <hr class="newsletter-popup-rule" />
+      <p><strong>Chaque dimanche</strong>, je t’envoie 4 ou 5 citations interprétées autour d’un thème.</p>
+      <p><strong>Toutes les trois semaines</strong>, je publie aussi un essai philosophique pour aller plus loin.</p>
+      <a href="https://elouannoel.substack.com/" target="_blank" rel="noopener" class="newsletter-popup-cta">Recevoir la prochaine édition <span aria-hidden="true">→</span></a>
+      <p class="newsletter-popup-note">Gratuit · 1 e-mail par semaine · Désinscription en un clic</p>
     </div>
   </div>
-  <a href="https://elouannoel.substack.com/" target="_blank" rel="noopener" class="hero-cta newsletter-popup-cta">S'abonner sur Substack →</a>
 </div>
 <script>
 (function(){
@@ -190,6 +193,7 @@
   setTimeout(function(){ popup.classList.add('open'); }, 900);
   var closeBtn = document.getElementById('newsletter-popup-close');
   if (closeBtn) closeBtn.addEventListener('click', closePopup);
+  popup.addEventListener('click', function(ev){ if (ev.target === popup) closePopup(); });
   document.addEventListener('keydown', function(ev){ if (ev.key === 'Escape' && popup.classList.contains('open')) closePopup(); });
 })();
 </script>
