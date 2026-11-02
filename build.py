@@ -295,7 +295,7 @@ def newsletter_insert(prefix=""):
     <h3>Rejoins la newsletter</h3>
     <p>Une édition par semaine, 4 à 5 citations commentées.</p>
   </div>
-  <a href="{NEWSLETTER_URL}" target="_blank" rel="noopener" class="hero-cta newsletter-insert-cta">S’abonner →</a>
+  <a href="{NEWSLETTER_URL}" target="_blank" rel="noopener" class="hero-cta newsletter-insert-cta" data-umami-event="clic-newsletter-banniere">S’abonner →</a>
 </div>"""
 
 _NEWSLETTER_BLOCK_RE = re.compile(r'<div class="newsletter-insert">.*?</a>\s*</div>', re.S)
@@ -312,6 +312,44 @@ def with_newsletter(body_html, prefix="../"):
             cut = idx[(len(idx) - 1) // 2] if sep == "<hr/>" else idx[len(idx) // 2]
             return body_html[:cut] + banner + "\n" + body_html[cut:]
     return body_html + "\n" + banner
+
+# ---------------------------------------------------------------------------
+# LIVRE « LE DIALOGUE DES SIÈCLES » : bannière de pub (source unique)
+#   - BOOK_URL : page d'attente du site tant que le livre n'est pas sorti.
+#     Le jour de la sortie, remplacer par le lien Amazon (https://...) : toutes
+#     les bannières suivent, et le lien s'ouvre alors dans un nouvel onglet.
+#   - BOOK_RELEASE_TEXT : phrase de la page d'attente, À METTRE À JOUR (« d'ici
+#     deux semaines » écrit le 02/11/2026).
+#   - Placement : fin du texte de chaque page article (après la bannière
+#     newsletter, qui reste au milieu) + accueil sous la grille d'articles.
+# ---------------------------------------------------------------------------
+BOOK_TITLE = "Le dialogue des siècles"
+BOOK_TAGLINE = "Une philosophie pour mieux penser et agir"
+BOOK_URL = "livre.html"
+BOOK_RELEASE_TEXT = "Le livre sera disponible d’ici deux semaines."
+
+def _book_href(prefix=""):
+    if BOOK_URL.startswith("http"):
+        return f'href="{BOOK_URL}" target="_blank" rel="noopener"'
+    return f'href="{prefix}{BOOK_URL}"'
+
+def book_banner(prefix="", extra_class=""):
+    cta = "Découvrir le livre" if BOOK_URL.startswith("http") else "Bientôt disponible"
+    cls = f"book-banner {extra_class}".strip()
+    return f"""<aside class="{cls}" aria-label="Le livre {BOOK_TITLE}">
+  <a {_book_href(prefix)} data-umami-event="clic-banniere-livre">
+    <img class="book-banner-wide" src="{prefix}assets/img/livre-dialogue-des-siecles-banniere.webp" alt="Intracogito, {BOOK_TITLE} : {BOOK_TAGLINE.lower()}. Découvrir le livre d'Elouan Noël." loading="lazy" width="2638" height="528" />
+    <span class="book-banner-mobile">
+      <img src="{prefix}assets/img/livre-dialogue-des-siecles-couverture.webp" alt="" loading="lazy" width="338" height="490" />
+      <span class="book-banner-text">
+        <span class="book-banner-eyebrow">Le livre d’Elouan Noël</span>
+        <span class="book-banner-title">{BOOK_TITLE}</span>
+        <span class="book-banner-tagline">{BOOK_TAGLINE}</span>
+        <span class="book-banner-cta">{cta} →</span>
+      </span>
+    </span>
+  </a>
+</aside>"""
 
 def footer(prefix="", newsletter=True):
     # Bande unique et compacte : copyright · réseaux (icônes) + contact · mentions légales
@@ -722,6 +760,13 @@ PERSON_JSONLD = """<script type="application/ld+json">
 }
 </script>"""
 
+# Accueil : grille de 18 articles, bannière livre insérée après le 9e (pleine largeur de la grille).
+# Pas de bande newsletter sur l'accueil : la popup bas-droite joue déjà ce rôle.
+def _home_grid_with_book():
+    cards = [article_card(x, show_author=False) for x in ALL_ARTICLES[:18]]
+    cards.insert(min(9, len(cards)), book_banner(extra_class="book-banner-grid"))
+    return "".join(cards)
+
 INDEX_CONTENT = f"""<!-- ══════════════ TOPBAR ══════════════ -->
 {topbar(active="")}
 <main>
@@ -738,7 +783,7 @@ INDEX_CONTENT = f"""<!-- ══════════════ TOPBAR ═�
       <hr class="newsletter-popup-rule" />
       <p><strong>Chaque dimanche</strong>, je t’envoie 4 ou 5 citations interprétées autour d’un thème.</p>
       <p><strong>Toutes les trois semaines</strong>, je publie aussi un essai philosophique pour aller plus loin.</p>
-      <a href="{NEWSLETTER_URL}" target="_blank" rel="noopener" class="newsletter-popup-cta">Recevoir la prochaine édition <span aria-hidden="true">→</span></a>
+      <a href="{NEWSLETTER_URL}" target="_blank" rel="noopener" class="newsletter-popup-cta" data-umami-event="clic-newsletter-popup">Recevoir la prochaine édition <span aria-hidden="true">→</span></a>
       <p class="newsletter-popup-note">Gratuit · 1 e-mail par semaine · Désinscription en un clic</p>
     </div>
   </div>
@@ -784,7 +829,7 @@ INDEX_CONTENT = f"""<!-- ══════════════ TOPBAR ═�
   <div class="wrap">
     <h2 class="sr-only">Articles récents</h2>
     <div class="card-grid">
-      {"".join(article_card(x, show_author=False) for x in ALL_ARTICLES[:18])}
+      {_home_grid_with_book()}
     </div>
     <div class="sec-all">
       <a href="essais.html" class="hero-cta">Lire tous les articles →</a>
@@ -794,7 +839,7 @@ INDEX_CONTENT = f"""<!-- ══════════════ TOPBAR ═�
 
 
 </main>
-{footer()}
+{footer(newsletter=False)}
 {TOGGLE_SCRIPT}
 """
 
@@ -1623,6 +1668,7 @@ def real_article_page(slug, title, chapo, description, cover_path, cover_credit,
 <div class="wrap article-body">
   {with_newsletter(body_html)}
   {extra_block}
+  {book_banner("../")}
 </div>
 
 <div class="wrap article-end-meta">
@@ -2089,6 +2135,49 @@ page_404_html = f"""<!doctype html>
 """
 
 # ---------------------------------------------------------------------------
+# PAGE: livre.html, page d'attente du livre (noindex, hors sitemap tant
+# qu'il n'est pas sorti ; à transformer en vraie page livre à la sortie)
+# ---------------------------------------------------------------------------
+livre_html = f"""<!doctype html>
+<html lang="fr">
+<head>
+{head_meta(
+    f"{BOOK_TITLE} | Intracogito",
+    f"{BOOK_TITLE}, le livre d'Elouan Noël : {BOOK_TAGLINE.lower()}. Bientôt disponible.",
+    "livre.html",
+    robots="noindex, follow",
+    image=f"{BASE_URL}/assets/img/livre-dialogue-des-siecles-banniere.webp",
+)}
+</head>
+<body>
+
+{topbar(active="")}
+<main>
+
+<div class="wrap book-page">
+  <img class="book-page-cover" src="assets/img/livre-dialogue-des-siecles-couverture.webp" alt="Couverture du livre {BOOK_TITLE}, d'Elouan Noël" width="338" height="490" />
+  <div class="book-page-text">
+    <span class="hero-eyebrow book-page-eyebrow">Bientôt disponible</span>
+    <h1>{BOOK_TITLE}</h1>
+    <p class="book-page-tagline">{BOOK_TAGLINE}</p>
+    <p class="book-page-author">Elouan Noël</p>
+    <p class="book-page-release">{BOOK_RELEASE_TEXT}</p>
+    <p>Pour être prévenu de sa sortie, le plus simple est de rejoindre la newsletter Intracogito : une édition chaque dimanche, 4 ou 5 citations commentées autour d’un thème.</p>
+    <div class="book-page-actions">
+      <a href="{NEWSLETTER_URL}" target="_blank" rel="noopener" class="hero-cta" data-umami-event="clic-newsletter-page-livre">Être prévenu de la sortie →</a>
+      <a href="intracogito.html" class="book-page-link">Lire les éditions Intracogito</a>
+    </div>
+  </div>
+</div>
+
+</main>
+{footer(newsletter=False)}
+{TOGGLE_SCRIPT}
+</body>
+</html>
+"""
+
+# ---------------------------------------------------------------------------
 # PAGE: mentions-legales.html
 # ---------------------------------------------------------------------------
 mentions_legales_html = f"""<!doctype html>
@@ -2242,6 +2331,7 @@ files["sitemap.xml"] = f"""<?xml version="1.0" encoding="UTF-8"?>
 {sitemap_entries}
 </urlset>
 """
+files["livre.html"] = livre_html  # hors sitemap tant que le livre n'est pas sorti (noindex)
 files["404.html"] = page_404_html  # hors sitemap (page d'erreur, noindex)
 
 # Fichier de vérification de propriété Google Search Console pour https://intracogito.fr/
@@ -2292,6 +2382,7 @@ _HTML_ENTITIES = {
 
 def _plain_text_from_html(html_src):
     html_src = _NEWSLETTER_BLOCK_RE.sub(" ", html_src)  # la bannière newsletter n'est pas du contenu
+    html_src = re.sub(r'<aside class="book-banner[^"]*".*?</aside>', " ", html_src, flags=re.S)  # ni la bannière livre
     t = re.sub(r"<[^>]+>", " ", html_src)
     for ent, rep in _HTML_ENTITIES.items():
         t = t.replace(ent, rep)
