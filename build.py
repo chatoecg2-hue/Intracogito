@@ -709,8 +709,8 @@ INDEX_CONTENT = f"""<!-- ══════════════ TOPBAR ═�
 {topbar(active="")}
 <main>
 
-<!-- ══════════════ POPUP NEWSLETTER (accueil), fenêtre centrée, 1 fois par 30 jours ══════════════ -->
-<div class="newsletter-popup" id="newsletter-popup" role="dialog" aria-modal="true" aria-labelledby="newsletter-popup-title">
+<!-- ══════════════ POPUP NEWSLETTER (accueil), carte bas-droite non bloquante, 1 fois par 30 jours ══════════════ -->
+<div class="newsletter-popup" id="newsletter-popup" role="dialog" aria-labelledby="newsletter-popup-title">
   <div class="newsletter-popup-card">
     <button class="newsletter-popup-close" id="newsletter-popup-close" aria-label="Fermer">
       {CLOSE_SVG}
@@ -746,7 +746,6 @@ INDEX_CONTENT = f"""<!-- ══════════════ TOPBAR ═�
   setTimeout(function(){{ popup.classList.add('open'); }}, 900);
   var closeBtn = document.getElementById('newsletter-popup-close');
   if (closeBtn) closeBtn.addEventListener('click', closePopup);
-  popup.addEventListener('click', function(ev){{ if (ev.target === popup) closePopup(); }});
   document.addEventListener('keydown', function(ev){{ if (ev.key === 'Escape' && popup.classList.contains('open')) closePopup(); }});
 }})();
 </script>
