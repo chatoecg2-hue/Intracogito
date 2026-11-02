@@ -709,7 +709,7 @@ INDEX_CONTENT = f"""<!-- ══════════════ TOPBAR ═�
 {topbar(active="")}
 <main>
 
-<!-- ══════════════ POPUP NEWSLETTER (accueil), carte bas-droite non bloquante, 1 fois par 30 jours ══════════════ -->
+<!-- ══════════════ POPUP NEWSLETTER (accueil), carte bas-droite non bloquante, 1 fois par jour ══════════════ -->
 <div class="newsletter-popup" id="newsletter-popup" role="dialog" aria-labelledby="newsletter-popup-title">
   <div class="newsletter-popup-card">
     <button class="newsletter-popup-close" id="newsletter-popup-close" aria-label="Fermer">
@@ -729,10 +729,10 @@ INDEX_CONTENT = f"""<!-- ══════════════ TOPBAR ═�
 <script>
 (function(){{
   var KEY = 'ic_newsletter_popup_seen';
-  var THIRTY_DAYS = 30 * 24 * 60 * 60 * 1000;
+  var ONE_DAY = 24 * 60 * 60 * 1000;  // la popup réapparaît au plus une fois par 24 h
   try {{
     var last = localStorage.getItem(KEY);
-    if (last && (Date.now() - parseInt(last, 10)) < THIRTY_DAYS) return;
+    if (last && (Date.now() - parseInt(last, 10)) < ONE_DAY) return;
   }} catch (e) {{}}
   var popup = document.getElementById('newsletter-popup');
   if (!popup) return;
