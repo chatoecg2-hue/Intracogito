@@ -65,6 +65,10 @@ IMG_DIMENSIONS = {
     "assets/img/cogito-007-fig4-escp.webp": (1100, 543),
     "assets/img/cogito-007-fig5-marionnettes.webp": (1100, 550),
     "assets/img/cogito-008-cover.webp": (1100, 603),
+    "assets/img/concept-ascese-cover.webp": (1200, 630),
+    "assets/img/concept-ascese-fig1.webp": (1100, 660),
+    "assets/img/concept-ascese-fig2.webp": (1100, 790),
+    "assets/img/concept-ascese-fig3.webp": (1100, 619),
     "assets/img/cogito-008-fig1-francois-jullien.webp": (1100, 495),
     "assets/img/cogito-008-fig2-citation-naval-ravikant.webp": (1100, 482),
     "assets/img/cogito-008-fig3-nighthawks-hopper.webp": (1100, 507),
@@ -1680,22 +1684,62 @@ PILIER_PAGES = [
 
 PILIER_FILES = {}
 PILIER_PAGES_FOR_SEARCH = []
-for _p in PILIER_PAGES:
-    if not is_due(_p["date"]):
-        print(f"[en stock] {_p['title']} ({_p['category']}) : prevu le {_p['date']}, pas encore en ligne")
-        continue
-    _cat = RUBRIQUES[_p["category"]]
-    _cat.setdefault("real_cards", []).append({
-        "href": _p["href"], "meta": _cat["label"], "title": _p["title"],
-        "chapo": _p["chapo"], "author": "Elouan Noël", "img": _p["img"],
+
+def _register_pilier_page(p):
+    """Enregistre une page pilier due : fichier, carte de rubrique, lien de
+    sous-thème, entrée ARTICLES_BY_HREF (pour related=[...] d'une page suivante),
+    index de recherche. Une page pilier qui doit en référencer une autre via
+    related=[...] doit être définie et enregistrée APRÈS celle-ci (ARTICLES_BY_HREF
+    se remplit au fur et à mesure, pas à l'avance)."""
+    if not is_due(p["date"]):
+        print(f"[en stock] {p['title']} ({p['category']}) : prevu le {p['date']}, pas encore en ligne")
+        return
+    cat = RUBRIQUES[p["category"]]
+    cat.setdefault("real_cards", []).append({
+        "href": p["href"], "meta": cat["label"], "title": p["title"],
+        "chapo": p["chapo"], "author": "Elouan Noël", "img": p["img"],
     })
-    if _p.get("subtopic"):
-        _cat.setdefault("subtopic_links", {})[_p["subtopic"]] = _p["href"]
-    ARTICLES_BY_HREF[_p["href"]] = {"href": _p["href"], "meta": _cat["label"], "title": _p["title"], "chapo": _p["chapo"], "img": _p["img"]}
-    PILIER_FILES[_p["href"]] = _p["html"]
+    if p.get("subtopic"):
+        cat.setdefault("subtopic_links", {})[p["subtopic"]] = p["href"]
+    ARTICLES_BY_HREF[p["href"]] = {"href": p["href"], "meta": cat["label"], "title": p["title"], "chapo": p["chapo"], "img": p["img"]}
+    PILIER_FILES[p["href"]] = p["html"]
     PILIER_PAGES_FOR_SEARCH.append({
-        "href": _p["href"], "meta": _cat["label"], "chapo": _cat["label"], "title": _p["title"], "img": _p["img"],
+        "href": p["href"], "meta": cat["label"], "chapo": cat["label"], "title": p["title"], "img": p["img"],
     })
+
+for _p in PILIER_PAGES:
+    _register_pilier_page(_p)
+
+
+CONCEPT_ASCESE_BODY = '<p>Dans une lettre à son ami Lucilius, <a href="../philosophes/seneque.html">Sénèque</a> raconte une habitude qu’il s’impose volontairement, quelques jours par mois : manger la nourriture la plus grossière, porter des vêtements rêches, dormir sur une paillasse dure, et se demander, chaque soir : « Est-ce vraiment cela que je redoutais ? » Il n’est pourtant pas pauvre. C’est l’un des hommes les plus riches de Rome. Il s’entraîne, délibérément, à ce qu’il craint.</p>\n<p>Ce que Sénèque pratique a un nom : l’<strong>ascèse</strong>.</p>\n<h2>Askesis : l’entraînement, pas la punition</h2>\n<p>Le mot grec <em>askesis</em> ne désigne, à l’origine, rien de religieux ni de douloureux : c’est le terme qu’on emploie pour l’entraînement d’un athlète. S’exercer, répéter un geste jusqu’à ce qu’il devienne une seconde nature. Les philosophes grecs, d’abord les cyniques puis les stoïciens, reprennent ce mot pour désigner un entraînement du même ordre, mais appliqué au jugement et au désir plutôt qu’au corps.</p>\n<p>C’est une nuance importante, qu’on perd souvent aujourd’hui : l’ascèse philosophique n’est pas l’<strong>ascétisme</strong> au sens où on l’entend parfois, une privation subie comme une punition ou un sacrifice religieux. C’est un exercice choisi, borné dans le temps, qu’on peut arrêter quand on veut. La différence n’est pas cosmétique : c’est justement parce qu’elle est choisie et temporaire que l’ascèse philosophique renforce, là où la privation subie, elle, épuise.</p>\n<figure><img alt="Pain et verre d’eau sur une table en bois, repas frugal" loading="lazy" width="1100" height="660" src="../assets/img/concept-ascese-fig1.webp"/><figcaption>Pain et verre d’eau sur une table en bois, repas frugal</figcaption></figure>\n<h2>Diogène, l’ascèse poussée à l’extrême</h2>\n<p>Si Sénèque pratique l’ascèse par courtes périodes, le cynique <strong>Diogène de Sinope</strong> en fait un mode de vie permanent : il possède à peine plus qu’un manteau et une écuelle, dort dans un tonneau, et mendie sa nourriture, convaincu que chaque besoin dont on se libère est une parcelle de liberté gagnée sur la dépendance aux choses.</p>\n<blockquote><p>« Ôte-toi de mon soleil. »</p><p>Diogène de Sinope, répondant à Alexandre le Grand venu lui demander ce qu’il pouvait faire pour lui (anecdote rapportée par Diogène Laërce)</p></blockquote>\n<p>L’homme le plus puissant du monde connu lui propose n’importe quelle faveur ; Diogène ne lui demande que de ne pas lui faire d’ombre. L’anecdote a sans doute été enjolivée au fil des siècles, mais elle illustre exactement ce que l’ascèse cynique visait : posséder si peu qu’aucun pouvoir extérieur n’a plus de prise sur vous.</p>\n<figure><img alt="Alexandre le Grand venant trouver Diogène assis près de son tonneau" loading="lazy" width="1100" height="790" src="../assets/img/concept-ascese-fig2.webp"/><figcaption>Alexandre le Grand venant trouver Diogène assis près de son tonneau</figcaption></figure>\n<h2>Pourquoi s’imposer volontairement un manque</h2>\n<p>Le mécanisme derrière l’ascèse est presque une idée d’exposition : on s’habitue à une situation redoutée en la vivant un peu, à dose choisie, pour en mesurer le poids réel. La plupart du temps, ce poids est plus léger qu’on ne l’imaginait. Ce n’est pas le manque qui inquiète le plus, au fond, c’est la peur du manque : en s’y frottant volontairement, on désamorce une part de cette peur, et on découvre qu’on dépend de bien moins de choses qu’on ne le pensait pour aller bien.</p>\n<p>C’est aussi, d’une autre manière, ce que Sénèque développe ailleurs sur le renoncement à ce qui ne dépend pas vraiment de nous : on retrouve cette même logique, appliquée au temps plutôt qu’aux biens matériels, dans l’essai Cogito sur <a href="../essais/le-renoncement.html">le renoncement</a>.</p>\n<div class="newsletter-insert">\n  <img class="newsletter-insert-photo" src="../assets/img/vitruvian-man.jpg" alt="Elouan Noël" loading="lazy" width="56" height="56" />\n  <div class="newsletter-insert-text">\n    <h3>Rejoins la newsletter</h3>\n    <p>Une édition par semaine, 4 à 5 citations commentées.</p>\n  </div>\n  <a href="https://elouannoel.substack.com/" target="_blank" rel="noopener" class="hero-cta newsletter-insert-cta">S’abonner →</a>\n</div>\n<h2>Ce que ce n’est pas</h2>\n<p>L’ascèse philosophique n’est pas une compétition avec soi-même, ni une façon détournée de se punir ou de se priver par culpabilité. Ce n’est pas non plus l’esthétique du minimalisme qu’on affiche pour montrer qu’on sait s’en passer : l’exercice n’a de sens que s’il reste discret, sans spectateur, fait pour soi. Et ce n’est surtout pas une affaire de restriction alimentaire ou de performance physique : le point n’est jamais le manque lui-même, c’est ce qu’il révèle sur ce dont on a vraiment besoin.</p>\n<figure><img alt="Ermitage perché au sommet d’un piton rocheux" loading="lazy" width="1100" height="619" src="../assets/img/concept-ascese-fig3.webp"/><figcaption>Ermitage perché au sommet d’un piton rocheux</figcaption></figure>\n<p>Un ermitage juché au sommet d’un piton rocheux, visible à des kilomètres à la ronde, résume bien cette dérive\xa0: se retirer du monde de façon si spectaculaire que tout le monde est censé le remarquer. Ce n’est plus un exercice, c’est une mise en scène, et une mise en scène a besoin d’un public, exactement ce que l’ascèse, bien pratiquée, cherche à ne pas être.</p>\n<h2>L’exercice au quotidien</h2>\n<p>Pas besoin d’imiter Diogène pour en retenir quelque chose d’utile. Choisir, un jour ou une semaine, de se passer d’un confort qu’on utilise sans y penser : la livraison à domicile, les notifications, la voiture pour un trajet qu’on pourrait marcher, les achats impulsifs. L’idée n’est pas de souffrir, c’est de vérifier, concrètement, à quel point on dépend réellement de ce dont on croit dépendre.</p>\n<h2>En bref</h2>\n<p style="margin-bottom:.6rem;">📌 <strong>L’ascèse (du grec <em>askesis</em>, « entraînement ») désigne à l’origine l’exercice d’un athlète</strong>, un sens repris par les philosophes grecs pour désigner un entraînement du jugement et du désir, pas du corps.</p>\n<p style="margin-bottom:.6rem;">📌 <strong>Elle ne doit pas être confondue avec l’ascétisme religieux ou la privation subie</strong> : c’est un exercice choisi et borné dans le temps, que l’on peut arrêter quand on veut, ce qui renforce plutôt que n’épuise.</p>\n<p style="margin-bottom:.6rem;">📌 <strong>Son principe est de désamorcer la peur du manque en s’y frottant volontairement</strong>, à dose choisie, pour découvrir qu’on dépend souvent de bien moins de choses qu’on ne l’imaginait pour aller bien.</p>'
+
+concept_ascese_html = real_article_page(
+    slug="ascese",
+    title="Ascèse : s’imposer une discipline qu’on choisit",
+    chapo="Quelques jours par mois, Sénèque, l’un des hommes les plus riches de Rome, mangeait comme un pauvre et dormait à même le sol. Ce qu’il pratiquait a un nom : l’ascèse.",
+    ref="Concept",
+    description="L’ascèse expliquée simplement : son origine grecque (l’entraînement, pas la punition), la pratique de Sénèque et de Diogène, pourquoi s’imposer un manque volontaire fonctionne, et comment l’exercer au quotidien.",
+    cover_path="assets/img/concept-ascese-cover.webp",
+    cover_credit="Promeneur solitaire au bord de l’eau, au crépuscule",
+    tags=[("concepts.html", "Concepts")],
+    body_html=CONCEPT_ASCESE_BODY,
+    word_count=875,
+    date_published="2026-11-01",
+    section="concepts",
+    related=[
+        ("philosophes/seneque.html", "Le philosophe romain dont la lettre à Lucilius sur la pauvreté volontaire ouvre cette page."),
+        ("essais/le-renoncement.html", "La même logique du détachement choisi, appliquée au temps plutôt qu’aux biens matériels."),
+        ("essais/la-liberte.html", "Ce qu’on gagne en réduisant ce dont on dépend : une autre définition possible de la liberté."),
+    ],
+)
+_PILIER_ASCESE = {
+    "category": "concepts", "date": "2026-11-01",
+    "href": "concepts/ascese.html", "title": "Ascèse",
+    "chapo": "Pourquoi s'imposer volontairement un manque",
+    "img": "assets/img/concept-ascese-cover.webp", "html": concept_ascese_html,
+}
+PILIER_PAGES.append(_PILIER_ASCESE)
+_register_pilier_page(_PILIER_ASCESE)
 
 
 def _intracogito_description(e):
@@ -2017,6 +2061,9 @@ a_propos_html = f"""<!doctype html>
 # ---------------------------------------------------------------------------
 os.makedirs(os.path.join(ROOT, "essais"), exist_ok=True)
 os.makedirs(os.path.join(ROOT, "philosophes"), exist_ok=True)
+os.makedirs(os.path.join(ROOT, "concepts"), exist_ok=True)
+os.makedirs(os.path.join(ROOT, "comparatifs"), exist_ok=True)
+os.makedirs(os.path.join(ROOT, "mouvements"), exist_ok=True)
 
 files = {
     "index.html": index_html,
