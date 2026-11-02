@@ -279,9 +279,44 @@ def search_overlay(prefix=""):
     </div>
   </div>"""
 
-def footer(prefix=""):
+# ---------------------------------------------------------------------------
+# BANNIÈRE NEWSLETTER : source unique, présente sur TOUTES les pages du site.
+#   - pages article (éditions, Cogito, piliers) : insérée au milieu du texte
+#     par real_article_page() (les anciens blocs écrits à la main sont remplacés)
+#   - toutes les autres pages : bande juste avant le footer, via footer()
+# Pour changer la bannière partout : modifier uniquement cette fonction.
+# ---------------------------------------------------------------------------
+NEWSLETTER_URL = "https://elouannoel.substack.com/"
+
+def newsletter_insert(prefix=""):
+    return f"""<div class="newsletter-insert">
+  <img class="newsletter-insert-photo" src="{prefix}assets/img/vitruvian-man.webp" alt="Elouan Noël" loading="lazy" width="56" height="56" />
+  <div class="newsletter-insert-text">
+    <h3>Rejoins la newsletter</h3>
+    <p>Une édition par semaine, 4 à 5 citations commentées.</p>
+  </div>
+  <a href="{NEWSLETTER_URL}" target="_blank" rel="noopener" class="hero-cta newsletter-insert-cta">S’abonner →</a>
+</div>"""
+
+_NEWSLETTER_BLOCK_RE = re.compile(r'<div class="newsletter-insert">.*?</a>\s*</div>', re.S)
+
+def with_newsletter(body_html, prefix="../"):
+    """Place la bannière au milieu d'un corps d'article (une seule fois)."""
+    banner = newsletter_insert(prefix)
+    if 'class="newsletter-insert"' in body_html:
+        # bloc écrit à la main dans le texte : on garde l'emplacement, on prend la version à jour
+        return _NEWSLETTER_BLOCK_RE.sub(lambda m: banner, body_html, count=1)
+    for sep in ("<hr/>", "<h2"):
+        idx = [m.start() for m in re.finditer(re.escape(sep), body_html)]
+        if idx:
+            cut = idx[(len(idx) - 1) // 2] if sep == "<hr/>" else idx[len(idx) // 2]
+            return body_html[:cut] + banner + "\n" + body_html[cut:]
+    return body_html + "\n" + banner
+
+def footer(prefix="", newsletter=True):
     # Bande unique et compacte : copyright · réseaux (icônes) + contact · mentions légales
-    return f"""<footer id="a-propos">
+    band = f'<section class="newsletter-band"><div class="wrap">{newsletter_insert(prefix)}</div></section>\n' if newsletter else ""
+    return f"""{band}<footer id="a-propos">
   <div class="wrap footer-band">
     <span class="footer-copy">© 2026 Intracogito</span>
     <div class="footer-mid">
@@ -1566,7 +1601,7 @@ def real_article_page(slug, title, chapo, description, cover_path, cover_credit,
 </div>
 
 <div class="wrap article-body">
-  {body_html}
+  {with_newsletter(body_html)}
   {extra_block}
 </div>
 
@@ -1592,7 +1627,7 @@ def real_article_page(slug, title, chapo, description, cover_path, cover_credit,
 </div>
 
 </main>
-{footer(prefix="../")}
+{footer(prefix="../", newsletter=False)}
 {TOGGLE_SCRIPT}
 </body>
 </html>
@@ -2027,6 +2062,7 @@ page_404_html = f"""<!doctype html>
   <p>Elle n'existe pas, plus, ou pas encore à cette adresse. Le reste du site, lui, tient toujours debout.</p>
   <a href="index.html" class="hero-cta">Retourner à l'accueil →</a>
 </div>
+<div class="wrap" style="max-width:640px;">{newsletter_insert()}</div>
 
 </body>
 </html>
@@ -2235,6 +2271,7 @@ _HTML_ENTITIES = {
 }
 
 def _plain_text_from_html(html_src):
+    html_src = _NEWSLETTER_BLOCK_RE.sub(" ", html_src)  # la bannière newsletter n'est pas du contenu
     t = re.sub(r"<[^>]+>", " ", html_src)
     for ent, rep in _HTML_ENTITIES.items():
         t = t.replace(ent, rep)
