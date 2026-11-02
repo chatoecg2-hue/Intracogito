@@ -24,8 +24,19 @@ from zoneinfo import ZoneInfo as _ZoneInfo
 # apparaître jusqu'à ~1h en retard selon l'heure exacte du build.
 TODAY = _date.fromisoformat(os.environ["BUILD_DATE"]) if os.environ.get("BUILD_DATE") else _datetime.now(_ZoneInfo("Europe/Paris")).date()
 
+# PREVIEW_ALL=1 force toutes les pages "en stock" (date future) a apparaitre
+# comme si elles etaient dues : usage reserve au build qui alimente l'Artifact
+# de preview, pour qu'Elouan puisse systematiquement voir une page avant sa
+# date de publication. Ne JAMAIS positionner cette variable pour le vrai site
+# (Vercel ne la connait pas) : toujours rebuild sans elle avant de committer,
+# pour ne pas laisser une page en stock apparaitre dans le disque reel.
+PREVIEW_ALL = os.environ.get("PREVIEW_ALL") == "1"
+
 def is_due(date_str):
-    """True si date_str (YYYY-MM-DD) est aujourd'hui ou deja passe : publie."""
+    """True si date_str (YYYY-MM-DD) est aujourd'hui ou deja passe : publie.
+    Toujours True si PREVIEW_ALL=1 (voir note ci-dessus)."""
+    if PREVIEW_ALL:
+        return True
     return date_str <= TODAY.isoformat()
 
 def _remove_stale_file(href):
