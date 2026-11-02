@@ -2095,5 +2095,34 @@
   ],
   "num": 67,
   "cover": "assets/img/intracogito-067-cover.webp"
+ },
+ "069": {
+  "title": "La lucidité",
+  "slug": "la-lucidite",
+  "date": "2026-11-02",
+  "words": 351,
+  "credit": "Theodor von Hörmann, Mädchen im Mohn",
+  "authors": [
+   "Richard Feynman",
+   "Intracogito",
+   "Socrate",
+   "Intracogito"
+  ],
+  "related": [
+   [
+    "essais/la-verite.html",
+    "Ne pas se mentir commence par savoir ce qu'on entend par vérité : l'édition qui lui est consacrée."
+   ],
+   [
+    "essais/le-doute.html",
+    "Suspendre son jugement plutôt que conclure trop vite : le doute comme outil de lucidité."
+   ],
+   [
+    "essais/le-poids-de-lidentite.html",
+    "L'image de soi qu'on protège à tout prix, développée dans l'essai Cogito sur l'identité."
+   ]
+  ],
+  "num": 69,
+  "cover": "assets/img/intracogito-069-cover.webp"
  }
 }
