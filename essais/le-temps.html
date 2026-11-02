@@ -2,7 +2,24 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
-<script>if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; } window.scrollTo(0, 0);</script>
+<script>
+/* Toute page s'ouvre en haut (sauf lien vers une ancre #...) : aussi au retour arrière,
+   dans la preview (site affiché dans un cadre) et malgré le défilement doux du CSS. */
+(function(){
+  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+  function goTop(){
+    if (location.hash) return;
+    var h = document.documentElement, prev = h.style.scrollBehavior;
+    h.style.scrollBehavior = 'auto';
+    window.scrollTo(0, 0);
+    if (document.body && document.body.scrollIntoView) { try { document.body.scrollIntoView({block: 'start', behavior: 'auto'}); } catch (e) {} }
+    h.style.scrollBehavior = prev;
+  }
+  goTop();
+  document.addEventListener('DOMContentLoaded', goTop);
+  window.addEventListener('pageshow', function(ev){ if (ev.persisted) goTop(); });
+})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Le temps | Intracogito</title>
 <meta name="description" content="Intracogito #026, Le temps : 4 citations commentées, avec une lecture « Entre les lignes » pour chacune." />
