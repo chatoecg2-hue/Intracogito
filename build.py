@@ -28,6 +28,16 @@ def is_due(date_str):
     """True si date_str (YYYY-MM-DD) est aujourd'hui ou deja passe : publie."""
     return date_str <= TODAY.isoformat()
 
+def _remove_stale_file(href):
+    """Supprime un fichier deja construit si sa page n'est plus due (date
+    reculee apres un premier build) : evite qu'une page "en stock" reste
+    accessible par son URL directe meme si elle n'apparait plus dans aucun
+    listing, sitemap ou index de recherche."""
+    path = os.path.join(ROOT, href)
+    if os.path.exists(path):
+        os.remove(path)
+        print(f'[en stock] fichier obsolete supprime : {href}')
+
 IMG_DIMENSIONS = {
     "assets/img/cogito-001-cover.webp": (1600, 817),
     "assets/img/intracogito-66-cover.webp": (1200, 627),
@@ -126,6 +136,7 @@ _intracogito_pending = [e for e in INTRACOGITO_EDITIONS if not is_due(e["date"])
 INTRACOGITO_EDITIONS = [e for e in INTRACOGITO_EDITIONS if is_due(e["date"])]
 for _e in _intracogito_pending:
     print(f"[en stock] {_e['badge']} \u00ab {_e['title']} \u00bb : prevu le {_e['date']}, pas encore en ligne")
+    _remove_stale_file(_e['href'])
 
 MOIS_FR = ["", "janvier", "février", "mars", "avril", "mai", "juin",
            "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
@@ -502,6 +513,7 @@ _cogito_pending = [e for e in COGITO_ESSAYS if not is_due(e["date"])]
 COGITO_ESSAYS = [e for e in COGITO_ESSAYS if is_due(e["date"])]
 for _e in _cogito_pending:
     print(f"[en stock] {_e['badge']} \u00ab {_e['title']} \u00bb : prevu le {_e['date']}, pas encore en ligne")
+    _remove_stale_file(_e['href'])
 
 # HERO DE LA HOMEPAGE : toujours le dernier essai Cogito publié.
 # COGITO_ESSAYS est rangé dans l'ordre de publication (du plus ancien au plus
@@ -1693,6 +1705,7 @@ def _register_pilier_page(p):
     se remplit au fur et à mesure, pas à l'avance)."""
     if not is_due(p["date"]):
         print(f"[en stock] {p['title']} ({p['category']}) : prevu le {p['date']}, pas encore en ligne")
+        _remove_stale_file(p['href'])
         return
     cat = RUBRIQUES[p["category"]]
     cat.setdefault("real_cards", []).append({
@@ -1733,7 +1746,7 @@ concept_ascese_html = real_article_page(
     ],
 )
 _PILIER_ASCESE = {
-    "category": "concepts", "date": "2026-11-01",
+    "category": "concepts", "date": "2026-11-08",
     "href": "concepts/ascese.html", "title": "Ascèse",
     "chapo": "Pourquoi s'imposer volontairement un manque",
     "img": "assets/img/concept-ascese-cover.webp", "html": concept_ascese_html,
