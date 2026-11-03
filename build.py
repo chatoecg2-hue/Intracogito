@@ -338,7 +338,7 @@ def book_banner(prefix="", extra_class=""):
     cls = f"book-banner {extra_class}".strip()
     return f"""<aside class="{cls}" aria-label="Le livre {BOOK_TITLE}">
   <a {_book_href(prefix)} data-umami-event="clic-banniere-livre">
-    <img class="book-banner-wide" src="{prefix}assets/img/livre-dialogue-des-siecles-banniere-v2.webp" alt="Intracogito, {BOOK_TITLE} : {BOOK_TAGLINE.lower()}. Découvrir le livre d'Elouan Noël." loading="lazy" width="2644" height="486" />
+    <img class="book-banner-wide" src="{prefix}assets/img/livre-dialogue-des-siecles-banniere-v3.webp" alt="Intracogito, {BOOK_TITLE} : {BOOK_TAGLINE.lower()}. Découvrir le livre d'Elouan Noël." loading="lazy" width="2644" height="486" />
     <span class="book-banner-mobile">
       <img src="{prefix}assets/img/livre-dialogue-des-siecles-couverture.webp" alt="" loading="lazy" width="338" height="490" />
       <span class="book-banner-text">
@@ -2146,7 +2146,7 @@ livre_html = f"""<!doctype html>
     f"{BOOK_TITLE}, le livre d'Elouan Noël : {BOOK_TAGLINE.lower()}. Bientôt disponible.",
     "livre.html",
     robots="noindex, follow",
-    image=f"{BASE_URL}/assets/img/livre-dialogue-des-siecles-banniere-v2.webp",
+    image=f"{BASE_URL}/assets/img/livre-dialogue-des-siecles-banniere-v3.webp",
 )}
 </head>
 <body>
