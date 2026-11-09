@@ -85,7 +85,7 @@
         <a href="https://www.instagram.com/intracogito_fr/" target="_blank" rel="noopener" aria-label="Instagram">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
         </a>
-        <a href="https://www.tiktok.com/@intracogito_fr" target="_blank" rel="noopener" aria-label="TikTok">
+        <a href="https://www.tiktok.com/@intracogito" target="_blank" rel="noopener" aria-label="TikTok">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1-.07z"/></svg>
         </a>
         <a href="https://www.threads.com/@intracogito_fr" target="_blank" rel="noopener" aria-label="Threads">
@@ -121,7 +121,7 @@
         <a href="https://www.instagram.com/intracogito_fr/" target="_blank" rel="noopener" aria-label="Instagram">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
         </a>
-        <a href="https://www.tiktok.com/@intracogito_fr" target="_blank" rel="noopener" aria-label="TikTok">
+        <a href="https://www.tiktok.com/@intracogito" target="_blank" rel="noopener" aria-label="TikTok">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1-.07z"/></svg>
         </a>
         <a href="https://www.threads.com/@intracogito_fr" target="_blank" rel="noopener" aria-label="Threads">
@@ -168,11 +168,36 @@
   <p>Les grands concepts de la philosophie pratique, définis et reliés à des situations concrètes.</p>
 </div>
 
-<section class="sec rubrique-empty">
-  <div class="wrap">
-    <p class="rubrique-empty-label">Articles à venir</p>
-    <p>Cette rubrique est en préparation. En attendant, retrouve les éditions Intracogito et les essais Cogito.</p>
-    <a href="essais.html" class="hero-cta">Lire tous les articles →</a>
+<div class="rubrique-tabs">
+      <a href="#" class="active" data-tab="latest" onclick="return switchRubriqueTab(this,'latest')">Latest</a>
+      <a href="#" data-tab="popular" onclick="return switchRubriqueTab(this,'popular')">Popular</a>
+    </div>
+
+<h2 class="sec-title">Tous les articles</h2>
+<section class="sec" style="padding-top:0;">
+  <div class="wrap card-grid" id="grid-latest">
+    <a class="card" href="concepts/ascese.html">
+      <div class="card-img">
+        <img src="assets/img/concept-ascese-cover.webp" alt="Ascèse" loading="lazy" width="1200" height="630" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Concepts</span>
+      <h3 class="card-title">Ascèse</h3>
+      <p class="card-chapo">Pourquoi s'imposer volontairement un manque</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+  </div>
+  <div class="wrap card-grid" id="grid-popular" style="display:none;">
+    <a class="card" href="concepts/ascese.html">
+      <div class="card-img">
+        <img src="assets/img/concept-ascese-cover.webp" alt="Ascèse" loading="lazy" width="1200" height="630" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Concepts</span>
+      <h3 class="card-title">Ascèse</h3>
+      <p class="card-chapo">Pourquoi s'imposer volontairement un manque</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
   </div>
 </section>
 
@@ -196,7 +221,7 @@
         <a href="https://www.instagram.com/intracogito_fr/" target="_blank" rel="noopener" aria-label="Instagram">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
         </a>
-        <a href="https://www.tiktok.com/@intracogito_fr" target="_blank" rel="noopener" aria-label="TikTok">
+        <a href="https://www.tiktok.com/@intracogito" target="_blank" rel="noopener" aria-label="TikTok">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1-.07z"/></svg>
         </a>
         <a href="https://www.threads.com/@intracogito_fr" target="_blank" rel="noopener" aria-label="Threads">
