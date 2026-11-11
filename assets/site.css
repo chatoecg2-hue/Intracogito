@@ -168,6 +168,8 @@ button { font: inherit; }
 .sec { padding-block: 5.5rem; }
 .sec-head { display:flex; justify-content:space-between; align-items:baseline; gap:2rem; margin-bottom:2.5rem; flex-wrap:wrap; }
 .sec-title { font-family: var(--serif-display); font-weight:700; font-size: clamp(1.8rem,3.4vw,2.6rem); color: var(--ink); }
+.rubrique-articles { padding-top:1.5rem; }
+.rubrique-articles .sec-head { margin-bottom:clamp(1.75rem,3vw,2.5rem); }
 .sec-more { font-family: var(--mono); font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color: var(--ink-muted); border-bottom:1px solid var(--border); padding-bottom:.15rem; }
 .sec-more:hover { color: var(--accent); border-color: var(--accent); }
 .rubrique-empty .wrap { text-align:center; padding-block:3rem 5rem; display:flex; flex-direction:column; align-items:center; gap:1.2rem; }

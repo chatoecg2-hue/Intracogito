@@ -1098,8 +1098,10 @@ def rubrique_page(slug, data):
 {subtopics_block}
 {tabs}
 
-<h2 class="sec-title">Tous les articles</h2>
-<section class="sec" style="padding-top:0;">
+<section class="sec rubrique-articles" aria-labelledby="articles-title">
+  <div class="wrap sec-head">
+    <h2 class="sec-title" id="articles-title">Tous les articles</h2>
+  </div>
   <div class="wrap card-grid" id="grid-latest">
     {cards}
   </div>
