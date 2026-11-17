@@ -87,6 +87,20 @@ IMG_DIMENSIONS = {
     "assets/img/cogito-007-fig5-marionnettes.webp": (1100, 550),
     "assets/img/cogito-008-cover.webp": (1100, 603),
     "assets/img/concept-ascese-cover.webp": (1200, 630),
+    "assets/img/mouvement-stoicisme-cover.webp": (1200, 630),
+    "assets/img/philosophe-epictete-manuel-cover.webp": (1200, 630),
+    "assets/img/philosophe-sartre-cover.webp": (1200, 630),
+    "assets/img/concept-amor-fati-cover.webp": (1200, 630),
+    "assets/img/concept-stoicisme-au-travail-cover.webp": (1200, 630),
+    "assets/img/mouvement-epicurisme-cover.webp": (1200, 630),
+    "assets/img/comparatif-epicurisme-vs-hedonisme-cover.webp": (1200, 630),
+    "assets/img/comparatif-stoicisme-vs-epicurisme-cover.webp": (1200, 630),
+    "assets/img/comparatif-remords-vs-regret-cover.webp": (1200, 630),
+    "assets/img/mouvement-nihilisme-cover.webp": (1200, 630),
+    "assets/img/mouvement-existentialisme-cover.webp": (1200, 630),
+    "assets/img/mouvement-cynisme-cover.webp": (1200, 630),
+    "assets/img/mouvement-hedonisme-cover.webp": (1200, 630),
+    "assets/img/mouvement-absurdisme-cover.webp": (1200, 630),
     "assets/img/mouvement-cynisme-fig1.webp": (1024, 737),
     "assets/img/mouvement-cynisme-fig2.webp": (1024, 737),
     "assets/img/mouvement-epicurisme-fig1.webp": (1024, 741),
@@ -1918,8 +1932,8 @@ comparatif_stoicisme_vs_epicurisme_html = real_article_page(
     chapo="Nées à quelques années et quelques rues d’écart, à Athènes, ces deux écoles visent le même calme intérieur par deux voies presque opposées : l’engagement contre le retrait.",
     ref="Comparatif",
     description="Stoïcisme et épicurisme comparés : leurs fondateurs, leurs doctrines, ce qui les rapproche (l’ataraxie) et ce qui les oppose vraiment (l’engagement contre le retrait), avec une application concrète au quotidien.",
-    cover_path=None,
-    cover_credit=None,
+    cover_path="assets/img/comparatif-stoicisme-vs-epicurisme-cover.webp",
+    cover_credit="Côte rocheuse de la Méditerranée",
     tags=[("comparatifs.html", "Comparatifs")],
     body_html=COMPARATIF_STOICISME_EPICURISME_BODY,
     word_count=918,
@@ -1940,8 +1954,8 @@ mouvement_stoicisme_html = real_article_page(
     chapo="Né d’un naufrage et d’une ruine financière, le stoïcisme n’a jamais été conçu comme une théorie à réciter, mais comme une discipline à exercer, jour après jour.",
     ref="Mouvement",
     description="Le stoïcisme expliqué simplement : son origine avec Zénon de Citium, sa doctrine centrale (la dichotomie du contrôle), ce qu’il n’est pas, et comment l’appliquer concrètement au quotidien.",
-    cover_path=None,
-    cover_credit=None,
+    cover_path="assets/img/mouvement-stoicisme-cover.webp",
+    cover_credit="Phare dans la tempête, sous la lune",
     tags=[("mouvements.html", "Mouvements")],
     body_html=MOUVEMENT_STOICISME_BODY,
     word_count=981,
@@ -1962,7 +1976,7 @@ _PILIER_STOICISME_VS_EPICURISME = {
     "category": "comparatifs", "date": "9999-12-31",
     "href": "comparatifs/stoicisme-vs-epicurisme.html", "title": "Stoïcisme vs épicurisme",
     "chapo": "L'engagement contre le retrait",
-    "img": "assets/img/og-default.jpg", "html": comparatif_stoicisme_vs_epicurisme_html,
+    "img": "assets/img/comparatif-stoicisme-vs-epicurisme-cover.webp", "html": comparatif_stoicisme_vs_epicurisme_html,
 }
 PILIER_PAGES.append(_PILIER_STOICISME_VS_EPICURISME)
 _register_pilier_page(_PILIER_STOICISME_VS_EPICURISME)
@@ -1972,7 +1986,7 @@ _PILIER_STOICISME = {
     "category": "mouvements", "date": "9999-12-31",
     "href": "mouvements/stoicisme.html", "title": "Stoïcisme",
     "chapo": "Une philosophie à mettre en pratique",
-    "img": "assets/img/og-default.jpg", "html": mouvement_stoicisme_html,
+    "img": "assets/img/mouvement-stoicisme-cover.webp", "html": mouvement_stoicisme_html,
 }
 PILIER_PAGES.append(_PILIER_STOICISME)
 _register_pilier_page(_PILIER_STOICISME)
@@ -1993,8 +2007,8 @@ philosophe_epictete_manuel_html = real_article_page(
     chapo="Le Manuel d’Épictète n’est pas un traité abstrait, mais un guide pour reprendre prise sur sa vie. En distinguant ce qui dépend de toi de ce qui n’en dépend pas, Épictète propose une discipline simple pour penser plus clairement, agir avec justesse et traverser les épreuves.",
     ref="Philosophe",
     description="Épictète et le Manuel : découvre l’essentiel de sa pensée stoïcienne pour distinguer ce qui dépend de toi et vivre plus librement.",
-    cover_path=None,
-    cover_credit=None,
+    cover_path="assets/img/philosophe-epictete-manuel-cover.webp",
+    cover_credit="Arche en ruine dans un jardin méditerranéen",
     tags=[("philosophes.html", "Philosophes")],
     body_html=PHILOSOPHE_EPICTETE_MANUEL_BODY,
     word_count=1233,
@@ -2014,7 +2028,7 @@ _PILIER_PHILOSOPHE_EPICTETE_MANUEL = {
     "category": "philosophes", "subtopic": "Épictète", "date": "9999-12-31",
     "href": "philosophes/epictete-manuel.html", "title": "Épictète",
     "chapo": "Ce que le Manuel peut changer dans ta manière de vivre",
-    "img": "assets/img/og-default.jpg", "html": philosophe_epictete_manuel_html,
+    "img": "assets/img/philosophe-epictete-manuel-cover.webp", "html": philosophe_epictete_manuel_html,
 }
 PILIER_PAGES.append(_PILIER_PHILOSOPHE_EPICTETE_MANUEL)
 _register_pilier_page(_PILIER_PHILOSOPHE_EPICTETE_MANUEL)
@@ -2030,8 +2044,8 @@ philosophe_sartre_html = real_article_page(
     chapo="Pour Sartre, tu n’es pas défini une fois pour toutes par ton caractère, ton passé ou le regard des autres. L’existence précède l’essence : tu te construis par tes choix, dans un monde qui ne te fournit ni mode d’emploi ni garantie de sens.",
     ref="Philosophe",
     description="Sartre expliqué simplement : découvre pourquoi l’existence précède l’essence et ce que sa philosophie change dans tes choix quotidiens.",
-    cover_path=None,
-    cover_credit=None,
+    cover_path="assets/img/philosophe-sartre-cover.webp",
+    cover_credit="Rue de ville animée au pied d’une église",
     tags=[("philosophes.html", "Philosophes")],
     body_html=PHILOSOPHE_SARTRE_BODY,
     word_count=1235,
@@ -2051,7 +2065,7 @@ _PILIER_PHILOSOPHE_SARTRE = {
     "category": "philosophes", "date": "9999-12-31",
     "href": "philosophes/sartre.html", "title": "Sartre",
     "chapo": "Comprendre la liberté et la responsabilité selon Sartre",
-    "img": "assets/img/og-default.jpg", "html": philosophe_sartre_html,
+    "img": "assets/img/philosophe-sartre-cover.webp", "html": philosophe_sartre_html,
 }
 PILIER_PAGES.append(_PILIER_PHILOSOPHE_SARTRE)
 _register_pilier_page(_PILIER_PHILOSOPHE_SARTRE)
@@ -2065,8 +2079,8 @@ concept_amor_fati_html = real_article_page(
     chapo="Amor fati signifie « amour du destin ». L’idée ne consiste pas à tout approuver ni à renoncer à agir, mais à cesser de gaspiller ton énergie contre ce qui a déjà eu lieu. Tu peux alors transformer les événements en matière de décision, d’apprentissage et de construction.",
     ref="Concept",
     description="Amor fati : découvre la définition de cette formule et comment l’appliquer sans confondre amour du destin, résignation et fatalisme.",
-    cover_path=None,
-    cover_credit=None,
+    cover_path="assets/img/concept-amor-fati-cover.webp",
+    cover_credit="Trois-mâts toutes voiles dehors à l’entrée d’un port",
     tags=[("concepts.html", "Concepts")],
     body_html=CONCEPT_AMOR_FATI_BODY,
     word_count=1216,
@@ -2085,7 +2099,7 @@ _PILIER_CONCEPT_AMOR_FATI = {
     "category": "concepts", "date": "9999-12-31",
     "href": "concepts/amor-fati.html", "title": "Amor fati",
     "chapo": "Transformer ce qui arrive en matière de vie",
-    "img": "assets/img/og-default.jpg", "html": concept_amor_fati_html,
+    "img": "assets/img/concept-amor-fati-cover.webp", "html": concept_amor_fati_html,
 }
 PILIER_PAGES.append(_PILIER_CONCEPT_AMOR_FATI)
 _register_pilier_page(_PILIER_CONCEPT_AMOR_FATI)
@@ -2099,8 +2113,8 @@ concept_stoicisme_au_travail_html = real_article_page(
     chapo="Le stoïcisme au travail ne consiste pas à tout accepter sans réagir. Il t’apprend à distinguer ce que tu peux réellement influencer, à agir avec constance et à ne pas confier ta valeur aux résultats, aux urgences ou au regard de tes collègues.",
     ref="Concept",
     description="Stoïcisme au travail : découvre comment appliquer la philosophie stoïcienne aux urgences, aux critiques, aux échecs et aux décisions professionnelles.",
-    cover_path=None,
-    cover_credit=None,
+    cover_path="assets/img/concept-stoicisme-au-travail-cover.webp",
+    cover_credit="Pêcheurs réparant leurs filets au bord d’un lac",
     tags=[("concepts.html", "Concepts")],
     body_html=CONCEPT_STOICISME_AU_TRAVAIL_BODY,
     word_count=1175,
@@ -2119,7 +2133,7 @@ _PILIER_CONCEPT_STOICISME_AU_TRAVAIL = {
     "category": "concepts", "date": "9999-12-31",
     "href": "concepts/stoicisme-au-travail.html", "title": "Stoïcisme au travail",
     "chapo": "Une méthode concrète pour travailler avec plus de calme",
-    "img": "assets/img/og-default.jpg", "html": concept_stoicisme_au_travail_html,
+    "img": "assets/img/concept-stoicisme-au-travail-cover.webp", "html": concept_stoicisme_au_travail_html,
 }
 PILIER_PAGES.append(_PILIER_CONCEPT_STOICISME_AU_TRAVAIL)
 _register_pilier_page(_PILIER_CONCEPT_STOICISME_AU_TRAVAIL)
@@ -2133,8 +2147,8 @@ comparatif_epicurisme_vs_hedonisme_html = real_article_page(
     chapo="L’épicurisme et l’hédonisme sont souvent confondus parce qu’ils parlent tous deux du plaisir. Pourtant, l’épicurisme cherche surtout une vie sobre, paisible et libérée des peurs, tandis que l’hédonisme désigne une famille plus large de doctrines qui donnent au plaisir une place centrale.",
     ref="Comparatif",
     description="Épicurisme contre hédonisme : découvre la différence entre ces deux philosophies du plaisir et laquelle peut t’aider à vivre plus sereinement.",
-    cover_path=None,
-    cover_credit=None,
+    cover_path="assets/img/comparatif-epicurisme-vs-hedonisme-cover.webp",
+    cover_credit="Pause partagée sur les rochers, au bord du chemin",
     tags=[("comparatifs.html", "Comparatifs")],
     body_html=COMPARATIF_EPICURISME_VS_HEDONISME_BODY,
     word_count=1065,
@@ -2153,7 +2167,7 @@ _PILIER_COMPARATIF_EPICURISME_VS_HEDONISME = {
     "category": "comparatifs", "date": "9999-12-31",
     "href": "comparatifs/epicurisme-vs-hedonisme.html", "title": "Épicurisme ou hédonisme",
     "chapo": "Deux philosophies du plaisir, deux manières de vivre",
-    "img": "assets/img/og-default.jpg", "html": comparatif_epicurisme_vs_hedonisme_html,
+    "img": "assets/img/comparatif-epicurisme-vs-hedonisme-cover.webp", "html": comparatif_epicurisme_vs_hedonisme_html,
 }
 PILIER_PAGES.append(_PILIER_COMPARATIF_EPICURISME_VS_HEDONISME)
 _register_pilier_page(_PILIER_COMPARATIF_EPICURISME_VS_HEDONISME)
@@ -2167,8 +2181,8 @@ comparatif_remords_vs_regret_html = real_article_page(
     chapo="Le remords et le regret parlent tous deux du passé, mais ils ne désignent pas la même expérience. Le regret porte sur ce que tu aurais voulu faire ou obtenir. Le remords ajoute la conscience d’avoir mal agi, souvent envers quelqu’un, et appelle une forme de réparation.",
     ref="Comparatif",
     description="Remords contre regret : comprends la différence entre ces deux sentiments et découvre comment les transformer en lucidité plutôt qu’en punition.",
-    cover_path=None,
-    cover_credit=None,
+    cover_path="assets/img/comparatif-remords-vs-regret-cover.webp",
+    cover_credit="Lac gelé et château sous la neige",
     tags=[("comparatifs.html", "Comparatifs")],
     body_html=COMPARATIF_REMORDS_VS_REGRET_BODY,
     word_count=1289,
@@ -2187,7 +2201,7 @@ _PILIER_COMPARATIF_REMORDS_VS_REGRET = {
     "category": "comparatifs", "date": "9999-12-31",
     "href": "comparatifs/remords-vs-regret.html", "title": "Remords ou regret",
     "chapo": "Distinguer la douleur d’un choix de la faute morale",
-    "img": "assets/img/og-default.jpg", "html": comparatif_remords_vs_regret_html,
+    "img": "assets/img/comparatif-remords-vs-regret-cover.webp", "html": comparatif_remords_vs_regret_html,
 }
 PILIER_PAGES.append(_PILIER_COMPARATIF_REMORDS_VS_REGRET)
 _register_pilier_page(_PILIER_COMPARATIF_REMORDS_VS_REGRET)
@@ -2201,8 +2215,8 @@ mouvement_nihilisme_html = real_article_page(
     chapo="Le nihilisme ne signifie pas simplement être triste ou pessimiste. Il désigne une crise plus profonde : l’impression que les valeurs, les vérités et les buts qui guidaient la vie ne reposent plus sur rien. Comprendre cette crise aide à ne pas la confondre avec une conclusion définitive.",
     ref="Mouvement",
     description="Nihilisme : définition simple, origine de la perte de sens et pistes philosophiques pour ne pas confondre lucidité, pessimisme et désespoir.",
-    cover_path=None,
-    cover_credit=None,
+    cover_path="assets/img/mouvement-nihilisme-cover.webp",
+    cover_credit="Vagues se brisant au pied d’une forteresse",
     tags=[("mouvements.html", "Mouvements")],
     body_html=MOUVEMENT_NIHILISME_BODY,
     word_count=1226,
@@ -2221,7 +2235,7 @@ _PILIER_MOUVEMENT_NIHILISME = {
     "category": "mouvements", "date": "9999-12-31",
     "href": "mouvements/nihilisme.html", "title": "Nihilisme",
     "chapo": "Comprendre la perte de sens et ce qu’elle peut révéler",
-    "img": "assets/img/og-default.jpg", "html": mouvement_nihilisme_html,
+    "img": "assets/img/mouvement-nihilisme-cover.webp", "html": mouvement_nihilisme_html,
 }
 PILIER_PAGES.append(_PILIER_MOUVEMENT_NIHILISME)
 _register_pilier_page(_PILIER_MOUVEMENT_NIHILISME)
@@ -2235,8 +2249,8 @@ mouvement_existentialisme_html = real_article_page(
     chapo="L’existentialisme part d’une expérience simple et difficile : tu dois vivre et choisir sans disposer d’un mode d’emploi absolu. Ce courant philosophique ne promet pas de supprimer l’angoisse, mais il t’aide à comprendre comment la liberté, la responsabilité et le sens se construisent dans une existence réelle.",
     ref="Mouvement",
     description="Existentialisme : définition simple, liberté, responsabilité et sens de la vie. Découvre les idées clés de ce courant philosophique au quotidien.",
-    cover_path=None,
-    cover_credit=None,
+    cover_path="assets/img/mouvement-existentialisme-cover.webp",
+    cover_credit="Chemin de village entre les arbres",
     tags=[("mouvements.html", "Mouvements")],
     body_html=MOUVEMENT_EXISTENTIALISME_BODY,
     word_count=1225,
@@ -2255,7 +2269,7 @@ _PILIER_MOUVEMENT_EXISTENTIALISME = {
     "category": "mouvements", "date": "9999-12-31",
     "href": "mouvements/existentialisme.html", "title": "Existentialisme",
     "chapo": "Une philosophie de la liberté, du choix et de l’engagement",
-    "img": "assets/img/og-default.jpg", "html": mouvement_existentialisme_html,
+    "img": "assets/img/mouvement-existentialisme-cover.webp", "html": mouvement_existentialisme_html,
 }
 PILIER_PAGES.append(_PILIER_MOUVEMENT_EXISTENTIALISME)
 _register_pilier_page(_PILIER_MOUVEMENT_EXISTENTIALISME)
@@ -2269,8 +2283,8 @@ mouvement_cynisme_html = real_article_page(
     chapo="Le cynisme antique ne désigne pas d’abord une attitude méfiante ou désabusée. C’est un courant qui cherche une vie plus libre en réduisant les besoins artificiels, en critiquant les conventions et en rapprochant les paroles des actes. Son radicalisme peut encore interroger ta manière de vivre.",
     ref="Mouvement",
     description="Cynisme : découvre la définition du courant antique, ses idées clés et ce que Diogène peut encore nous apprendre sur la liberté et les conventions.",
-    cover_path=None,
-    cover_credit=None,
+    cover_path="assets/img/mouvement-cynisme-cover.webp",
+    cover_credit="Seuil d’une maison simple, au bord de l’eau",
     tags=[("mouvements.html", "Mouvements")],
     body_html=MOUVEMENT_CYNISME_BODY,
     word_count=1177,
@@ -2289,7 +2303,7 @@ _PILIER_MOUVEMENT_CYNISME = {
     "category": "mouvements", "date": "9999-12-31",
     "href": "mouvements/cynisme.html", "title": "Cynisme",
     "chapo": "Une philosophie antique contre les conventions inutiles",
-    "img": "assets/img/og-default.jpg", "html": mouvement_cynisme_html,
+    "img": "assets/img/mouvement-cynisme-cover.webp", "html": mouvement_cynisme_html,
 }
 PILIER_PAGES.append(_PILIER_MOUVEMENT_CYNISME)
 _register_pilier_page(_PILIER_MOUVEMENT_CYNISME)
@@ -2303,8 +2317,8 @@ mouvement_epicurisme_html = real_article_page(
     chapo="L’épicurisme ne prône ni la débauche ni la recherche de plaisirs sans limite. Cette école antique cherche une vie heureuse en réduisant les peurs, en choisissant les désirs avec discernement et en accordant une place centrale à l’amitié, à la simplicité et à la tranquillité.",
     ref="Mouvement",
     description="Épicurisme : découvre la définition de cette école antique, ses idées clés et comment elle peut aider à vivre avec moins de peur et de désir inutile.",
-    cover_path=None,
-    cover_credit=None,
+    cover_path="assets/img/mouvement-epicurisme-cover.webp",
+    cover_credit="Halte à l’ombre d’un olivier, la mer au loin",
     tags=[("mouvements.html", "Mouvements")],
     body_html=MOUVEMENT_EPICURISME_BODY,
     word_count=1094,
@@ -2323,7 +2337,7 @@ _PILIER_MOUVEMENT_EPICURISME = {
     "category": "mouvements", "date": "9999-12-31",
     "href": "mouvements/epicurisme.html", "title": "Épicurisme",
     "chapo": "Une philosophie du plaisir simple, de l’amitié et de la paix",
-    "img": "assets/img/og-default.jpg", "html": mouvement_epicurisme_html,
+    "img": "assets/img/mouvement-epicurisme-cover.webp", "html": mouvement_epicurisme_html,
 }
 PILIER_PAGES.append(_PILIER_MOUVEMENT_EPICURISME)
 _register_pilier_page(_PILIER_MOUVEMENT_EPICURISME)
@@ -2337,8 +2351,8 @@ mouvement_hedonisme_html = real_article_page(
     chapo="L’hédonisme est une famille de philosophies qui donnent au plaisir une place centrale dans la vie bonne. Il ne se résume pas à l’excès ni à la consommation. Selon les auteurs, il peut inviter à savourer le présent, à calculer les conséquences ou à chercher une forme durable de bien-être.",
     ref="Mouvement",
     description="Hédonisme : définition simple, idées clés et différence avec l’épicurisme. Comprends les philosophies qui placent le plaisir au centre de la vie bonne.",
-    cover_path=None,
-    cover_credit=None,
+    cover_path="assets/img/mouvement-hedonisme-cover.webp",
+    cover_credit="Vergers en fleurs autour d’un hameau",
     tags=[("mouvements.html", "Mouvements")],
     body_html=MOUVEMENT_HEDONISME_BODY,
     word_count=1188,
@@ -2357,7 +2371,7 @@ _PILIER_MOUVEMENT_HEDONISME = {
     "category": "mouvements", "date": "9999-12-31",
     "href": "mouvements/hedonisme.html", "title": "Hédonisme",
     "chapo": "Comprendre le plaisir comme critère de vie heureuse",
-    "img": "assets/img/og-default.jpg", "html": mouvement_hedonisme_html,
+    "img": "assets/img/mouvement-hedonisme-cover.webp", "html": mouvement_hedonisme_html,
 }
 PILIER_PAGES.append(_PILIER_MOUVEMENT_HEDONISME)
 _register_pilier_page(_PILIER_MOUVEMENT_HEDONISME)
@@ -2371,8 +2385,8 @@ mouvement_absurdisme_html = real_article_page(
     chapo="L’absurdisme part d’un décalage : tu cherches un sens au monde, mais le monde ne fournit pas de réponse définitive. Inspiré notamment par Camus, ce courant ne conclut pas qu’il faut renoncer. Il invite à vivre lucidement, à refuser les faux absolus et à créer une réponse dans l’action.",
     ref="Mouvement",
     description="Absurdisme : définition simple, différence avec le nihilisme et pistes de Camus pour vivre avec l’absurde sans renoncer à agir.",
-    cover_path=None,
-    cover_credit=None,
+    cover_path="assets/img/mouvement-absurdisme-cover.webp",
+    cover_credit="Cerf seul dans la neige",
     tags=[("mouvements.html", "Mouvements")],
     body_html=MOUVEMENT_ABSURDISME_BODY,
     word_count=1252,
@@ -2391,7 +2405,7 @@ _PILIER_MOUVEMENT_ABSURDISME = {
     "category": "mouvements", "date": "9999-12-31",
     "href": "mouvements/absurdisme.html", "title": "Absurdisme",
     "chapo": "Répondre à l’absence de sens sans renoncer à vivre",
-    "img": "assets/img/og-default.jpg", "html": mouvement_absurdisme_html,
+    "img": "assets/img/mouvement-absurdisme-cover.webp", "html": mouvement_absurdisme_html,
 }
 PILIER_PAGES.append(_PILIER_MOUVEMENT_ABSURDISME)
 _register_pilier_page(_PILIER_MOUVEMENT_ABSURDISME)
