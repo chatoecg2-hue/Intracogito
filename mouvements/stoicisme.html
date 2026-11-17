@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<script>
+/* Toute page s'ouvre en haut (sauf lien vers une ancre #...) : aussi au retour arrière,
+   dans la preview (site affiché dans un cadre) et malgré le défilement doux du CSS. */
+(function(){
+  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+  function goTop(){
+    if (location.hash) return;
+    var h = document.documentElement, prev = h.style.scrollBehavior;
+    h.style.scrollBehavior = 'auto';
+    window.scrollTo(0, 0);
+    if (document.body && document.body.scrollIntoView) { try { document.body.scrollIntoView({block: 'start', behavior: 'auto'}); } catch (e) {} }
+    h.style.scrollBehavior = prev;
+  }
+  goTop();
+  document.addEventListener('DOMContentLoaded', goTop);
+  window.addEventListener('pageshow', function(ev){ if (ev.persisted) goTop(); });
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Stoïcisme : une philosophie à mettre en pratique | Intracogito</title>
+<meta name="description" content="Le stoïcisme expliqué simplement : son origine avec Zénon de Citium, sa doctrine centrale (la dichotomie du contrôle), ce qu’il n’est pas, et comment l’appliquer concrètement au quotidien." />
+<link rel="canonical" href="https://intracogito.fr/mouvements/stoicisme.html" />
+<link rel="icon" href="../assets/img/favicon.png" type="image/png" />
+<link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Intracogito" />
+<meta property="og:title" content="Stoïcisme : une philosophie à mettre en pratique | Intracogito" />
+<meta property="og:description" content="Le stoïcisme expliqué simplement : son origine avec Zénon de Citium, sa doctrine centrale (la dichotomie du contrôle), ce qu’il n’est pas, et comment l’appliquer concrètement au quotidien." />
+<meta property="og:url" content="https://intracogito.fr/mouvements/stoicisme.html" />
+<meta property="og:image" content="https://intracogito.fr/assets/img/mouvement-stoicisme-cover.webp" />
+<meta property="og:locale" content="fr_FR" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Stoïcisme : une philosophie à mettre en pratique | Intracogito" />
+<meta name="twitter:description" content="Le stoïcisme expliqué simplement : son origine avec Zénon de Citium, sa doctrine centrale (la dichotomie du contrôle), ce qu’il n’est pas, et comment l’appliquer concrètement au quotidien." />
+<meta name="twitter:image" content="https://intracogito.fr/assets/img/mouvement-stoicisme-cover.webp" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&family=IBM+Plex+Mono:wght@400;500;700&family=Inter:wght@300;400;500&display=swap" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&family=IBM+Plex+Mono:wght@400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&family=IBM+Plex+Mono:wght@400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" /></noscript>
+<link rel="stylesheet" href="../assets/site.css" />
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa--T_GhxjEw82keNVG-arb8.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+<!-- Privacy-friendly analytics by Umami -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="653389b3-c8eb-448c-ba35-0a2e5c9e57ab"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Intracogito", "item": "https://intracogito.fr/"},
+    {"@type": "ListItem", "position": 2, "name": "Mouvements", "item": "https://intracogito.fr/mouvements.html"},
+    {"@type": "ListItem", "position": 3, "name": "Stoïcisme : une philosophie à mettre en pratique", "item": "https://intracogito.fr/mouvements/stoicisme.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Stoïcisme : une philosophie à mettre en pratique",
+  "description": "Le stoïcisme expliqué simplement : son origine avec Zénon de Citium, sa doctrine centrale (la dichotomie du contrôle), ce qu’il n’est pas, et comment l’appliquer concrètement au quotidien.",
+  "image": "https://intracogito.fr/assets/img/mouvement-stoicisme-cover.webp",
+  "datePublished": "2026-11-17",
+  "dateModified": "2026-11-17",
+  "author": {"@type": "Person", "name": "Elouan Noël"},
+  "publisher": {"@type": "Organization", "name": "Intracogito", "logo": {"@type": "ImageObject", "url": "https://intracogito.fr/assets/img/favicon.png"}}
+}
+</script>
+</head>
+<body>
+
+<header class="topbar on-hero">
+  <div class="wrap topbar-inner">
+    <div class="topbar-left">
+      <div class="topbar-actions">
+        <button class="menu-trigger" onclick="toggleMenu()" aria-label="Ouvrir le menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+          <span class="lbl">Menu</span>
+        </button>
+        <span class="topbar-sep" aria-hidden="true">/</span>
+        <button class="search-trigger" onclick="toggleSearch()" aria-label="Rechercher">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+      </div>
+      <div class="topbar-social">
+        <a href="https://elouannoel.substack.com/" target="_blank" rel="noopener" aria-label="Substack">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16v2.3H4V4zm0 5.1h16v2.3H4V9.1zM4 14.2h16V22l-8-4.3L4 22V14.2z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/intracogito_fr/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@intracogito" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1-.07z"/></svg>
+        </a>
+        <a href="https://www.threads.com/@intracogito_fr" target="_blank" rel="noopener" aria-label="Threads">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M13 3c-4 0-6.5 2.8-6.5 7.3v3.4c0 4.5 2.5 7.3 6.2 7.3 3.1 0 5.1-1.6 5.1-4.1 0-2-1.3-3.2-3.5-3.5l-2-.3c-1.1-.15-1.7-.6-1.7-1.3 0-.8.8-1.3 2-1.3 1.3 0 2.1.6 2.3 1.6l2.3-.4C16.8 9.6 15.2 8 12.9 8c-2.4 0-4 1.4-4 3.4 0 1.7 1.1 2.8 3.3 3.1l2 .3c1.2.2 1.7.6 1.7 1.3 0 .9-.9 1.5-2.3 1.5-1.8 0-2.9-.9-3.1-2.3"/></svg>
+        </a>
+      </div>
+    </div>
+    <a href="../index.html" class="topbar-logo" aria-label="Intracogito, accueil">
+      <img class="logo-dark" src="../assets/img/logo-intracogito.png" alt="Intracogito" width="1200" height="151" />
+      <img class="logo-light" src="../assets/img/logo-intracogito-light.png" alt="" aria-hidden="true" width="1200" height="151" />
+    </a>
+    <div class="topbar-right">
+      <div class="topbar-right-row topbar-right-main">
+        <a href="https://elouannoel.substack.com/" target="_blank" rel="noopener">Newsletter</a>
+      </div>
+      <div class="topbar-right-row topbar-right-sub">
+        <a href="../a-propos.html">À propos</a>
+        <span class="topbar-sep" aria-hidden="true">/</span>
+        <a href="https://buymeacoffee.com/elouannoel" target="_blank" rel="noopener">Soutenir</a>
+      </div>
+    </div>
+  </div>
+  <div class="menu-overlay" id="menu-overlay">
+    <div class="wrap menu-top">
+      <button class="menu-close" onclick="toggleMenu()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>
+        Close
+      </button>
+      <div class="menu-top-social">
+        <a href="https://elouannoel.substack.com/" target="_blank" rel="noopener" aria-label="Substack">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16v2.3H4V4zm0 5.1h16v2.3H4V9.1zM4 14.2h16V22l-8-4.3L4 22V14.2z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/intracogito_fr/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@intracogito" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1-.07z"/></svg>
+        </a>
+        <a href="https://www.threads.com/@intracogito_fr" target="_blank" rel="noopener" aria-label="Threads">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M13 3c-4 0-6.5 2.8-6.5 7.3v3.4c0 4.5 2.5 7.3 6.2 7.3 3.1 0 5.1-1.6 5.1-4.1 0-2-1.3-3.2-3.5-3.5l-2-.3c-1.1-.15-1.7-.6-1.7-1.3 0-.8.8-1.3 2-1.3 1.3 0 2.1.6 2.3 1.6l2.3-.4C16.8 9.6 15.2 8 12.9 8c-2.4 0-4 1.4-4 3.4 0 1.7 1.1 2.8 3.3 3.1l2 .3c1.2.2 1.7.6 1.7 1.3 0 .9-.9 1.5-2.3 1.5-1.8 0-2.9-.9-3.1-2.3"/></svg>
+        </a>
+      </div>
+    </div>
+    <nav class="wrap menu-body" aria-label="Menu principal">
+      <div class="menu-topics">
+        <a href="../intracogito.html" class="menu-topic t1">Intracogito</a>
+        <a href="../cogito.html" class="menu-topic t2">Cogito</a>
+        <a href="../philosophes.html" class="menu-topic t3">Philosophes</a>
+        <a href="../concepts.html" class="menu-topic t4">Concepts</a>
+        <a href="../comparatifs.html" class="menu-topic t5">Comparatifs</a>
+        <a href="../mouvements.html" class="menu-topic t6">Mouvements</a>
+      </div>
+      <div class="menu-extra">
+        <a href="https://elouannoel.substack.com/" target="_blank" rel="noopener">Newsletter</a>
+        <a href="../a-propos.html">À propos</a>
+        <a href="https://buymeacoffee.com/elouannoel" target="_blank" rel="noopener">Soutenir</a>
+      </div>
+    </nav>
+  </div>
+  <div class="search-overlay" id="search-overlay">
+    <div class="wrap search-overlay-inner">
+      <div class="search-top">
+        <button class="menu-close" onclick="toggleSearch()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>
+          Close
+        </button>
+      </div>
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="search-input" placeholder="Rechercher un mot, un thème, un titre…" autocomplete="off" oninput="performSearch(this.value)" />
+      </div>
+      <div class="search-results" id="search-results"></div>
+    </div>
+  </div>
+</header>
+<main>
+
+<section class="article-hero">
+  <img class="bg-cover-img" src="../assets/img/mouvement-stoicisme-cover.webp" alt="Phare dans la tempête, sous la lune" loading="eager" width="1200" height="630" />
+  <div class="article-hero-content">
+    <span class="hero-eyebrow article-ref">Mouvement</span>
+    <h1>Stoïcisme : une philosophie à mettre en pratique</h1>
+    <p class="chapo">Né d’un naufrage et d’une ruine financière, le stoïcisme n’a jamais été conçu comme une théorie à réciter, mais comme une discipline à exercer, jour après jour.</p>
+  </div>
+</section>
+<p class="article-credit" style="color:var(--on-dark-muted); text-align:right; padding: .4rem var(--px); position:relative; z-index:1;">Phare dans la tempête, sous la lune</p>
+
+<div class="wrap article-meta-wrap">
+  <div class="article-sub-meta">
+    <time datetime="2026-11-17">17 novembre 2026</time>
+    <span>·</span>
+    <span>5 min de lecture</span>
+    <span>·</span>
+    <span>981 mots</span>
+  </div>
+</div>
+
+<div class="wrap article-body">
+  <p>Zénon de Citium est un marchand phénicien qui fait naufrage près du Pirée, au large d’Athènes, vers 300 avant notre ère. Sa cargaison entière de pourpre coule avec le bateau. En attendant de refaire sa vie, il entre par hasard dans une librairie d’Athènes et tombe sur un livre consacré à Socrate. Il demande au libraire où l’on peut rencontrer des hommes comme celui-là. Un passant qui traverse la rue au même moment, un philosophe nommé Cratès : le libraire le lui montre. Zénon le suit. Il ne quittera plus jamais la philosophie.</p>
+<p>Il fonde son école quelques années plus tard, sous un portique peint d’Athènes, la <em>Stoa Poikile</em>, qui donnera son nom au mouvement : le stoïcisme.</p>
+<p>L’anecdote est rapportée par Diogène Laërce, plusieurs siècles après les faits, et a sans doute été enjolivée avec le temps. Mais le mot qu’on prête à Zénon, repensant au naufrage qui a tout changé pour lui, résume déjà l’esprit de l’école qu’il allait fonder : « Je viens de faire un bon voyage, puisque j’ai fait naufrage. »</p>
+<h2>Vivre selon la raison, pas selon l’humeur</h2>
+<p>Le stoïcisme part d’une idée simple : l’univers est traversé par un ordre rationnel, une raison, le <em>logos</em>, et la sagesse consiste à vivre en accord avec lui plutôt qu’à lutter contre. Ce qui dépend de nous, c’est notre jugement sur les choses, nos désirs, nos actions. Ce qui n’en dépend pas, c’est à peu près tout le reste : la santé, la réputation, la météo, les décisions des autres.</p>
+<p>Le seul vrai bien, pour un stoïcien, c’est la <strong>vertu</strong> : agir avec justice, courage, tempérance et discernement, quelles que soient les circonstances. Pas la richesse, pas le confort, pas même la bonne réputation : ce sont des choses « indifférentes », ni bonnes ni mauvaises en soi, qu’on peut préférer sans en dépendre.</p>
+<blockquote><p>« N’explique pas ta philosophie. Incarne-la. »</p><p>Épictète</p></blockquote>
+<p>Ce n’est pas un hasard si cette phrase vient d’Épictète, un esclave affranchi devenu professeur de philosophie : chez les stoïciens, une idée ne vaut que par ce qu’elle change dans une vie réellement vécue, jamais par sa seule cohérence sur le papier.</p>
+<figure><img alt="Athènes et son Portique peint, berceau du stoïcisme vers 300 avant notre ère" loading="lazy" width="1024" height="748" src="../assets/img/mouvement-stoicisme-fig1.webp"/><figcaption>Athènes et son Portique peint, berceau du stoïcisme vers 300 avant notre ère</figcaption></figure>
+<h2>Ce qui dépend de nous, ce qui n’en dépend pas</h2>
+<p>Cette distinction, les stoïciens l’appellent la <strong>dichotomie du contrôle</strong>. Elle structure toute la pratique stoïcienne : trier, à chaque instant, ce qu’on peut réellement changer de ce qu’on ne peut que subir, et n’investir son énergie que dans la première catégorie. Elle est déjà développée en détail, geste par geste, sur la page consacrée à <a href="../philosophes/marc-aurele.html">Marc Aurèle</a>, qui en a fait l’exercice central de sa vie d’empereur.</p>
+<h2>De Zénon aux empereurs : une philosophie qui traverse les siècles</h2>
+<p>Après Zénon, l’école passe à Cléanthe puis à Chrysippe, qui la systématise au point qu’on dira de lui : « sans Chrysippe, pas de Portique. » Mais c’est trois siècles plus tard, à Rome, que le stoïcisme trouve le visage qu’on lui connaît le mieux aujourd’hui, incarné par trois hommes aux conditions opposées : un esclave affranchi, Épictète, un conseiller impérial immensément riche, <a href="../philosophes/seneque.html">Sénèque</a>, et un empereur, <a href="../philosophes/marc-aurele.html">Marc Aurèle</a>. La même discipline s’applique aux trois, quel que soit leur rang : ce qui dépend de nous ne change pas selon qu’on possède tout ou rien.</p>
+<figure><img alt="Sous une tente, sur le front du Danube, Marc Aurèle écrit ses Pensées pour lui-même" loading="lazy" width="1024" height="748" src="../assets/img/mouvement-stoicisme-fig2.webp"/><figcaption>Sous une tente, sur le front du Danube, Marc Aurèle écrit ses Pensées pour lui-même</figcaption></figure>
+<div class="newsletter-insert">
+  <img class="newsletter-insert-photo" src="../assets/img/vitruvian-man.webp" alt="Elouan Noël" loading="lazy" width="56" height="56" />
+  <div class="newsletter-insert-text">
+    <h3>Rejoins la newsletter</h3>
+    <p>Une édition par semaine, 4 à 5 citations commentées.</p>
+  </div>
+  <a href="https://elouannoel.substack.com/" target="_blank" rel="noopener" class="hero-cta newsletter-insert-cta" data-umami-event="clic-newsletter-banniere">S’abonner →</a>
+</div>
+<h2>Ce que le stoïcisme n’est pas</h2>
+<p>Dans le langage courant, être « stoïque » veut dire encaisser sans broncher, ne rien ressentir. Ce n’est pas ce que les stoïciens appelaient l’<em>apatheia</em> : non pas l’absence d’émotion, mais l’absence des passions destructrices qui naissent d’un jugement faux sur ce qui compte vraiment. Un stoïcien peut aimer, s’inquiéter pour un proche, ressentir de la joie : ce qu’il travaille à éviter, c’est de se laisser submerger par une émotion fondée sur une erreur de jugement, comme croire qu’un évènement extérieur peut, à lui seul, détruire sa vie.</p>
+<p>Cette nuance le distingue aussi de l’autre grande école née au même siècle à Athènes : l’épicurisme, qui vise lui aussi une forme de tranquillité, l’<em>ataraxie</em>, mais par une voie presque opposée, le retrait plutôt que l’engagement dans le monde. Le détail de cette opposition fait l’objet d’une page à part, <a href="../comparatifs/stoicisme-vs-epicurisme.html">stoïcisme contre épicurisme</a>.</p>
+<figure><img alt="Le forum romain : pour les stoïciens, la sagesse se pratique aussi au milieu des autres" loading="lazy" width="1100" height="733" src="../assets/img/mouvement-stoicisme-fig3.webp"/><figcaption>Le forum romain : pour les stoïciens, la sagesse se pratique aussi au milieu des autres</figcaption></figure>
+<h2>L’appliquer au quotidien</h2>
+<p>Trois exercices stoïciens, documentés depuis l’Antiquité, tiennent encore aujourd’hui sans aucun aménagement.</p>
+<p>Le matin, anticiper calmement ce qui peut mal tourner dans la journée, non pour s’angoisser à l’avance, mais pour ne pas être pris au dépourvu le moment venu. Le soir, repasser la journée écoulée sans complaisance ni culpabilité excessive : qu’ai-je bien fait, qu’ai-je raté, qu’aurais-je pu faire autrement. Et, à chaque contrariété, se poser une seule question avant de réagir : est-ce que ceci dépend vraiment de moi ?</p>
+<h2>En bref</h2>
+<p style="margin-bottom:.6rem;">📌 <strong>Le stoïcisme est une école philosophique fondée à Athènes vers 300 av. J.-C. par Zénon de Citium</strong>, qui enseignait sous un portique peint (la Stoa), d’où le nom de l’école.</p>
+<p style="margin-bottom:.6rem;">📌 <strong>Sa doctrine centrale tient dans la dichotomie du contrôle</strong> : distinguer ce qui dépend de nous (jugements, désirs, actions) de ce qui n’en dépend pas, et ne placer sa tranquillité que dans la première catégorie.</p>
+<p style="margin-bottom:.6rem;">📌 <strong>Être stoïque ne veut pas dire ne rien ressentir</strong> : l’apatheia stoïcienne vise à se libérer des passions nées d’un jugement faux, pas à supprimer les émotions elles-mêmes.</p>
+  
+  <aside class="book-banner" aria-label="Le livre Le dialogue des siècles">
+  <a href="../livre.html" data-umami-event="clic-banniere-livre">
+    <img class="book-banner-wide" src="../assets/img/livre-dialogue-des-siecles-banniere-v3.webp" alt="Intracogito, Le dialogue des siècles : une philosophie pour mieux penser et agir. Découvrir le livre d'Elouan Noël." loading="lazy" width="2644" height="486" />
+    <span class="book-banner-mobile">
+      <img src="../assets/img/livre-dialogue-des-siecles-couverture.webp" alt="" loading="lazy" width="338" height="490" />
+      <span class="book-banner-text">
+        <span class="book-banner-eyebrow">Le livre d’Elouan Noël</span>
+        <span class="book-banner-title">Le dialogue des siècles</span>
+        <span class="book-banner-tagline">Une philosophie pour mieux penser et agir</span>
+        <span class="book-banner-cta">Bientôt disponible →</span>
+      </span>
+    </span>
+  </a>
+</aside>
+</div>
+
+<div class="wrap article-end-meta">
+  <div class="article-tags">
+    <a class="article-tag" href="../mouvements.html">Mouvements</a>
+  </div>
+  <div class="article-author-row">
+    <a class="article-author-avatar" href="https://www.linkedin.com/in/elouan-noel-248283256/" target="_blank" rel="noopener" aria-label="Profil LinkedIn d'Elouan Noël"><img src="../assets/img/author-elouan.webp" alt="Elouan Noël" loading="lazy" width="300" height="300" /></a>
+    <div>
+      <div class="article-author-name">Elouan Noël, fondateur d'Intracogito</div>
+    </div>
+  </div>
+</div>
+
+<div class="article-related">
+  <div class="wrap">
+    <h2 class="sec-title">À lire aussi</h2>
+    <div class="card-grid">
+      <a class="card" href="../philosophes/marc-aurele.html">
+      <div class="card-img">
+        <img src="../assets/img/philosophe-marc-aurele-cover.webp" alt="Marc Aurèle" loading="lazy" width="1200" height="630" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Philosophes</span>
+      <h3 class="card-title">Marc Aurèle</h3>
+      <p class="card-chapo">La dichotomie du contrôle expliquée en détail, appliquée à une vie d’empereur.</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+      <a class="card" href="../philosophes/seneque.html">
+      <div class="card-img">
+        <img src="../assets/img/philosophe-seneque-cover.webp" alt="Sénèque" loading="lazy" width="1200" height="630" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Philosophes</span>
+      <h3 class="card-title">Sénèque</h3>
+      <p class="card-chapo">Un autre visage romain du stoïcisme, sur la gestion du temps plutôt que du contrôle.</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+      <a class="card" href="../essais/la-philosophie.html">
+      <div class="card-img">
+        <img src="../assets/img/intracogito-024-cover.webp" alt="La philosophie" loading="lazy" width="1200" height="659" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Intracogito</span>
+      <h3 class="card-title">La philosophie</h3>
+      <p class="card-chapo">La citation d’Épictète commentée dans son contexte original, édition Intracogito n°024.</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+    </div>
+  </div>
+</div>
+
+</main>
+<footer id="a-propos">
+  <div class="wrap footer-band">
+    <span class="footer-copy">© 2026 Intracogito</span>
+    <div class="footer-mid">
+      <div class="footer-social">
+        <a href="https://elouannoel.substack.com/" target="_blank" rel="noopener" aria-label="Substack">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16v2.3H4V4zm0 5.1h16v2.3H4V9.1zM4 14.2h16V22l-8-4.3L4 22V14.2z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/intracogito_fr/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@intracogito" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1-.07z"/></svg>
+        </a>
+        <a href="https://www.threads.com/@intracogito_fr" target="_blank" rel="noopener" aria-label="Threads">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M13 3c-4 0-6.5 2.8-6.5 7.3v3.4c0 4.5 2.5 7.3 6.2 7.3 3.1 0 5.1-1.6 5.1-4.1 0-2-1.3-3.2-3.5-3.5l-2-.3c-1.1-.15-1.7-.6-1.7-1.3 0-.8.8-1.3 2-1.3 1.3 0 2.1.6 2.3 1.6l2.3-.4C16.8 9.6 15.2 8 12.9 8c-2.4 0-4 1.4-4 3.4 0 1.7 1.1 2.8 3.3 3.1l2 .3c1.2.2 1.7.6 1.7 1.3 0 .9-.9 1.5-2.3 1.5-1.8 0-2.9-.9-3.1-2.3"/></svg>
+        </a>
+      </div>
+      <a class="footer-mail" href="mailto:elouan.noel@gmail.com">elouan.noel@gmail.com</a>
+    </div>
+    <a class="footer-legal" href="../mentions-legales.html">Mentions légales</a>
+  </div>
+</footer>
+<script>
+function toggleMenu(){
+  var m = document.getElementById('menu-overlay');
+  m.classList.toggle('open');
+}
+function switchRubriqueTab(el, which){
+  var tabs = el.parentElement.querySelectorAll('a');
+  for (var i = 0; i < tabs.length; i++) { tabs[i].classList.remove('active'); }
+  el.classList.add('active');
+  var gl = document.getElementById('grid-latest');
+  var gp = document.getElementById('grid-popular');
+  if (gl) gl.style.display = (which === 'latest') ? '' : 'none';
+  if (gp) gp.style.display = (which === 'popular') ? '' : 'none';
+  return false;
+}
+function toggleSearch(){
+  var s = document.getElementById('search-overlay');
+  if (!s) return;
+  s.classList.toggle('open');
+  if (s.classList.contains('open')) {
+    var inp = document.getElementById('search-input');
+    setTimeout(function(){ if (inp) inp.focus(); }, 60);
+    _loadSearchIndex();
+  }
+}
+function _loadSearchIndex(){
+  if (!window.__searchIndexPromise) {
+    window.__searchIndexPromise = fetch('/assets/search-index.json').then(function(r){ return r.json(); }).catch(function(){ return []; });
+  }
+  return window.__searchIndexPromise;
+}
+function _normalize(s){
+  return (s || '').toString().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+}
+function _escHtml(s){
+  return (s || '').toString().replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; });
+}
+function _highlight(text, words){
+  text = text || '';
+  var normText = _normalize(text);
+  var ranges = [];
+  for (var w = 0; w < words.length; w++) {
+    var word = words[w];
+    if (!word) continue;
+    var idx = 0;
+    while (true) {
+      var pos = normText.indexOf(word, idx);
+      if (pos === -1) break;
+      ranges.push([pos, pos + word.length]);
+      idx = pos + word.length;
+    }
+  }
+  if (!ranges.length) return _escHtml(text);
+  ranges.sort(function(a,b){ return a[0] - b[0]; });
+  var merged = [ranges[0].slice()];
+  for (var i = 1; i < ranges.length; i++) {
+    var r = ranges[i];
+    var last = merged[merged.length - 1];
+    if (r[0] <= last[1]) { last[1] = Math.max(last[1], r[1]); }
+    else { merged.push(r.slice()); }
+  }
+  var out = '';
+  var cursor = 0;
+  for (var i = 0; i < merged.length; i++) {
+    var r = merged[i];
+    out += _escHtml(text.substring(cursor, r[0]));
+    out += '<mark>' + _escHtml(text.substring(r[0], r[1])) + '</mark>';
+    cursor = r[1];
+  }
+  out += _escHtml(text.substring(cursor));
+  return out;
+}
+function performSearch(query){
+  var out = document.getElementById('search-results');
+  if (!out) return;
+  var q = _normalize(query).trim();
+  if (!q) { out.innerHTML = ''; return; }
+  var words = q.split(/\s+/).filter(Boolean);
+  _loadSearchIndex().then(function(items){
+    var results = [];
+    for (var i = 0; i < items.length; i++) {
+      var it = items[i];
+      var hayTitle = _normalize(it.title);
+      var hayBadge = _normalize(it.badge);
+      var hayText = _normalize(it.text);
+      var hay = hayTitle + ' ' + hayBadge + ' ' + hayText;
+      var ok = true;
+      var score = 0;
+      for (var w = 0; w < words.length; w++) {
+        var word = words[w];
+        if (hay.indexOf(word) === -1) { ok = false; break; }
+        if (hayTitle.indexOf(word) !== -1) score += 10;
+      }
+      if (ok) {
+        var idx = hayText.indexOf(words[0]);
+        var snippet;
+        if (idx >= 0) {
+          snippet = '… ' + it.text.substring(Math.max(0, idx - 60), idx + 140) + ' …';
+        } else {
+          snippet = it.text.substring(0, 160) + (it.text.length > 160 ? ' …' : '');
+        }
+        results.push({ it: it, score: score, snippet: snippet });
+      }
+    }
+    results.sort(function(a,b){ return b.score - a.score; });
+    results = results.slice(0, 20);
+    if (!results.length) {
+      out.innerHTML = '<p class="search-empty">Aucun résultat pour « ' + _escHtml(query) + ' ».</p>';
+      return;
+    }
+    out.innerHTML = results.map(function(r){
+      return '<a class="search-result" href="' + r.it.href + '">' +
+        '<img src="' + r.it.img + '" alt="" loading="lazy" />' +
+        '<div><span class="search-result-badge">' + _escHtml(r.it.badge) + '</span>' +
+        '<h3>' + _highlight(r.it.title, words) + '</h3>' +
+        '<p>' + _highlight(r.snippet, words) + '</p></div></a>';
+    }).join('');
+  });
+}
+</script>
+</body>
+</html>

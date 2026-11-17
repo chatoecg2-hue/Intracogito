@@ -168,11 +168,38 @@
   <p>Deux écoles, deux penseurs, deux idées mises face à face pour mieux choisir ce qui te convient.</p>
 </div>
 
-<section class="sec rubrique-empty">
-  <div class="wrap">
-    <p class="rubrique-empty-label">Articles à venir</p>
-    <p>Cette rubrique est en préparation. En attendant, retrouve les éditions Intracogito et les essais Cogito.</p>
-    <a href="essais.html" class="hero-cta">Lire tous les articles →</a>
+<div class="rubrique-tabs">
+      <a href="#" class="active" data-tab="latest" onclick="return switchRubriqueTab(this,'latest')">Latest</a>
+      <a href="#" data-tab="popular" onclick="return switchRubriqueTab(this,'popular')">Popular</a>
+    </div>
+
+<section class="sec rubrique-articles" aria-labelledby="articles-title">
+  <div class="wrap sec-head">
+    <h2 class="sec-title" id="articles-title">Tous les articles</h2>
+  </div>
+  <div class="wrap card-grid" id="grid-latest">
+    <a class="card" href="comparatifs/stoicisme-vs-epicurisme.html">
+      <div class="card-img">
+        <img src="assets/img/comparatif-stoicisme-vs-epicurisme-cover.webp" alt="Stoïcisme vs épicurisme" loading="lazy" width="1200" height="630" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Comparatifs</span>
+      <h3 class="card-title">Stoïcisme vs épicurisme</h3>
+      <p class="card-chapo">L'engagement contre le retrait</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
+  </div>
+  <div class="wrap card-grid" id="grid-popular" style="display:none;">
+    <a class="card" href="comparatifs/stoicisme-vs-epicurisme.html">
+      <div class="card-img">
+        <img src="assets/img/comparatif-stoicisme-vs-epicurisme-cover.webp" alt="Stoïcisme vs épicurisme" loading="lazy" width="1200" height="630" />
+        <span class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span>
+      </div>
+      <span class="card-meta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h11l3 3v12.5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19.5z"/></svg>Comparatifs</span>
+      <h3 class="card-title">Stoïcisme vs épicurisme</h3>
+      <p class="card-chapo">L'engagement contre le retrait</p>
+      <span class="card-author">Elouan Noël</span>
+    </a>
   </div>
 </section>
 

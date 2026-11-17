@@ -1937,7 +1937,7 @@ comparatif_stoicisme_vs_epicurisme_html = real_article_page(
     tags=[("comparatifs.html", "Comparatifs")],
     body_html=COMPARATIF_STOICISME_EPICURISME_BODY,
     word_count=918,
-    date_published="2026-11-01",
+    date_published="2026-11-17",
     section="comparatifs",
     related=[
         ("philosophes/marc-aurele.html", "La dichotomie du contrôle, l’exercice stoïcien central, appliquée à une vie d’empereur."),
@@ -1959,7 +1959,7 @@ mouvement_stoicisme_html = real_article_page(
     tags=[("mouvements.html", "Mouvements")],
     body_html=MOUVEMENT_STOICISME_BODY,
     word_count=981,
-    date_published="2026-11-01",
+    date_published="2026-11-17",
     section="mouvements",
     related=[
         ("philosophes/marc-aurele.html", "La dichotomie du contrôle expliquée en détail, appliquée à une vie d’empereur."),
@@ -1973,7 +1973,7 @@ _PILIER_STOICISME_VS_EPICURISME = {
     # explicite d'Elouan (Regle permanente). Reste en stock sur le vrai site tant
     # qu'aucune date reelle n'est fixee ; visible dans l'Artifact de preview via
     # PREVIEW_ALL=1 uniquement. Illustrations Paper World intégrées le 17/11 ; miniature à fournir par Elouan.
-    "category": "comparatifs", "date": "9999-12-31",
+    "category": "comparatifs", "date": "2026-11-17",
     "href": "comparatifs/stoicisme-vs-epicurisme.html", "title": "Stoïcisme vs épicurisme",
     "chapo": "L'engagement contre le retrait",
     "img": "assets/img/comparatif-stoicisme-vs-epicurisme-cover.webp", "html": comparatif_stoicisme_vs_epicurisme_html,
@@ -1983,7 +1983,7 @@ _register_pilier_page(_PILIER_STOICISME_VS_EPICURISME)
 
 _PILIER_STOICISME = {
     # NON PLANIFIEE, voir note ci-dessus.
-    "category": "mouvements", "date": "9999-12-31",
+    "category": "mouvements", "date": "2026-11-17",
     "href": "mouvements/stoicisme.html", "title": "Stoïcisme",
     "chapo": "Une philosophie à mettre en pratique",
     "img": "assets/img/mouvement-stoicisme-cover.webp", "html": mouvement_stoicisme_html,
@@ -2012,7 +2012,7 @@ philosophe_epictete_manuel_html = real_article_page(
     tags=[("philosophes.html", "Philosophes")],
     body_html=PHILOSOPHE_EPICTETE_MANUEL_BODY,
     word_count=1233,
-    date_published="2026-11-05",
+    date_published="2026-11-17",
     section="philosophes",
     extra_jsonld_blocks=PERSON_JSONLD_EPICTETE_MANUEL,
     related=[
@@ -2025,7 +2025,7 @@ _PILIER_PHILOSOPHE_EPICTETE_MANUEL = {
     # EN STOCK (livraison ChatGPT intégrée le 05/11/2026) : date placeholder,
     # jamais une vraie date sans confirmation explicite d'Elouan. Relecture et
     # images dans Suivi > Site.
-    "category": "philosophes", "subtopic": "Épictète", "date": "9999-12-31",
+    "category": "philosophes", "subtopic": "Épictète", "date": "2026-11-17",
     "href": "philosophes/epictete-manuel.html", "title": "Épictète",
     "chapo": "Ce que le Manuel peut changer dans ta manière de vivre",
     "img": "assets/img/philosophe-epictete-manuel-cover.webp", "html": philosophe_epictete_manuel_html,
@@ -2084,7 +2084,7 @@ concept_amor_fati_html = real_article_page(
     tags=[("concepts.html", "Concepts")],
     body_html=CONCEPT_AMOR_FATI_BODY,
     word_count=1216,
-    date_published="2026-11-05",
+    date_published="2026-11-17",
     section="concepts",
     related=[
         ("essais/les-regrets.html", "approfondit la manière dont le passé continue de peser sur nos décisions."),
@@ -2096,7 +2096,7 @@ _PILIER_CONCEPT_AMOR_FATI = {
     # EN STOCK (livraison ChatGPT intégrée le 05/11/2026) : date placeholder,
     # jamais une vraie date sans confirmation explicite d'Elouan. Relecture et
     # images dans Suivi > Site.
-    "category": "concepts", "date": "9999-12-31",
+    "category": "concepts", "date": "2026-11-17",
     "href": "concepts/amor-fati.html", "title": "Amor fati",
     "chapo": "Transformer ce qui arrive en matière de vie",
     "img": "assets/img/concept-amor-fati-cover.webp", "html": concept_amor_fati_html,
