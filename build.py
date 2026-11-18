@@ -22,7 +22,12 @@ from zoneinfo import ZoneInfo as _ZoneInfo
 # Le jour du calendrier éditorial est celui d'Elouan (Paris), pas celui du
 # serveur de build (Vercel tourne en UTC) : sans ça, une page pourrait
 # apparaître jusqu'à ~1h en retard selon l'heure exacte du build.
-TODAY = _date.fromisoformat(os.environ["BUILD_DATE"]) if os.environ.get("BUILD_DATE") else _datetime.now(_ZoneInfo("Europe/Paris")).date()
+try:
+    _PARIS = _ZoneInfo("Europe/Paris")
+except Exception:  # base des fuseaux absente (image de build minimale) : UTC+1 suffit pour le jour
+    from datetime import timezone as _tz, timedelta as _td
+    _PARIS = _tz(_td(hours=1))
+TODAY = _date.fromisoformat(os.environ["BUILD_DATE"]) if os.environ.get("BUILD_DATE") else _datetime.now(_PARIS).date()
 
 # PREVIEW_ALL=1 force toutes les pages "en stock" (date future) a apparaitre
 # comme si elles etaient dues : usage reserve au build qui alimente l'Artifact
@@ -48,6 +53,16 @@ def _remove_stale_file(href):
     if os.path.exists(path):
         os.remove(path)
         print(f'[en stock] fichier obsolete supprime : {href}')
+
+# ---------------------------------------------------------------------------
+# RUBRIQUE MYTHOLOGIE : elle n'apparaît (menu, page de rubrique, sitemap) qu'à
+# partir du jour où son premier article est dû. Date calculée automatiquement
+# en lisant les entrées "category": "mythologie" de ce fichier : rien à régler
+# à la main quand on programme le premier article.
+# ---------------------------------------------------------------------------
+_MYTHO_DATES = re.findall(r'"category":\s*"mythologie"[^{}]*?"date":\s*"(\d{4}-\d{2}-\d{2})"',
+                          open(os.path.abspath(__file__), encoding="utf-8").read())
+MYTHOLOGIE_OUVERTE = bool(_MYTHO_DATES) and is_due(min(_MYTHO_DATES))
 
 IMG_DIMENSIONS = {
     "assets/img/cogito-001-cover.webp": (1600, 817),
@@ -289,6 +304,10 @@ def topbar(prefix="", on_hero=False, active=""):
   {search_overlay(prefix)}
 </header>"""
 
+def MYTHO_MENU(prefix=""):
+    """Lien Mythologie du menu, seulement une fois la rubrique ouverte."""
+    return f'\n        <a href="{prefix}mythologie.html" class="menu-topic t7">Mythologie</a>' if MYTHOLOGIE_OUVERTE else ""
+
 def menu_overlay(prefix=""):
     return f"""<div class="menu-overlay" id="menu-overlay">
     <div class="wrap menu-top">
@@ -307,7 +326,7 @@ def menu_overlay(prefix=""):
         <a href="{prefix}philosophes.html" class="menu-topic t3">Philosophes</a>
         <a href="{prefix}concepts.html" class="menu-topic t4">Concepts</a>
         <a href="{prefix}comparatifs.html" class="menu-topic t5">Comparatifs</a>
-        <a href="{prefix}mouvements.html" class="menu-topic t6">Mouvements</a>
+        <a href="{prefix}mouvements.html" class="menu-topic t6">Mouvements</a>{MYTHO_MENU(prefix)}
       </div>
       <div class="menu-extra">
         <a href="https://elouannoel.substack.com/" target="_blank" rel="noopener">Newsletter</a>
@@ -1027,6 +1046,13 @@ RUBRIQUES = {
         "label": "Mouvements",
         "desc": "Les grandes écoles de pensée philosophique, et comment leurs idées s'appliquent concrètement aujourd'hui.",
         "subtopics": ["Stoïcisme", "Épicurisme", "Existentialisme", "Nihilisme", "Cynisme", "Hédonisme", "Absurdisme"],
+        "subtopic_links": {},
+        "real_cards": [],
+    },
+    "mythologie": {
+        "label": "Mythologie",
+        "desc": "Les grands mythes grecs racontés simplement, et ce qu'ils nous apprennent sur nos vies aujourd'hui.",
+        "subtopics": [],
         "subtopic_links": {},
         "real_cards": [],
     },
@@ -2777,6 +2803,7 @@ os.makedirs(os.path.join(ROOT, "philosophes"), exist_ok=True)
 os.makedirs(os.path.join(ROOT, "concepts"), exist_ok=True)
 os.makedirs(os.path.join(ROOT, "comparatifs"), exist_ok=True)
 os.makedirs(os.path.join(ROOT, "mouvements"), exist_ok=True)
+os.makedirs(os.path.join(ROOT, "mythologie"), exist_ok=True)
 
 files = {
     "index.html": index_html,
@@ -2788,6 +2815,9 @@ files.update({e["href"]: _COGITO_HTML_BY_HREF[e["href"]] for e in COGITO_ESSAYS}
 files.update(INTRACOGITO_PAGES)  # éditions en stock exclues
 files.update(PILIER_FILES)  # pages piliers en stock exclues
 for slug, data in RUBRIQUES.items():
+    if slug == "mythologie" and not MYTHOLOGIE_OUVERTE:
+        _remove_stale_file("mythologie.html")  # rubrique pas encore ouverte : ni page, ni sitemap
+        continue
     files[f"{slug}.html"] = rubrique_page(slug, data)
 
 # ---------------------------------------------------------------------------
@@ -2898,8 +2928,10 @@ print(f"wrote assets/search-index.json ({len(search_index_json)} chars) [index d
 # Écrit à part : jamais dans `files` (donc jamais dans le sitemap/robots.txt),
 # c'est un fichier d'outillage pour la publication Artifact de cette session,
 # pas une page du vrai site.
-with open(os.path.join(ROOT, "_artifact_index.html"), "w", encoding="utf-8") as f:
-    f.write(index_artifact_body)
-print(f"wrote _artifact_index.html ({len(index_artifact_body)} chars) [outil Artifact, hors sitemap]")
+# Jamais sur Vercel (variable VERCEL=1) : l'outil ne doit pas être servi en ligne.
+if not os.environ.get("VERCEL"):
+    with open(os.path.join(ROOT, "_artifact_index.html"), "w", encoding="utf-8") as f:
+        f.write(index_artifact_body)
+    print(f"wrote _artifact_index.html ({len(index_artifact_body)} chars) [outil Artifact, hors sitemap]")
 
 print("\\nDone.")
