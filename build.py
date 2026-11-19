@@ -65,6 +65,10 @@ _MYTHO_DATES = re.findall(r'"category":\s*"mythologie"[^{}]*?"date":\s*"(\d{4}-\
 MYTHOLOGIE_OUVERTE = bool(_MYTHO_DATES) and is_due(min(_MYTHO_DATES))
 
 IMG_DIMENSIONS = {
+    "assets/img/concept-detachement-fig1.webp": (1100, 819),
+    "assets/img/concept-detachement-fig2.webp": (1100, 822),
+    "assets/img/concept-detachement-fig3.webp": (1100, 733),
+    "assets/img/concept-detachement-cover.webp": (1200, 630),
     "assets/img/philosophe-pierre-hadot-fig1.webp": (1100, 815),
     "assets/img/philosophe-pierre-hadot-fig2.webp": (1100, 819),
     "assets/img/philosophe-pierre-hadot-fig3.webp": (1100, 733),
@@ -2520,6 +2524,38 @@ _PILIER_PHILOSOPHE_PIERRE_HADOT = {
 }
 PILIER_PAGES.append(_PILIER_PHILOSOPHE_PIERRE_HADOT)
 _register_pilier_page(_PILIER_PHILOSOPHE_PIERRE_HADOT)
+
+
+CONCEPT_DETACHEMENT_BODY = "<p>Tu as arrosé une plante, changé son pot et cherché la fenêtre où elle recevrait assez de lumière. Le lendemain, tu tires sur une feuille pour voir si elle a grandi. Le geste est absurde dans un jardin. Tu le reconnaîtras peut-être dans la façon dont tu attends une réponse, une promotion ou le changement d’avis de quelqu’un que tu aimes.</p>\n<p>Le détachement commence quand tu regardes ce que tes gestes peuvent encore faire pour ce qui compte. Parfois tu peux arroser, déplacer le pot ou demander conseil. Parfois tu peux laisser la plante tranquille jusqu’au lendemain. La difficulté consiste à reconnaître ces deux moments quand tu tiens au résultat.</p>\n<h2>Qu’est-ce que le détachement en philosophie ?</h2>\n<p>En philosophie, le détachement consiste à desserrer l’emprise d’une chose sur tes décisions et sur la valeur que tu t’accordes. Tu peux désirer un résultat, lui consacrer des heures et souhaiter sincèrement qu’il arrive. Tu travailles en même temps à garder une liberté de jugement si les choses prennent une autre tournure. C’est une distinction de conduite. Elle devient visible quand un refus ou un retard menace de commander tout le reste de ta journée.</p>\n<figure><img alt=\"Tu peux donner de la lumière à la plante, puis lui laisser le temps de pousser.\" loading=\"lazy\" width=\"1100\" height=\"819\" src=\"../assets/img/concept-detachement-fig1.webp\"/><figcaption>Tu peux donner de la lumière à la plante, puis lui laisser le temps de pousser.</figcaption></figure>\n<p>Le terme rassemble plusieurs traditions. Dans le <a href=\"../philosophes/epictete-manuel.html\"><em>Manuel</em> d’Épictète</a>, on trouve une manière stoïcienne de l’aborder : examiner ce qui relève de ton jugement et ce qui dépend aussi des circonstances et des autres. Épictète place notamment les opinions et les désirs du côté de ce qui dépend de nous, et la réputation de l’autre côté. Les exemples de la réputation ou du corps rappellent combien de biens auxquels tu tiens restent exposés à l’action d’autrui et au hasard.</p>\n<blockquote><p>« Il y a des choses qui dépendent de nous, et il y en a qui ne dépendent pas de nous. »</p><p>Épictète, <em>Manuel</em>, I, trad. Henri Joly</p></blockquote>\n<h2>Que veut dire le non-attachement ?</h2>\n<p>Les textes bouddhiques anciens proposent une autre analyse. Dans le <a href=\"https://www.dhammatalks.net/suttacentral/sc2016/sc/en/sn22.59.html\">discours sur la caractéristique du non-soi</a> (<em>Saṃyutta Nikāya</em>, 22.59), le Bouddha invite à examiner ce qu’on tient spontanément pour soi ou pour sien, y compris le corps et les sensations. Ces phénomènes changent. Leur demander de rester comme tu le veux revient à leur demander ce qu’ils ne peuvent pas promettre. Ici, le non-attachement concerne jusqu’au geste intérieur qui consiste à dire « ceci est moi » d’un état qui passe.</p>\n<p>Sur une journée ordinaire, tu peux en faire l’expérience à une échelle très simple. Tu es agacé après un trajet pénible. Tu t’entends dire que tu es d’une humeur impossible aujourd’hui, puis tu refuses une invitation que tu aurais aimée la veille. Essaie de laisser l’agacement durer le temps qu’il dure, en décidant de l’invitation pour elle-même. Dans cet essai, tu donnes moins de prise à une sensation changeante sur une décision qui lui survivra peut-être.</p>\n<h2>Continuer à vouloir après avoir fait ta part</h2>\n<p>Tu as envoyé un dossier pour un travail qui te tient à cœur. Pendant la préparation, chaque heure pouvait servir à préciser un exemple ou à faire relire une réponse. Le dossier remis, les possibilités ont changé. Tu peux vérifier sa réception à un moment raisonnable, prévoir un autre entretien et décider quand relancer. Tu connais la limite de ces gestes : le choix final appartient à un jury.</p>\n<figure><img alt=\"Sur la place, le dossier est prêt à passer entre d’autres mains.\" loading=\"lazy\" width=\"1100\" height=\"822\" src=\"../assets/img/concept-detachement-fig2.webp\"/><figcaption>Sur la place, le dossier est prêt à passer entre d’autres mains.</figcaption></figure>\n<p>Fais la différence entre l’influence que tu peux exercer et le pouvoir de décider. L’influence mérite souvent un effort suivi. Tu peux améliorer un dossier après avoir compris pourquoi il avait échoué, ou demander avec d’autres que les critères de sélection soient rendus publics. Le détachement donne de la place à ces démarches parce qu’il t’aide à reconnaître ce qu’un effort supplémentaire peut accomplir.</p>\n<p>Le soir où tombe un refus, tu peux être déçu. Garde la possibilité de nommer ce que tu as perdu : un emploi, un salaire espéré, peut-être une façon de te rapprocher de quelqu’un. Puis regarde de quelles conclusions ce refus est une preuve. Il te renseigne sur une candidature particulière. Pour savoir si tu dois changer de voie, il te faut d’autres indices. Cette habitude rejoint l’<a href=\"../concepts/ascese.html\">ascèse</a> au sens d’un entraînement : un même geste, répété dans des situations différentes, finit par devenir disponible quand la déception te prend de court.</p>\n<h2>Se détacher sans se désintéresser des autres</h2>\n<p>Tu voudrais qu’un ami accepte ton aide. Tu lui proposes de passer samedi. Il refuse et te dit qu’il aimerait rester seul. Tu peux lui laisser une possibilité de te rappeler et lui demander quelques jours plus tard comment il va. S’il y a un danger, tu prends ce danger au sérieux. Dans le cas ordinaire, son refus peut rester une décision qu’il a le droit de prendre. Ton désir de l’aider gardera sa place, avec assez d’espace pour le sien.</p>\n<figure><img alt=\"Une main se tend et laisse à l’autre le choix de s’approcher.\" loading=\"lazy\" width=\"1100\" height=\"733\" src=\"../assets/img/concept-detachement-fig3.webp\"/><figcaption>Une main se tend et laisse à l’autre le choix de s’approcher.</figcaption></figure>\n<p>Tu peux essayer ce soir avec une seule préoccupation. Écris ce à quoi tu tiens, puis le prochain geste concret que tu as de bonnes raisons de faire. Donne une heure à ce geste. Entre maintenant et cette heure, remarque à chaque fois que tu recommences à chercher une meilleure réponse en imagination. Si une idée nouvelle te vient, garde-la. Si la pensée revient à l’identique, donne-toi la liberté de reprendre ce que tu faisais. Tu pourras revenir à ton problème quand un geste sera de nouveau possible.</p>\n<h2>En bref</h2>\n<p style=\"margin-bottom:.6rem;\">📌 <strong>Tiens au résultat avec mesure.</strong> Un projet peut compter sans décider de tout le reste.</p>\n<p style=\"margin-bottom:.6rem;\">📌 <strong>Exerce ton influence.</strong> Fais le prochain geste qui peut changer quelque chose et reconnais la part des autres.</p>\n<p style=\"margin-bottom:.6rem;\">📌 <strong>Laisse les états passer.</strong> Observe une sensation ou une humeur avant de lui confier une décision.</p>"
+
+concept_detachement_html = real_article_page(
+    slug="detachement",
+    title="Le détachement en philosophie : tenir aux choses autrement",
+    chapo="Le détachement en philosophie invite à prendre soin de ce qui compte tout en gardant une marge de liberté quand le résultat t’échappe. Épictète et un texte bouddhique éclairent deux façons de s’y exercer, au travail comme dans tes relations.",
+    ref="Concept",
+    description="Le détachement en philosophie, expliqué à partir d’Épictète et du bouddhisme. Apprends à faire ta part et à laisser de la place aux décisions des autres.",
+    cover_path="assets/img/concept-detachement-cover.webp",
+    cover_credit="Barque au bord d’une prairie et d’un rideau d’arbres",
+    tags=[("concepts.html", "Concepts")],
+    body_html=CONCEPT_DETACHEMENT_BODY,
+    word_count=914,
+    date_published="9999-12-31",
+    section="concepts",
+    related=[
+        ("concepts/ascese.html", "montre ce que la répétition d’un geste change dans la manière de réagir."),
+        ("philosophes/epictete-manuel.html", "revient au texte stoïcien où Épictète distingue les choses qui dépendent de nous."),
+        ("essais/la-confiance.html", "étend cette réflexion à la liberté que tu laisses à un proche."),
+    ],
+)
+_PILIER_CONCEPT_DETACHEMENT = {
+    # EN STOCK (préconstruit par Codex le 19/11/2026) : relecture dans Suivi > Site.
+    "category": "concepts", "date": "9999-12-31",
+    "href": "concepts/detachement.html", "title": "Détachement",
+    "chapo": "Prendre soin de ce qui compte quand le résultat t’échappe.",
+    "img": "assets/img/concept-detachement-cover.webp", "html": concept_detachement_html,
+}
+PILIER_PAGES.append(_PILIER_CONCEPT_DETACHEMENT)
+_register_pilier_page(_PILIER_CONCEPT_DETACHEMENT)
 
 
 def _intracogito_description(e):
