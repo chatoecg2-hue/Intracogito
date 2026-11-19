@@ -65,6 +65,10 @@ _MYTHO_DATES = re.findall(r'"category":\s*"mythologie"[^{}]*?"date":\s*"(\d{4}-\
 MYTHOLOGIE_OUVERTE = bool(_MYTHO_DATES) and is_due(min(_MYTHO_DATES))
 
 IMG_DIMENSIONS = {
+    "assets/img/philosophe-spinoza-fig1.webp": (1100, 826),
+    "assets/img/philosophe-spinoza-fig2.webp": (1100, 815),
+    "assets/img/philosophe-spinoza-fig3.webp": (1100, 733),
+    "assets/img/philosophe-spinoza-cover.webp": (1200, 630),
     "assets/img/mythologie-ulysse-sirenes-fig1.webp": (1100, 733),
     "assets/img/mythologie-ulysse-sirenes-fig2.webp": (1100, 733),
     "assets/img/mythologie-ulysse-sirenes-fig3.webp": (1100, 733),
@@ -2592,6 +2596,41 @@ _PILIER_MYTHOLOGIE_ULYSSE_SIRENES = {
 }
 PILIER_PAGES.append(_PILIER_MYTHOLOGIE_ULYSSE_SIRENES)
 _register_pilier_page(_PILIER_MYTHOLOGIE_ULYSSE_SIRENES)
+
+
+PERSON_JSONLD_PHILOSOPHE_SPINOZA = "\n<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Person\",\n  \"name\": \"Baruch Spinoza\",\n  \"description\": \"Philosophe né à Amsterdam et auteur de l’Éthique, publiée après sa mort.\",\n  \"birthDate\": \"1632\",\n  \"deathDate\": \"1677\"\n}\n</script>"
+
+PHILOSOPHE_SPINOZA_BODY = "<p>Tu arrives à une répétition avec une mélodie que tu n’arrives jamais à finir. Quelqu’un trouve les accords qui manquaient et tu reprends. Quelques minutes plus tard, vous jouez un morceau que ni l’un ni l’autre n’aurait joué seul. Tu peux encore sentir cette joie en rentrant, même si la répétition est terminée.</p>\n<p>Spinoza donne à cette expérience un nom précis. Quelque chose a changé dans ce que tu étais capable de faire. Sans cette idée, la joie passe facilement pour une récompense qu’on reçoit à la fin d’un effort. Dans sa philosophie, elle renseigne sur ce qui arrive à ta puissance d’agir pendant l’effort lui-même.</p>\n<h2>Spinoza et une philosophie des affects</h2>\n<p>Baruch Spinoza naît à Amsterdam en 1632 dans une famille juive séfarade. Il vit par la suite à Rijnsburg puis à Voorburg et à La Haye, où il meurt en 1677. L’<em>Éthique</em> paraît dans ses œuvres posthumes la même année. La <a href=\"https://spinozahuis.nl/domus/en/biography/\">maison de Spinoza à La Haye</a> retrace les étapes de sa vie. Les propositions et démonstrations de l’<em>Éthique</em> peuvent impressionner. Pourtant, au cœur de l’ouvrage, tu trouves des expériences aussi ordinaires que l’amour, la crainte ou la jalousie.</p>\n<figure><img alt=\"Un canal bordé de maisons à pignons évoque les Pays-Bas où Spinoza a vécu.\" loading=\"lazy\" width=\"1100\" height=\"826\" src=\"../assets/img/philosophe-spinoza-fig1.webp\"/><figcaption>Un canal bordé de maisons à pignons évoque les Pays-Bas où Spinoza a vécu.</figcaption></figure>\n<p>Pourquoi ces expériences ont-elles tant de force ? Pour Spinoza, tu fais partie de la nature. Tes désirs et tes colères ont des causes, comme les autres choses qui s’y produisent. Tu peux donc les étudier. Commence par une contrariété récente : note ce qui s’est passé et ce que tu as cru qu’il se passait. Dès que tu les distingues, tu as deux choses à examiner. Tu peux agir sur certaines causes extérieures et mettre à l’épreuve ton interprétation.</p>\n<h2>La joie comme augmentation de ta puissance d’agir</h2>\n<blockquote><p>« La joie est le passage d’une moindre perfection à une perfection plus grande. »</p><p>Spinoza, <em>Éthique</em>, III, définitions des affects, II, trad. Émile Saisset</p></blockquote>\n<p>Le mot « perfection » peut faire penser à un bulletin de notes. Dans ce passage de l’<a href=\"https://spinozaetnous.org/wiki/%C3%89thique_III\"><em>Éthique</em></a>, il désigne le changement dans la capacité d’exister et d’agir. La joie est le passage lui-même. Si tu apprends à écouter la partie de l’autre musicien en jouant la tienne, votre morceau est devenu possible. Tu découvres cette possibilité en même temps que tu l’exerces.</p>\n<figure><img alt=\"Deux musiciens découvrent ce que chacun peut jouer en écoutant l’autre.\" loading=\"lazy\" width=\"1100\" height=\"815\" src=\"../assets/img/philosophe-spinoza-fig2.webp\"/><figcaption>Deux musiciens découvrent ce que chacun peut jouer en écoutant l’autre.</figcaption></figure>\n<p>La tristesse désigne le mouvement inverse, quand ta puissance est diminuée ou empêchée. Essaie d’y repenser après une journée où tu as perdu tes moyens. Une conversation a occupé tout ton esprit. Les tâches les plus simples semblaient plus difficiles. La question devient alors concrète : qu’est-ce qui t’a rendu certaines actions moins accessibles ? Tu peux parfois répondre en regardant le sommeil, le rythme de travail ou les relations, avant de porter un jugement sur ton caractère.</p>\n<p>Un plaisir immédiat peut t’aider à souffler ou absorber toute ton attention. Regarde ce qu’il te rend possible ensuite. Une soirée où tu te sens enfin écouté peut te rendre plus libre de parler le lendemain. Une soirée entière à guetter une réaction peut te laisser avec une seule chose à faire, guetter encore. Que la chose soit agréable sur le moment te donne une information. L’étendue de ce qu’elle te permet de faire en donne une autre.</p>\n<h2>Comprendre un affect pour retrouver une possibilité d’agir</h2>\n<p>Tu présentes une idée en réunion. Une collègue dit qu’elle soulève un problème. Tu sens monter une colère et prépares une réplique. Avant de répondre, il y a plusieurs causes à démêler : les mots exacts, ce que tu sais du dossier, ta fatigue et la crainte d’être jugé devant l’équipe. Le même propos, dans un autre contexte, aurait peut-être suscité une question.</p>\n<figure><img alt=\"Un cahier ouvert pour distinguer les faits, les causes et les suppositions.\" loading=\"lazy\" width=\"1100\" height=\"733\" src=\"../assets/img/philosophe-spinoza-fig3.webp\"/><figcaption>Un cahier ouvert pour distinguer les faits, les causes et les suppositions.</figcaption></figure>\n<p>Dans la cinquième partie de l’<em>Éthique</em> (proposition 3), Spinoza explique qu’un affect passif cesse d’être une passion lorsque nous en formons une idée claire et distincte. Prendre ce passage au sérieux demande davantage que coller une étiquette sur une émotion. Si tu tiens pour certain que la collègue cherche à te rabaisser, tu peux demander de quel problème elle parle avant d’accorder autant de poids à cette hypothèse.</p>\n<p>Comprendre la situation peut également te conduire à poser une limite ou à demander du soutien. Si tu observes que le même comportement se répète, tu as découvert une cause que tu peux discuter avec l’équipe. Le travail sur soi rejoint ici ce que l’essai sur <a href=\"../essais/les-emotions.html\">les émotions</a> invite à explorer : les circonstances dans lesquelles une émotion devient lisible et aide à orienter la suite.</p>\n<h2>Choisir ce qui augmente ta capacité de faire</h2>\n<p>Pendant une semaine, remarque une rencontre ou une activité qui t’a donné davantage de prise sur ta journée. Écris le verbe le plus concret que tu trouves. As-tu pu parler, apprendre, finir, demander, jouer ? Cherche ensuite ce qui a rendu cette action possible. Une personne t’a peut-être prêté du temps, une pièce calme t’a aidé à lire ou une tâche a retrouvé sa taille réelle quand tu l’as découpée avec quelqu’un.</p>\n<p>Tu peux alors t’exercer à créer de nouveau ces conditions. Cela rejoint l’idée d’<a href=\"../concepts/ascese.html\">ascèse</a> comme entraînement, avec une question propre à Spinoza : quelles relations te permettent de faire plus de choses et de mieux comprendre ce que tu fais ? Au lieu de chercher à être joyeux à heure fixe, donne un peu plus de place à ce qui rend cette joie possible.</p>\n<h2>En bref</h2>\n<p style=\"margin-bottom:.6rem;\">📌 <strong>La joie est un passage.</strong> Tu la sens lorsque ta capacité d’agir augmente.</p>\n<p style=\"margin-bottom:.6rem;\">📌 <strong>Un affect a des causes.</strong> Comprendre comment il est né ouvre parfois une réponse que tu n’avais pas vue.</p>\n<p style=\"margin-bottom:.6rem;\">📌 <strong>Regarde ce qu’une rencontre rend possible.</strong> Un lien se juge aussi aux actions qui deviennent accessibles grâce à lui.</p>"
+
+philosophe_spinoza_html = real_article_page(
+    slug="spinoza",
+    title="Spinoza et sa philosophie : la joie comme puissance d’agir",
+    chapo="Dans la philosophie de Spinoza, la joie indique que ta capacité d’agir augmente. En partant de l’Éthique, découvre ce qui distingue la joie d’un plaisir immédiat et comment comprendre les causes d’un affect peut te donner plus de liberté dans tes réponses.",
+    ref="Philosophe",
+    description="La philosophie de Spinoza expliquée par la joie et la puissance d’agir. Découvre comment comprendre les causes de tes affects élargit tes possibilités.",
+    cover_path="assets/img/philosophe-spinoza-cover.webp",
+    cover_credit="Village au pied d’une église, près de l’eau",
+    tags=[("philosophes.html", "Philosophes")],
+    body_html=PHILOSOPHE_SPINOZA_BODY,
+    word_count=917,
+    date_published="9999-12-31",
+    section="philosophes",
+    extra_jsonld_blocks=PERSON_JSONLD_PHILOSOPHE_SPINOZA,
+    related=[
+        ("essais/les-emotions.html", "prolonge l’examen des émotions dans les circonstances qui les suscitent."),
+        ("essais/la-philosophie.html", "replace la lecture d’un philosophe dans la pratique plus large du questionnement."),
+        ("concepts/ascese.html", "permet de comparer la puissance d’agir à ce que l’on acquiert par l’entraînement."),
+    ],
+)
+_PILIER_PHILOSOPHE_SPINOZA = {
+    # EN STOCK (préconstruit par Codex le 19/11/2026) : relecture dans Suivi > Site.
+    "category": "philosophes", "subtopic": "Baruch Spinoza", "date": "9999-12-31",
+    "href": "philosophes/spinoza.html", "title": "Spinoza",
+    "chapo": "Comprendre tes affects et reconnaître ce qui accroît ta puissance d’agir.",
+    "img": "assets/img/philosophe-spinoza-cover.webp", "html": philosophe_spinoza_html,
+}
+PILIER_PAGES.append(_PILIER_PHILOSOPHE_SPINOZA)
+_register_pilier_page(_PILIER_PHILOSOPHE_SPINOZA)
 
 
 def _intracogito_description(e):
