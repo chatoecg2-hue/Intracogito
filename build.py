@@ -65,6 +65,10 @@ _MYTHO_DATES = re.findall(r'"category":\s*"mythologie"[^{}]*?"date":\s*"(\d{4}-\
 MYTHOLOGIE_OUVERTE = bool(_MYTHO_DATES) and is_due(min(_MYTHO_DATES))
 
 IMG_DIMENSIONS = {
+    "assets/img/concept-allegorie-de-la-caverne-fig1.webp": (1100, 821),
+    "assets/img/concept-allegorie-de-la-caverne-fig2.webp": (1100, 821),
+    "assets/img/concept-allegorie-de-la-caverne-fig3.webp": (1100, 733),
+    "assets/img/concept-allegorie-de-la-caverne-cover.webp": (1200, 630),
     "assets/img/philosophe-spinoza-fig1.webp": (1100, 826),
     "assets/img/philosophe-spinoza-fig2.webp": (1100, 815),
     "assets/img/philosophe-spinoza-fig3.webp": (1100, 733),
@@ -2631,6 +2635,38 @@ _PILIER_PHILOSOPHE_SPINOZA = {
 }
 PILIER_PAGES.append(_PILIER_PHILOSOPHE_SPINOZA)
 _register_pilier_page(_PILIER_PHILOSOPHE_SPINOZA)
+
+
+CONCEPT_ALLEGORIE_DE_LA_CAVERNE_BODY = "<p>Tu vois passer une vidéo de quinze secondes. Une personne interrompt quelqu’un au milieu d’une phrase. Tu classes aussitôt la scène : elle méprise son interlocuteur. Le lendemain, tu entends la conversation entière. C’était la fin d’une plaisanterie commencée deux minutes plus tôt. Les images étaient les mêmes. Tout ce qui leur donnait un sens était hors du cadre.</p>\n<p>La caverne de Platon commence avec des gens qui connaissent parfaitement ce que leur cadre leur permet de voir. Ils peuvent nommer les ombres et en prévoir le passage. Pour découvrir d’où elles viennent, il faudrait pouvoir se retourner. Lorsque cette possibilité s’ouvre enfin, la première chose que l’un d’eux éprouve est une douleur aux yeux.</p>\n<h2>Que raconte l’allégorie de la caverne ?</h2>\n<p>L’allégorie de la caverne ouvre le livre VII de <a href=\"https://fr.wikisource.org/wiki/La_R%C3%A9publique_%28trad._Chambry%29/Livre_VII\"><em>La République</em></a> de Platon. Socrate demande à Glaucon d’imaginer des prisonniers attachés depuis l’enfance, face à une paroi. Derrière eux brûle un feu. Entre eux et le feu, des gens avancent derrière un muret en portant des objets qui en dépassent. Le feu projette leurs ombres sur la paroi. Un écho peut même donner l’impression que les ombres parlent.</p>\n<figure><img alt=\"Derrière le muret, des objets passent devant le feu et deviennent des ombres sur la paroi.\" loading=\"lazy\" width=\"1100\" height=\"821\" src=\"../assets/img/concept-allegorie-de-la-caverne-fig1.webp\"/><figcaption>Derrière le muret, des objets passent devant le feu et deviennent des ombres sur la paroi.</figcaption></figure>\n<p>Dans ce dispositif, les prisonniers jugent avec les seuls indices auxquels ils ont accès. Ils discutent de ce qu’ils voient et admirent ceux qui se rappellent le mieux l’ordre des apparitions. Leur savoir leur sert à prévoir les ombres. Il ne leur permet pas encore de savoir ce qui les produit.</p>\n<blockquote><p>« la réalité ne saurait être autre chose que les ombres des objets confectionnés. »</p><p>Platon, <em>La République</em>, VII, 515c, trad. Émile Chambry</p></blockquote>\n<h2>Se retourner demande de réapprendre à voir</h2>\n<p>On détache un prisonnier et on le force à regarder les objets puis la lumière. Il est ébloui. Les ombres lui paraissent d’abord plus nettes que les choses dont elles proviennent. Dehors, il s’habitue par étapes, en regardant les ombres, les reflets dans l’eau, puis les choses elles-mêmes. Il peut ensuite lever les yeux vers le ciel et finit par regarder le soleil.</p>\n<figure><img alt=\"À la sortie de la grotte, le prisonnier lève le bras pour se protéger de la lumière.\" loading=\"lazy\" width=\"1100\" height=\"821\" src=\"../assets/img/concept-allegorie-de-la-caverne-fig2.webp\"/><figcaption>À la sortie de la grotte, le prisonnier lève le bras pour se protéger de la lumière.</figcaption></figure>\n<p>Platon donne à cette progression une portée philosophique. Socrate rapproche la montée de l’orientation de l’âme vers ce que l’intelligence peut comprendre. Le soleil figure le Bien, qui rend possible la connaissance et oriente l’action (517b-c). L’éducation prend alors la forme d’un changement de direction. La personne a déjà une faculté de connaître. Elle apprend à porter cette faculté sur des objets et des raisons qu’elle négligeait.</p>\n<p>Tu peux éprouver une version très simple de cette gêne quand tu essaies de comprendre un désaccord. Un témoignage contredit ce que tout ton entourage répète. Au début, tu sais surtout répondre au témoignage dans le vocabulaire que tu connais déjà. Avant de trancher, essaie de formuler ce qu’il faudrait vérifier pour lui donner raison. Ce travail donne un objet au <a href=\"../essais/le-doute.html\">doute</a>. Tu peux le mener sans croire tout ce que tu viens de lire.</p>\n<h2>Pourquoi le prisonnier redescend</h2>\n<p>Platon poursuit l’histoire après la sortie. Si l’homme revient immédiatement à son ancienne place, ses yeux réhabitués au jour distinguent mal les ombres. Ses compagnons trouvent qu’il a perdu la vue en montant. Socrate imagine même qu’ils tueraient celui qui tenterait de les détacher, s’ils pouvaient s’en saisir. La scène est rude parce qu’elle donne aux prisonniers une raison de repousser leur libérateur : ce qu’ils peuvent constater leur suggère que la sortie lui a fait du tort.</p>\n<p>Le retour devient ensuite une question politique. Dans la cité que Socrate décrit, les philosophes formés à contempler le Bien devront redescendre et prendre leur part des affaires communes (519c-521b). Apprendre les rend responsables de ce qu’ils feront de leur savoir auprès des autres. L’effort du retour fait donc partie de l’histoire, jusque dans le temps qu’il leur faut pour voir de nouveau sous une lumière plus faible.</p>\n<h2>Qu’est-ce que ton fil d’actualité laisse hors du cadre ?</h2>\n<p>Un fil d’actualité ressemble à la paroi par un trait bien précis : tu vois une suite de choses, et la manière dont elles ont été choisies ou découpées est souvent hors champ. Devant une vidéo qui te met en colère, cherche ce qui précède et ce qui suit. Devant une statistique étonnante, cherche la question posée et les personnes interrogées. Ces gestes te font remonter de ce qui est montré à la façon dont la chose s’est retrouvée sous tes yeux.</p>\n<figure><img alt=\"Deux personnes regardent le même document avant de discuter de ce qu’elles en comprennent.\" loading=\"lazy\" width=\"1100\" height=\"733\" src=\"../assets/img/concept-allegorie-de-la-caverne-fig3.webp\"/><figcaption>Deux personnes regardent le même document avant de discuter de ce qu’elles en comprennent.</figcaption></figure>\n<p>Il reste le retour. Tu as retrouvé la conversation entière. Un ami partage encore l’extrait. Avant de lui expliquer ce qu’il devrait en penser, montre-lui le passage qui t’a fait changer d’avis et demande-lui ce qu’il y entend. S’il pointe un détail que tu avais manqué, tu peux le regarder à ton tour. Ce geste prolonge un aspect de la <a href=\"../essais/la-lucidite.html\">lucidité</a> : garder sous les yeux les raisons de tes jugements, même quand tu aimerais surtout convaincre.</p>\n<p>Choisis une affirmation que tu as répétée récemment. Remonte jusqu’à la source la plus proche du fait et demande-toi ce que tu pourrais montrer à quelqu’un pour reproduire ton raisonnement. Tu sauras alors ce que tu as vu, ce qu’on t’a dit, et où il te manque encore un morceau. Revenir sur cette affirmation devant la personne à qui tu l’as racontée fait partie de l’exercice.</p>\n<h2>En bref</h2>\n<p style=\"margin-bottom:.6rem;\">📌 <strong>Les ombres ont une origine.</strong> Les comprendre suppose de regarder les objets et le dispositif qui les projettent.</p>\n<p style=\"margin-bottom:.6rem;\">📌 <strong>Voir autrement prend du temps.</strong> Le prisonnier traverse l’éblouissement avant de pouvoir examiner ce qui l’entoure.</p>\n<p style=\"margin-bottom:.6rem;\">📌 <strong>Le retour compte.</strong> Ce que tu as compris change la façon dont tu peux parler et agir avec les autres.</p>"
+
+concept_allegorie_de_la_caverne_html = real_article_page(
+    slug="allegorie-de-la-caverne",
+    title="L’allégorie de la caverne de Platon : en sortir et y revenir",
+    chapo="Dans l’allégorie de la caverne, Platon imagine des prisonniers qui ont toujours pris des ombres pour le monde. Découvre pourquoi la lumière fait mal à celui qui sort, pourquoi son retour compte autant, et comment relire le récit à l’heure des fils d’actualité.",
+    ref="Concept",
+    description="L’allégorie de la caverne de Platon expliquée simplement. Comprends le sens des ombres, de la sortie et du retour, puis leur écho dans nos fils d’actualité.",
+    cover_path="assets/img/concept-allegorie-de-la-caverne-cover.webp",
+    cover_credit="Chemin de campagne bordé de grands arbres sombres",
+    tags=[("concepts.html", "Concepts")],
+    body_html=CONCEPT_ALLEGORIE_DE_LA_CAVERNE_BODY,
+    word_count=909,
+    date_published="9999-12-31",
+    section="concepts",
+    related=[
+        ("essais/le-doute.html", "prolonge l’exercice consistant à mettre ses certitudes à l’épreuve."),
+        ("essais/les-mythes.html", "explore ce que les récits et les images rendent visible dans un raisonnement."),
+        ("essais/la-technologie.html", "élargit la réflexion aux outils qui modifient ce qui arrive jusqu’à notre attention."),
+    ],
+)
+_PILIER_CONCEPT_ALLEGORIE_DE_LA_CAVERNE = {
+    # EN STOCK (préconstruit par Codex le 19/11/2026) : relecture dans Suivi > Site.
+    "category": "concepts", "date": "9999-12-31",
+    "href": "concepts/allegorie-de-la-caverne.html", "title": "La caverne de Platon",
+    "chapo": "Pourquoi sortir de la caverne oblige aussi à y revenir.",
+    "img": "assets/img/concept-allegorie-de-la-caverne-cover.webp", "html": concept_allegorie_de_la_caverne_html,
+}
+PILIER_PAGES.append(_PILIER_CONCEPT_ALLEGORIE_DE_LA_CAVERNE)
+_register_pilier_page(_PILIER_CONCEPT_ALLEGORIE_DE_LA_CAVERNE)
 
 
 def _intracogito_description(e):
