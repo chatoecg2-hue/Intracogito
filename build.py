@@ -2492,7 +2492,7 @@ mythologie_orphee_eurydice_html = real_article_page(
     tags=[("mythologie.html", "Mythologie")],
     body_html=MYTHOLOGIE_ORPHEE_EURYDICE_BODY,
     word_count=992,
-    date_published="9999-12-31",
+    date_published="2026-11-20",
     section="mythologie",
     related=[
         ("essais/la-confiance.html", "approfondit la place qu’on laisse à l’autre quand on ne peut pas tout vérifier."),
@@ -2501,8 +2501,8 @@ mythologie_orphee_eurydice_html = real_article_page(
     ],
 )
 _PILIER_MYTHOLOGIE_ORPHEE_EURYDICE = {
-    # EN STOCK (préconstruit par Codex le 19/11/2026) : relecture dans Suivi > Site.
-    "category": "mythologie", "date": "9999-12-31",
+    # Publication du 20/11/2026 confirmée par Elouan.
+    "category": "mythologie", "date": "2026-11-20",
     "href": "mythologie/orphee-eurydice.html", "title": "Orphée et Eurydice",
     "chapo": "Ce qu’Orphée perd en voulant vérifier qu’Eurydice le suit.",
     "img": "assets/img/mythologie-orphee-eurydice-cover.webp", "html": mythologie_orphee_eurydice_html,
