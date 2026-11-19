@@ -65,6 +65,10 @@ _MYTHO_DATES = re.findall(r'"category":\s*"mythologie"[^{}]*?"date":\s*"(\d{4}-\
 MYTHOLOGIE_OUVERTE = bool(_MYTHO_DATES) and is_due(min(_MYTHO_DATES))
 
 IMG_DIMENSIONS = {
+    "assets/img/mythologie-icare-fig1.webp": (1100, 820),
+    "assets/img/mythologie-icare-fig2.webp": (1100, 821),
+    "assets/img/mythologie-icare-fig3.webp": (1100, 733),
+    "assets/img/mythologie-icare-cover.webp": (1200, 630),
     "assets/img/comparatif-stoicisme-vs-bouddhisme-fig1.webp": (1100, 821),
     "assets/img/comparatif-stoicisme-vs-bouddhisme-fig2.webp": (1100, 820),
     "assets/img/comparatif-stoicisme-vs-bouddhisme-fig3.webp": (1100, 733),
@@ -2703,6 +2707,38 @@ _PILIER_COMPARATIF_STOICISME_VS_BOUDDHISME = {
 }
 PILIER_PAGES.append(_PILIER_COMPARATIF_STOICISME_VS_BOUDDHISME)
 _register_pilier_page(_PILIER_COMPARATIF_STOICISME_VS_BOUDDHISME)
+
+
+MYTHOLOGIE_ICARE_BODY = "<p>Tu t’apprêtes à envoyer un dossier. Tu pourrais promettre une version ambitieuse pour vendredi, alors que tu n’as aucune idée du temps qu’elle prendra. Tu pourrais aussi garder le dossier dans un tiroir parce que tu vois trois façons dont il risque d’être refusé. À un bout, tu prends un engagement que tu ne sais pas tenir. À l’autre, tu te prives d’une réponse que tu avais les moyens de demander.</p>\n<p>On se souvient de la première imprudence quand on raconte Icare. Il monte trop haut, la cire de ses ailes fond et il tombe. Avant ce vol, Dédale avait donné à son fils une autre consigne. En rasant les vagues, il risquait aussi de perdre ses ailes. Les deux avertissements donnent un sens au trajet que son père lui proposait.</p>\n<h2>Le mythe d’Icare et Dédale raconté par Ovide</h2>\n<p>Au livre VIII des <a href=\"https://bcs.fltr.ucl.ac.be/metam/met08/m-08-152-259.htm\"><em>Métamorphoses</em></a> (vers 183 à 235), Dédale veut quitter la Crète. Minos lui ferme les voies terrestres et maritimes. Il lui reste le ciel. Il assemble des plumes de différentes tailles, utilise du fil et de la cire, puis courbe l’ensemble pour lui donner la forme d’une aile d’oiseau. Pendant qu’il travaille, Icare joue avec les plumes et ramollit la cire entre ses doigts.</p>\n<figure><img alt=\"Dans son atelier crétois, Dédale assemble les plumes sous les yeux d’Icare.\" loading=\"lazy\" width=\"1100\" height=\"820\" src=\"../assets/img/mythologie-icare-fig1.webp\"/><figcaption>Dans son atelier crétois, Dédale assemble les plumes sous les yeux d’Icare.</figcaption></figure>\n<p>Quand les ailes sont prêtes, Dédale les essaie. Il équipe son fils et lui conseille de suivre sa trajectoire. Trop bas, l’eau risque d’alourdir les plumes. Trop haut, le soleil risque de les brûler. Avant de partir, Dédale embrasse Icare. Ovide le montre inquiet, se retournant pour surveiller les ailes de son fils pendant le vol.</p>\n<p>Icare prend goût à cette manière de se déplacer et quitte son guide. Il gagne de l’altitude. La chaleur amollit la cire, les ailes se défont et il tombe dans la mer. Dédale l’appelle, aperçoit les plumes sur l’eau et enterre son fils. Selon une autre version, dans la <a href=\"https://www.theoi.com/Text/ApollodorusE.html\"><em>Bibliothèque</em> du pseudo-Apollodore</a> (Épitomé, I, 12-13), Minos les enferme dans le labyrinthe. Ovide présente ici un exil dont Dédale cherche à sortir par une route imprévue.</p>\n<h2>Le conseil oublié : la mer est aussi une limite</h2>\n<blockquote><p>« Icare, je te conseille de voler sur une ligne médiane. »</p><p>Ovide, <em>Métamorphoses</em>, VIII, 203-204, trad. A.-M. Boxus et J. Poucet</p></blockquote>\n<p>On retient le soleil parce que c’est ce qui défait les ailes d’Icare. Dans la phrase de Dédale, l’eau vient pourtant en premier. Il a construit ces ailes et sait dans quelles conditions elles peuvent porter. Voler à distance des vagues fait partie de la manœuvre au même titre qu’éviter de monter trop haut.</p>\n<figure><img alt=\"Dédale vole devant son fils entre la mer et le soleil.\" loading=\"lazy\" width=\"1100\" height=\"821\" src=\"../assets/img/mythologie-icare-fig2.webp\"/><figcaption>Dédale vole devant son fils entre la mer et le soleil.</figcaption></figure>\n<p>Si tu lis le récit comme une leçon sur l’orgueil, le père peut facilement passer pour celui qui refuse le risque. Il est pourtant le premier à sauter dans le vide. La route qu’il trace est audacieuse : quitter une île en volant avec des ailes qu’il a fabriquées. Cette audace s’accompagne d’une connaissance concrète de leurs limites. Elle lui donne une raison de prendre de l’altitude et une autre de cesser d’en prendre.</p>\n<h2>Ce que la juste mesure demande d’observer</h2>\n<p>Aristote donne un autre usage à l’idée de milieu dans l’<em>Éthique à Nicomaque</em> (II, 6, 1106a-1107a). Le milieu qui convient dépend de la personne et de la situation. La quantité de nourriture convenable à un athlète entraîné peut dépasser celle qui convient à un débutant. Dans le récit d’Ovide, les matériaux et la mer donnent des repères à Dédale. Dans une décision humaine, tu dois souvent commencer par découvrir les tiens.</p>\n<p>Pour un dossier, demande-toi quelle promesse tu as de bonnes raisons de pouvoir tenir. Montre une version partielle à quelqu’un qui saura juger si elle est assez claire. Tu découvriras peut-être qu’il faut réduire la promesse et envoyer tout de même quelque chose. Le point d’équilibre n’a aucune raison de tomber à mi-chemin entre tes deux premières idées. Il dépend de ce que tu apprends sur ton travail et sur les personnes auxquelles il s’adresse.</p>\n<figure><img alt=\"Au-dessus de l’eau, un chemin se poursuit entre la montée vers la crête et la descente vers les vagues.\" loading=\"lazy\" width=\"1100\" height=\"733\" src=\"../assets/img/mythologie-icare-fig3.webp\"/><figcaption>Au-dessus de l’eau, un chemin se poursuit entre la montée vers la crête et la descente vers les vagues.</figcaption></figure>\n<p>Dans une relation, tu peux courir le risque de tout dire sous le coup de la colère, ou celui de laisser un problème s’installer à force de n’en rien dire. Cherche la phrase que tu peux prononcer aujourd’hui et la réaction que tu es prêt à écouter. Il te faudra parfois le <a href=\"../essais/le-courage.html\">courage</a> de commencer par un point précis au lieu d’attendre la conversation idéale.</p>\n<h2>Que désigne le « syndrome d’Icare » ?</h2>\n<p>L’expression « syndrome d’Icare » ou « complexe d’Icare » transpose la montée et la chute du mythe dans une lecture psychologique. Le psychologue Henry A. Murray a consacré un texte au thème d’Icare et à la façon dont il pouvait éclairer certaines trajectoires. Dans l’usage courant, l’image suggère une ambition qui se poursuit sans tenir compte du risque de chute. Elle laisse souvent de côté ce que Dédale sait de l’eau sous les ailes.</p>\n<p>Tu peux garder ce détail quand tu réfléchis à ton <a href=\"../essais/lambition.html\">ambition</a>. Écris le risque de viser trop haut, puis le prix concret que tu paierais à ne rien tenter. Si tu vois plus clairement l’un des deux, donne-toi le temps d’examiner l’autre. La décision la plus prudente peut prendre la forme d’un premier mouvement que tu sais corriger en cours de route, à mesure que tu découvres le terrain.</p>\n<h2>En bref</h2>\n<p style=\"margin-bottom:.6rem;\">📌 <strong>Dédale fixe deux limites.</strong> La chaleur menace la cire et l’eau risque d’alourdir les plumes.</p>\n<p style=\"margin-bottom:.6rem;\">📌 <strong>La juste mesure dépend du terrain.</strong> Cherche les conditions qui rendent ton effort tenable.</p>\n<p style=\"margin-bottom:.6rem;\">📌 <strong>Compte aussi le prix de l’inaction.</strong> Avant de renoncer, regarde ce qu’un premier essai pourrait t’apprendre.</p>"
+
+mythologie_icare_html = real_article_page(
+    slug="icare",
+    title="Le mythe d’Icare : pourquoi Dédale lui dit de voler plus haut",
+    chapo="Le mythe d’Icare garde en mémoire un vol trop près du soleil. Dédale avait aussi prévenu son fils du danger de raser la mer. Ce second conseil aide à comprendre la juste mesure et le risque qu’on prend parfois en voulant trop se protéger.",
+    ref="Mythologie",
+    description="Le mythe d’Icare raconté d’après Ovide. Pourquoi Dédale lui conseille-t-il de voler loin du soleil et des vagues ? Découvre ce que change ce double conseil.",
+    cover_path="assets/img/mythologie-icare-cover.webp",
+    cover_credit="Paysage de collines et chemin au bord d’une étendue d’eau",
+    tags=[("mythologie.html", "Mythologie")],
+    body_html=MYTHOLOGIE_ICARE_BODY,
+    word_count=905,
+    date_published="9999-12-31",
+    section="mythologie",
+    related=[
+        ("essais/lambition.html", "prolonge la question de ce que tu veux atteindre et du prix que tu acceptes d’y mettre."),
+        ("essais/les-mythes.html", "revient sur la façon dont une scène mythologique rend une idée reconnaissable."),
+        ("essais/le-courage.html", "élargit la réflexion au prix que l’on peut payer pour éviter tout risque."),
+    ],
+)
+_PILIER_MYTHOLOGIE_ICARE = {
+    # EN STOCK (préconstruit par Codex le 19/11/2026) : relecture dans Suivi > Site.
+    "category": "mythologie", "date": "9999-12-31",
+    "href": "mythologie/icare.html", "title": "Icare",
+    "chapo": "Le conseil oublié de Dédale sur le danger de voler trop bas.",
+    "img": "assets/img/mythologie-icare-cover.webp", "html": mythologie_icare_html,
+}
+PILIER_PAGES.append(_PILIER_MYTHOLOGIE_ICARE)
+_register_pilier_page(_PILIER_MYTHOLOGIE_ICARE)
 
 
 def _intracogito_description(e):
