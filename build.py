@@ -65,6 +65,10 @@ _MYTHO_DATES = re.findall(r'"category":\s*"mythologie"[^{}]*?"date":\s*"(\d{4}-\
 MYTHOLOGIE_OUVERTE = bool(_MYTHO_DATES) and is_due(min(_MYTHO_DATES))
 
 IMG_DIMENSIONS = {
+    "assets/img/philosophe-pierre-hadot-fig1.webp": (1100, 815),
+    "assets/img/philosophe-pierre-hadot-fig2.webp": (1100, 819),
+    "assets/img/philosophe-pierre-hadot-fig3.webp": (1100, 733),
+    "assets/img/philosophe-pierre-hadot-cover.webp": (1200, 630),
     "assets/img/mythologie-orphee-eurydice-fig1.webp": (1100, 813),
     "assets/img/mythologie-orphee-eurydice-fig2.webp": (1100, 814),
     "assets/img/mythologie-orphee-eurydice-fig3.webp": (1100, 733),
@@ -2481,6 +2485,41 @@ _PILIER_MYTHOLOGIE_ORPHEE_EURYDICE = {
 }
 PILIER_PAGES.append(_PILIER_MYTHOLOGIE_ORPHEE_EURYDICE)
 _register_pilier_page(_PILIER_MYTHOLOGIE_ORPHEE_EURYDICE)
+
+
+PERSON_JSONLD_PHILOSOPHE_PIERRE_HADOT = "\n<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Person\",\n  \"name\": \"Pierre Hadot\",\n  \"description\": \"Philosophe français et historien de la pensée antique, auteur de La Citadelle intérieure.\",\n  \"birthDate\": \"1922\",\n  \"deathDate\": \"2010\"\n}\n</script>"
+
+PHILOSOPHE_PIERRE_HADOT_BODY = "<p>Tu peux souligner une phrase sur la colère à huit heures du matin et envoyer un message sec à neuf heures. Tu reconnais la justesse de la phrase. Tu te rappelles même où elle se trouve dans le livre. Au moment de répondre, il te manque pourtant le geste qui lui donnerait une place dans ta journée.</p>\n<p>Pierre Hadot s’est intéressé à ce que les philosophes antiques faisaient de cet écart. Pour eux, un texte pouvait servir à préparer une conversation, à examiner une décision ou à remettre un souci à sa juste taille. On lisait pour avoir quelque chose à faire avec ce qu’on venait de comprendre.</p>\n<h2>Qui était Pierre Hadot ?</h2>\n<p>Pierre Hadot naît à Paris en 1922 et meurt en 2010. Il travaille au CNRS, puis dirige des études à l’École pratique des hautes études. De 1982 à 1990, il tient au Collège de France la chaire d’Histoire de la pensée hellénistique et romaine. Il consacre des travaux à Plotin et à <a href=\"../philosophes/marc-aurele.html\">Marc Aurèle</a>, auquel il dédie <em>La Citadelle intérieure</em>. Le Collège de France donne le détail de <a href=\"https://www.college-de-france.fr/fr/chaire/pierre-hadot-histoire-de-la-pensee-hellenistique-et-romaine-chaire-statutaire/biography\">son parcours et de ses publications</a>.</p>\n<figure><img alt=\"Deux livres ouverts près d’une fenêtre pour lire les Anciens à la lumière du jour.\" loading=\"lazy\" width=\"1100\" height=\"815\" src=\"../assets/img/philosophe-pierre-hadot-fig1.webp\"/><figcaption>Deux livres ouverts près d’une fenêtre pour lire les Anciens à la lumière du jour.</figcaption></figure>\n<p>Les exercices spirituels de Pierre Hadot répondent d’abord à une question de lecture. Pourquoi un auteur répète-t-il des conseils qu’il connaît déjà ? Pourquoi l’empereur romain Marc Aurèle revient-il si souvent sur le temps qui passe ? À lire ses <em>Pensées</em> comme un traité, tu pourrais prendre ces retours pour des redites. Si tu les lis comme l’effort de quelqu’un qui tâche de se rendre un principe présent, chaque reprise a son utilité. La difficulté revient, la phrase revient avec elle.</p>\n<h2>Qu’est-ce qu’un exercice spirituel ?</h2>\n<blockquote><p>« une pratique susceptible de provoquer une transformation d’ordre existentiel et moral dans le sujet qui la pratique. »</p><p>Pierre Hadot, <em>L’Enseignement des antiques, l’enseignement des modernes</em>, intervention sur les exercices spirituels</p></blockquote>\n<p>Le mot « spirituel » désigne ici une pratique qui engage ta manière de vivre. Tu peux y faire travailler ta mémoire, ton imagination et tes jugements. Prends une maxime que tu comprends très bien quand tu es seul. Essaie de la retrouver quand quelqu’un t’interrompt ou te contredit. L’exercice commence précisément là où la maxime devient difficile à appliquer.</p>\n<p>Hadot parle de pratiques au pluriel. Une école peut t’inviter à réexaminer ce que tu appelles un malheur. Une autre peut te demander combien de choses il te faut vraiment pour passer une bonne journée. Dans les deux cas, une certaine idée de la vie bonne commande l’exercice. Pour tirer quelque chose d’une pratique, demande-toi quel jugement ou quelle habitude elle cherche à former. Tu comprendras mieux comment l’utiliser et quand elle atteint ses limites.</p>\n<h2>Le regard d’en haut change l’échelle d’un problème</h2>\n<p>Tu attends un retour sur un travail. Une remarque embarrassante de la veille occupe toute ta matinée. Imagine la scène depuis la rue, puis depuis le quartier. Ton bureau est une pièce dans un immeuble. D’autres gens entament leur journée, se rendent à un rendez-vous ou attendent eux aussi un appel. Prolonge le mouvement dans le temps : que pourrait signifier cette remarque dans la semaine, puis dans l’année ?</p>\n<figure><img alt=\"Depuis le belvédère, les maisons et les chemins reprennent leur place dans le paysage.\" loading=\"lazy\" width=\"1100\" height=\"819\" src=\"../assets/img/philosophe-pierre-hadot-fig2.webp\"/><figcaption>Depuis le belvédère, les maisons et les chemins reprennent leur place dans le paysage.</figcaption></figure>\n<p>Hadot s’intéresse à ce changement d’échelle chez les Anciens. Chez Marc Aurèle, le regard peut embrasser une multitude de vies et de situations. L’intérêt de l’exercice tient à ce qui se passe quand tu redescends. Au lieu de ruminer une phrase entière, tu peux repérer le problème précis qu’elle te signale. Peut-être faut-il demander un exemple, reprendre un passage ou laisser passer une remarque sans conséquence. Les <a href=\"../mouvements/stoicisme.html\">stoïciens</a> donnent à cette distinction un usage pratique : repérer ce sur quoi tu peux agir ici.</p>\n<p>Si la remarque révèle une injustice qui se répète, élargir le cadre peut aussi t’aider à la voir. Tu découvres que d’autres ont reçu le même traitement et qu’une réponse collective serait possible. Prendre de la hauteur peut diminuer l’importance que tu accordes à une vexation et augmenter celle que tu accordes à un fait.</p>\n<h2>Revenir au présent sans renoncer à prévoir</h2>\n<p>Dans le train du retour, tu répètes une réponse pour une réunion de demain. Tu l’as déjà notée. Tu la répètes encore, en imaginant cette fois une objection, puis une deuxième. Tu peux prendre un instant pour voir ce qui t’occupe : as-tu découvert un point à préparer, ou es-tu en train de rejouer une conversation dont tu ne connais encore aucun mot ?</p>\n<figure><img alt=\"Un carnet fermé sur la tablette laisse le regard revenir au paysage.\" loading=\"lazy\" width=\"1100\" height=\"733\" src=\"../assets/img/philosophe-pierre-hadot-fig3.webp\"/><figcaption>Un carnet fermé sur la tablette laisse le regard revenir au paysage.</figcaption></figure>\n<p>À la première question, réponds en écrivant ce point et en décidant quand tu le traiteras. Ensuite, remarque une sensation concrète, le siège sous tes jambes ou la lumière qui change sur la vitre. Tu as réservé à la réunion sa place dans ta journée. Il te reste le trajet. Cette attention rejoint un exercice que Hadot relève chez les stoïciens : revenir à l’action et à la situation présentes quand les événements absents accaparent l’esprit.</p>\n<p>Tu peux faire la même chose en lisant. Garde une phrase du <a href=\"../philosophes/epictete-manuel.html\"><em>Manuel</em> d’Épictète</a> et choisis un moment précis où tu essaieras de t’en souvenir. Par exemple, avant de répondre à une demande que tu trouves injuste, distingue ce que la personne a dit de l’intention que tu lui prêtes. Le soir, regarde simplement si ce délai t’a donné une autre réponse possible. Certaines journées, tu te rappelleras la phrase après coup. Cela t’indique au moins à quel moment elle pourrait te servir demain.</p>\n<h2>En bref</h2>\n<p style=\"margin-bottom:.6rem;\">📌 <strong>Une idée s’exerce.</strong> Pierre Hadot lit les textes antiques comme des moyens de travailler sur sa conduite.</p>\n<p style=\"margin-bottom:.6rem;\">📌 <strong>Change d’échelle.</strong> Le regard d’en haut aide à mesurer la place d’un souci avant de décider quoi faire.</p>\n<p style=\"margin-bottom:.6rem;\">📌 <strong>Choisis un moment précis.</strong> Une phrase devient un exercice quand tu sais dans quelle situation tu tenteras de l’appliquer.</p>"
+
+philosophe_pierre_hadot_html = real_article_page(
+    slug="pierre-hadot",
+    title="Pierre Hadot et les exercices spirituels des philosophes",
+    chapo="Pour Pierre Hadot, les exercices spirituels des Anciens font passer la philosophie du livre à la journée ordinaire. Découvre ce que ce chercheur a lu chez Marc Aurèle et comment essayer deux de ces pratiques, le regard d’en haut et l’attention au présent.",
+    ref="Philosophe",
+    description="Pierre Hadot explique les exercices spirituels des philosophes antiques. Essaie le regard d’en haut et l’attention au présent dans ta journée.",
+    cover_path="assets/img/philosophe-pierre-hadot-cover.webp",
+    cover_credit="Bourg aux toits serrés au pied de montagnes bleues",
+    tags=[("philosophes.html", "Philosophes")],
+    body_html=PHILOSOPHE_PIERRE_HADOT_BODY,
+    word_count=930,
+    date_published="9999-12-31",
+    section="philosophes",
+    extra_jsonld_blocks=PERSON_JSONLD_PHILOSOPHE_PIERRE_HADOT,
+    related=[
+        ("concepts/ascese.html", "prolonge l’idée d’un entraînement qui transforme la conduite par la répétition."),
+        ("philosophes/marc-aurele.html", "présente l’auteur des Pensées auxquelles Hadot a consacré La Citadelle intérieure."),
+        ("essais/la-presence.html", "élargit la réflexion à la place que l’on donne au présent dans une journée ordinaire."),
+    ],
+)
+_PILIER_PHILOSOPHE_PIERRE_HADOT = {
+    # EN STOCK (préconstruit par Codex le 19/11/2026) : relecture dans Suivi > Site.
+    "category": "philosophes", "subtopic": "Pierre Hadot", "date": "9999-12-31",
+    "href": "philosophes/pierre-hadot.html", "title": "Pierre Hadot",
+    "chapo": "Deux exercices antiques pour faire de la philosophie au quotidien.",
+    "img": "assets/img/philosophe-pierre-hadot-cover.webp", "html": philosophe_pierre_hadot_html,
+}
+PILIER_PAGES.append(_PILIER_PHILOSOPHE_PIERRE_HADOT)
+_register_pilier_page(_PILIER_PHILOSOPHE_PIERRE_HADOT)
 
 
 def _intracogito_description(e):
