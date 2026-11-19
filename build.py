@@ -688,8 +688,13 @@ ALL_ARTICLES = sorted(
 )
 ARTICLES_BY_HREF = {a["href"]: a for a in ALL_ARTICLES}
 
+def short_date(iso):
+    """'2026-11-17' -> '17/11/26' (date affichée sur les cartes)."""
+    y, m, d = iso.split("-")
+    return f"{d}/{m}/{y[2:]}"
+
 def article_card(a, prefix="", chapo=None, show_author=True):
-    return card(f"{prefix}{a['href']}", meta=a["meta"], title=a["title"], chapo=chapo if chapo is not None else a["chapo"], author="Elouan Noël" if show_author else None, img=img_src(a["img"], prefix))
+    return card(f"{prefix}{a['href']}", meta=a["meta"], title=a["title"], chapo=chapo if chapo is not None else a["chapo"], author="Elouan Noël" if show_author else None, img=img_src(a["img"], prefix), date=a.get("date"))
 
 def hero_rotation_script(essays):
     data = json.dumps(essays, ensure_ascii=False)
@@ -733,7 +738,8 @@ def hero_rotation_script(essays):
 }})();
 </script>"""
 
-def card(href, badge=True, meta="Rubrique", title="Titre", chapo="Sous-titre", author=None, img=None):
+def card(href, badge=True, meta="Rubrique", title="Titre", chapo="Sous-titre", author=None, img=None, date=None):
+    date_html = f'<span class="card-date">{short_date(date)}</span>' if date else ""
     badge_html = f'<span class="card-badge">{BOOKMARK_SVG}</span>' if badge else ""
     author_html = f'<span class="card-author">{author}</span>' if author else ""
     tag = "a" if href else "div"
@@ -744,7 +750,7 @@ def card(href, badge=True, meta="Rubrique", title="Titre", chapo="Sous-titre", a
         {img_html}
         {badge_html}
       </div>
-      <span class="card-meta-line">{FILE_SVG if badge else ""}{meta}</span>
+      <span class="card-meta-line">{FILE_SVG if badge else ""}{meta}{date_html}</span>
       <h3 class="card-title">{title}</h3>
       <p class="card-chapo">{chapo}</p>
       {author_html}
@@ -836,8 +842,8 @@ PERSON_JSONLD = """<script type="application/ld+json">
 
 # Accueil : grille de 18 articles, bannière livre insérée après le 9e (pleine largeur de la grille).
 # Pas de bande newsletter sur l'accueil : la popup bas-droite joue déjà ce rôle.
-def _home_grid_with_book():
-    cards = [article_card(x, show_author=False) for x in ALL_ARTICLES[:18]]
+def _home_grid_with_book(articles):
+    cards = [article_card(x, show_author=False) for x in articles[:18]]
     cards.insert(min(9, len(cards)), book_banner(extra_class="book-banner-grid"))
     return "".join(cards)
 
@@ -903,7 +909,7 @@ INDEX_CONTENT = f"""<!-- ══════════════ TOPBAR ═�
   <div class="wrap">
     <h2 class="sr-only">Articles récents</h2>
     <div class="card-grid">
-      {_home_grid_with_book()}
+      <!--GRILLE_ACCUEIL-->
     </div>
     <div class="sec-all">
       <a href="essais.html" class="hero-cta">Lire tous les articles →</a>
@@ -972,13 +978,13 @@ essais_html = f"""<!doctype html>
 
 <div class="wrap listing-head">
   <h1>Essais</h1>
-  <p>Les essais Cogito et les éditions Intracogito, dans l'ordre de publication.</p>
+  <p>Tous les articles du site, du plus récent au plus ancien.</p>
 </div>
 
-<h2 class="sec-title">Tous les essais</h2>
+<h2 class="sec-title">Tous les articles</h2>
 <section class="sec">
   <div class="wrap card-grid">
-    {"".join(article_card(x) for x in ALL_ARTICLES)}
+    <!--GRILLE_ESSAIS-->
   </div>
 </section>
 
@@ -1061,12 +1067,12 @@ RUBRIQUES = {
         "desc": "Les essais Cogito : la version longue et approfondie d'Intracogito, une réflexion personnelle structurée toutes les 3 semaines.",
         "subtopics": [],
         "real_cards": [
-            {"href": e["href"], "meta": "Cogito", "title": e["title"], "chapo": e["badge"], "author": "Elouan Noël", "img": e["cover"]}
+            {"href": e["href"], "meta": "Cogito", "title": e["title"], "chapo": e["badge"], "author": "Elouan Noël", "img": e["cover"], "date": e["date"]}
             for e in sorted(COGITO_ESSAYS, key=lambda e: e["date"], reverse=True)
         ],  # derive de COGITO_ESSAYS (essais en stock exclus selon leur date)
         "popular_cards": sorted(
             [
-                {"href": e["href"], "meta": "Cogito", "title": e["title"], "chapo": e["badge"], "author": "Elouan Noël", "img": e["cover"], "_num": e["num"]}
+                {"href": e["href"], "meta": "Cogito", "title": e["title"], "chapo": e["badge"], "author": "Elouan Noël", "img": e["cover"], "date": e["date"], "_num": e["num"]}
                 for e in COGITO_ESSAYS
             ],
             key=lambda c: -_popularity_score(COGITO_STATS)[c["_num"]],
@@ -1077,12 +1083,12 @@ RUBRIQUES = {
         "desc": "Les éditions Intracogito : citations philosophiques commentées, chaque semaine, pour penser mieux au quotidien.",
         "subtopics": [],
         "real_cards": [
-            {"href": e["href"], "meta": "Intracogito", "title": e["title"], "chapo": e["badge"], "author": "Elouan Noël", "img": e["cover"]}
+            {"href": e["href"], "meta": "Intracogito", "title": e["title"], "chapo": e["badge"], "author": "Elouan Noël", "img": e["cover"], "date": e["date"]}
             for e in INTRACOGITO_EDITIONS
         ],
         "popular_cards": sorted(
             [
-                {"href": e["href"], "meta": "Intracogito", "title": e["title"], "chapo": e["badge"], "author": "Elouan Noël", "img": e["cover"], "_num": e["num"]}
+                {"href": e["href"], "meta": "Intracogito", "title": e["title"], "chapo": e["badge"], "author": "Elouan Noël", "img": e["cover"], "date": e["date"], "_num": e["num"]}
                 for e in INTRACOGITO_EDITIONS
             ],
             key=lambda c: -_popularity_score(INTRACOGITO_STATS).get(c["_num"], 0),
@@ -1146,6 +1152,8 @@ def rubrique_page(slug, data):
     # tags ne menaient vers rien (href générique essais.html) ou redoublaient
     # les cartes déjà affichées plus bas. subtopics_block reste "" (voir plus haut).
     real_cards = data.get("real_cards")
+    if real_cards and all(c.get("date") for c in real_cards):
+        real_cards = sorted(real_cards, key=lambda c: c["date"], reverse=True)  # les plus récents en premier
     if real_cards:
         def _card(c):
             return card(**{k: v for k, v in c.items() if k != "_num"})
@@ -1891,6 +1899,7 @@ PILIER_PAGES = [
 
 PILIER_FILES = {}
 PILIER_PAGES_FOR_SEARCH = []
+HOME_PILIERS = []  # pages piliers en ligne, ajoutées à la grille de l'accueil et à la page Essais
 
 def _register_pilier_page(p):
     """Enregistre une page pilier due : fichier, carte de rubrique, lien de
@@ -1905,11 +1914,12 @@ def _register_pilier_page(p):
     cat = RUBRIQUES[p["category"]]
     cat.setdefault("real_cards", []).append({
         "href": p["href"], "meta": cat["label"], "title": p["title"],
-        "chapo": p["chapo"], "author": "Elouan Noël", "img": p["img"],
+        "chapo": p["chapo"], "author": "Elouan Noël", "img": p["img"], "date": p["date"],
     })
+    HOME_PILIERS.append({"href": p["href"], "meta": cat["label"], "title": p["title"], "chapo": p["chapo"], "img": p["img"], "date": p["date"]})
     if p.get("subtopic"):
         cat.setdefault("subtopic_links", {})[p["subtopic"]] = p["href"]
-    ARTICLES_BY_HREF[p["href"]] = {"href": p["href"], "meta": cat["label"], "title": p["title"], "chapo": p["chapo"], "img": p["img"]}
+    ARTICLES_BY_HREF[p["href"]] = {"href": p["href"], "meta": cat["label"], "title": p["title"], "chapo": p["chapo"], "img": p["img"], "date": p["date"]}
     PILIER_FILES[p["href"]] = p["html"]
     PILIER_PAGES_FOR_SEARCH.append({
         "href": p["href"], "meta": cat["label"], "chapo": cat["label"], "title": p["title"], "img": p["img"],
@@ -2804,6 +2814,15 @@ os.makedirs(os.path.join(ROOT, "concepts"), exist_ok=True)
 os.makedirs(os.path.join(ROOT, "comparatifs"), exist_ok=True)
 os.makedirs(os.path.join(ROOT, "mouvements"), exist_ok=True)
 os.makedirs(os.path.join(ROOT, "mythologie"), exist_ok=True)
+
+# Grilles « les plus récents d'abord » de l'accueil et de la page Essais :
+# remplies ici, une fois toutes les pages piliers dues enregistrées.
+LATEST_ARTICLES = sorted(ALL_ARTICLES + HOME_PILIERS, key=lambda a: a["date"], reverse=True)
+_GRILLE_ACCUEIL = _home_grid_with_book(LATEST_ARTICLES)
+_GRILLE_ESSAIS = "".join(article_card(x) for x in LATEST_ARTICLES)
+index_html = index_html.replace("<!--GRILLE_ACCUEIL-->", _GRILLE_ACCUEIL)
+index_artifact_body = index_artifact_body.replace("<!--GRILLE_ACCUEIL-->", _GRILLE_ACCUEIL)
+essais_html = essais_html.replace("<!--GRILLE_ESSAIS-->", _GRILLE_ESSAIS)
 
 files = {
     "index.html": index_html,

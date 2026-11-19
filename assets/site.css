@@ -190,6 +190,7 @@ button { font: inherit; }
 .card-badge svg { width:14px; height:14px; color: var(--on-dark); }
 .card-meta-line { display:flex; align-items:center; gap:.4rem; font-family: var(--mono); font-size:.7rem; letter-spacing:.02em; color: var(--ink-muted); text-transform:uppercase; }
 .card-meta-line svg { width:13px; height:13px; color: var(--accent); flex-shrink:0; }
+.card-date { margin-left:auto; letter-spacing:.04em; }  /* date jj/mm/aa à droite, sous l'image */
 .card-title { font-family: var(--serif); font-size:1.15rem; font-weight:600; line-height:1.3; color: var(--ink); }
 .card-chapo { font-size:.85rem; color: var(--ink-muted); line-height:1.6; }
 .card-author { font-size:.78rem; color: var(--ink-muted); }
