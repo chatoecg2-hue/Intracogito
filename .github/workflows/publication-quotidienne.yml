@@ -1,0 +1,31 @@
+# Publication programmée du site Intracogito.
+# Chaque nuit, relance un déploiement Vercel : build.py tourne sur Vercel
+# (voir vercel.json) et met en ligne les pages dont la date est arrivée
+# (heure de Paris). Aucune modification du dépôt, aucun push.
+#
+# Mise en place (une seule fois, par Elouan) :
+#   1. Vercel > projet intracogito > Settings > Git > Deploy Hooks :
+#      créer un hook sur la branche main, copier son URL.
+#   2. GitHub > dépôt > Settings > Secrets and variables > Actions :
+#      nouveau secret VERCEL_DEPLOY_HOOK = cette URL.
+# Test manuel : onglet Actions > « Publication quotidienne » > Run workflow.
+name: Publication quotidienne
+
+on:
+  schedule:
+    - cron: "10 23 * * *"   # 00 h 10 à Paris en hiver, 01 h 10 en été
+  workflow_dispatch: {}
+
+jobs:
+  redeployer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Déclencher le déploiement Vercel
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "Secret VERCEL_DEPLOY_HOOK absent : voir l'en-tête de ce fichier."
+            exit 1
+          fi
+          curl -fsS -X POST "$HOOK"
