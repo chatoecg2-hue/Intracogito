@@ -65,6 +65,10 @@ _MYTHO_DATES = re.findall(r'"category":\s*"mythologie"[^{}]*?"date":\s*"(\d{4}-\
 MYTHOLOGIE_OUVERTE = bool(_MYTHO_DATES) and is_due(min(_MYTHO_DATES))
 
 IMG_DIMENSIONS = {
+    "assets/img/mythologie-ulysse-sirenes-fig1.webp": (1100, 733),
+    "assets/img/mythologie-ulysse-sirenes-fig2.webp": (1100, 733),
+    "assets/img/mythologie-ulysse-sirenes-fig3.webp": (1100, 733),
+    "assets/img/mythologie-ulysse-sirenes-cover.webp": (1200, 630),
     "assets/img/concept-detachement-fig1.webp": (1100, 819),
     "assets/img/concept-detachement-fig2.webp": (1100, 822),
     "assets/img/concept-detachement-fig3.webp": (1100, 733),
@@ -2556,6 +2560,38 @@ _PILIER_CONCEPT_DETACHEMENT = {
 }
 PILIER_PAGES.append(_PILIER_CONCEPT_DETACHEMENT)
 _register_pilier_page(_PILIER_CONCEPT_DETACHEMENT)
+
+
+MYTHOLOGIE_ULYSSE_SIRENES_BODY = "<p>Tu poses ton téléphone à côté de ton clavier pour pouvoir répondre si quelqu’un t’écrit. Vingt minutes plus tard, tu as ouvert quatre applications et laissé ta phrase en suspens. Tu te promets de faire davantage attention. Demain, le téléphone sera au même endroit, à la même distance de ta main.</p>\n<p>Ulysse prend une autre décision avant de passer devant les sirènes. Il veut entendre leur chant et survivre. Il sait aussi qu’une fois qu’il l’entendra, il demandera à ses hommes de le laisser approcher. Il leur donne d’avance les moyens de lui résister.</p>\n<h2>Le mythe d’Ulysse et les sirènes dans l’Odyssée</h2>\n<p>Au chant XII de l’<em>Odyssée</em>, Circé avertit Ulysse. Les sirènes attirent les navigateurs par leur voix. Celui qui s’arrête pour les écouter ne revient pas retrouver sa famille. Autour d’elles, les restes des hommes qui les ont entendues s’entassent. Circé conseille à Ulysse de boucher les oreilles de ses compagnons avec de la cire. S’il tient à écouter, ses hommes peuvent l’arrimer au mât.</p>\n<p>À l’approche du danger, Ulysse raconte à l’équipage ce que Circé lui a annoncé. Les hommes doivent continuer à ramer. Lui seul écoutera. Il leur indique aussi ce qu’ils devront faire quand il changera d’avis.</p>\n<blockquote><p>« Redoublez-en le nombre impitoyablement. »</p><p>Homère, <em>Odyssée</em>, XII, passage des sirènes, trad. Ulysse de Séguier</p></blockquote>\n<figure><img alt=\"Ulysse écoute, attaché au mât, pendant que ses compagnons continuent à ramer.\" loading=\"lazy\" width=\"1100\" height=\"733\" src=\"../assets/img/mythologie-ulysse-sirenes-fig1.webp\"/><figcaption>Ulysse écoute, attaché au mât, pendant que ses compagnons continuent à ramer.</figcaption></figure>\n<p>Le vent tombe. Les marins replient la voile et prennent les rames. Ulysse pétrit la cire et en bouche les oreilles de ses compagnons. Ils l’attachent debout au mât. Les sirènes l’appellent par son nom et lui promettent le plaisir d’entendre leur chant ainsi qu’un savoir auquel elles seules semblent donner accès. Elles connaissent les souffrances des Grecs et des Troyens à Troie et disent savoir ce qui arrive sur terre.</p>\n<p>Ulysse veut qu’on le détache. Il fait signe des sourcils. Deux compagnons se lèvent et renforcent ses liens. Quand la voix des sirènes est hors de portée, les marins enlèvent la cire et dénouent les cordes. Les deux moments du récit, l’avertissement et le passage, se lisent dans le <a href=\"https://fr.wikisource.org/wiki/L%E2%80%99Odyss%C3%A9e/Traduction_Leconte_de_Lisle/12\">chant XII, vers 37 à 54 et 153 à 200</a>.</p>\n<h2>Que veut dire « écouter le chant des sirènes » ?</h2>\n<p>L’expression évoque une invitation séduisante dont le prix reste caché ou paraît dérisoire tant qu’on l’écoute. Dans le poème, les sirènes connaissent leur interlocuteur. Elles l’appellent par son nom et lui parlent de Troie, où il a combattu. Elles lui offrent de savoir quelque chose qu’il a des raisons particulières de vouloir savoir. Après de longues années d’absence, sa curiosité a de quoi trouver sa place dans ce chant.</p>\n<figure><img alt=\"Au-dessus des falaises, les sirènes appellent les navigateurs qui passent à portée de voix.\" loading=\"lazy\" width=\"1100\" height=\"733\" src=\"../assets/img/mythologie-ulysse-sirenes-fig2.webp\"/><figcaption>Au-dessus des falaises, les sirènes appellent les navigateurs qui passent à portée de voix.</figcaption></figure>\n<p>Tu peux reconnaître ce mécanisme dans une promesse qui vise exactement ce qui te manque. Une personne t’annonce que son offre est faite pour toi et que tu dois répondre dans l’heure. Avant d’évaluer sa proposition, tu te surprends à imaginer ce que tu perdrais en refusant. L’empressement devient lui-même une raison d’accepter. Le récit d’Homère donne du relief à ce moment où le désir transforme la manière de peser un choix. <a href=\"../essais/les-mythes.html\">Les mythes</a> rendent souvent ces moments plus faciles à reconnaître parce qu’ils les font tenir dans une scène.</p>\n<h2>Le pré-engagement selon Jon Elster</h2>\n<p>Dans <a href=\"https://books.google.com/books/about/Ulysses_and_the_Sirens.html?id=dnIIAQAAIAAJ\"><em>Ulysses and the Sirens</em></a>, paru à l’origine en 1979, Jon Elster prend Ulysse pour exemple d’une rationalité capable de prévoir ses propres défaillances. À distance du danger, Ulysse prévoit que ses préférences changeront lorsqu’il approchera. Il réduit délibérément les choix qui lui resteront pendant le passage. C’est cela, le pré-engagement : agir aujourd’hui sur ce que tu pourras faire demain.</p>\n<p>La corde change quelque chose de très précis. Sans elle, le choix du moment l’emporte dès qu’Ulysse ordonne à ses hommes de s’arrêter. Avec elle, sa demande immédiate déclenche le geste prévu auparavant. L’équipage joue un rôle décisif. Les marins doivent pouvoir exécuter l’ordre donné au calme quand celui qui l’a donné voudra le révoquer.</p>\n<p>Une règle de ce genre gagne à avoir une fin nette. Les marins détachent Ulysse quand le navire a dépassé la zone dangereuse. Dans une décision ordinaire, prévois un moment où tu pourras revoir ton choix avec des informations nouvelles. Cette marge évite qu’un engagement pris pour traverser une difficulté devienne une contrainte dont tu as oublié la raison.</p>\n<h2>Choisir ton mât avant le moment difficile</h2>\n<p>Si tu veux écrire pendant une demi-heure, dépose ton téléphone dans la pièce voisine avant de t’asseoir. Laisse le numéro du bureau à la personne qui pourrait avoir besoin de te joindre en urgence, si cela a un sens dans ta situation. Au premier moment d’ennui, il te faudra te lever pour ouvrir une application. Ce pas supplémentaire te rend un instant pour choisir et ramène ton <a href=\"../essais/lattention.html\">attention</a> à la phrase interrompue.</p>\n<figure><img alt=\"Le téléphone reste dans le couloir, à quelques pas du bureau.\" loading=\"lazy\" width=\"1100\" height=\"733\" src=\"../assets/img/mythologie-ulysse-sirenes-fig3.webp\"/><figcaption>Le téléphone reste dans le couloir, à quelques pas du bureau.</figcaption></figure>\n<p>Le bon dispositif dépend de ce que tu veux protéger. Pour laisser mûrir un achat, donne-toi une nuit et reviens à la proposition à tête reposée. Pour tenir un rendez-vous de travail que tu repousses facilement, fixe une heure avec une personne qui compte aussi sur ce créneau. Dans les deux cas, choisis une limite que tu peux expliquer. Elle a un objet, une durée et un signal qui indique qu’elle a rempli son rôle. Chez Ulysse, ce signal tient à peu de chose : la voix a cessé de porter jusqu’au navire.</p>\n<h2>En bref</h2>\n<p style=\"margin-bottom:.6rem;\">📌 <strong>Ulysse prévoit son revirement.</strong> Il demande à ses marins de resserrer ses liens s’il veut être libéré.</p>\n<p style=\"margin-bottom:.6rem;\">📌 <strong>Le pré-engagement modifie le choix futur.</strong> Une décision prise au calme ajoute un obstacle au geste que tu veux éviter.</p>\n<p style=\"margin-bottom:.6rem;\">📌 <strong>Prévois le moment de dénouer la corde.</strong> Une limite utile vaut pour une situation et une durée précises.</p>"
+
+mythologie_ulysse_sirenes_html = real_article_page(
+    slug="ulysse-sirenes",
+    title="Le mythe d’Ulysse et les sirènes : décider avant de céder",
+    chapo="Dans le mythe d’Ulysse et les sirènes, le héros veut écouter le chant sans y laisser sa vie. Les cordes du mât lui permettent de tenir une décision prise au calme. Jon Elster en tire une idée à essayer quand tu sais déjà ce qui risque de te faire céder.",
+    ref="Mythologie",
+    description="Le mythe d’Ulysse et les sirènes, raconté d’après Homère. Découvre le sens du chant et comment le pré-engagement aide à tenir une décision face à la tentation.",
+    cover_path="assets/img/mythologie-ulysse-sirenes-cover.webp",
+    cover_credit="Moulins au bord de l’eau sous un ciel chargé",
+    tags=[("mythologie.html", "Mythologie")],
+    body_html=MYTHOLOGIE_ULYSSE_SIRENES_BODY,
+    word_count=920,
+    date_published="9999-12-31",
+    section="mythologie",
+    related=[
+        ("essais/lattention.html", "prolonge la réflexion sur les choses auxquelles on laisse le pouvoir de nous interrompre."),
+        ("essais/la-matiere-premiere-du-heros.html", "retrouve Ulysse attaché au mât dans un essai sur la conduite du héros."),
+        ("essais/le-choix.html", "élargit la question à ce que tu engages chaque fois que tu choisis."),
+    ],
+)
+_PILIER_MYTHOLOGIE_ULYSSE_SIRENES = {
+    # EN STOCK (préconstruit par Codex le 19/11/2026) : relecture dans Suivi > Site.
+    "category": "mythologie", "date": "9999-12-31",
+    "href": "mythologie/ulysse-sirenes.html", "title": "Ulysse et les sirènes",
+    "chapo": "Pourquoi Ulysse choisit de se lier avant d’entendre les sirènes.",
+    "img": "assets/img/mythologie-ulysse-sirenes-cover.webp", "html": mythologie_ulysse_sirenes_html,
+}
+PILIER_PAGES.append(_PILIER_MYTHOLOGIE_ULYSSE_SIRENES)
+_register_pilier_page(_PILIER_MYTHOLOGIE_ULYSSE_SIRENES)
 
 
 def _intracogito_description(e):
