@@ -2124,5 +2124,63 @@
   ],
   "num": 69,
   "cover": "assets/img/intracogito-069-cover.webp"
+ },
+ "071": {
+  "title": "La simplicité",
+  "slug": "la-simplicite",
+  "date": "2026-11-15",
+  "words": 332,
+  "credit": "Heinrich Bürkel, Der Starnberger See mit Blick auf das Wettersteingebirge",
+  "authors": [
+   "Blaise Pascal",
+   "Albert Einstein",
+   "Intracogito",
+   "Intracogito"
+  ],
+  "related": [
+   [
+    "essais/les-priorites.html",
+    "Aller à l'essentiel commence par savoir ce qui compte : l'édition consacrée aux priorités."
+   ],
+   [
+    "essais/le-renoncement.html",
+    "Retirer plutôt qu'ajouter : ce que l'on gagne à renoncer, dans l'essai Cogito qui lui est consacré."
+   ],
+   [
+    "essais/lattention.html",
+    "Distinguer le signal du bruit : l'édition sur l'attention prolonge cette idée."
+   ]
+  ],
+  "num": 71,
+  "cover": "assets/img/intracogito-071-cover.webp"
+ },
+ "072": {
+  "title": "La gratitude",
+  "slug": "la-gratitude",
+  "date": "2026-11-22",
+  "words": 359,
+  "credit": "Thomas Cole, A View of the Mountain Pass (1839)",
+  "authors": [
+   "Sénèque",
+   "Robert Brault",
+   "Marcel Proust",
+   "Naval Ravikant"
+  ],
+  "related": [
+   [
+    "essais/le-bonheur.html",
+    "Être reconnaissant de ce qu'on a déjà : une des clés que l'édition sur le bonheur explore."
+   ],
+   [
+    "essais/la-presence.html",
+    "Savourer les petites choses suppose d'être là : l'édition consacrée à la présence."
+   ],
+   [
+    "essais/lambition.html",
+    "Vouloir plus sans cesser d'apprécier ce qu'on a : l'édition sur l'ambition."
+   ]
+  ],
+  "num": 72,
+  "cover": "assets/img/intracogito-072-cover.webp"
  }
 }
