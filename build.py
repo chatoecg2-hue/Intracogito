@@ -395,13 +395,14 @@ def search_overlay(prefix=""):
 NEWSLETTER_URL = "https://elouannoel.substack.com/"
 
 def newsletter_insert(prefix=""):
+    # Bannière newsletter (version du 23/11/2026, piste « bandeau sombre » choisie par Elouan) :
+    # tableau de Venise assombri, citation en italique, phrase, bouton clair.
+    # Le bloc doit finir par </a></div> : _NEWSLETTER_BLOCK_RE s'appuie dessus.
     return f"""<div class="newsletter-insert">
-  <img class="newsletter-insert-photo" src="{prefix}assets/img/vitruvian-man.webp" alt="Elouan Noël" loading="lazy" width="56" height="56" />
-  <div class="newsletter-insert-text">
-    <h3>Rejoins la newsletter</h3>
-    <p>Une édition par semaine, 4 à 5 citations commentées.</p>
-  </div>
-  <a href="{NEWSLETTER_URL}" target="_blank" rel="noopener" class="hero-cta newsletter-insert-cta" data-umami-event="clic-newsletter-banniere">S’abonner →</a>
+  <img class="newsletter-insert-bg" src="{prefix}assets/img/newsletter-popup-venise.webp" alt="" loading="lazy" width="495" height="733" />
+  <p class="newsletter-insert-quote">Une vie qui n’est pas examinée ne mérite pas d’être vécue.</p>
+  <p class="newsletter-insert-text">Ma newsletter reprend les thèmes de ce site : chaque dimanche, 4 à 5 citations interprétées pour éclairer ta vie de tous les jours. C’est gratuit.</p>
+  <a href="{NEWSLETTER_URL}" target="_blank" rel="noopener" class="newsletter-insert-cta" data-umami-event="clic-newsletter-banniere">Lire la prochaine →</a>
 </div>"""
 
 _NEWSLETTER_BLOCK_RE = re.compile(r'<div class="newsletter-insert">.*?</a>\s*</div>', re.S)
